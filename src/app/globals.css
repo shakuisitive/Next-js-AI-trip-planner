@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #333333;
+  --background: #ffffff;
+  --primary: #ba9afc;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Geist Sans', Arial, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Existing styles */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#planner {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bg-blur {
+  backdrop-filter: blur(8px);
+  background-color: var(--background-overlay);
+}
+
+/* Header and Footer styles */
+header,
+footer {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+/* Additional styles for better contrast and readability */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bg-translucent {
+  background-color: var(--form-bg);
+  backdrop-filter: blur(10px);
+}
+
+.form-input {
+  background-color: var(--form-input-bg);
+  color: var(--form-input-text);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-label {
+  color: var(--form-text);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
