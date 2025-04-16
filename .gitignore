@@ -26,8 +26,11 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
-.env
+
+#commentsoon -> two below lines
+#.env*.local
+#.env
+
 secrets.yaml
 
 # vercel

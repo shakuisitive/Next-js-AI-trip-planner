@@ -1,5 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { Accommodation, DayPlan, TravelPlanRequest, TripPlan } from "@/types";
+import {
+  Accommodation,
+  DayPlan,
+  TravelPlanRequest,
+  TripPlan,
+  Place,
+} from "@/types";
 import { getPlacePhoto } from "./googlePlaces";
 import { aiConfig } from "@/config/ai-config";
 
@@ -115,23 +121,51 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
   const chunks = Math.ceil(numberOfDays / chunkSize);
   const currentDate = new Date(startDate);
 
+  // Global set to track all place names across the entire itinerary
+  const globalPlaceNames = new Set<string>();
+  const globalRestaurantNames = new Set<string>();
+
   async function getItineraryChunk(
     startDay: number,
     numDays: number,
     chunkStartDate: Date
   ) {
-    const chunkStartTime = Date.now();
-    const chunkPrompt = `Create a ${numDays}-day itinerary for days ${startDay}-${
-      startDay + numDays - 1
-    } of a trip to ${destination}.
+    let retryCount = 0;
+    const maxRetries = 3;
+
+    while (retryCount < maxRetries) {
+      const chunkStartTime = Date.now();
+
+      // Create a list of already used places to explicitly exclude
+      const excludedPlacesText =
+        globalPlaceNames.size > 0
+          ? `IMPORTANT - DO NOT INCLUDE these already used places (they've already been visited earlier in the trip): ${Array.from(
+              globalPlaceNames
+            ).join(", ")}.`
+          : "";
+
+      const excludedRestaurantsText =
+        globalRestaurantNames.size > 0
+          ? `IMPORTANT - DO NOT INCLUDE these already visited restaurants: ${Array.from(
+              globalRestaurantNames
+            ).join(", ")}.`
+          : "";
+
+      const chunkPrompt = `Create a ${numDays}-day itinerary for days ${startDay}-${
+        startDay + numDays - 1
+      } of a trip to ${destination}.
+
+${excludedPlacesText}
+${excludedRestaurantsText}
+
 Each day MUST include EXACTLY:
 - 2 attractions/activities (with descriptions, locations, and durations)
-- 2 restaurants (MUST BE UNIQUE across all days in this chunk):
+- 2 restaurants:
   * One for lunch/brunch (timeOfDay should be "afternoon")
   * One for dinner (timeOfDay should be "evening")
 - Transportation suggestions
 
-IMPORTANT: Ensure all restaurants and attractions are UNIQUE within this ${numDays}-day chunk. Do not repeat any place names.
+EVERY restaurant and attraction name MUST BE COMPLETELY UNIQUE across the ENTIRE trip, not just within this chunk.
 
 Return ONLY a valid JSON object with NO additional text, following this EXACT structure:
 {
@@ -156,34 +190,102 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
   ]
 }`;
 
-    logDebug(
-      `Generating chunk for days ${startDay}-${startDay + numDays - 1}`,
-      {
-        prompt: chunkPrompt,
+      logDebug(
+        `Generating chunk for days ${startDay}-${
+          startDay + numDays - 1
+        } (Attempt ${retryCount + 1})`,
+        {
+          prompt: chunkPrompt,
+        }
+      );
+
+      try {
+        const result = await model.generateContent(chunkPrompt);
+        const response = await result.response;
+        const text = response.text();
+        const chunk = JSON.parse(cleanResponseText(text));
+
+        // Check for duplicates within this chunk and against global places
+        let hasDuplicates = false;
+        const chunkPlaceNames = new Set<string>();
+
+        for (const day of chunk.days) {
+          for (const place of day.places) {
+            // Check if this place name already exists globally
+            if (globalPlaceNames.has(place.name.trim())) {
+              logDebug(`Duplicate place found: ${place.name}`);
+              hasDuplicates = true;
+              break;
+            }
+
+            // Check for duplicates within this chunk
+            if (chunkPlaceNames.has(place.name.trim())) {
+              logDebug(`Duplicate place within chunk: ${place.name}`);
+              hasDuplicates = true;
+              break;
+            }
+
+            chunkPlaceNames.add(place.name.trim());
+          }
+          if (hasDuplicates) break;
+        }
+
+        if (hasDuplicates) {
+          retryCount++;
+          if (retryCount >= maxRetries) {
+            throw new Error(
+              `Failed to generate unique places after ${maxRetries} attempts`
+            );
+          }
+          continue; // Retry the chunk generation
+        }
+
+        // If we got here, no duplicates were found, so add all places to the global set
+        for (const day of chunk.days) {
+          for (const place of day.places) {
+            globalPlaceNames.add(place.name.trim());
+            if (place.type === "restaurant") {
+              globalRestaurantNames.add(place.name.trim());
+            }
+          }
+        }
+
+        const chunkDuration = Date.now() - chunkStartTime;
+        logDebug(`Chunk ${startDay}-${startDay + numDays - 1} completed`, {
+          duration: `${chunkDuration}ms`,
+          response: chunk,
+        });
+
+        // Update dates for this chunk
+        chunk.days.forEach((day: DayPlan) => {
+          day.date = new Date(
+            chunkStartDate.getTime() +
+              (day.day - startDay) * 24 * 60 * 60 * 1000
+          )
+            .toISOString()
+            .split("T")[0];
+        });
+
+        return chunk;
+      } catch (error) {
+        logDebug(`Error generating chunk (Attempt ${retryCount + 1}):`, {
+          error,
+        });
+        retryCount++;
+
+        if (retryCount >= maxRetries) {
+          throw new Error(
+            `Failed to generate chunk after ${maxRetries} attempts: ${
+              error instanceof Error ? error.message : "Unknown error"
+            }`
+          );
+        }
       }
+    }
+
+    throw new Error(
+      "Failed to generate itinerary chunk after multiple attempts"
     );
-
-    const result = await model.generateContent(chunkPrompt);
-    const response = await result.response;
-    const text = response.text();
-    const chunk = JSON.parse(cleanResponseText(text));
-
-    const chunkDuration = Date.now() - chunkStartTime;
-    logDebug(`Chunk ${startDay}-${startDay + numDays - 1} completed`, {
-      duration: `${chunkDuration}ms`,
-      response: chunk,
-    });
-
-    // Update dates for this chunk
-    chunk.days.forEach((day: DayPlan) => {
-      day.date = new Date(
-        chunkStartDate.getTime() + (day.day - startDay) * 24 * 60 * 60 * 1000
-      )
-        .toISOString()
-        .split("T")[0];
-    });
-
-    return chunk;
   }
 
   try {
@@ -191,26 +293,29 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
       prompt: accommodationsPrompt,
     });
 
-    const [accommodationsJson, ...dayChunks] = await Promise.all([
-      // Get accommodations
-      model.generateContent(accommodationsPrompt).then(async (result) => {
+    const accommodationsJson = await model
+      .generateContent(accommodationsPrompt)
+      .then(async (result) => {
         const response = await result.response;
         const json = JSON.parse(cleanResponseText(response.text()));
         logDebug("Accommodations response:", json);
         validateAccommodations(json.accommodations);
         return json;
-      }),
-      // Generate all day chunks in parallel
-      ...Array.from({ length: chunks }, async (_, i) => {
-        const startDay = i * chunkSize + 1;
-        const remainingDays = numberOfDays - i * chunkSize;
-        const daysInChunk = Math.min(chunkSize, remainingDays);
-        const chunkDate = new Date(
-          currentDate.getTime() + i * chunkSize * 24 * 60 * 60 * 1000
-        );
-        return getItineraryChunk(startDay, daysInChunk, chunkDate);
-      }),
-    ]);
+      });
+
+    // Generate day chunks sequentially to ensure we can properly track all used places
+    const dayChunks = [];
+    for (let i = 0; i < chunks; i++) {
+      const startDay = i * chunkSize + 1;
+      const remainingDays = numberOfDays - i * chunkSize;
+      const daysInChunk = Math.min(chunkSize, remainingDays);
+      const chunkDate = new Date(
+        currentDate.getTime() + i * chunkSize * 24 * 60 * 60 * 1000
+      );
+
+      const chunk = await getItineraryChunk(startDay, daysInChunk, chunkDate);
+      dayChunks.push(chunk);
+    }
 
     const fullPlan = {
       accommodations: accommodationsJson.accommodations,
@@ -222,6 +327,9 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
     logDebug("Starting image processing");
     await processImagesInParallel(fullPlan, destination);
 
+    // Verify that there are no duplicates in the final plan
+    verifyNoDuplicates(fullPlan);
+
     // Add this line to validate and organize the plan
     validateAndOrganizePlan(fullPlan);
 
@@ -230,6 +338,7 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
       totalDuration: `${totalDuration}ms`,
       numberOfDays,
       numberOfChunks: chunks,
+      totalUniqueNames: globalPlaceNames.size,
     });
 
     return fullPlan;
@@ -244,6 +353,47 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
     });
     throw error;
   }
+}
+
+function verifyNoDuplicates(plan: TripPlan) {
+  const allPlaceNames = new Set<string>();
+  const duplicates: string[] = [];
+
+  for (const day of plan.days) {
+    for (const place of day.places) {
+      if (allPlaceNames.has(place.name)) {
+        duplicates.push(place.name);
+      } else {
+        allPlaceNames.add(place.name);
+      }
+    }
+  }
+
+  if (duplicates.length > 0) {
+    logDebug("WARNING: Duplicate places found in final plan", { duplicates });
+
+    // Create a count map to find all duplicates
+    const nameCount = new Map<string, number>();
+    for (const day of plan.days) {
+      for (const place of day.places) {
+        nameCount.set(place.name, (nameCount.get(place.name) || 0) + 1);
+      }
+    }
+
+    // Log all duplicates with their counts
+    const duplicatesWithCounts = Array.from(nameCount.entries())
+      .filter(([_, count]) => count > 1)
+      .map(([name, count]) => `${name} (${count} times)`);
+
+    logDebug("Duplicate places with counts:", { duplicatesWithCounts });
+
+    throw new Error(`Found duplicate places in plan: ${duplicates.join(", ")}`);
+  }
+
+  logDebug("No duplicates found in final plan", {
+    totalUniquePlaces: allPlaceNames.size,
+    totalPlaces: plan.days.reduce((sum, day) => sum + day.places.length, 0),
+  });
 }
 
 function validateAccommodations(accommodations: Accommodation[]) {

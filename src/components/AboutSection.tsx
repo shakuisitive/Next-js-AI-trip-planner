@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import { Check } from 'lucide-react';
+import Image from "next/image";
+import { Check } from "lucide-react";
 
 const AboutSection = () => {
   return (
@@ -33,9 +33,14 @@ const AboutSection = () => {
           </div>
         </div>
         <div className="md:w-3/5 md:pl-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Discover the World with Journify AI</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Discover the World with TripFusion AI
+          </h2>
           <p className="text-gray-600 mb-6">
-            At Journify AI, we believe that travel is more than just visiting new places. It&apos;s about creating unforgettable experiences, broadening your horizons, and connecting with diverse cultures around the globe.
+            At TripFusion AI, we believe that travel is more than just visiting
+            new places. It&apos;s about creating unforgettable experiences,
+            broadening your horizons, and connecting with diverse cultures
+            around the globe.
           </p>
           <ul className="space-y-2">
             <li className="flex items-center">
