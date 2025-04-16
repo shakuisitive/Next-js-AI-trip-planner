@@ -28,8 +28,8 @@ yarn-error.log*
 # local env files
 
 #commentsoon -> two below lines
-#.env*.local
-#.env
+.env*.local
+.env
 
 secrets.yaml
 

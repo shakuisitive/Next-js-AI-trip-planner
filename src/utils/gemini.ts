@@ -154,41 +154,45 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
       const chunkPrompt = `Create a ${numDays}-day itinerary for days ${startDay}-${
         startDay + numDays - 1
       } of a trip to ${destination}.
-
-${excludedPlacesText}
-${excludedRestaurantsText}
-
-Each day MUST include EXACTLY:
-- 2 attractions/activities (with descriptions, locations, and durations)
-- 2 restaurants:
-  * One for lunch/brunch (timeOfDay should be "afternoon")
-  * One for dinner (timeOfDay should be "evening")
-- Transportation suggestions
-
-EVERY restaurant and attraction name MUST BE COMPLETELY UNIQUE across the ENTIRE trip, not just within this chunk.
-
-Return ONLY a valid JSON object with NO additional text, following this EXACT structure:
-{
-  "days": [
+    
+    ${excludedPlacesText}
+    ${excludedRestaurantsText}
+    
+    Each day MUST include EXACTLY:
+    - 2 attractions/activities (with descriptions, locations, and durations)
+    - 2 restaurants:
+      * One for lunch/brunch (timeOfDay should be "afternoon")
+      * One for dinner (timeOfDay should be "evening")
+    - Transportation suggestions
+    
+    FOR ALL ENTRIES (both attractions and restaurants):
+    - Include "duration" field estimating time needed (e.g., "1-2 hours" for attractions, "1-1.5 hours" for meals)
+    - Restaurant durations should reflect typical meal times
+    
+    EVERY restaurant and attraction name MUST BE COMPLETELY UNIQUE across the ENTIRE trip, not just within this chunk.
+    
+    Return ONLY a valid JSON object with NO additional text, following this EXACT structure:
     {
-      "day": number,
-      "date": "YYYY-MM-DD",
-      "places": [
+      "days": [
         {
-          "name": "string",
-          "type": "attraction | restaurant",
-          "description": "string",
-          "location": "string",
-          "timeOfDay": "morning | afternoon | evening",
-          "duration": "string",
-          "cuisine": "string (only for restaurants)",
-          "priceRange": "string (only for restaurants)"
+          "day": number,
+          "date": "YYYY-MM-DD",
+          "places": [
+            {
+              "name": "string",
+              "type": "attraction | restaurant",
+              "description": "string",
+              "location": "string",
+              "timeOfDay": "morning | afternoon | evening",
+              "duration": "string", // REQUIRED FOR ALL ENTRIES
+              "cuisine": "string (only for restaurants)",
+              "priceRange": "string (only for restaurants)"
+            }
+          ],
+          "transportation": "string"
         }
-      ],
-      "transportation": "string"
-    }
-  ]
-}`;
+      ]
+    }`;
 
       logDebug(
         `Generating chunk for days ${startDay}-${
@@ -479,6 +483,15 @@ function validateAndOrganizePlan(plan: TripPlan) {
   validateAccommodations(plan.accommodations);
 
   for (const day of plan.days) {
+    // Add duration validation for all places
+    for (const place of day.places) {
+      if (!place.duration || typeof place.duration !== "string") {
+        throw new Error(
+          `Missing duration for ${place.type} "${place.name}" in day ${day.day}`
+        );
+      }
+    }
+
     const attractions = day.places.filter((p) => p.type === "attraction");
     const restaurants = day.places.filter((p) => p.type === "restaurant");
 
