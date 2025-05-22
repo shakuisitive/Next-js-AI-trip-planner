@@ -8,6 +8,7 @@ import {
 } from "@/types";
 import { getPlacePhoto } from "./googlePlaces";
 import { aiConfig } from "@/config/ai-config";
+import { cookies } from "../../node_modules/next/headers";
 
 const genAI = new GoogleGenerativeAI(
   process.env.GEMINI_API_KEY || "AIzaSyDUW5C3uJb4pMQ_Adie5lxqJVbpUvgEY9U"
@@ -53,6 +54,10 @@ export async function generateTravelPlanWithGemini(
     endDate: request.endDate,
     budgetMin: request.budgetMin,
     budgetMax: request.budgetMax,
+    groupType: request.groupType,
+    travelStyle: request.travelStyle,
+    pace: request.pace,
+    interests: request.interests, // this should be an array
   });
 
   // Check if this exact request is already in progress
@@ -85,7 +90,31 @@ async function generatePlan(request: TravelPlanRequest): Promise<TripPlan> {
   };
   logDebug("Starting travel plan generation", debugData);
 
-  const { destination, startDate, endDate, budgetMin, budgetMax } = request;
+  const {
+    destination,
+    startDate,
+    endDate,
+    budgetMin,
+    budgetMax,
+    groupType,
+    travelStyle,
+    pace,
+    interests,
+  } = request;
+
+  let cookieStore = await cookies();
+
+  let interestsString = "";
+
+  let lastItemIndex = interests.length - 1;
+  interests.forEach((interest: string, index: number) => {
+    if (index === lastItemIndex) {
+      interestsString += "and " + interest + ".";
+    } else {
+      interestsString += interest + ", ";
+    }
+  });
+
   const model = genAI.getGenerativeModel({ model: aiConfig.models.gemini });
 
   // First request: Get accommodations
@@ -96,6 +125,11 @@ async function generatePlan(request: TravelPlanRequest): Promise<TripPlan> {
 4. A unique or boutique option
 
 Each accommodation must have a different name and different price point.
+
+Please keep in mind, the person making a visit is also interested in ${interestsString} so please keep that in mind.
+
+While suggesting the tour, please also keep in mind that this trip is for ${groupType}, traveling style should be ${travelStyle} and travel pace should be ${pace}.
+
 
 Return ONLY a valid JSON object with NO additional text, following this EXACT structure:
 {
@@ -208,6 +242,8 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
         const response = await result.response;
         const text = response.text();
         const chunk = JSON.parse(cleanResponseText(text));
+
+        console.log("there you go", chunk);
 
         // Check for duplicates within this chunk and against global places
         let hasDuplicates = false;

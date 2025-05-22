@@ -27,6 +27,16 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
 
       for (let attempt = 1; attempt <= retries; attempt++) {
         try {
+          const groupType = searchParams.get("groupType");
+          const travelStyle = searchParams.get("travelStyle");
+          const pace = searchParams.get("pace");
+          const interestsRaw = searchParams.get("interests");
+
+          // Convert comma-separated interests into array
+          const interests = interestsRaw
+            ? interestsRaw.split(",").map(decodeURIComponent)
+            : [];
+
           const idToken = await user.getIdToken();
           const response = await fetch("/api/generatePlan", {
             method: "POST",
@@ -40,6 +50,10 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
               endDate: searchParams.get("endDate"),
               budgetMin: Number(searchParams.get("budgetMin")),
               budgetMax: Number(searchParams.get("budgetMax")),
+              groupType,
+              travelStyle,
+              pace,
+              interests,
             }),
           });
 
