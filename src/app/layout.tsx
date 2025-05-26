@@ -4,6 +4,7 @@ import "./globals.css";
 import ClientLayout from "@/app/ClientLayout";
 import Script from "next/script";
 import { AuthContextProvider } from "@/context/AuthContext";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -45,10 +46,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AuthContextProvider>
-          <ClientLayout>{children}</ClientLayout>
-          <div id="portal-root" />
-        </AuthContextProvider>
+        <SessionProvider>
+          <AuthContextProvider>
+            <ClientLayout>{children}</ClientLayout>
+            <div id="portal-root" />
+          </AuthContextProvider>
+        </SessionProvider>
       </body>
     </html>
   );

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { createContext, useContext, useEffect, useState } from 'react';
-import { 
-  onAuthStateChanged, 
+import { createContext, useContext, useEffect, useState } from "react";
+import {
+  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInAnonymously,
@@ -10,9 +10,10 @@ import {
   GithubAuthProvider,
   signInWithPopup,
   signOut as firebaseSignOut,
-  User
-} from 'firebase/auth';
-import { auth } from '@/config/firebase';
+  User,
+} from "firebase/auth";
+import { auth } from "@/config/firebase";
+import { signInUsingGoogle } from "@/actions/index";
 
 interface AuthContextType {
   user: User | null;
@@ -27,10 +28,10 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
-export function AuthContextProvider({ 
-  children 
-}: { 
-  children: React.ReactNode 
+export function AuthContextProvider({
+  children,
+}: {
+  children: React.ReactNode;
 }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -69,6 +70,7 @@ export function AuthContextProvider({
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
+      // await signInUsingGoogle();
     } catch (error) {
       throw error;
     }
@@ -99,19 +101,21 @@ export function AuthContextProvider({
   };
 
   return (
-    <AuthContext.Provider value={{ 
-      user, 
-      loading, 
-      signIn, 
-      signUp, 
-      signInWithGoogle,
-      signInWithGithub,
-      signInAsGuest,
-      signOut 
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        signIn,
+        signUp,
+        signInWithGoogle,
+        signInWithGithub,
+        signInAsGuest,
+        signOut,
+      }}
+    >
       {!loading && children}
     </AuthContext.Provider>
   );
 }
 
-export const useAuth = () => useContext(AuthContext); 
+export const useAuth = () => useContext(AuthContext);
