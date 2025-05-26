@@ -8,7 +8,6 @@ import {
 } from "@/types";
 import { getPlacePhoto } from "./googlePlaces";
 import { aiConfig } from "@/config/ai-config";
-import { cookies } from "../../node_modules/next/headers";
 
 const genAI = new GoogleGenerativeAI(
   process.env.GEMINI_API_KEY || "AIzaSyDUW5C3uJb4pMQ_Adie5lxqJVbpUvgEY9U"
@@ -101,8 +100,6 @@ async function generatePlan(request: TravelPlanRequest): Promise<TripPlan> {
     pace,
     interests,
   } = request;
-
-  let cookieStore = await cookies();
 
   let interestsString = "";
 

@@ -41,6 +41,10 @@ export interface TravelPlanRequest {
   endDate: string;
   budgetMin: number;
   budgetMax: number;
+  groupType: string;
+  travelStyle: string;
+  pace: string;
+  interests: string[];
 }
 
 export interface UserActivity {
@@ -80,46 +84,4 @@ export interface ActivityTrackerResponse {
   success: boolean;
   activityId?: string;
   error?: string;
-}
-export interface TravelPlanRequest {
-  destination: string;
-  startDate: string;
-  endDate: string;
-  budgetMin: number;
-  budgetMax: number;
-}
-
-export interface Accommodation {
-  name: string;
-  type: "Luxury" | "Mid-range" | "Budget-friendly" | "Unique/Boutique";
-  rating: number;
-  pricePerNight: number;
-  description: string;
-  amenities: string[];
-  bookingUrl: string;
-  image?: string;
-}
-
-export interface Place {
-  name: string;
-  type: "attraction" | "restaurant";
-  description: string;
-  location: string;
-  timeOfDay: "morning" | "afternoon" | "evening";
-  duration?: string;
-  cuisine?: string;
-  priceRange?: string;
-  image?: string;
-}
-
-export interface DayPlan {
-  day: number;
-  date: string;
-  places: Place[];
-  transportation: string;
-}
-
-export interface TripPlan {
-  accommodations: Accommodation[];
-  days: DayPlan[];
 }

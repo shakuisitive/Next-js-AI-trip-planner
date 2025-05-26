@@ -12,7 +12,6 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 
 const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
-  const { user } = useAuth();
   const [plan, setPlan] = useState<TripPlanType | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,12 +19,6 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
 
   const generatePlanWithRetry = useCallback(
     async (retries = 3) => {
-      // below lines were required when we were doing FB auth, hence commented out now.
-      // if (!user) {
-      //   router.push("/");
-      //   return;
-      // }
-
       for (let attempt = 1; attempt <= retries; attempt++) {
         try {
           const groupType = searchParams.get("groupType");
@@ -38,12 +31,10 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
             ? interestsRaw.split(",").map(decodeURIComponent)
             : [];
 
-          const idToken = await user.getIdToken();
           const response = await fetch("/api/generatePlan", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${idToken}`,
             },
             body: JSON.stringify({
               destination: searchParams.get("destination"),
@@ -58,64 +49,29 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
             }),
           });
 
-          const data = await response.json();
-
           if (!response.ok) {
-            if (response.status >= 400 && response.status < 500) {
-              setError(data.error || `Error: ${response.status}`);
-              throw new Error(
-                data.error || `HTTP error! status: ${response.status}`
-              );
-            }
-            throw new Error(
-              data.error || `HTTP error! status: ${response.status}`
-            );
+            throw new Error(`HTTP error! status: ${response.status}`);
           }
 
+          const data = await response.json();
           setPlan(data.plan);
+          setLoading(false);
           return;
         } catch (error) {
           console.error(`Attempt ${attempt} failed:`, error);
-
-          if (
-            error instanceof Error &&
-            (error.message.includes("Trip duration") ||
-              error.message.includes("budget") ||
-              error.message.includes("Missing required"))
-          ) {
-            setError(error.message);
-            throw error;
-          }
-
           if (attempt === retries) {
-            setError(
-              error instanceof Error
-                ? error.message
-                : "Unable to generate travel plan. Please try again."
-            );
-            throw error;
+            setError(error instanceof Error ? error.message : "Failed to generate plan");
+            setLoading(false);
           }
-          await new Promise((resolve) => setTimeout(resolve, 1000 * attempt));
         }
       }
     },
-    [searchParams, user, router]
+    [searchParams, router]
   );
 
   useEffect(() => {
-    if (
-      searchParams.get("destination") &&
-      searchParams.get("startDate") &&
-      searchParams.get("endDate") &&
-      searchParams.get("budgetMin") &&
-      searchParams.get("budgetMax")
-    ) {
-      generatePlanWithRetry().finally(() => setLoading(false));
-    } else {
-      setLoading(false);
-      setError("Missing required parameters");
-    }
-  }, [searchParams, generatePlanWithRetry]);
+    generatePlanWithRetry();
+  }, [generatePlanWithRetry]);
 
   return { plan, loading, error };
 };
