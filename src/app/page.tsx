@@ -1,4 +1,5 @@
 "use client";
+
 import LandingPage from "@/components/LandingPage";
 import { getAuth } from "firebase/auth";
 
