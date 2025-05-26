@@ -14,11 +14,12 @@ export default function Home() {
   // we probably need anything below just to log something
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log(user?.uid);
+  // console.log(user?.uid);
 
   let signedInUserData = useSession();
 
-  if (signedInUserData) console.log(signedInUserData);
+  if (signedInUserData) console.log(`there you go:`);
+  if (signedInUserData) console.log(`${signedInUserData}`);
   let signedInUserName = signedInUserData?.data?.user?.name;
 
   let loggedInContent = (

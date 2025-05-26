@@ -9,6 +9,7 @@ import "react-date-range/dist/theme/default.css";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import SignInModal from "./SignInModal";
+import { useSession, signIn } from "next-auth/react";
 
 const TravelPlannerForm = () => {
   const { user } = useAuth();
@@ -31,15 +32,7 @@ const TravelPlannerForm = () => {
   const [paceValue, setPaceValue] = useState("");
   const [interestsValue, setInterestsValue] = useState([]);
 
-  console.log({
-    destination,
-    dateRange,
-    budget,
-    groupTypeValue,
-    travelStyleValue,
-    paceValue,
-    interestsValue,
-  });
+  let session = useSession();
 
   const formatDate = (date: Date) => {
     return date.toLocaleDateString("en-US", {
@@ -62,41 +55,25 @@ const TravelPlannerForm = () => {
     setShowCalendar(false);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!session.data) {
+      signIn("google");
 
-    // Check for required fields
-    // if (!destination.trim()) {
-    //   alert("Please enter a destination");
-    //   return;
-    // }
-    // if (!groupType) {
-    //   alert("Please select a group type");
-    //   return;
-    // }
-    // if (!travelStyle) {
-    //   alert("Please select a travel style");
-    //   return;
-    // }
-    // if (!pace) {
-    //   alert("Please select a travel pace");
-    //   return;
-    // }
-    // if (interests.length === 0) {
-    //   alert("Please select at least one interest");
-    //   return;
-    // }
-
-    if (!user) {
-      setShowSignInModal(true);
       return;
     }
+    // if (!user) {
+    //   setShowSignInModal(true);
+    //   return;
+    // }
+
+    console.log("should work");
 
     const startDate = dateRange[0].startDate.toISOString().split("T")[0];
     const endDate = dateRange[0].endDate.toISOString().split("T")[0];
     const [budgetMin, budgetMax] = budget;
 
-    router.push(
+    await router.push(
       `/plan?destination=${encodeURIComponent(
         destination
       )}&startDate=${startDate}&endDate=${endDate}&budgetMin=${budgetMin}&budgetMax=${budgetMax}&groupType=${encodeURIComponent(
@@ -426,7 +403,12 @@ const TravelPlannerForm = () => {
                 type="submit"
               >
                 <Search className="w-6 h-6" />
-                <span>Plan My Trip</span>
+
+                {session.data ? (
+                  <span>Plan My Trip</span>
+                ) : (
+                  <span>Login To Get Trips</span>
+                )}
               </button>
             </div>
           </form>

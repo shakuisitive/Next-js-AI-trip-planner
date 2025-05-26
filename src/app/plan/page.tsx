@@ -20,10 +20,11 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
 
   const generatePlanWithRetry = useCallback(
     async (retries = 3) => {
-      if (!user) {
-        router.push("/");
-        return;
-      }
+      // below lines were required when we were doing FB auth, hence commented out now.
+      // if (!user) {
+      //   router.push("/");
+      //   return;
+      // }
 
       for (let attempt = 1; attempt <= retries; attempt++) {
         try {
