@@ -10,12 +10,20 @@ import { TripPlan as TripPlanType } from "@/types";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
   const [plan, setPlan] = useState<TripPlanType | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { data: session, status } = useSession();
   const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/api/auth/signin");
+    }
+  }, [status, router]);
 
   const generatePlanWithRetry = useCallback(
     async (retries = 3) => {

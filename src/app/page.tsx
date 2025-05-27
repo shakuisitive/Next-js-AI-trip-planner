@@ -5,7 +5,11 @@ import LandingPage from "@/components/LandingPage";
 import { getAuth } from "firebase/auth";
 import { signIn, signOut, useSession } from "next-auth/react";
 
+
+
 export default function Home() {
+  
+  
   const signInWithNextAuthGoogle = async () => {
     await signIn("google");
   };
