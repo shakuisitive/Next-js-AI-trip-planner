@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <form className="max-w-screen-md flex items-center justify-between">
         <h2>Hello {signedInUserName}</h2>
-        <button onClick={async () => await signOut()}>signout</button>
+        <button onClick={ () =>  signOut()}>signout</button>
       </form>
     </>
   );
