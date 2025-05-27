@@ -22,15 +22,23 @@ export default function Home() {
 
   let signedInUserData = useSession();
 
-  if (signedInUserData) console.log(`there you go:`);
-  if (signedInUserData) console.log(`${signedInUserData}`);
+  // Add detailed logging
+  console.log('Full session data:', signedInUserData);
+  console.log('Session status:', signedInUserData?.status);
+  console.log('User data:', signedInUserData?.data?.user);
+  
   let signedInUserName = signedInUserData?.data?.user?.name;
+  let signedInUserId = signedInUserData?.data?.user?.id;
 
   let loggedInContent = (
     <>
       <form className="max-w-screen-md flex items-center justify-between">
-        <h2>Hello {signedInUserName}</h2>
-        <button onClick={ () =>  signOut()}>signout</button>
+        <div>
+          <h2>Hello {signedInUserName}</h2>
+          <p>Your user ID is: {signedInUserId || 'Not available'}</p>
+          <p>Session status: {signedInUserData?.status}</p>
+        </div>
+        <button onClick={() => signOut()}>signout</button>
       </form>
     </>
   );
