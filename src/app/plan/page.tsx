@@ -39,6 +39,18 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
             ? interestsRaw.split(",").map(decodeURIComponent)
             : [];
 
+          console.log("here's the input", {
+            destination: searchParams.get("destination"),
+            startDate: searchParams.get("startDate"),
+            endDate: searchParams.get("endDate"),
+            budgetMin: Number(searchParams.get("budgetMin")),
+            budgetMax: Number(searchParams.get("budgetMax")),
+            groupType,
+            travelStyle,
+            pace,
+            interests,
+          });
+
           const response = await fetch("/api/generatePlan", {
             method: "POST",
             headers: {
@@ -68,7 +80,9 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
         } catch (error) {
           console.error(`Attempt ${attempt} failed:`, error);
           if (attempt === retries) {
-            setError(error instanceof Error ? error.message : "Failed to generate plan");
+            setError(
+              error instanceof Error ? error.message : "Failed to generate plan"
+            );
             setLoading(false);
           }
         }
