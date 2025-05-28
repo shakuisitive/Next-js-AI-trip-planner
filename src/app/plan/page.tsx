@@ -90,6 +90,7 @@ const PlanContent = () => {
   const searchParams = useSearchParams();
   const { plan, loading, error } = useGeneratePlan(searchParams);
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   const groupType = searchParams.get("groupType");
   const travelStyle = searchParams.get("travelStyle");
@@ -112,12 +113,49 @@ const PlanContent = () => {
     interests,
   };
 
-
-
   let dateToPushInDb = {
     ...inputData,
     userId: session?.user?.id,
     plan: plan,
+  };
+
+  // Add detailed console logging
+  console.log("Full plan data:", JSON.stringify(plan, null, 2));
+  console.log("Input data:", JSON.stringify(inputData, null, 2));
+  console.log("Data to push in DB:", JSON.stringify(dateToPushInDb, null, 2));
+
+  const [isBooking, setIsBooking] = useState(false);
+  const [bookingError, setBookingError] = useState<string | null>(null);
+
+  const handleBookTrip = async () => {
+    if (!session?.user?.id) {
+      router.push("/api/auth/signin");
+      return;
+    }
+
+    setIsBooking(true);
+    setBookingError(null);
+
+    try {
+      const response = await fetch("/api/bookTrip", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dateToPushInDb),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to book trip");
+      }
+
+      const data = await response.json();
+      router.push(`/trips/${data.tripId}`);
+    } catch (error) {
+      setBookingError(error instanceof Error ? error.message : "Failed to book trip");
+    } finally {
+      setIsBooking(false);
+    }
   };
 
   console.log("here's the date to push in db", dateToPushInDb);
@@ -157,6 +195,20 @@ const PlanContent = () => {
                 Your Travel Itinerary
               </h2>
               <TripPlan plan={plan} />
+              <div className="mt-8 flex justify-center">
+                <button
+                  onClick={handleBookTrip}
+                  disabled={isBooking}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isBooking ? "Booking..." : "Book This Trip"}
+                </button>
+              </div>
+              {bookingError && (
+                <div className="mt-4 text-center text-red-600">
+                  {bookingError}
+                </div>
+              )}
             </>
           ) : null}
         </div>
