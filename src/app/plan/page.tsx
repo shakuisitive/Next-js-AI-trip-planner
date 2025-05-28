@@ -39,18 +39,6 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
             ? interestsRaw.split(",").map(decodeURIComponent)
             : [];
 
-          console.log("here's the input", {
-            destination: searchParams.get("destination"),
-            startDate: searchParams.get("startDate"),
-            endDate: searchParams.get("endDate"),
-            budgetMin: Number(searchParams.get("budgetMin")),
-            budgetMax: Number(searchParams.get("budgetMax")),
-            groupType,
-            travelStyle,
-            pace,
-            interests,
-          });
-
           const response = await fetch("/api/generatePlan", {
             method: "POST",
             headers: {
@@ -101,6 +89,38 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
 const PlanContent = () => {
   const searchParams = useSearchParams();
   const { plan, loading, error } = useGeneratePlan(searchParams);
+  const { data: session, status } = useSession();
+
+  const groupType = searchParams.get("groupType");
+  const travelStyle = searchParams.get("travelStyle");
+  const pace = searchParams.get("pace");
+  const interestsRaw = searchParams.get("interests");
+
+  const interests = interestsRaw
+    ? interestsRaw.split(",").map(decodeURIComponent)
+    : [];
+
+  let inputData = {
+    destination: searchParams.get("destination"),
+    startDate: searchParams.get("startDate"),
+    endDate: searchParams.get("endDate"),
+    budgetMin: Number(searchParams.get("budgetMin")),
+    budgetMax: Number(searchParams.get("budgetMax")),
+    groupType,
+    travelStyle,
+    pace,
+    interests,
+  };
+
+
+
+  let dateToPushInDb = {
+    ...inputData,
+    userId: session?.user?.id,
+    plan: plan,
+  };
+
+  console.log("here's the date to push in db", dateToPushInDb);
 
   return (
     <div className="flex flex-col min-h-screen">
