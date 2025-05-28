@@ -8,9 +8,42 @@ export async function GET(
 ) {
   try {
     const session = await auth();
+    console.log("buddy, the session is here:", session);
+
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+
+    // const testingTrip = await prisma.trip.findUnique({
+    //   where: {
+    //     id: params.tripId,
+    //   },
+    //   include: {
+    //     preferences: true,
+    //     interests: true,
+    //     accommodations: {
+    //       include: {
+    //         amenities: true,
+    //       },
+    //     },
+    //     days: {
+    //       include: {
+    //         places: {
+    //           include: {
+    //             restaurant: true,
+    //             attraction: true,
+    //           },
+    //         },
+    //         transportation: true,
+    //       },
+    //       orderBy: {
+    //         dayNumber: "asc",
+    //       },
+    //     },
+    //   },
+    // });
+
+    // console.log("here is the data buddy", testingTrip);
 
     const trip = await prisma.trip.findUnique({
       where: {
@@ -35,7 +68,7 @@ export async function GET(
             transportation: true,
           },
           orderBy: {
-            dayNumber: 'asc',
+            dayNumber: "asc",
           },
         },
       },
@@ -58,4 +91,4 @@ export async function GET(
       { status: 500 }
     );
   }
-} 
+}
