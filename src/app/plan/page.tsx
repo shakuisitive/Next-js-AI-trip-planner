@@ -113,23 +113,30 @@ const PlanContent = () => {
     interests,
   };
 
-  let dateToPushInDb = {
+  let dataToPushInDb = {
     ...inputData,
     userId: session?.user?.id,
     plan: plan,
   };
 
-  // Add detailed console logging
-  console.log("Full plan data:", JSON.stringify(plan, null, 2));
-  console.log("Input data:", JSON.stringify(inputData, null, 2));
-  console.log("Data to push in DB:", JSON.stringify(dateToPushInDb, null, 2));
-
   const [isBooking, setIsBooking] = useState(false);
   const [bookingError, setBookingError] = useState<string | null>(null);
+  const [tourName, setTourName] = useState("");
+  const [showTourNameInput, setShowTourNameInput] = useState(false);
 
   const handleBookTrip = async () => {
     if (!session?.user?.id) {
       router.push("/api/auth/signin");
+      return;
+    }
+
+    if (!showTourNameInput) {
+      setShowTourNameInput(true);
+      return;
+    }
+
+    if (tourName && tourName.length < 4) {
+      setBookingError("Tour name must be at least 4 characters long");
       return;
     }
 
@@ -142,7 +149,10 @@ const PlanContent = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(dateToPushInDb),
+        body: JSON.stringify({
+          ...dataToPushInDb,
+          tourName: tourName || `${searchParams.get("destination")} Trip`,
+        }),
       });
 
       if (!response.ok) {
@@ -157,8 +167,6 @@ const PlanContent = () => {
       setIsBooking(false);
     }
   };
-
-  console.log("here's the date to push in db", dateToPushInDb);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -195,13 +203,29 @@ const PlanContent = () => {
                 Your Travel Itinerary
               </h2>
               <TripPlan plan={plan} />
-              <div className="mt-8 flex justify-center">
+              <div className="mt-8 flex flex-col items-center gap-4">
+                {showTourNameInput ? (
+                  <div className="w-full max-w-md">
+                    <input
+                      type="text"
+                      value={tourName}
+                      onChange={(e) => setTourName(e.target.value)}
+                      placeholder="Enter a name for your tour (optional)"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                    <p className="mt-1 text-sm text-gray-500">
+                      {tourName.length > 0 && tourName.length < 4
+                        ? "Tour name must be at least 4 characters long"
+                        : "Leave empty to use default name"}
+                    </p>
+                  </div>
+                ) : null}
                 <button
                   onClick={handleBookTrip}
                   disabled={isBooking}
                   className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isBooking ? "Booking..." : "Book This Trip"}
+                  {isBooking ? "Booking..." : showTourNameInput ? "Confirm Booking" : "Book This Trip"}
                 </button>
               </div>
               {bookingError && (

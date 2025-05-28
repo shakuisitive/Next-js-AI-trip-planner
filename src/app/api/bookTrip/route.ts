@@ -21,6 +21,7 @@ export async function POST(req: Request) {
       pace,
       interests,
       plan,
+      tourName,
     } = data;
 
     // Validate required fields
@@ -64,11 +65,19 @@ export async function POST(req: Request) {
       }
     }
 
+    // Validate tour name if provided
+    if (tourName && tourName.length < 4) {
+      return NextResponse.json(
+        { error: "Tour name must be at least 4 characters long" },
+        { status: 400 }
+      );
+    }
+
     // Create the main trip record
     const trip = await prisma.trip.create({
       data: {
         userId: session.user.id,
-        tourName: `${destination} Trip`, // You might want to make this more dynamic
+        tourName: tourName || `${destination} Trip`,
         destination,
         startDate: new Date(startDate),
         endDate: new Date(endDate),
