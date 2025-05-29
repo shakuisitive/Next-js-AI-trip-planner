@@ -6,12 +6,11 @@ import {
   TripPlan,
   Place,
 } from "@/types";
+
 import { getPlacePhoto } from "./googlePlaces";
 import { aiConfig } from "@/config/ai-config";
 
-const genAI = new GoogleGenerativeAI(
-  process.env.GEMINI_API_KEY || "AIzaSyDUW5C3uJb4pMQ_Adie5lxqJVbpUvgEY9U"
-);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const DEBUG = true; // Toggle debugging
 
