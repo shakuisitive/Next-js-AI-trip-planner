@@ -25,7 +25,16 @@ export async function POST(req: Request) {
     } = data;
 
     // Validate required fields
-    if (!destination || !startDate || !endDate || !budgetMin || !budgetMax || !groupType || !travelStyle || !pace) {
+    if (
+      !destination ||
+      !startDate ||
+      !endDate ||
+      !budgetMin ||
+      !budgetMax ||
+      !groupType ||
+      !travelStyle ||
+      !pace
+    ) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -49,16 +58,30 @@ export async function POST(req: Request) {
       }
 
       for (const place of day.places) {
-        if (!place.name || !place.type || !place.description || !place.location || !place.timeOfDay || !place.duration) {
+        if (
+          !place.name ||
+          !place.type ||
+          !place.description ||
+          !place.location ||
+          !place.timeOfDay ||
+          !place.duration
+        ) {
           return NextResponse.json(
-            { error: `Missing required fields for place ${place.name} in day ${day.day}` },
+            {
+              error: `Missing required fields for place ${place.name} in day ${day.day}`,
+            },
             { status: 400 }
           );
         }
 
-        if (place.type === "restaurant" && (!place.cuisine || !place.priceRange)) {
+        if (
+          place.type === "restaurant" &&
+          (!place.cuisine || !place.priceRange)
+        ) {
           return NextResponse.json(
-            { error: `Missing cuisine or price range for restaurant ${place.name} in day ${day.day}` },
+            {
+              error: `Missing cuisine or price range for restaurant ${place.name} in day ${day.day}`,
+            },
             { status: 400 }
           );
         }
@@ -79,6 +102,7 @@ export async function POST(req: Request) {
         userId: session.user.id,
         tourName: tourName || `${destination} Trip`,
         destination,
+        tourStatus: "Pending Approval",
         startDate: new Date(startDate),
         endDate: new Date(endDate),
         budgetMin,
@@ -98,7 +122,9 @@ export async function POST(req: Request) {
         days: {
           create: plan.days.map((day: any, index: number) => ({
             dayNumber: index + 1,
-            date: new Date(new Date(startDate).getTime() + index * 24 * 60 * 60 * 1000),
+            date: new Date(
+              new Date(startDate).getTime() + index * 24 * 60 * 60 * 1000
+            ),
             places: {
               create: day.places.map((place: any) => ({
                 name: place.name,
@@ -154,9 +180,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ tripId: trip.id });
   } catch (error) {
     console.error("Error booking trip:", error);
-    return NextResponse.json(
-      { error: "Failed to book trip" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to book trip" }, { status: 500 });
   }
-} 
+}

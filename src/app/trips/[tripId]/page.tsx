@@ -75,6 +75,7 @@ interface Trip {
       description: string;
     };
   }[];
+  tourStatus?: string;
 }
 
 export default function TripPage() {
@@ -174,6 +175,15 @@ export default function TripPage() {
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-600/80 backdrop-blur-sm">
                   <MapPin className="w-4 h-4 mr-1" />
                   {trip.destination}
+                </span>
+                <span className={`ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm ${
+                  trip.tourStatus === "Pending Approval" 
+                    ? "bg-yellow-500/80 text-white" 
+                    : trip.tourStatus === "Scheduled"
+                    ? "bg-blue-500/80 text-white"
+                    : "bg-green-500/80 text-white"
+                }`}>
+                  {trip.tourStatus || "Pending Approval"}
                 </span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
