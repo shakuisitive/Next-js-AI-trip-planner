@@ -22,11 +22,24 @@ import {
   Shield,
   Heart,
   Share2,
-  Download
+  Download,
+  Send
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingAnimation from "@/components/LoadingAnimation";
+
+interface TripFeedback {
+  id: string;
+  rating: number;
+  review: string;
+  suggestion?: string;
+  createdAt: string;
+  user: {
+    name: string | null;
+    image: string | null;
+  };
+}
 
 interface Trip {
   id: string;
@@ -76,6 +89,7 @@ interface Trip {
     };
   }[];
   tourStatus?: string;
+  feedback?: TripFeedback;
 }
 
 export default function TripPage() {
@@ -85,6 +99,12 @@ export default function TripPage() {
   const [error, setError] = useState<string | null>(null);
   const [activeDay, setActiveDay] = useState(1);
   const [showAllDays, setShowAllDays] = useState(false);
+  const [feedback, setFeedback] = useState<TripFeedback | null>(null);
+  const [rating, setRating] = useState(5);
+  const [review, setReview] = useState("");
+  const [suggestion, setSuggestion] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedbackError, setFeedbackError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchTrip = async () => {
@@ -95,6 +115,15 @@ export default function TripPage() {
         }
         const data = await response.json();
         setTrip(data);
+        
+        // Fetch feedback if trip is completed
+        if (data.tourStatus === "Completed") {
+          const feedbackResponse = await fetch(`/api/trips/${params.tripId}/feedback`);
+          if (feedbackResponse.ok) {
+            const feedbackData = await feedbackResponse.json();
+            setFeedback(feedbackData);
+          }
+        }
       } catch (error) {
         setError(error instanceof Error ? error.message : "Failed to fetch trip");
       } finally {
@@ -151,6 +180,40 @@ export default function TripPage() {
         return <Camera className="w-5 h-5 text-blue-500" />;
       default:
         return <MapPin className="w-5 h-5 text-purple-500" />;
+    }
+  };
+
+  const handleFeedbackSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFeedbackError(null);
+
+    try {
+      const response = await fetch(`/api/trips/${params.tripId}/feedback`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          rating,
+          review,
+          suggestion,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Failed to submit feedback");
+      }
+
+      const data = await response.json();
+      setFeedback(data);
+      setReview("");
+      setSuggestion("");
+    } catch (error) {
+      setFeedbackError(error instanceof Error ? error.message : "Failed to submit feedback");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -626,6 +689,137 @@ export default function TripPage() {
             )}
           </section>
         </div>
+
+        {trip.tourStatus === "Completed" && (
+          <section className="max-w-7xl mx-auto px-4 py-12">
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Trip Feedback</h2>
+              
+              {feedback ? (
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    {/* {feedback.user.image ? (
+                      <Image
+                        src={feedback.user.image}
+                        alt={feedback.user.name || "User"}
+                        width={48}
+                        height={48}
+                        className="rounded-full"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                        <Users className="w-6 h-6 text-purple-600" />
+                      </div>
+                    )} */}
+                    <div>
+                      <h3 className="font-semibold text-gray-900">
+                        {feedback.user.name || "Anonymous User"}
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        {new Date(feedback.createdAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-5 h-5 ${
+                          i < feedback.rating
+                            ? "text-yellow-400 fill-current"
+                            : "text-gray-300"
+                        }`}
+                      />
+                    ))}
+                  </div>
+
+                  <p className="text-gray-700 whitespace-pre-wrap">{feedback.review}</p>
+                </div>
+              ) : (
+                <form onSubmit={handleFeedbackSubmit} className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Rating
+                    </label>
+                    <div className="flex items-center gap-1">
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <button
+                          key={value}
+                          type="button"
+                          onClick={() => setRating(value)}
+                          className="focus:outline-none"
+                        >
+                          <Star
+                            className={`w-8 h-8 ${
+                              value <= rating
+                                ? "text-yellow-400 fill-current"
+                                : "text-gray-300"
+                            }`}
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="review"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Your Review
+                    </label>
+                    <textarea
+                      id="review"
+                      value={review}
+                      onChange={(e) => setReview(e.target.value)}
+                      rows={4}
+                      className="w-full rounded-xl border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                      placeholder="Share your experience with this trip..."
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="suggestion"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Private Suggestion (Optional)
+                    </label>
+                    <textarea
+                      id="suggestion"
+                      value={suggestion}
+                      onChange={(e) => setSuggestion(e.target.value)}
+                      rows={3}
+                      className="w-full rounded-xl border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                      placeholder="Share any private suggestions for improvement..."
+                    />
+                  </div>
+
+                  {feedbackError && (
+                    <div className="text-red-600 text-sm">{feedbackError}</div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      "Submitting..."
+                    ) : (
+                      <>
+                        Submit Feedback
+                        <Send className="ml-2 w-5 h-5" />
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
+          </section>
+        )}
       </main>
       <Footer />
     </div>

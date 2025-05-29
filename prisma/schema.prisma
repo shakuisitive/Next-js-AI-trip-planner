@@ -18,6 +18,7 @@ model User {
   // Optional for WebAuthn support
   Authenticator Authenticator[]
   trips         Trip[]
+  feedbacks     TripFeedback[]
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -96,14 +97,13 @@ model Trip {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-
-
   // Relations
   user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   preferences  TripPreference?
   interests    TripInterest[]
   accommodations Accommodation[]
   days         Day[]
+  feedback     TripFeedback?
 }
 
 model TripPreference {
@@ -228,4 +228,21 @@ model Attraction {
 
   // Relations
   place       Place    @relation(fields: [placeId], references: [id], onDelete: Cascade)
+}
+
+model TripFeedback {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  tripId      String   @unique @db.ObjectId
+  userId      String   @db.ObjectId
+  rating      Int      // 1-5 star rating
+  review      String   // Public review
+  suggestion  String?  // Private suggestion to company
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  trip        Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId]) // Index for faster queries when fetching user's feedback
 }
