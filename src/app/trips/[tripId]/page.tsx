@@ -693,65 +693,77 @@ export default function TripPage() {
         {trip.tourStatus === "Completed" && (
           <section className="max-w-7xl mx-auto px-4 py-12">
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Trip Feedback</h2>
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-bold text-gray-900">Your Trip Experience</h2>
+                {feedback && (
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                    <Star className="w-4 h-4 mr-1 fill-current" />
+                    Feedback Submitted
+                  </span>
+                )}
+              </div>
               
               {feedback ? (
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    {/* {feedback.user.image ? (
-                      <Image
-                        src={feedback.user.image}
-                        alt={feedback.user.name || "User"}
-                        width={48}
-                        height={48}
-                        className="rounded-full"
-                      />
-                    ) : (
-                      <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
-                        <Users className="w-6 h-6 text-purple-600" />
-                      </div>
-                    )} */}
+                  <div className="flex items-center gap-4 p-4 bg-purple-50 rounded-xl">
+                    <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                      <Star className="w-6 h-6 text-purple-600" />
+                    </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">
-                        {feedback.user.name || "Anonymous User"}
-                      </h3>
-                      <p className="text-sm text-gray-500">
-                        {new Date(feedback.createdAt).toLocaleDateString()}
-                      </p>
+                      <h3 className="font-semibold text-gray-900">Your Rating</h3>
+                      <div className="flex items-center gap-1 mt-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-5 h-5 ${
+                              i < feedback.rating
+                                ? "text-yellow-400 fill-current"
+                                : "text-gray-300"
+                            }`}
+                          />
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-5 h-5 ${
-                          i < feedback.rating
-                            ? "text-yellow-400 fill-current"
-                            : "text-gray-300"
-                        }`}
-                      />
-                    ))}
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-2">Your Review</h3>
+                      <div className="bg-gray-50 rounded-xl p-4">
+                        <p className="text-gray-700 whitespace-pre-wrap">{feedback.review}</p>
+                      </div>
+                    </div>
+
+                    {feedback.suggestion && (
+                      <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">Your Private Suggestion</h3>
+                        <div className="bg-gray-50 rounded-xl p-4">
+                          <p className="text-gray-700 whitespace-pre-wrap">{feedback.suggestion}</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
-                  <p className="text-gray-700 whitespace-pre-wrap">{feedback.review}</p>
+                  <div className="text-sm text-gray-500">
+                    Submitted on {new Date(feedback.createdAt).toLocaleDateString()}
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleFeedbackSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Rating
+                  <div className="bg-purple-50 rounded-xl p-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-4">
+                      How would you rate your experience?
                     </label>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-2">
                       {[1, 2, 3, 4, 5].map((value) => (
                         <button
                           key={value}
                           type="button"
                           onClick={() => setRating(value)}
-                          className="focus:outline-none"
+                          className="focus:outline-none transform hover:scale-110 transition-transform"
                         >
                           <Star
-                            className={`w-8 h-8 ${
+                            className={`w-10 h-10 ${
                               value <= rating
                                 ? "text-yellow-400 fill-current"
                                 : "text-gray-300"
@@ -767,15 +779,15 @@ export default function TripPage() {
                       htmlFor="review"
                       className="block text-sm font-medium text-gray-700 mb-2"
                     >
-                      Your Review
+                      Share Your Experience
                     </label>
                     <textarea
                       id="review"
                       value={review}
                       onChange={(e) => setReview(e.target.value)}
                       rows={4}
-                      className="w-full rounded-xl border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                      placeholder="Share your experience with this trip..."
+                      className="p-4 w-full rounded-xl border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                      placeholder="Tell us about your trip experience..."
                       required
                     />
                   </div>
@@ -792,25 +804,30 @@ export default function TripPage() {
                       value={suggestion}
                       onChange={(e) => setSuggestion(e.target.value)}
                       rows={3}
-                      className="w-full rounded-xl border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
-                      placeholder="Share any private suggestions for improvement..."
+                      className="p-4 w-full rounded-xl border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                      placeholder="Share any suggestions to help us improve..."
                     />
+                    <p className="mt-1 text-sm text-gray-500">
+                      This will only be visible to our team
+                    </p>
                   </div>
 
                   {feedbackError && (
-                    <div className="text-red-600 text-sm">{feedbackError}</div>
+                    <div className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">
+                      {feedbackError}
+                    </div>
                   )}
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                   >
                     {isSubmitting ? (
                       "Submitting..."
                     ) : (
                       <>
-                        Submit Feedback
+                        Submit Your Feedback
                         <Send className="ml-2 w-5 h-5" />
                       </>
                     )}

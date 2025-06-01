@@ -22,6 +22,10 @@ model User {
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  status         Boolean? @default(true)
+  
 }
  
 model Account {
@@ -40,6 +44,9 @@ model Account {
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  status         Boolean? @default(true)
  
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
@@ -52,9 +59,14 @@ model Session {
   userId       String   @db.ObjectId
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
+
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  status         Boolean? @default(true)
+
 }
  
 model VerificationToken {
@@ -64,6 +76,10 @@ model VerificationToken {
   expires    DateTime
  
   @@unique([identifier, token])
+
+  deletedAt DateTime?
+
+  status         Boolean? @default(true)
 }
  
 // Optional for WebAuthn support
@@ -80,6 +96,10 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@unique([userId, credentialID])
+
+    deletedAt DateTime?
+
+  status         Boolean? @default(true)
 }
 
 // Trip Planning Models
@@ -96,7 +116,9 @@ model Trip {
   budgetMax   Float
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   preferences  TripPreference?
@@ -114,7 +136,9 @@ model TripPreference {
   pace        String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   trip        Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
 }
@@ -125,7 +149,9 @@ model TripInterest {
   interest  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   trip      Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
 
@@ -144,7 +170,9 @@ model Accommodation {
   image         String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   trip          Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
   amenities     AccommodationAmenity[]
@@ -156,7 +184,9 @@ model AccommodationAmenity {
   name           String
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   accommodation  Accommodation @relation(fields: [accommodationId], references: [id], onDelete: Cascade)
 
@@ -170,7 +200,9 @@ model Day {
   date           DateTime
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   trip           Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
   places         Place[]
@@ -183,7 +215,9 @@ model DayTransportation {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   day         Day      @relation(fields: [dayId], references: [id], onDelete: Cascade)
 }
@@ -200,7 +234,9 @@ model Place {
   image       String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   day         Day      @relation(fields: [dayId], references: [id], onDelete: Cascade)
   restaurant  Restaurant?
@@ -214,7 +250,9 @@ model Restaurant {
   priceRange  String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   place       Place    @relation(fields: [placeId], references: [id], onDelete: Cascade)
 }
@@ -225,7 +263,9 @@ model Attraction {
   category    String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   place       Place    @relation(fields: [placeId], references: [id], onDelete: Cascade)
 }
@@ -239,7 +279,9 @@ model TripFeedback {
   suggestion  String?  // Private suggestion to company
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  deletedAt DateTime?
 
+  status         Boolean? @default(true)
   // Relations
   trip        Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
