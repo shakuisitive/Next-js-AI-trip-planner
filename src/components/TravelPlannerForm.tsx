@@ -34,7 +34,7 @@ const TravelPlannerForm = () => {
   const [groupTypeValue, setGroupTypeValue] = useState("");
   const [travelStyleValue, setTravelStyleValue] = useState("");
   const [paceValue, setPaceValue] = useState("");
-  const [interestsValue, setInterestsValue] = useState([]);
+  const [interestsValue, setInterestsValue] = useState<string[]>([]);
 
   let session = useSession();
 
@@ -65,15 +65,9 @@ const TravelPlannerForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!session.data && !loggedInViaCredential) {
-      signIn("google");
+      setShowSignInModal(true);
       return;
     }
-    // if (!user) {
-    //   setShowSignInModal(true);
-    //   return;
-    // }
-
-    console.log("should work");
 
     const startDate = dateRange[0].startDate.toISOString().split("T")[0];
     const endDate = dateRange[0].endDate.toISOString().split("T")[0];

@@ -2,13 +2,17 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
 import SignInModal from "./SignInModal";
+import { useSession, signOut } from "next-auth/react";
+import { useCredentials } from "@/context/CredentialsContext";
+import { useCredentialsLoggedInChecker } from "@/lib/credentialsAuth/credentialsLoggedInChecker";
 
 const Header = () => {
   const router = useRouter();
-  const { user, signOut } = useAuth();
   const [showSignInModal, setShowSignInModal] = useState(false);
+  const { data: session } = useSession();
+  const { setCredentialsLoggedInUserInfo, setLoggedInViaCrdentials, credentialsLoggedInUserInfo } = useCredentials();
+  const loggedInViaCredential = useCredentialsLoggedInChecker();
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -23,9 +27,19 @@ const Header = () => {
 
   // Function to get display name
   const getDisplayName = () => {
-    if (!user) return "";
-    if (user.isAnonymous) return "Guest";
-    return user.displayName || user.email?.split("@")[0] || "User";
+    if (session?.user?.name) return session.user.name;
+    if (credentialsLoggedInUserInfo?.name) return credentialsLoggedInUserInfo.name;
+    if (session?.user?.email) return session.user.email.split("@")[0];
+    if (credentialsLoggedInUserInfo?.email) return credentialsLoggedInUserInfo.email.split("@")[0];
+    return "User";
+  };
+
+  const handleSignOut = async () => {
+    if (session) {
+      await signOut();
+    }
+    setCredentialsLoggedInUserInfo(null);
+    setLoggedInViaCrdentials(false);
   };
 
   return (
@@ -80,11 +94,11 @@ const Header = () => {
           </button>
         </nav>
         <div className="flex items-center space-x-4">
-          {user ? (
+          {session || loggedInViaCredential ? (
             <>
-              <span className="text-gray-600">Welcome, {getDisplayName()}</span>
+              <span className="text-gray-600">Hello, {getDisplayName()}</span>
               <button
-                onClick={() => signOut()}
+                onClick={handleSignOut}
                 className="text-white bg-[#4A0E78] px-4 py-2 rounded-md hover:bg-[#3A0B5E]"
               >
                 Sign Out

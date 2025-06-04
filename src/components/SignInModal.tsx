@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useAuth } from '@/context/AuthContext';
 import Portal from './Portal';
 import { Eye, EyeOff } from 'lucide-react';
+import { signIn } from "next-auth/react";
+import { useCredentials } from "@/context/CredentialsContext";
 
 interface SignInModalProps {
   isOpen: boolean;
@@ -17,13 +18,7 @@ interface AuthError {
 }
 
 export default function SignInModal({ isOpen, onClose, showAuthMessage = false }: SignInModalProps) {
-  const { 
-    signIn, 
-    signUp, 
-    signInWithGoogle, 
-    signInWithGithub,
-    signInAsGuest 
-  } = useAuth();
+  const { setLoggedInViaCrdentials, setCredentialsLoggedInUserInfo } = useCredentials();
   const [isSignUp, setIsSignUp] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -75,9 +70,46 @@ export default function SignInModal({ isOpen, onClose, showAuthMessage = false }
 
     try {
       if (isSignUp) {
-        await signUp(formData.email, formData.password);
+        // Handle sign up with credentials
+        const response = await fetch("/api/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ 
+            email: formData.email, 
+            password: formData.password,
+            name: formData.name 
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Failed to create account');
+        }
+
+        // After successful registration, log the user in
+        setLoggedInViaCrdentials(true);
+        setCredentialsLoggedInUserInfo(data.user);
       } else {
-        await signIn(formData.email, formData.password);
+        // Handle sign in with credentials
+        const response = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: formData.email, password: formData.password }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Invalid email or password');
+        }
+
+        setLoggedInViaCrdentials(true);
+        setCredentialsLoggedInUserInfo(data.user);
       }
       onClose();
     } catch (error: unknown) {
@@ -88,21 +120,11 @@ export default function SignInModal({ isOpen, onClose, showAuthMessage = false }
     }
   };
 
-  const handleSocialSignIn = async (method: 'google' | 'github' | 'guest') => {
+  const handleSocialSignIn = async (method: 'google' | 'github') => {
     try {
       setLoading(true);
       setError(null);
-      switch (method) {
-        case 'google':
-          await signInWithGoogle();
-          break;
-        case 'github':
-          await signInWithGithub();
-          break;
-        case 'guest':
-          await signInAsGuest();
-          break;
-      }
+      await signIn(method);
       onClose();
     } catch (error: unknown) {
       const authError = error as AuthError;
@@ -276,28 +298,6 @@ export default function SignInModal({ isOpen, onClose, showAuthMessage = false }
                 />
               </svg>
               Continue with GitHub
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleSocialSignIn('guest')}
-              disabled={loading}
-              className="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors disabled:opacity-50"
-            >
-              <svg 
-                className="h-5 w-5 mr-2" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" 
-                />
-              </svg>
-              Continue as Guest
             </button>
           </div>
 
