@@ -32,6 +32,7 @@ import {
   useCredentialsLoggedInChecker,
   useCredentialsLoggedInData,
 } from "@/lib/credentialsAuth/credentialsLoggedInChecker";
+import { useSession } from "next-auth/react";
 
 interface TripFeedback {
   id: string;
@@ -95,7 +96,6 @@ interface Trip {
   tourStatus?: string;
   feedback?: TripFeedback;
 }
-
 export default function TripPage() {
   const params = useParams();
   const [trip, setTrip] = useState<Trip | null>(null);
@@ -109,9 +109,12 @@ export default function TripPage() {
   const [suggestion, setSuggestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedbackError, setFeedbackError] = useState<string | null>(null);
-
+  let session = useSession();
   let loggedInViaCredentials = useCredentialsLoggedInChecker();
   let loggedInViaCredentialsUserInfo = useCredentialsLoggedInData();
+
+
+  
 
   useEffect(() => {
     const fetchTrip = async () => {
@@ -215,6 +218,8 @@ export default function TripPage() {
           rating,
           review,
           suggestion,
+          userId: loggedInViaCredentials ? loggedInViaCredentialsUserInfo?.id : session?.data?.user?.id,
+          loggedInType: loggedInViaCredentials ? "credentials" : "google"
         }),
       });
 

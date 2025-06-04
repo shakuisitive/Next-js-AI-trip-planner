@@ -6,14 +6,15 @@ export async function POST(
   request: Request,
   { params }: { params: { tripId: string } }
 ) {
+  const { rating, review, suggestion, userId, loggedInType } = await request.json();
   try {
     const session = await auth();
-    if (!session?.user?.id) {
+    if (!session?.user?.id && loggedInType !== "credentials") {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { rating, review, suggestion } = await request.json();
 
+    console.log('hey the user id is', userId);
     // Validate input
     if (!rating || rating < 1 || rating > 5) {
       return NextResponse.json(
@@ -61,7 +62,7 @@ export async function POST(
     const feedback = await prisma.tripFeedback.create({
       data: {
         tripId: params.tripId,
-        userId: session.user.id,
+        userId: userId,
         rating,
         review,
         suggestion,
@@ -83,9 +84,16 @@ export async function GET(
   { params }: { params: { tripId: string } }
 ) {
   try {
-    const session = await auth();
-    if (!session?.user?.id) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    // Check for credentials auth first
+    const credentialsAuth = request.headers.get("X-Credentials-Auth");
+    const credentialsUserId = request.headers.get("X-Credentials-User-Id");
+
+    // If not using credentials, check OAuth
+    if (credentialsAuth !== "true") {
+      const session = await auth();
+      if (!session?.user?.id) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      }
     }
 
     const feedback = await prisma.tripFeedback.findUnique({
