@@ -2,19 +2,33 @@
 
 import { signInUsingGoogle } from "@/actions/index";
 import LandingPage from "@/components/LandingPage";
+import { useCredentials } from "@/context/CredentialsContext";
 import { getAuth } from "firebase/auth";
 import { signIn, signOut, useSession } from "next-auth/react";
-
 export default function Home() {
   const signInWithNextAuthGoogle = async () => {
     await signIn("google");
   };
 
+  let { credentialsLoggedInUserInfo, loggedInViaCrdentials }: any =
+    useCredentials();
+
   // all about firebase.
   // we probably need anything below just to log something
-  const auth = getAuth();
-  const user = auth.currentUser;
+  // const auth = getAuth();
+  // const user = auth.currentUser;
   // console.log(user?.uid);
+
+  let signedInWithCredentials = Boolean(
+    loggedInViaCrdentials & credentialsLoggedInUserInfo.id
+  );
+
+  console.log(
+    "y24our precious data",
+    credentialsLoggedInUserInfo.id,
+    loggedInViaCrdentials,
+    signedInWithCredentials
+  );
 
   let signedInUserData = useSession();
 
@@ -41,7 +55,7 @@ export default function Home() {
 
   return (
     <>
-      {signedInUserName ? (
+      {signedInUserName || loggedInViaCrdentials ? (
         loggedInContent
       ) : (
         <button onClick={signInWithNextAuthGoogle}>login </button>
