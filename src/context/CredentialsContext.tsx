@@ -1,5 +1,11 @@
 "use client";
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 interface User {
   name: string | null;
@@ -16,15 +22,24 @@ interface CredentialsContextType {
 
 const CredentialsContext = createContext<CredentialsContextType | null>(null);
 
-export function CredentialsContextProvider({ children }: { children: ReactNode }) {
-  const [loggedInViaCrdentials, setLoggedInViaCrdentials] = useState<boolean | null>(null);
-  const [credentialsLoggedInUserInfo, setCredentialsLoggedInUserInfo] = useState<User | null>(null);
+export function CredentialsContextProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const [loggedInViaCrdentials, setLoggedInViaCrdentials] = useState<
+    boolean | null
+  >(null);
+  const [credentialsLoggedInUserInfo, setCredentialsLoggedInUserInfo] =
+    useState<User | null>(null);
 
   // Load persisted state on mount
   useEffect(() => {
-    const persistedLoggedIn = localStorage.getItem('loggedInViaCrdentials');
-    const persistedUserInfo = localStorage.getItem('credentialsLoggedInUserInfo');
-    
+    const persistedLoggedIn = localStorage.getItem("loggedInViaCrdentials");
+    const persistedUserInfo = localStorage.getItem(
+      "credentialsLoggedInUserInfo"
+    );
+
     if (persistedLoggedIn) {
       setLoggedInViaCrdentials(JSON.parse(persistedLoggedIn));
     }
@@ -36,17 +51,23 @@ export function CredentialsContextProvider({ children }: { children: ReactNode }
   // Persist state changes
   useEffect(() => {
     if (loggedInViaCrdentials) {
-      localStorage.setItem('loggedInViaCrdentials', JSON.stringify(loggedInViaCrdentials));
+      localStorage.setItem(
+        "loggedInViaCrdentials",
+        JSON.stringify(loggedInViaCrdentials)
+      );
     } else {
-      localStorage.removeItem('loggedInViaCrdentials');
+      localStorage.removeItem("loggedInViaCrdentials");
     }
   }, [loggedInViaCrdentials]);
 
   useEffect(() => {
     if (credentialsLoggedInUserInfo) {
-      localStorage.setItem('credentialsLoggedInUserInfo', JSON.stringify(credentialsLoggedInUserInfo));
+      localStorage.setItem(
+        "credentialsLoggedInUserInfo",
+        JSON.stringify(credentialsLoggedInUserInfo)
+      );
     } else {
-      localStorage.removeItem('credentialsLoggedInUserInfo');
+      localStorage.removeItem("credentialsLoggedInUserInfo");
     }
   }, [credentialsLoggedInUserInfo]);
 
@@ -54,8 +75,8 @@ export function CredentialsContextProvider({ children }: { children: ReactNode }
     <CredentialsContext.Provider
       value={{
         credentialsLoggedInUserInfo,
-        setCredentialsLoggedInUserInfo,
         loggedInViaCrdentials,
+        setCredentialsLoggedInUserInfo,
         setLoggedInViaCrdentials,
       }}
     >

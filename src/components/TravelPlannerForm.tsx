@@ -10,6 +10,10 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import SignInModal from "./SignInModal";
 import { useSession, signIn } from "next-auth/react";
+import {
+  useCredentialsLoggedInChecker,
+  useCredentialsLoggedInData,
+} from "@/lib/credentialsAuth/credentialsLoggedInChecker";
 
 const TravelPlannerForm = () => {
   const { user } = useAuth();
@@ -33,6 +37,9 @@ const TravelPlannerForm = () => {
   const [interestsValue, setInterestsValue] = useState([]);
 
   let session = useSession();
+
+  let loggedInViaCredential = useCredentialsLoggedInChecker();
+  let credentialsLoggedInData = useCredentialsLoggedInData();
 
   const formatDate = (date: Date) => {
     return date.toLocaleDateString("en-US", {
@@ -404,7 +411,7 @@ const TravelPlannerForm = () => {
               >
                 <Search className="w-6 h-6" />
 
-                {session.data ? (
+                {session.data || loggedInViaCredential ? (
                   <span>Plan My Trip</span>
                 ) : (
                   <span>Login To Get Trips</span>

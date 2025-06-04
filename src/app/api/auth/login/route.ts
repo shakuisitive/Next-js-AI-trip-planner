@@ -23,20 +23,21 @@ export async function POST(request: Request) {
       );
     }
 
-    // For now, directly compare passwords since we're using plain text
-    if (password !== "123") {
-      return NextResponse.json(
-        { message: "Invalid email or password" },
-        { status: 401 }
-      );
-    }
+    // // For now, directly compare passwords since we're using plain text
+    // if (password !== "123") {
+    //   return NextResponse.json(
+    //     { message: "Invalid email or password" },
+    //     { status: 401 }
+    //   );
+    // }
 
     return NextResponse.json({
-      user: {
-        name: user[0].name,
-        email: user[0].email,
-        id: user[0].id,
-      },
+      // user: {
+      //   name: user[0].name,
+      //   email: user[0].email,
+      //   id: user[0].id,
+      // },
+      user: user[0],
       message: "Login successful",
     });
   } catch (error) {
