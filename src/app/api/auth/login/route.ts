@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/db/prisma";
 import { NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
 
 export async function POST(request: Request) {
   try {
@@ -12,32 +13,33 @@ export async function POST(request: Request) {
       );
     }
 
-    const user = await prisma.user.findMany({
-      where: { email, password },
+    // Find user by email
+    const user = await prisma.user.findUnique({
+      where: { email },
     });
 
-    if (!user) {
+    if (!user || !user.password) {
       return NextResponse.json(
         { message: "Invalid email or password" },
         { status: 401 }
       );
     }
 
-    // // For now, directly compare passwords since we're using plain text
-    // if (password !== "123") {
-    //   return NextResponse.json(
-    //     { message: "Invalid email or password" },
-    //     { status: 401 }
-    //   );
-    // }
+    // Compare password with hashed password
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      return NextResponse.json(
+        { message: "Invalid email or password" },
+        { status: 401 }
+      );
+    }
+
+    // Remove password from response
+    const { password: _, ...userWithoutPassword } = user;
 
     return NextResponse.json({
-      // user: {
-      //   name: user[0].name,
-      //   email: user[0].email,
-      //   id: user[0].id,
-      // },
-      user: user[0],
+      user: userWithoutPassword,
       message: "Login successful",
     });
   } catch (error) {
