@@ -18,6 +18,8 @@ export async function POST(request: Request) {
       where: { email },
     });
 
+    console.log(await prisma.trip.findMany({}));
+
     if (!user || !user.password) {
       return NextResponse.json(
         { message: "Invalid email or password" },
