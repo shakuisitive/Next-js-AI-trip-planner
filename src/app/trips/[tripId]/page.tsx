@@ -28,6 +28,10 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingAnimation from "@/components/LoadingAnimation";
+import {
+  useCredentialsLoggedInChecker,
+  useCredentialsLoggedInData,
+} from "@/lib/credentialsAuth/credentialsLoggedInChecker";
 
 interface TripFeedback {
   id: string;
@@ -106,10 +110,18 @@ export default function TripPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedbackError, setFeedbackError] = useState<string | null>(null);
 
+  let loggedInViaCredentials = useCredentialsLoggedInChecker();
+  let loggedInViaCredentialsUserInfo = useCredentialsLoggedInData();
+
   useEffect(() => {
     const fetchTrip = async () => {
       try {
-        const response = await fetch(`/api/trips/${params.tripId}`);
+        const response = await fetch(`/api/trips/${params.tripId}`, {
+          headers: {
+            "X-Credentials-User-Id": loggedInViaCredentials ? loggedInViaCredentialsUserInfo?.id || "" : "",
+            "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false"
+          } as HeadersInit
+        });
         if (!response.ok) {
           throw new Error("Failed to fetch trip");
         }
@@ -118,7 +130,12 @@ export default function TripPage() {
         
         // Fetch feedback if trip is completed
         if (data.tourStatus === "Completed") {
-          const feedbackResponse = await fetch(`/api/trips/${params.tripId}/feedback`);
+          const feedbackResponse = await fetch(`/api/trips/${params.tripId}/feedback`, {
+            headers: {
+              "X-Credentials-User-Id": loggedInViaCredentials ? loggedInViaCredentialsUserInfo?.id || "" : "",
+              "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false"
+            } as HeadersInit
+          });
           if (feedbackResponse.ok) {
             const feedbackData = await feedbackResponse.json();
             setFeedback(feedbackData);

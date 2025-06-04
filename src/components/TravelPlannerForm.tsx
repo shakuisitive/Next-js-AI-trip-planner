@@ -64,9 +64,8 @@ const TravelPlannerForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!session.data) {
+    if (!session.data && !loggedInViaCredential) {
       signIn("google");
-
       return;
     }
     // if (!user) {

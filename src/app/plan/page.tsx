@@ -11,6 +11,10 @@ import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import {
+  useCredentialsLoggedInChecker,
+  useCredentialsLoggedInData,
+} from "@/lib/credentialsAuth/credentialsLoggedInChecker";
 
 const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
   const [plan, setPlan] = useState<TripPlanType | null>(null);
@@ -18,9 +22,11 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
   const [error, setError] = useState<string | null>(null);
   const { data: session, status } = useSession();
   const router = useRouter();
+  let loggedInViaCredentials = useCredentialsLoggedInChecker();
+  let loggedInViaCredentialsUserInfo = useCredentialsLoggedInData();
 
   useEffect(() => {
-    if (status === "unauthenticated") {
+    if (status === "unauthenticated" && !loggedInViaCredentials) {
       router.push("/api/auth/signin");
     }
   }, [status, router]);
@@ -91,6 +97,8 @@ const PlanContent = () => {
   const { plan, loading, error } = useGeneratePlan(searchParams);
   const { data: session, status } = useSession();
   const router = useRouter();
+  let loggedInViaCredentials = useCredentialsLoggedInChecker();
+  let loggedInViaCredentialsUserInfo = useCredentialsLoggedInData();
 
   const groupType = searchParams.get("groupType");
   const travelStyle = searchParams.get("travelStyle");
@@ -115,7 +123,9 @@ const PlanContent = () => {
 
   let dataToPushInDb = {
     ...inputData,
-    userId: session?.user?.id,
+    userId: loggedInViaCredentials
+      ? loggedInViaCredentialsUserInfo?.id
+      : session?.user?.id,
     plan: plan,
   };
 
@@ -125,7 +135,7 @@ const PlanContent = () => {
   const [showTourNameInput, setShowTourNameInput] = useState(false);
 
   const handleBookTrip = async () => {
-    if (!session?.user?.id) {
+    if (!session?.user?.id && !loggedInViaCredentials) {
       router.push("/api/auth/signin");
       return;
     }
@@ -148,7 +158,9 @@ const PlanContent = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        },
+          "X-Credentials-User-Id": loggedInViaCredentials ? loggedInViaCredentialsUserInfo?.id || "" : "",
+          "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false"
+        } as HeadersInit,
         body: JSON.stringify({
           ...dataToPushInDb,
           tourName: tourName || `${searchParams.get("destination")} Trip`,
@@ -162,7 +174,9 @@ const PlanContent = () => {
       const data = await response.json();
       router.push(`/trips/${data.tripId}`);
     } catch (error) {
-      setBookingError(error instanceof Error ? error.message : "Failed to book trip");
+      setBookingError(
+        error instanceof Error ? error.message : "Failed to book trip"
+      );
     } finally {
       setIsBooking(false);
     }
@@ -225,7 +239,11 @@ const PlanContent = () => {
                   disabled={isBooking}
                   className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isBooking ? "Booking..." : showTourNameInput ? "Confirm Booking" : "Book This Trip"}
+                  {isBooking
+                    ? "Booking..."
+                    : showTourNameInput
+                    ? "Confirm Booking"
+                    : "Book This Trip"}
                 </button>
               </div>
               {bookingError && (

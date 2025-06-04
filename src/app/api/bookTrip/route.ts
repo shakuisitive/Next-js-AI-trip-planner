@@ -1,15 +1,26 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db/prisma";
 import { auth } from "@/lib/auth";
+import { cookies } from "next/headers";
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
+  console.log("first line of post request");
+
   try {
     const session = await auth();
-    if (!session?.user?.id) {
+    const credentialsUserId = request.headers.get("X-Credentials-User-Id");
+    const isCredentialsAuth = request.headers.get("X-Credentials-Auth") === "true";
+
+    // Check if user is authenticated via either method
+    const isAuthenticated = 
+      session?.user?.id || 
+      (isCredentialsAuth && credentialsUserId);
+
+    if (!isAuthenticated) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const data = await req.json();
+    const body = await request.json();
     const {
       destination,
       startDate,
@@ -22,7 +33,9 @@ export async function POST(req: Request) {
       interests,
       plan,
       tourName,
-    } = data;
+      userId,
+    } = body;
+    console.log("here is the user id we worked on", userId);
 
     // Validate required fields
     if (
@@ -99,7 +112,7 @@ export async function POST(req: Request) {
     // Create the main trip record
     const trip = await prisma.trip.create({
       data: {
-        userId: session.user.id,
+        userId,
         tourName: tourName || `${destination} Trip`,
         destination,
         tourStatus: "Pending Approval",
