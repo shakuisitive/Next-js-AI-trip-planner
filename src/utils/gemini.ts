@@ -103,8 +103,6 @@ async function generatePlan(request: TravelPlanRequest): Promise<TripPlan> {
     userId,
   } = request;
 
-  console.log(`its finally coming in ${userId}`);
-
   const pastTrips = await prisma.trip.findMany({
     where: {
       userId,
@@ -123,11 +121,62 @@ async function generatePlan(request: TravelPlanRequest): Promise<TripPlan> {
 
   let interestsString = "";
 
-  let pastToursString = "";
+  let pastToursStringForGemini = "";
 
   if (pastTrips.length > 0) {
-    pastToursString += "Also remember,";
-    // implement the remaining functionality to generate string
+    // Start with a space after "Also remember,"
+    pastToursStringForGemini = "Also remember, ";
+
+    // Take only the last 5 trips
+    const recentTrips = pastTrips.slice(0, 5);
+
+    // Build a summary of past travel patterns
+    const destinations = new Set(recentTrips.map((trip) => trip.destination));
+    const avgBudget =
+      recentTrips.reduce(
+        (sum, trip) => sum + (trip.budgetMin + trip.budgetMax) / 2,
+        0
+      ) / recentTrips.length;
+    const avgDuration =
+      recentTrips.reduce((sum, trip) => {
+        const duration =
+          (new Date(trip.endDate).getTime() -
+            new Date(trip.startDate).getTime()) /
+          (1000 * 60 * 60 * 24);
+        return sum + duration;
+      }, 0) / recentTrips.length;
+
+    // Build the string without leading spaces in the additions
+    pastToursStringForGemini += `the person has previously visited ${
+      destinations.size
+    } different destinations (${Array.from(destinations).join(", ")}), `;
+    pastToursStringForGemini += `with an average trip duration of ${Math.round(
+      avgDuration
+    )} days and an average budget of $${Math.round(avgBudget)}. `;
+
+    // Add specific details about the most recent trip
+    const mostRecent = recentTrips[0];
+    pastToursStringForGemini += `Their most recent trip was to ${mostRecent.destination} with a budget range of $${mostRecent.budgetMin}-$${mostRecent.budgetMax}. `;
+
+    // Add a note about travel frequency
+    const firstTripDate = new Date(
+      recentTrips[recentTrips.length - 1].startDate
+    );
+    const lastTripDate = new Date(recentTrips[0].startDate);
+    const monthsBetweenTrips =
+      (lastTripDate.getTime() - firstTripDate.getTime()) /
+      (1000 * 60 * 60 * 24 * 30);
+    const tripsPerMonth = recentTrips.length / monthsBetweenTrips;
+
+    pastToursStringForGemini += `They typically travel ${
+      tripsPerMonth < 0.5
+        ? "a few times a year"
+        : tripsPerMonth < 1
+        ? "about once a month"
+        : "frequently"
+    }. `;
+    pastToursStringForGemini +=
+      "Please consider these travel patterns when suggesting accommodations and activities.";
   }
 
   let lastItemIndex = interests.length - 1;
@@ -154,6 +203,7 @@ Please keep in mind, the person making a visit is also interested in ${interests
 
 While suggesting the tour, please also keep in mind that this trip is for ${groupType}, traveling style should be ${travelStyle} and travel pace should be ${pace}.
 
+${pastToursStringForGemini || ""}
 
 Return ONLY a valid JSON object with NO additional text, following this EXACT structure:
 {
