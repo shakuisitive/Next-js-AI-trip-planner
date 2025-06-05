@@ -21,6 +21,7 @@ export async function GET(request: Request) {
       where: {
         userId,
         status: true, // Only get non-deleted trips
+        tourStatus: "Completed", // Only get completed trips
       },
       include: {
         preferences: true,
@@ -34,10 +35,10 @@ export async function GET(request: Request) {
 
     return NextResponse.json(trips);
   } catch (error) {
-    console.error("Error fetching trips:", error);
+    console.error("Error fetching past trips:", error);
     return NextResponse.json(
-      { error: "Failed to fetch trips" },
+      { error: "Failed to fetch past trips" },
       { status: 500 }
     );
   }
-}
+} 

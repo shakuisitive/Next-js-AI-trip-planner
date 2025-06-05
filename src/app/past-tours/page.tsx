@@ -35,7 +35,7 @@ function PastToursPage() {
   useEffect(() => {
     const fetchTrips = async () => {
       try {
-        const response = await fetch("/api/trips", {
+        const response = await fetch("/api/past-trips", {
           headers: {
             "X-Credentials-User-Id": loggedInViaCrdentials
               ? credentialsLoggedInUserInfo?.id || ""
@@ -49,11 +49,7 @@ function PastToursPage() {
         }
 
         const data = await response.json();
-        // Filter only completed trips
-        const completedTrips = data.filter(
-          (trip: Trip) => trip.tourStatus === "Completed"
-        );
-        setTrips(completedTrips);
+        setTrips(data);
       } catch (error) {
         setError(
           error instanceof Error ? error.message : "Failed to fetch trips"
