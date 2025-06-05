@@ -15,6 +15,7 @@ export async function POST(request: Request) {
       travelStyle: body.travelStyle,
       pace: body.pace,
       interests: body.interests,
+      userId: body.userId,
     };
 
     const plan = await generateTravelPlanWithGemini(travelPlanRequest);
@@ -26,4 +27,4 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-} 
+}

@@ -9,6 +9,7 @@ import {
 
 import { getPlacePhoto } from "./googlePlaces";
 import { aiConfig } from "@/config/ai-config";
+import { prisma } from "@/lib/db/prisma";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
@@ -56,6 +57,7 @@ export async function generateTravelPlanWithGemini(
     travelStyle: request.travelStyle,
     pace: request.pace,
     interests: request.interests, // this should be an array
+    userId: request.userId,
   });
 
   // Check if this exact request is already in progress
@@ -98,9 +100,35 @@ async function generatePlan(request: TravelPlanRequest): Promise<TripPlan> {
     travelStyle,
     pace,
     interests,
+    userId,
   } = request;
 
+  console.log(`its finally coming in ${userId}`);
+
+  const pastTrips = await prisma.trip.findMany({
+    where: {
+      userId,
+      status: true, // Only get non-deleted trips
+      tourStatus: "Completed", // Only get completed trips
+    },
+    // include: {
+    //   preferences: true,
+    //   interests: true,
+    //   feedback: true,
+    // },
+    orderBy: {
+      startDate: "desc", // Most recent trips first
+    },
+  });
+
   let interestsString = "";
+
+  let pastToursString = "";
+
+  if (pastTrips.length > 0) {
+    pastToursString += "Also remember,";
+    // implement the remaining functionality to generate string
+  }
 
   let lastItemIndex = interests.length - 1;
   interests.forEach((interest: string, index: number) => {

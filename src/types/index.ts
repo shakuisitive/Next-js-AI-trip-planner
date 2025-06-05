@@ -45,6 +45,7 @@ export interface TravelPlanRequest {
   travelStyle: string;
   pace: string;
   interests: string[];
+  userId: any;
 }
 
 export interface UserActivity {

@@ -45,6 +45,21 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
             ? interestsRaw.split(",").map(decodeURIComponent)
             : [];
 
+          console.log("type of auth", {
+            id: session?.status,
+            another: loggedInViaCredentials,
+          });
+
+          let userId = "";
+
+          if (session?.status === undefined && loggedInViaCredentials) {
+            userId = String(loggedInViaCredentialsUserInfo?.id);
+          }
+
+          if (session?.status && !loggedInViaCredentials) {
+            userId = String(session?.user?.id);
+          }
+
           const response = await fetch("/api/generatePlan", {
             method: "POST",
             headers: {
@@ -60,6 +75,7 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
               travelStyle,
               pace,
               interests,
+              userId,
             }),
           });
 
@@ -158,8 +174,10 @@ const PlanContent = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Credentials-User-Id": loggedInViaCredentials ? loggedInViaCredentialsUserInfo?.id || "" : "",
-          "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false"
+          "X-Credentials-User-Id": loggedInViaCredentials
+            ? loggedInViaCredentialsUserInfo?.id || ""
+            : "",
+          "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false",
         } as HeadersInit,
         body: JSON.stringify({
           ...dataToPushInDb,
