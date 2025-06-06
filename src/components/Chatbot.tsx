@@ -61,15 +61,15 @@ export default function Chatbot({
       Here's what we know so you can use these information (if you find helpful) to answer people.
 
       destination, start and end date, minimum and maximum budget (essentially the range this user is willing to spend on this trip), we have interests, the pace of the tour, and of course the traveling style.
-      ${inputData}
+      ${JSON.stringify(inputData, null, 2)}
 
     Below is the weather report: 
 
-    ${weather}
+    ${weather || "No weather data available"}
 
     Keeping these things in mind, we have suggested these:
 
-    ${generatedTours}
+    ${JSON.stringify(generatedTours, null, 2)}
 
     ${pastToursString || ""}
 
@@ -88,15 +88,15 @@ export default function Chatbot({
         Here's what we know so you can use these information (if you find helpful) to answer people.
   
         destination, start and end date, minimum and maximum budget (essentially the range this user is willing to spend on this trip), we have interests, the pace of the tour, and of course the traveling style.
-        ${inputData}
+        ${JSON.stringify(inputData, null, 2)}
   
       Below is the weather report: 
   
-      ${weather}
+      ${weather || "No weather data available"}
   
       Keeping these things in mind, we have suggested these:
   
-      ${generatedTours}
+      ${JSON.stringify(generatedTours, null, 2)}
   
       ${pastToursString || ""}
   
