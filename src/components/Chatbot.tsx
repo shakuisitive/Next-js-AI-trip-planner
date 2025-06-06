@@ -48,7 +48,9 @@ export default function Chatbot({
 
   let pastToursString = "";
   if (pastTours?.length > 0) {
-    pastToursString = `Here is user last 5 history data. ${pastTours}`;
+    pastToursString = `Here is user last 5 history data. ${JSON.stringify(
+      pastTours
+    )}`;
   }
 
   const [history, setHistory] = useState<ChatHistory>([]);
