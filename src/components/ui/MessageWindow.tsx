@@ -10,7 +10,7 @@ interface MessageWindowProps {
 
 export default function MessageWindow({ history }: MessageWindowProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -18,12 +18,12 @@ export default function MessageWindow({ history }: MessageWindowProps) {
   useEffect(() => {
     scrollToBottom();
   }, [history]);
-  
+
   return (
-    <div className="flex flex-col space-y-4 py-4">
+    <div className="flex flex-col space-y-4 py-4 px-8">
       {history.map((message, index) => {
         const isUser = message.role === "user";
-        
+
         return (
           <div
             key={index}
@@ -37,12 +37,12 @@ export default function MessageWindow({ history }: MessageWindowProps) {
                 </div>
               </div>
             )}
-            
+
             {/* Message bubble */}
             <div
               className={`max-w-[80%] rounded-lg p-3 ${
-                isUser 
-                  ? "bg-purple-600 text-white" 
+                isUser
+                  ? "bg-purple-600 text-white"
                   : "bg-gray-100 text-gray-800"
               }`}
             >
@@ -52,7 +52,7 @@ export default function MessageWindow({ history }: MessageWindowProps) {
                 </p>
               ))}
             </div>
-            
+
             {/* For user messages, avatar appears last */}
             {isUser && (
               <div className="ml-2">
@@ -64,7 +64,7 @@ export default function MessageWindow({ history }: MessageWindowProps) {
           </div>
         );
       })}
-      
+
       {/* Invisible element to help scroll to bottom */}
       <div ref={messagesEndRef} />
     </div>

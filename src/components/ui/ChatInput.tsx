@@ -49,7 +49,6 @@ export default function ChatInput({ onSend, onOpenSettings }: ChatInputProps) {
             value={message}
             onChange={handleChange}
             onKeyDown={handleKeyPress}
-            rows={1}
           />
 
           {/* Clear button - only show when text is present */}
@@ -66,15 +65,6 @@ export default function ChatInput({ onSend, onOpenSettings }: ChatInputProps) {
 
         {/* Action buttons container */}
         <div className="flex items-center">
-          {/* Settings button */}
-          <button
-            className="p-2 text-gray-500 hover:text-purple-600 rounded-full hover:bg-gray-100 mr-1"
-            onClick={onOpenSettings}
-            aria-label="Open settings"
-          >
-            <Settings size={20} />
-          </button>
-
           {/* Send button - changes appearance based on whether there's a message */}
           <button
             className={`
