@@ -15,17 +15,22 @@ import {
   useCredentialsLoggedInChecker,
   useCredentialsLoggedInData,
 } from "@/lib/credentialsAuth/credentialsLoggedInChecker";
+import Chatbot from "@/components/Chatbot";
+import Cookies from "js-cookie";
+import { getPastFunctions } from "./actions/getPastTrips";
 
 function removeImages(data: any) {
   return {
-    accommodations: data.accommodations.map(({image, bookingUrl, ...rest}: {image: string, bookingUrl: string}) => rest),
-    days: data.days.map((day: string) => ({
+    accommodations: data?.accommodations?.map(
+      ({ image, bookingUrl, ...rest }: { image: string; bookingUrl: string }) =>
+        rest
+    ),
+    days: data?.days?.map((day: string) => ({
       ...day,
-      places: day.places.map(({image, bookingUrl, ...rest}) => rest)
-    }))
+      places: day.places.map(({ image, bookingUrl, ...rest }) => rest),
+    })),
   };
 }
-
 
 const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
   const [plan, setPlan] = useState<TripPlanType | null>(null);
@@ -161,6 +166,20 @@ const PlanContent = () => {
   const [tourName, setTourName] = useState("");
   const [showTourNameInput, setShowTourNameInput] = useState(false);
 
+  const [pastTrips, setPastTrips] = useState<any>(null);
+
+  useEffect(() => {
+    (async function () {
+      let pastTrips = await getPastFunctions(
+        loggedInViaCredentials
+          ? loggedInViaCredentialsUserInfo?.id
+          : session?.user?.id
+      );
+
+      setPastTrips(pastTrips);
+    })();
+  }, []);
+
   const handleBookTrip = async () => {
     if (!session?.user?.id && !loggedInViaCredentials) {
       router.push("/api/auth/signin");
@@ -201,6 +220,8 @@ const PlanContent = () => {
       }
 
       const data = await response.json();
+
+      // setWeatherString(Cookies.get("weather-string"));
       router.push(`/trips/${data.tripId}`);
     } catch (error) {
       setBookingError(
@@ -213,10 +234,6 @@ const PlanContent = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-        <div className="max-w-screen-md py-10 my-10 border border-solid border-green-500">
-        <p>The user data is {JSON.stringify(inputData)}</p>
-        <p>The returned tour data is {JSON.stringify(removeImages(plan))}</p>
-      </div>
       <Header />
       <main className="flex-grow">
         <div className="relative h-[200px] sm:h-[250px] md:h-[300px]">
@@ -288,6 +305,16 @@ const PlanContent = () => {
           ) : null}
         </div>
       </main>
+      <div className="max-w-screen-md py-10 my-10 border border-solid border-green-500">
+        <Chatbot
+          weather={Cookies.get("weather-string")}
+          inputData={inputData}
+          generatedTours={removeImages(plan)}
+          pastTours={pastTrips}
+        />
+        {/* <p>The user data is {JSON.stringify(inputData)}</p>
+        <p>The returned tour data is {JSON.stringify(removeImages(plan))}</p> */}
+      </div>
       <Footer />
     </div>
   );
@@ -296,7 +323,6 @@ const PlanContent = () => {
 export default function PlanPage() {
   return (
     <Suspense fallback={<LoadingAnimation />}>
-   
       <PlanContent />
     </Suspense>
   );
