@@ -161,16 +161,17 @@ export default function Chatbot({
   };
 
   return (
-    <div className="flex flex-col py-32">
-      <MessageWindow history={history} />
-
+    <div className="flex flex-col h-full">
+      <div className="flex-1 overflow-y-auto">
+        <MessageWindow history={history} />
+      </div>
+      <ChatInput onSend={handleSend} onOpenSettings={handleOpenSettings} />
       <SettingsModal
         isOpen={isSettingsOpen}
         onClose={handleCloseSettings}
         onSave={handleSaveSettings}
         currentSettings={settings}
       />
-      <ChatInput onSend={handleSend} onOpenSettings={handleOpenSettings} />
     </div>
   );
 }

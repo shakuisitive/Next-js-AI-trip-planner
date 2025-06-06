@@ -18,6 +18,7 @@ import {
 import Chatbot from "@/components/Chatbot";
 import Cookies from "js-cookie";
 import { getPastFunctions } from "./actions/getPastTrips";
+import { X, MessageCircle } from "lucide-react";
 
 function removeImages(data: any) {
   return {
@@ -131,6 +132,7 @@ const PlanContent = () => {
   const router = useRouter();
   let loggedInViaCredentials = useCredentialsLoggedInChecker();
   let loggedInViaCredentialsUserInfo = useCredentialsLoggedInData();
+  const [showChat, setShowChat] = useState(true);
 
   const groupType = searchParams.get("groupType");
   const travelStyle = searchParams.get("travelStyle");
@@ -305,16 +307,40 @@ const PlanContent = () => {
           ) : null}
         </div>
       </main>
-      <div className="max-w-screen-md py-10 my-10 border border-solid border-green-500">
-        <Chatbot
-          weather={Cookies.get("weather-string")}
-          inputData={inputData}
-          generatedTours={removeImages(plan)}
-          pastTours={pastTrips}
-        />
-        {/* <p>The user data is {JSON.stringify(inputData)}</p>
-        <p>The returned tour data is {JSON.stringify(removeImages(plan))}</p> */}
+
+      {/* Chatbot Section */}
+      <div className="relative">
+        {showChat ? (
+          <div className="fixed bottom-6 right-6 w-full max-w-[500px] h-[600px] bg-white rounded-lg shadow-xl border border-gray-200 z-50 transition-all duration-300 ease-in-out flex flex-col">
+            <div className="flex justify-between items-center p-4 border-b border-gray-200 bg-gray-50 rounded-t-lg">
+              <h3 className="font-semibold text-gray-800">Travel Assistant</h3>
+              <button 
+                onClick={() => setShowChat(false)} 
+                className="text-gray-500 hover:text-gray-700 transition-colors duration-200"
+              >
+                <X size={20} />
+              </button>
+            </div>
+            <div className="flex-1 overflow-hidden">
+              <Chatbot
+                weather={Cookies.get("weather-string")}
+                inputData={inputData}
+                generatedTours={removeImages(plan)}
+                pastTours={pastTrips}
+              />
+            </div>
+          </div>
+        ) : (
+          <button
+            onClick={() => setShowChat(true)}
+            className="fixed bottom-6 right-6 bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 transition-all duration-200 z-50 hover:scale-105"
+            aria-label="Open chat"
+          >
+            <MessageCircle size={24} />
+          </button>
+        )}
       </div>
+
       <Footer />
     </div>
   );
