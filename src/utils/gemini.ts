@@ -232,9 +232,6 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
     }
   ]
 }`;
-  console.log("see now");
-  console.log(`here is the prompt we'll abt to use ${accommodationsPrompt}`);
-  return;
 
   // Second request: Get itinerary in chunks of 3 days
   const numberOfDays = Math.ceil(

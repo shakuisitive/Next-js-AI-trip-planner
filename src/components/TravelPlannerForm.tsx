@@ -259,6 +259,7 @@ const TravelPlannerForm = () => {
                       className="w-full"
                       color="#4A0E78"
                       rangeColors={["#4A0E78"]}
+                      minDate={new Date()}
                     />
                     <div className="p-4 bg-gray-100 flex justify-between items-center">
                       <p className="text-sm text-gray-600">
