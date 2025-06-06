@@ -16,6 +16,17 @@ import {
   useCredentialsLoggedInData,
 } from "@/lib/credentialsAuth/credentialsLoggedInChecker";
 
+function removeImages(data: any) {
+  return {
+    accommodations: data.accommodations.map(({image, bookingUrl, ...rest}: {image: string, bookingUrl: string}) => rest),
+    days: data.days.map((day: string) => ({
+      ...day,
+      places: day.places.map(({image, bookingUrl, ...rest}) => rest)
+    }))
+  };
+}
+
+
 const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
   const [plan, setPlan] = useState<TripPlanType | null>(null);
   const [loading, setLoading] = useState(true);
@@ -202,6 +213,10 @@ const PlanContent = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+        <div className="max-w-screen-md py-10 my-10 border border-solid border-green-500">
+        <p>The user data is {JSON.stringify(inputData)}</p>
+        <p>The returned tour data is {JSON.stringify(removeImages(plan))}</p>
+      </div>
       <Header />
       <main className="flex-grow">
         <div className="relative h-[200px] sm:h-[250px] md:h-[300px]">
@@ -281,6 +296,7 @@ const PlanContent = () => {
 export default function PlanPage() {
   return (
     <Suspense fallback={<LoadingAnimation />}>
+   
       <PlanContent />
     </Suspense>
   );
