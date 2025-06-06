@@ -133,14 +133,18 @@ const TravelPlannerForm = () => {
                 )}
                 {isLoaded ? (
                   <Autocomplete
-                    onPlaceChanged={() => {
-                      const autocomplete = document.getElementById(
-                        "destination"
-                      ) as HTMLInputElement;
-                      if (autocomplete) {
-                        const place = autocomplete.value;
-                        setDestination(place);
-                      }
+                    onLoad={(autocomplete) => {
+                      autocomplete.addListener('place_changed', () => {
+                        const place = autocomplete.getPlace();
+                        if (place.geometry && place.geometry.location) {
+                          const location = place.geometry.location;
+                          console.log('Selected place coordinates:', {
+                            latitude: location.lat(),
+                            longitude: location.lng()
+                          });
+                          setDestination(place.formatted_address || '');
+                        }
+                      });
                     }}
                   >
                     <input
