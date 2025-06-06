@@ -6,10 +6,10 @@ import {
   TripPlan,
   Place,
 } from "@/types";
-
 import { getPlacePhoto } from "./googlePlaces";
 import { aiConfig } from "@/config/ai-config";
 import { prisma } from "@/lib/db/prisma";
+import { cookies } from "../../node_modules/next/headers";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
@@ -190,6 +190,18 @@ async function generatePlan(request: TravelPlanRequest): Promise<TripPlan> {
 
   const model = genAI.getGenerativeModel({ model: aiConfig.models.gemini });
 
+  const cookieStore = cookies();
+  const weatherString = cookieStore.get("weather-string");
+  const weatherStringValue = weatherString?.value;
+
+  let weatherStringToPass = "";
+
+  if (weatherStringValue) {
+    weatherStringToPass =
+      "We also have the weather forecast for the trip dates. Please take this into account when planning the itinerary and suggest weather-appropriate activities. So ";
+    weatherStringToPass += weatherStringValue;
+  }
+
   // First request: Get accommodations
   const accommodationsPrompt = `Suggest exactly 4 DIFFERENT and UNIQUE hotels/places to stay in ${destination} with a budget range of ${budgetMin} to ${budgetMax}, each with distinct characteristics:
 1. A high-end luxury option
@@ -204,6 +216,7 @@ Please keep in mind, the person making a visit is also interested in ${interests
 While suggesting the tour, please also keep in mind that this trip is for ${groupType}, traveling style should be ${travelStyle} and travel pace should be ${pace}.
 
 ${pastToursStringForGemini || ""}
+${weatherStringToPass || ""}
 
 Return ONLY a valid JSON object with NO additional text, following this EXACT structure:
 {
@@ -219,6 +232,9 @@ Return ONLY a valid JSON object with NO additional text, following this EXACT st
     }
   ]
 }`;
+  console.log("see now");
+  console.log(`here is the prompt we'll abt to use ${accommodationsPrompt}`);
+  return;
 
   // Second request: Get itinerary in chunks of 3 days
   const numberOfDays = Math.ceil(

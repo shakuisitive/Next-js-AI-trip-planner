@@ -10,10 +10,13 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import SignInModal from "./SignInModal";
 import { useSession, signIn } from "next-auth/react";
+import Cookies from "js-cookie";
+
 import {
   useCredentialsLoggedInChecker,
   useCredentialsLoggedInData,
 } from "@/lib/credentialsAuth/credentialsLoggedInChecker";
+import { removeACookie, setClientCookie } from "@/utils/cookies";
 
 const TravelPlannerForm = () => {
   const { user } = useAuth();
@@ -35,8 +38,16 @@ const TravelPlannerForm = () => {
   const [travelStyleValue, setTravelStyleValue] = useState("");
   const [paceValue, setPaceValue] = useState("");
   const [interestsValue, setInterestsValue] = useState<string[]>([]);
+  const [weatherString, setWeatherString] = useState("");
+  const [latitdue, setLatitdue] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   let session = useSession();
+
+  useEffect(() => {
+    removeACookie("weather-string");
+    setClientCookie("weather-string", weatherString, { expires: 7 });
+  }, [weatherString]);
 
   let loggedInViaCredential = useCredentialsLoggedInChecker();
   let credentialsLoggedInData = useCredentialsLoggedInData();
@@ -64,6 +75,49 @@ const TravelPlannerForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // START
+
+    async function generateWeatherSummary() {
+      const url =
+        "https://api.weatherapi.com/v1/forecast.json?key=87bb76296c2640b48aa233810250506&q=51.5074,-0.1278&days=14";
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Failed to fetch weather");
+
+        const data = await res.json();
+        const forecast = data.forecast.forecastday;
+
+        const summary = forecast
+          .map((day: any) => {
+            const date = new Date(day.date).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+            });
+
+            const condition = day.day.condition.text;
+            const max = day.day.maxtemp_c;
+            const min = day.day.mintemp_c;
+
+            let resultantWeatherString = `${date}: expect ${condition.toLowerCase()} with a high of ${max}°C and a low of ${min}°C.`;
+            return resultantWeatherString;
+          })
+          .join(" ");
+
+        setWeatherString(summary);
+        return summary;
+      } catch (err) {
+        console.error("Error generating weather summary:", err);
+        return "Weather information is currently unavailable.";
+      }
+    }
+
+    // Run it
+    await generateWeatherSummary();
+
+    // END
+
     if (!session.data && !loggedInViaCredential) {
       setShowSignInModal(true);
       return;
@@ -134,15 +188,18 @@ const TravelPlannerForm = () => {
                 {isLoaded ? (
                   <Autocomplete
                     onLoad={(autocomplete) => {
-                      autocomplete.addListener('place_changed', () => {
+                      autocomplete.addListener("place_changed", () => {
                         const place = autocomplete.getPlace();
                         if (place.geometry && place.geometry.location) {
                           const location = place.geometry.location;
-                          console.log('Selected place coordinates:', {
+                          console.log("Selected place coordinates:", {
                             latitude: location.lat(),
-                            longitude: location.lng()
+                            longitude: location.lng(),
                           });
-                          setDestination(place.formatted_address || '');
+
+                          setLatitdue(location.lat());
+                          setLongitude(location.lng());
+                          setDestination(place.formatted_address || "");
                         }
                       });
                     }}
