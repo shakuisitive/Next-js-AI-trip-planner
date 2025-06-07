@@ -166,25 +166,25 @@ export default function AdminDashboard() {
           </CardHeader>
           <CardContent className="space-y-2">
             <a
-              href="/admin/users/create"
+              href="/dashboard/users/create"
               className="block p-2 rounded hover:bg-muted transition-colors"
             >
               + Create New User
             </a>
             <a
-              href="/admin/trips/create"
+              href="/dashboard/trips/create"
               className="block p-2 rounded hover:bg-muted transition-colors"
             >
               + Create New Trip
             </a>
             <a
-              href="/admin/feedback"
+              href="/dashboard/feedback"
               className="block p-2 rounded hover:bg-muted transition-colors"
             >
               📝 Review Pending Feedback
             </a>
             <a
-              href="/admin/sessions"
+              href="/dashboard/sessions"
               className="block p-2 rounded hover:bg-muted transition-colors"
             >
               🔐 Manage User Sessions
