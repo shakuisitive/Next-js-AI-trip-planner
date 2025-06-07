@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/db/prisma";
 import { auth } from "@/lib/auth";
 import { redirect } from "../../../node_modules/next/navigation";
+import React from "react";
 
 async function LayoutForAdminPages({ children }) {
   let session = await auth();
@@ -17,7 +18,7 @@ async function LayoutForAdminPages({ children }) {
   if (!(user.role === "admin")) {
     redirect("/");
   }
-  return children;
+  return <div className="max-w-screen-xl mx-auto my-10">{children}</div>;
 
   // return <div>{children}</div>;
 }
