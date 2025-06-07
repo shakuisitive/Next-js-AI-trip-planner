@@ -16,6 +16,7 @@ model User {
   password      String?
   accounts      Account[]
   sessions      Session[]
+  role          String?       @default("user")
   // Optional for WebAuthn support
   Authenticator Authenticator[]
   trips         Trip[]
