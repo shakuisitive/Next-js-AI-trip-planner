@@ -43,6 +43,9 @@ async function getUsers() {
       include: {
         trips: true,
       },
+      orderBy: {
+        name: "desc", // Sorts by name in ascending order
+      },
     });
     return users;
   } catch (error) {
@@ -64,7 +67,7 @@ export default async function UsersPage() {
           </p>
         </div>
         <Link href="/admin/users/create">
-          <Button>
+          <Button className="bg-slate-800 hover:bg-slate-700 text-white">
             <Plus className="mr-2 h-4 w-4" />
             Add User
           </Button>
@@ -106,7 +109,11 @@ export default async function UsersPage() {
                   </TableCell>
                   <TableCell>
                     <Badge
-                      className={user.status ? "bg-green-500" : "bg-red-500"}
+                      className={
+                        user.status
+                          ? "bg-green-500 text-white"
+                          : "bg-red-500 text-white"
+                      }
                     >
                       {user.status ? "Active" : "Inactive"}
                     </Badge>

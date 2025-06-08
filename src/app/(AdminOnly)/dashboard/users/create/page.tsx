@@ -41,7 +41,7 @@ export default function CreateUserPage() {
     try {
       const data = await createAUser(formData);
       console.log("User creation response:", data);
-      // router.push("/admin/users");
+      router.push("/dashboard/users");
     } catch (error) {
       console.error("Error creating user:", error);
     }
@@ -135,13 +135,18 @@ export default function CreateUserPage() {
                 onCheckedChange={(checked) =>
                   setFormData({ ...formData, status: checked })
                 }
-                className="data-[state=checked]:bg-primary"
+                className="data-[state=checked]:bg-green-600 data-[state=unchecked]:bg-gray-300"
               />
-              <Label htmlFor="status" className="font-medium">Active Account</Label>
+              <Label htmlFor="status" className="font-medium">
+                Active Account
+              </Label>
             </div>
 
             <div className="flex space-x-2 pt-4">
-              <Button type="submit" className="bg-primary hover:bg-primary/90 text-white">
+              <Button
+                type="submit"
+                className="bg-slate-800 hover:bg-slate-700 text-white"
+              >
                 Create User
               </Button>
               <Link href="/admin/users">
