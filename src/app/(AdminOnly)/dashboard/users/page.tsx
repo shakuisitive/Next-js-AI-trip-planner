@@ -40,12 +40,14 @@ import {
   Trash2,
   UserPlus,
   ArrowUpDown,
+  Check,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { prisma } from "@/lib/db/prisma";
 import { format } from "date-fns";
 import { useState, useEffect } from "react";
-import { updateUserRoleAndStatus } from "@/actions";
+import { updateUserRoleAndStatus, updateUserDetails, deleteUser } from "@/actions";
 import { toast } from "sonner";
 
 interface Trip {
@@ -67,6 +69,12 @@ type SearchField = "name" | "email";
 type SortField = "name" | "email" | "role" | "status" | "trips" | "createdAt";
 type SortOrder = "asc" | "desc";
 
+interface EditingUser {
+  id: string;
+  field: "name" | "email";
+  value: string;
+}
+
 export default function UsersPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -75,6 +83,8 @@ export default function UsersPage() {
   const [isUpdating, setIsUpdating] = useState<string | null>(null);
   const [sortField, setSortField] = useState<SortField>("createdAt");
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
+  const [editingUser, setEditingUser] = useState<EditingUser | null>(null);
+  const [isDeleting, setIsDeleting] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -155,9 +165,13 @@ export default function UsersPage() {
       const result = await updateUserRoleAndStatus(userId, { status: newStatus });
       if (result.success) {
         setUsers(users.map(user => 
-          user.id === userId ? { ...user, status: newStatus } : user
+          user.id === userId ? { 
+            ...user, 
+            status: newStatus,
+            deletedAt: newStatus ? null : new Date()
+          } : user
         ));
-        toast.success("Status updated successfully");
+        toast.success(newStatus ? "User activated successfully" : "User deactivated successfully");
       } else {
         toast.error("Failed to update status");
       }
@@ -174,6 +188,62 @@ export default function UsersPage() {
     } else {
       setSortField(field);
       setSortOrder("asc");
+    }
+  };
+
+  const handleStartEditing = (userId: string, field: "name" | "email", currentValue: string) => {
+    setEditingUser({ id: userId, field, value: currentValue });
+  };
+
+  const handleCancelEditing = () => {
+    setEditingUser(null);
+  };
+
+  const handleSaveEdit = async () => {
+    if (!editingUser) return;
+
+    setIsUpdating(editingUser.id);
+    try {
+      const updates = {
+        [editingUser.field]: editingUser.value
+      };
+      
+      const result = await updateUserDetails(editingUser.id, updates);
+      
+      if (result.success) {
+        setUsers(users.map(user => 
+          user.id === editingUser.id 
+            ? { ...user, [editingUser.field]: editingUser.value }
+            : user
+        ));
+        toast.success(`${editingUser.field === 'name' ? 'Name' : 'Email'} updated successfully`);
+        setEditingUser(null);
+      } else {
+        toast.error(`Failed to update ${editingUser.field}`);
+      }
+    } catch (error) {
+      toast.error("An error occurred while updating");
+    } finally {
+      setIsUpdating(null);
+    }
+  };
+
+  const handleDeleteUser = async (userId: string) => {
+    setIsDeleting(userId);
+    try {
+      const result = await deleteUser(userId);
+      if (result.success) {
+        setUsers(users.map(user => 
+          user.id === userId ? { ...user, status: false, deletedAt: new Date() } : user
+        ));
+        toast.success("User deleted successfully");
+      } else {
+        toast.error("Failed to delete user");
+      }
+    } catch (error) {
+      toast.error("An error occurred while deleting user");
+    } finally {
+      setIsDeleting(null);
     }
   };
 
@@ -290,9 +360,103 @@ export default function UsersPage() {
             </TableHeader>
             <TableBody>
               {filteredUsers.map((user) => (
-                <TableRow key={user.id}>
-                  <TableCell className="text-center">{user.name || "N/A"}</TableCell>
-                  <TableCell className="text-center">{user.email || "N/A"}</TableCell>
+                <TableRow 
+                  key={user.id}
+                  className="group relative"
+                >
+                  <TableCell 
+                    className="text-center cursor-pointer hover:bg-slate-50 transition-colors"
+                    onClick={() => !editingUser && handleStartEditing(user.id, "name", user.name || "")}
+                  >
+                    {editingUser?.id === user.id && editingUser.field === "name" ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <Input
+                          value={editingUser.value}
+                          onChange={(e) => setEditingUser({ ...editingUser, value: e.target.value })}
+                          className="w-[200px]"
+                          disabled={isUpdating === user.id}
+                          autoFocus
+                        />
+                        <div className="flex gap-1">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSaveEdit();
+                            }}
+                            disabled={isUpdating === user.id}
+                            className="h-7 px-2"
+                          >
+                            Save
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleCancelEditing();
+                            }}
+                            disabled={isUpdating === user.id}
+                            className="h-7 px-2"
+                          >
+                            Cancel
+                          </Button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center">
+                        <span className="text-sm">{user.name || "N/A"}</span>
+                      </div>
+                    )}
+                  </TableCell>
+                  <TableCell 
+                    className="text-center cursor-pointer hover:bg-slate-50 transition-colors"
+                    onClick={() => !editingUser && handleStartEditing(user.id, "email", user.email || "")}
+                  >
+                    {editingUser?.id === user.id && editingUser.field === "email" ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <Input
+                          value={editingUser.value}
+                          onChange={(e) => setEditingUser({ ...editingUser, value: e.target.value })}
+                          className="w-[200px]"
+                          type="email"
+                          disabled={isUpdating === user.id}
+                          autoFocus
+                        />
+                        <div className="flex gap-1">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSaveEdit();
+                            }}
+                            disabled={isUpdating === user.id}
+                            className="h-7 px-2"
+                          >
+                            Save
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleCancelEditing();
+                            }}
+                            disabled={isUpdating === user.id}
+                            className="h-7 px-2"
+                          >
+                            Cancel
+                          </Button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center">
+                        <span className="text-sm">{user.email || "N/A"}</span>
+                      </div>
+                    )}
+                  </TableCell>
                   <TableCell className="text-center">
                     <Select
                       value={user.role}
@@ -345,9 +509,13 @@ export default function UsersPage() {
                             Assign Trip
                           </Link>
                         </DropdownMenuItem>
-                        <DropdownMenuItem className="text-red-600">
+                        <DropdownMenuItem 
+                          className="text-red-600"
+                          onClick={() => handleDeleteUser(user.id)}
+                          disabled={isDeleting === user.id}
+                        >
                           <Trash2 className="mr-2 h-4 w-4" />
-                          Delete
+                          {isDeleting === user.id ? "Deleting..." : "Delete"}
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
