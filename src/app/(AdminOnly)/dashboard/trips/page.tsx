@@ -93,8 +93,8 @@ interface Trip {
 
 interface EditingTrip {
   id: string;
-  field: "tourName";
-  value: string;
+  field: "tourName" | "startDate" | "endDate" | "budgetMin" | "budgetMax";
+  value: string | number | Date;
 }
 
 interface User {
@@ -131,6 +131,11 @@ export default function TripsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 3;
   const [userSearchTerm, setUserSearchTerm] = useState("");
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [tempStartDate, setTempStartDate] = useState<string>("");
+  const [tempEndDate, setTempEndDate] = useState<string>("");
+  const [tempBudgetMin, setTempBudgetMin] = useState<number>(0);
+  const [tempBudgetMax, setTempBudgetMax] = useState<number>(0);
 
   useEffect(() => {
     const fetchTrips = async () => {
@@ -265,10 +270,28 @@ export default function TripsPage() {
 
   const handleStartEditing = (
     tripId: string,
-    field: "tourName",
-    currentValue: string
+    field: "tourName" | "startDate" | "endDate" | "budgetMin" | "budgetMax",
+    currentValue: string | number | Date
   ) => {
-    setEditingTrip({ id: tripId, field, value: currentValue });
+    if (field === "startDate") {
+      const trip = trips.find(t => t.id === tripId);
+      if (trip) {
+        setTempStartDate(trip.startDate.toISOString().split('T')[0]);
+        setTempEndDate(trip.endDate.toISOString().split('T')[0]);
+        setEditingTrip({ id: tripId, field, value: currentValue });
+        setIsEditModalOpen(true);
+      }
+    } else if (field === "budgetMin") {
+      const trip = trips.find(t => t.id === tripId);
+      if (trip) {
+        setTempBudgetMin(trip.budgetMin);
+        setTempBudgetMax(trip.budgetMax);
+        setEditingTrip({ id: tripId, field, value: currentValue });
+        setIsEditModalOpen(true);
+      }
+    } else {
+      setEditingTrip({ id: tripId, field, value: currentValue });
+    }
   };
 
   const handleCancelEditing = () => {
@@ -280,9 +303,20 @@ export default function TripsPage() {
 
     setIsUpdating(editingTrip.id);
     try {
-      const updates = {
-        [editingTrip.field]: editingTrip.value,
-      };
+      const updates: any = {};
+
+      switch (editingTrip.field) {
+        case "startDate":
+          updates.startDate = new Date(tempStartDate);
+          updates.endDate = new Date(tempEndDate);
+          break;
+        case "budgetMin":
+          updates.budgetMin = tempBudgetMin;
+          updates.budgetMax = tempBudgetMax;
+          break;
+        default:
+          updates[editingTrip.field] = editingTrip.value;
+      }
 
       const result = await updateTripDetails(editingTrip.id, updates);
 
@@ -290,14 +324,15 @@ export default function TripsPage() {
         setTrips(
           trips.map((trip) =>
             trip.id === editingTrip.id
-              ? { ...trip, [editingTrip.field]: editingTrip.value }
+              ? { ...trip, ...updates }
               : trip
           )
         );
-        toast.success("Trip name updated successfully");
+        toast.success("Trip updated successfully");
         setEditingTrip(null);
+        setIsEditModalOpen(false);
       } else {
-        toast.error("Failed to update trip name");
+        toast.error("Failed to update trip");
       }
     } catch (error) {
       toast.error("An error occurred while updating");
@@ -508,7 +543,7 @@ export default function TripsPage() {
                     editingTrip.field === "tourName" ? (
                       <div className="flex items-center justify-center gap-2 h-8">
                         <Input
-                          value={editingTrip.value}
+                          value={editingTrip.value as string}
                           onChange={(e) =>
                             setEditingTrip({
                               ...editingTrip,
@@ -570,17 +605,24 @@ export default function TripsPage() {
                     )}
                   </TableCell>
                   <TableCell className="text-center">
-                    <div className="text-sm">
-                      <div>
-                        {format(new Date(trip.startDate), "MMM d, yyyy")}
-                      </div>
-                      <div className="text-muted-foreground">
-                        to {format(new Date(trip.endDate), "MMM d, yyyy")}
-                      </div>
+                    <div
+                      className="group flex items-center justify-center gap-1 h-8 px-3 rounded-md hover:bg-slate-50 transition-colors cursor-pointer"
+                      onClick={() => handleStartEditing(trip.id, "startDate", trip.startDate)}
+                    >
+                      <span className="text-sm font-medium whitespace-nowrap">
+                        {format(new Date(trip.startDate), "MMM d, yyyy")} - {format(new Date(trip.endDate), "MMM d, yyyy")}
+                      </span>
+                      <Edit className="h-3 w-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </TableCell>
                   <TableCell className="text-center">
-                    ${trip.budgetMin} - ${trip.budgetMax}
+                    <div
+                      className="group flex items-center justify-center gap-1 h-8 px-3 rounded-md hover:bg-slate-50 transition-colors cursor-pointer"
+                      onClick={() => handleStartEditing(trip.id, "budgetMin", trip.budgetMin)}
+                    >
+                      <span className="text-sm font-medium">${trip.budgetMin.toLocaleString()} - ${trip.budgetMax.toLocaleString()}</span>
+                      <Edit className="h-3 w-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
                   </TableCell>
                   <TableCell className="text-center">
                     <Badge
@@ -752,6 +794,85 @@ export default function TripsPage() {
                 </Pagination>
               )}
             </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Edit Modal */}
+      <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>
+              {editingTrip?.field === "startDate" ? "Edit Trip Dates" : "Edit Budget Range"}
+            </DialogTitle>
+          </DialogHeader>
+          
+          {editingTrip?.field === "startDate" ? (
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Start Date</label>
+                <Input
+                  type="date"
+                  value={tempStartDate}
+                  onChange={(e) => setTempStartDate(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">End Date</label>
+                <Input
+                  type="date"
+                  value={tempEndDate}
+                  onChange={(e) => setTempEndDate(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+            </div>
+          ) : editingTrip?.field === "budgetMin" ? (
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Minimum Budget</label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <Input
+                    type="number"
+                    value={tempBudgetMin}
+                    onChange={(e) => setTempBudgetMin(Number(e.target.value))}
+                    className="w-full pl-7"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Maximum Budget</label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <Input
+                    type="number"
+                    value={tempBudgetMax}
+                    onChange={(e) => setTempBudgetMax(Number(e.target.value))}
+                    className="w-full pl-7"
+                  />
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          <div className="flex justify-end gap-2">
+            <Button
+              variant="outline"
+              onClick={() => {
+                setIsEditModalOpen(false);
+                setEditingTrip(null);
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleSaveEdit}
+              disabled={isUpdating === editingTrip?.id}
+            >
+              {isUpdating === editingTrip?.id ? "Saving..." : "Save Changes"}
+            </Button>
           </div>
         </DialogContent>
       </Dialog>
