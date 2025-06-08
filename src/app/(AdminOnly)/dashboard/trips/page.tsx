@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { MoreHorizontal, Plus, Search, Edit, Trash2, Eye, UserPlus } from "lucide-react"
+import { MoreHorizontal, Plus, Search, Edit, Trash2, Eye, UserPlus, ArrowUpDown } from "lucide-react"
 import Link from "next/link"
 import { getTrips } from "@/actions"
 import { format } from "date-fns"
@@ -41,12 +41,16 @@ interface Trip {
 }
 
 type SearchField = "tourName" | "destination" | "user";
+type SortField = "tourName" | "destination" | "startDate" | "budgetMin" | "tourStatus" | "status" | "createdAt" | "userName";
+type SortOrder = "asc" | "desc";
 
 export default function TripsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [searchField, setSearchField] = useState<SearchField>("tourName")
   const [trips, setTrips] = useState<Trip[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [sortField, setSortField] = useState<SortField>("createdAt")
+  const [sortOrder, setSortOrder] = useState<SortOrder>("desc")
 
   useEffect(() => {
     const fetchTrips = async () => {
@@ -85,6 +89,50 @@ export default function TripsPage() {
     }
   })
 
+  const handleSort = (field: SortField) => {
+    if (field === sortField) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+    } else {
+      setSortField(field)
+      setSortOrder("asc")
+    }
+  }
+
+  const sortedTrips = [...filteredTrips].sort((a, b) => {
+    let comparison = 0
+
+    switch (sortField) {
+      case "tourName":
+        comparison = a.tourName.localeCompare(b.tourName)
+        break
+      case "destination":
+        comparison = a.destination.localeCompare(b.destination)
+        break
+      case "startDate":
+        comparison = new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+        break
+      case "budgetMin":
+        comparison = a.budgetMin - b.budgetMin
+        break
+      case "tourStatus":
+        comparison = a.tourStatus.localeCompare(b.tourStatus)
+        break
+      case "status":
+        comparison = (a.status === b.status) ? 0 : a.status ? 1 : -1
+        break
+      case "createdAt":
+        comparison = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        break
+      case "userName":
+        const nameA = a.user?.name || ""
+        const nameB = b.user?.name || ""
+        comparison = nameA.localeCompare(nameB)
+        break
+    }
+
+    return sortOrder === "asc" ? comparison : -comparison
+  })
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Scheduled":
@@ -95,6 +143,19 @@ export default function TripsPage() {
         return "outline"
       default:
         return "secondary"
+    }
+  }
+
+  const getStatusStyle = (status: string) => {
+    switch (status) {
+      case "Scheduled":
+        return "bg-blue-100 text-blue-700"
+      case "Pending Approval":
+        return "bg-yellow-100 text-yellow-700"
+      case "Completed":
+        return "bg-green-100 text-green-700"
+      default:
+        return "bg-slate-100 text-slate-700"
     }
   }
 
@@ -154,79 +215,164 @@ export default function TripsPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Tour Name</TableHead>
-                <TableHead>Destination</TableHead>
-                <TableHead>Assigned User</TableHead>
-                <TableHead>Dates</TableHead>
-                <TableHead>Budget Range</TableHead>
-                <TableHead>Tour Status</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Created</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("tourName")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Tour Name
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("destination")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Destination
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("userName")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Assigned User
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("startDate")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Dates
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("budgetMin")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Budget Range
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("tourStatus")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Tour Status
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("status")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Status
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("createdAt")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Created
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredTrips.map((trip) => (
+              {sortedTrips.map((trip) => (
                 <TableRow key={trip.id}>
-                  <TableCell className="font-medium">{trip.tourName}</TableCell>
-                  <TableCell>{trip.destination}</TableCell>
-                  <TableCell>
+                  <TableCell className="text-center">{trip.tourName}</TableCell>
+                  <TableCell className="text-center">{trip.destination}</TableCell>
+                  <TableCell className="text-center">
                     {trip.user ? (
                       <div>
                         <div className="font-medium">{trip.user.name}</div>
                         <div className="text-sm text-muted-foreground">{trip.user.email}</div>
                       </div>
                     ) : (
-                      <Badge variant="outline">Unassigned</Badge>
+                      <Badge variant="outline" className="bg-slate-100">Unassigned</Badge>
                     )}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="text-center">
                     <div className="text-sm">
                       <div>{format(new Date(trip.startDate), "MMM d, yyyy")}</div>
                       <div className="text-muted-foreground">to {format(new Date(trip.endDate), "MMM d, yyyy")}</div>
                     </div>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="text-center">
                     ${trip.budgetMin} - ${trip.budgetMax}
                   </TableCell>
-                  <TableCell>
-                    <Badge variant={getStatusColor(trip.tourStatus)}>{trip.tourStatus}</Badge>
+                  <TableCell className="text-center">
+                    <Badge 
+                      variant={getStatusColor(trip.tourStatus)} 
+                      className={getStatusStyle(trip.tourStatus)}
+                    >
+                      {trip.tourStatus}
+                    </Badge>
                   </TableCell>
-                  <TableCell>
-                    <Badge variant={trip.status ? "default" : "secondary"}>
+                  <TableCell className="text-center">
+                    <Badge 
+                      variant={trip.status ? "default" : "secondary"} 
+                      className={trip.status ? "bg-green-600" : "bg-slate-100"}
+                    >
                       {trip.status ? "Active" : "Inactive"}
                     </Badge>
                   </TableCell>
-                  <TableCell>{format(new Date(trip.createdAt), "MMM d, yyyy")}</TableCell>
-                  <TableCell className="text-right">
+                  <TableCell className="text-center">
+                    {format(new Date(trip.createdAt), "MMM d, yyyy")}
+                  </TableCell>
+                  <TableCell className="text-center">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0">
+                        <Button variant="ghost" className="h-8 w-8 p-0 hover:bg-slate-100">
                           <MoreHorizontal className="h-4 w-4" />
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem asChild>
-                          <Link href={`/admin/trips/${trip.id}`}>
+                          <Link href={`/admin/trips/${trip.id}`} className="hover:bg-slate-100">
                             <Eye className="mr-2 h-4 w-4" />
                             View Details
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                          <Link href={`/admin/trips/${trip.id}/edit`}>
+                          <Link href={`/admin/trips/${trip.id}/edit`} className="hover:bg-slate-100">
                             <Edit className="mr-2 h-4 w-4" />
                             Edit
                           </Link>
                         </DropdownMenuItem>
                         {!trip.user && (
                           <DropdownMenuItem asChild>
-                            <Link href={`/admin/trips/${trip.id}/assign`}>
+                            <Link href={`/admin/trips/${trip.id}/assign`} className="hover:bg-slate-100">
                               <UserPlus className="mr-2 h-4 w-4" />
                               Assign User
                             </Link>
                           </DropdownMenuItem>
                         )}
-                        <DropdownMenuItem onClick={() => handleDeleteTrip(trip.id)} className="text-red-600">
+                        <DropdownMenuItem 
+                          onClick={() => handleDeleteTrip(trip.id)} 
+                          className="text-red-600 hover:bg-red-50"
+                        >
                           <Trash2 className="mr-2 h-4 w-4" />
                           Delete
                         </DropdownMenuItem>
