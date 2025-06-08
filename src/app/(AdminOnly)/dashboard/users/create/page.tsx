@@ -24,6 +24,7 @@ import { Switch } from "@/components/ui/switch";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { createAUser } from "@/actions/index";
 
 export default function CreateUserPage() {
   const router = useRouter();
@@ -37,20 +38,10 @@ export default function CreateUserPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
-      // Implement user creation logic here
-      const response = await fetch("/api/admin/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        router.push("/admin/users");
-      }
+      const data = await createAUser(formData);
+      console.log("User creation response:", data);
+      // router.push("/admin/users");
     } catch (error) {
       console.error("Error creating user:", error);
     }
@@ -144,12 +135,15 @@ export default function CreateUserPage() {
                 onCheckedChange={(checked) =>
                   setFormData({ ...formData, status: checked })
                 }
+                className="data-[state=checked]:bg-primary"
               />
-              <Label htmlFor="status">Active Account</Label>
+              <Label htmlFor="status" className="font-medium">Active Account</Label>
             </div>
 
             <div className="flex space-x-2 pt-4">
-              <Button type="submit">Create User</Button>
+              <Button type="submit" className="bg-primary hover:bg-primary/90 text-white">
+                Create User
+              </Button>
               <Link href="/admin/users">
                 <Button variant="outline">Cancel</Button>
               </Link>
