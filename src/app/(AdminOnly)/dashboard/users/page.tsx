@@ -39,6 +39,7 @@ import {
   Edit,
   Trash2,
   UserPlus,
+  ArrowUpDown,
 } from "lucide-react";
 import Link from "next/link";
 import { prisma } from "@/lib/db/prisma";
@@ -63,6 +64,8 @@ interface User {
 }
 
 type SearchField = "name" | "email";
+type SortField = "name" | "email" | "role" | "status" | "trips" | "createdAt";
+type SortOrder = "asc" | "desc";
 
 export default function UsersPage() {
   const [users, setUsers] = useState<User[]>([]);
@@ -70,6 +73,8 @@ export default function UsersPage() {
   const [searchField, setSearchField] = useState<SearchField>("name");
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
   const [isUpdating, setIsUpdating] = useState<string | null>(null);
+  const [sortField, setSortField] = useState<SortField>("createdAt");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -90,8 +95,40 @@ export default function UsersPage() {
       const fieldValue = user[searchField]?.toLowerCase() || "";
       return fieldValue.includes(searchQuery.toLowerCase());
     });
-    setFilteredUsers(filtered);
-  }, [searchQuery, searchField, users]);
+
+    // Sort the filtered users
+    const sorted = [...filtered].sort((a, b) => {
+      let comparison = 0;
+      
+      switch (sortField) {
+        case "name":
+          comparison = (a.name || "").localeCompare(b.name || "");
+          break;
+        case "email":
+          comparison = (a.email || "").localeCompare(b.email || "");
+          break;
+        case "role":
+          comparison = (a.role || "").localeCompare(b.role || "");
+          break;
+        case "status":
+          comparison = (a.status === b.status) ? 0 : a.status ? 1 : -1;
+          break;
+        case "trips":
+          comparison = (a.trips?.length || 0) - (b.trips?.length || 0);
+          break;
+        case "createdAt":
+          // Convert string dates to Date objects if needed
+          const dateA = typeof a.createdAt === 'string' ? new Date(a.createdAt) : a.createdAt;
+          const dateB = typeof b.createdAt === 'string' ? new Date(b.createdAt) : b.createdAt;
+          comparison = dateA.getTime() - dateB.getTime();
+          break;
+      }
+
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
+
+    setFilteredUsers(sorted);
+  }, [searchQuery, searchField, users, sortField, sortOrder]);
 
   const handleRoleChange = async (userId: string, newRole: string) => {
     setIsUpdating(userId);
@@ -128,6 +165,15 @@ export default function UsersPage() {
       toast.error("An error occurred while updating status");
     } finally {
       setIsUpdating(null);
+    }
+  };
+
+  const handleSort = (field: SortField) => {
+    if (field === sortField) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortOrder("asc");
     }
   };
 
@@ -179,29 +225,81 @@ export default function UsersPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Email</TableHead>
-                <TableHead>Role</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Trips</TableHead>
-                <TableHead>Created</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("name")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Name
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("email")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Email
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("role")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Role
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("status")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Status
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("trips")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Trips
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("createdAt")}
+                    className="flex items-center gap-1 mx-auto"
+                  >
+                    Created
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-center">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {filteredUsers.map((user) => (
                 <TableRow key={user.id}>
-                  <TableCell className="font-medium">
-                    {user.name || "N/A"}
-                  </TableCell>
-                  <TableCell>{user.email || "N/A"}</TableCell>
-                  <TableCell>
+                  <TableCell className="text-center">{user.name || "N/A"}</TableCell>
+                  <TableCell className="text-center">{user.email || "N/A"}</TableCell>
+                  <TableCell className="text-center">
                     <Select
                       value={user.role}
                       onValueChange={(value) => handleRoleChange(user.id, value)}
                       disabled={isUpdating === user.id}
                     >
-                      <SelectTrigger className="w-[100px]">
+                      <SelectTrigger className="w-[100px] mx-auto">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -210,8 +308,8 @@ export default function UsersPage() {
                       </SelectContent>
                     </Select>
                   </TableCell>
-                  <TableCell>
-                    <div className="flex items-center space-x-2">
+                  <TableCell className="text-center">
+                    <div className="flex items-center justify-center space-x-2">
                       <Switch
                         checked={user.status}
                         onCheckedChange={(checked) => handleStatusChange(user.id, checked)}
@@ -223,9 +321,11 @@ export default function UsersPage() {
                       </span>
                     </div>
                   </TableCell>
-                  <TableCell>{user?.trips?.length}</TableCell>
-                  <TableCell>{format(user.createdAt, "MMM d, yyyy")}</TableCell>
-                  <TableCell className="text-right">
+                  <TableCell className="text-center">{user?.trips?.length}</TableCell>
+                  <TableCell className="text-center">
+                    {format(new Date(user.createdAt), "MMM d, yyyy")}
+                  </TableCell>
+                  <TableCell className="text-center">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button variant="ghost" className="h-8 w-8 p-0">
