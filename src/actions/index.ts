@@ -119,7 +119,7 @@ export async function getTrips() {
         createdAt: "desc",
       },
     });
-    
+
     return { success: true, trips: trips as TripWithUser[] };
   } catch (error) {
     console.error("Error fetching trips:", error);
@@ -127,15 +127,62 @@ export async function getTrips() {
   }
 }
 
-export async function updateTripDetails(tripId: string, updates: { tourName?: string }) {
+export async function updateTripDetails(
+  tripId: string,
+  updates: { tourName?: string }
+) {
   try {
     const updatedTrip = await prisma.trip.update({
       where: { id: tripId },
-      data: updates
+      data: updates,
     });
     return { success: true, trip: updatedTrip };
   } catch (error) {
     console.error("Error updating trip details:", error);
     return { success: false, error: "Failed to update trip details" };
+  }
+}
+
+export async function getAllUsers() {
+  try {
+    const users = await prisma.user.findMany({
+      where: {
+        status: true,
+        role: "user",
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+      },
+      orderBy: {
+        name: "asc",
+      },
+    });
+    return { success: true, users };
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return { success: false, error: "Failed to fetch users" };
+  }
+}
+
+export async function updateTripUser(tripId: string, userId: string) {
+  try {
+    const updatedTrip = await prisma.trip.update({
+      where: { id: tripId },
+      data: { userId },
+      include: {
+        user: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
+    });
+    return { success: true, trip: updatedTrip };
+  } catch (error) {
+    console.error("Error updating trip user:", error);
+    return { success: false, error: "Failed to update trip user" };
   }
 }
