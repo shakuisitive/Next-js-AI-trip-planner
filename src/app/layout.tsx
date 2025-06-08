@@ -6,6 +6,7 @@ import Script from "next/script";
 import { AuthContextProvider } from "@/context/AuthContext";
 import { SessionProvider } from "next-auth/react";
 import { CredentialsContextProvider } from "@/context/CredentialsContext";
+import { Toaster } from "sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -55,6 +56,7 @@ export default function RootLayout({
             </AuthContextProvider>
           </CredentialsContextProvider>
         </SessionProvider>
+        <Toaster />
       </body>
     </html>
   );

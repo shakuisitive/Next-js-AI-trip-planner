@@ -31,6 +31,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import {
   MoreHorizontal,
   Plus,
@@ -43,6 +44,8 @@ import Link from "next/link";
 import { prisma } from "@/lib/db/prisma";
 import { format } from "date-fns";
 import { useState, useEffect } from "react";
+import { updateUserRoleAndStatus } from "@/actions";
+import { toast } from "sonner";
 
 interface Trip {
   id: string;
@@ -66,6 +69,7 @@ export default function UsersPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchField, setSearchField] = useState<SearchField>("name");
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
+  const [isUpdating, setIsUpdating] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -88,6 +92,44 @@ export default function UsersPage() {
     });
     setFilteredUsers(filtered);
   }, [searchQuery, searchField, users]);
+
+  const handleRoleChange = async (userId: string, newRole: string) => {
+    setIsUpdating(userId);
+    try {
+      const result = await updateUserRoleAndStatus(userId, { role: newRole });
+      if (result.success) {
+        setUsers(users.map(user => 
+          user.id === userId ? { ...user, role: newRole } : user
+        ));
+        toast.success("Role updated successfully");
+      } else {
+        toast.error("Failed to update role");
+      }
+    } catch (error) {
+      toast.error("An error occurred while updating role");
+    } finally {
+      setIsUpdating(null);
+    }
+  };
+
+  const handleStatusChange = async (userId: string, newStatus: boolean) => {
+    setIsUpdating(userId);
+    try {
+      const result = await updateUserRoleAndStatus(userId, { status: newStatus });
+      if (result.success) {
+        setUsers(users.map(user => 
+          user.id === userId ? { ...user, status: newStatus } : user
+        ));
+        toast.success("Status updated successfully");
+      } else {
+        toast.error("Failed to update status");
+      }
+    } catch (error) {
+      toast.error("An error occurred while updating status");
+    } finally {
+      setIsUpdating(null);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -154,18 +196,32 @@ export default function UsersPage() {
                   </TableCell>
                   <TableCell>{user.email || "N/A"}</TableCell>
                   <TableCell>
-                    <Badge variant="secondary">{user.role}</Badge>
+                    <Select
+                      value={user.role}
+                      onValueChange={(value) => handleRoleChange(user.id, value)}
+                      disabled={isUpdating === user.id}
+                    >
+                      <SelectTrigger className="w-[100px]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="user">User</SelectItem>
+                        <SelectItem value="admin">Admin</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </TableCell>
                   <TableCell>
-                    <Badge
-                      className={`${
-                        user.status
-                          ? "bg-green-500 hover:bg-green-500"
-                          : "bg-red-500 hover:bg-red-500"
-                      } text-white`}
-                    >
-                      {user.status ? "Active" : "Inactive"}
-                    </Badge>
+                    <div className="flex items-center space-x-2">
+                      <Switch
+                        checked={user.status}
+                        onCheckedChange={(checked) => handleStatusChange(user.id, checked)}
+                        disabled={isUpdating === user.id}
+                        className="data-[state=checked]:bg-green-600 data-[state=unchecked]:bg-gray-300"
+                      />
+                      <span className="text-sm">
+                        {user.status ? "Active" : "Inactive"}
+                      </span>
+                    </div>
                   </TableCell>
                   <TableCell>{user?.trips?.length}</TableCell>
                   <TableCell>{format(user.createdAt, "MMM d, yyyy")}</TableCell>
