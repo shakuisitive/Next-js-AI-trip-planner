@@ -135,13 +135,21 @@ export async function updateTripDetails(
     startDate?: Date; 
     endDate?: Date; 
     budgetMin?: number; 
-    budgetMax?: number 
+    budgetMax?: number;
+    status?: boolean;
   }
 ) {
   try {
+    const data: any = { ...updates };
+
+    // If status is being updated, handle deletedAt accordingly
+    if (updates.status !== undefined) {
+      data.deletedAt = updates.status ? null : new Date();
+    }
+
     const updatedTrip = await prisma.trip.update({
       where: { id: tripId },
-      data: updates,
+      data,
       include: {
         user: {
           select: {

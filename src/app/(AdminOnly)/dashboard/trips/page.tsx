@@ -70,6 +70,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { Switch } from "@/components/ui/switch";
 
 interface Trip {
   id: string;
@@ -414,6 +415,37 @@ export default function TripsPage() {
     }
   };
 
+  const handleStatusToggle = async (tripId: string, newStatus: boolean) => {
+    setIsUpdating(tripId);
+    try {
+      const result = await updateTripDetails(tripId, { status: newStatus });
+      if (result.success) {
+        setTrips(
+          trips.map((trip) =>
+            trip.id === tripId
+              ? {
+                  ...trip,
+                  status: newStatus,
+                  deletedAt: newStatus ? null : new Date(),
+                }
+              : trip
+          )
+        );
+        toast.success(
+          newStatus
+            ? "Trip activated successfully"
+            : "Trip deactivated successfully"
+        );
+      } else {
+        toast.error("Failed to update trip status");
+      }
+    } catch (error) {
+      toast.error("An error occurred while updating trip status");
+    } finally {
+      setIsUpdating(null);
+    }
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -689,12 +721,19 @@ export default function TripsPage() {
                     </DropdownMenu>
                   </TableCell>
                   <TableCell className="text-center">
-                    <Badge
-                      variant={trip.status ? "default" : "secondary"}
-                      className={trip.status ? "bg-green-600" : "bg-slate-100"}
-                    >
-                      {trip.status ? "Active" : "Inactive"}
-                    </Badge>
+                    <div className="flex items-center justify-center space-x-2">
+                      <Switch
+                        checked={trip.status ?? true}
+                        onCheckedChange={(checked) =>
+                          handleStatusToggle(trip.id, checked)
+                        }
+                        disabled={isUpdating === trip.id}
+                        className="data-[state=checked]:bg-green-600 data-[state=unchecked]:bg-gray-300"
+                      />
+                      <span className="text-sm">
+                        {trip.status ? "Active" : "Inactive"}
+                      </span>
+                    </div>
                   </TableCell>
                   <TableCell className="text-center">
                     {format(new Date(trip.createdAt), "MMM d, yyyy")}

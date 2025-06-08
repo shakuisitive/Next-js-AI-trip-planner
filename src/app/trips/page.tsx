@@ -9,15 +9,21 @@ import { cookies } from "next/headers";
 async function AllTrips() {
   const session = await auth();
   const cookieStore = cookies();
-  
+
   // Check OAuth authentication
   const isOAuthAuthenticated = !!session?.user?.id;
-  
+
   // Check credentials authentication
-  const loggedInViaCredentials = cookieStore.get("loggedInViaCrdentials")?.value === "true";
-  const credentialsUserInfo = cookieStore.get("credentialsLoggedInUserInfo")?.value;
-  const credentialsUserId = credentialsUserInfo ? JSON.parse(credentialsUserInfo).id : null;
-  const isCredentialsAuthenticated = loggedInViaCredentials && credentialsUserId;
+  const loggedInViaCredentials =
+    cookieStore.get("loggedInViaCrdentials")?.value === "true";
+  const credentialsUserInfo = cookieStore.get(
+    "credentialsLoggedInUserInfo"
+  )?.value;
+  const credentialsUserId = credentialsUserInfo
+    ? JSON.parse(credentialsUserInfo).id
+    : null;
+  const isCredentialsAuthenticated =
+    loggedInViaCredentials && credentialsUserId;
 
   // Check if user is authenticated via either method
   if (!isOAuthAuthenticated && !isCredentialsAuthenticated) {
@@ -29,6 +35,7 @@ async function AllTrips() {
 
   let allTrips = await prisma.trip.findMany({
     where: {
+      status: true,
       userId: userId,
     },
   });
