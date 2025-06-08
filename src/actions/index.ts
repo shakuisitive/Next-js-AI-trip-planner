@@ -18,21 +18,24 @@ export async function createAUser(userData: {
 }) {
   // Hash the password before storing
   const hashedPassword = await bcrypt.hash(userData.password, 10);
-  
-  let user = await prisma.user.create({ 
+
+  let user = await prisma.user.create({
     data: {
       ...userData,
-      password: hashedPassword
-    } 
+      password: hashedPassword,
+    },
   });
-  
+
   return "User created successfully";
 }
 
-export async function updateUserRoleAndStatus(userId: string, updates: { role?: string; status?: boolean }) {
+export async function updateUserRoleAndStatus(
+  userId: string,
+  updates: { role?: string; status?: boolean }
+) {
   try {
     const data: any = { ...updates };
-    
+
     // If status is being updated, handle deletedAt accordingly
     if (updates.status !== undefined) {
       data.deletedAt = updates.status ? null : new Date();
@@ -40,7 +43,7 @@ export async function updateUserRoleAndStatus(userId: string, updates: { role?: 
 
     const updatedUser = await prisma.user.update({
       where: { id: userId },
-      data
+      data,
     });
     return { success: true, user: updatedUser };
   } catch (error) {
@@ -49,11 +52,14 @@ export async function updateUserRoleAndStatus(userId: string, updates: { role?: 
   }
 }
 
-export async function updateUserDetails(userId: string, updates: { name?: string; email?: string }) {
+export async function updateUserDetails(
+  userId: string,
+  updates: { name?: string; email?: string }
+) {
   try {
     const updatedUser = await prisma.user.update({
       where: { id: userId },
-      data: updates
+      data: updates,
     });
     return { success: true, user: updatedUser };
   } catch (error) {
@@ -68,12 +74,35 @@ export async function deleteUser(userId: string) {
       where: { id: userId },
       data: {
         status: false,
-        deletedAt: new Date()
-      }
+        deletedAt: new Date(),
+      },
     });
     return { success: true, user: deletedUser };
   } catch (error) {
     console.error("Error deleting user:", error);
     return { success: false, error: "Failed to delete user" };
+  }
+}
+
+export async function getTrips() {
+  try {
+    const trips = await prisma.trip.findMany({
+      include: {
+        user: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    console.log("here is the trips 10 59", trips);
+    return { success: true, trips };
+  } catch (error) {
+    console.error("Error fetching trips:", error);
+    return { success: false, error: "Failed to fetch trips" };
   }
 }

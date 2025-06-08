@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -9,70 +9,65 @@ import { Badge } from "@/components/ui/badge"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { MoreHorizontal, Plus, Search, Edit, Trash2, Eye, UserPlus } from "lucide-react"
 import Link from "next/link"
+import { getTrips } from "@/actions"
+import { format } from "date-fns"
+import { toast } from "sonner"
 
-// Mock data
-const trips = [
-  {
-    id: "1",
-    tourName: "Paris Adventure",
-    destination: "Paris, France",
-    userName: "John Doe",
-    userEmail: "john@example.com",
-    startDate: "2024-02-15",
-    endDate: "2024-02-22",
-    tourStatus: "Pending Approval",
-    budgetMin: 2000,
-    budgetMax: 3000,
-    createdAt: "2024-01-15",
-  },
-  {
-    id: "2",
-    tourName: "Tokyo Explorer",
-    destination: "Tokyo, Japan",
-    userName: "Jane Smith",
-    userEmail: "jane@example.com",
-    startDate: "2024-03-10",
-    endDate: "2024-03-17",
-    tourStatus: "Approved",
-    budgetMin: 3500,
-    budgetMax: 4500,
-    createdAt: "2024-01-20",
-  },
-  {
-    id: "3",
-    tourName: "London Getaway",
-    destination: "London, UK",
-    userName: null,
-    userEmail: null,
-    startDate: "2024-04-05",
-    endDate: "2024-04-12",
-    tourStatus: "Available",
-    budgetMin: 1800,
-    budgetMax: 2500,
-    createdAt: "2024-01-25",
-  },
-]
+interface Trip {
+  id: string;
+  tourName: string;
+  destination: string;
+  user: {
+    name: string | null;
+    email: string | null;
+  } | null;
+  startDate: Date;
+  endDate: Date;
+  tourStatus: string;
+  budgetMin: number;
+  budgetMax: number;
+  createdAt: Date;
+}
 
 export default function TripsPage() {
   const [searchTerm, setSearchTerm] = useState("")
+  const [trips, setTrips] = useState<Trip[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchTrips = async () => {
+      try {
+        const result = await getTrips()
+        if (result.success) {
+          setTrips(result.trips)
+        } else {
+          toast.error("Failed to fetch trips")
+        }
+      } catch (error) {
+        toast.error("An error occurred while fetching trips")
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchTrips()
+  }, [])
 
   const filteredTrips = trips.filter(
     (trip) =>
       trip.tourName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       trip.destination.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (trip.userName && trip.userName.toLowerCase().includes(searchTerm.toLowerCase())),
+      (trip.user?.name && trip.user.name.toLowerCase().includes(searchTerm.toLowerCase()))
   )
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "Approved":
+      case "Scheduled":
         return "default"
       case "Pending Approval":
         return "secondary"
-      case "Available":
-        return "outline"
       case "Completed":
-        return "default"
+        return "outline"
       default:
         return "secondary"
     }
@@ -83,6 +78,10 @@ export default function TripsPage() {
     // Implement soft delete logic
   }
 
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
@@ -91,7 +90,7 @@ export default function TripsPage() {
           <p className="text-muted-foreground">Manage trip packages and assignments</p>
         </div>
         <Link href="/admin/trips/create">
-          <Button>
+          <Button className="bg-slate-800 hover:bg-slate-700 text-white">
             <Plus className="mr-2 h-4 w-4" />
             Create Trip
           </Button>
@@ -133,10 +132,10 @@ export default function TripsPage() {
                   <TableCell className="font-medium">{trip.tourName}</TableCell>
                   <TableCell>{trip.destination}</TableCell>
                   <TableCell>
-                    {trip.userName ? (
+                    {trip.user ? (
                       <div>
-                        <div className="font-medium">{trip.userName}</div>
-                        <div className="text-sm text-muted-foreground">{trip.userEmail}</div>
+                        <div className="font-medium">{trip.user.name}</div>
+                        <div className="text-sm text-muted-foreground">{trip.user.email}</div>
                       </div>
                     ) : (
                       <Badge variant="outline">Unassigned</Badge>
@@ -144,8 +143,8 @@ export default function TripsPage() {
                   </TableCell>
                   <TableCell>
                     <div className="text-sm">
-                      <div>{trip.startDate}</div>
-                      <div className="text-muted-foreground">to {trip.endDate}</div>
+                      <div>{format(new Date(trip.startDate), "MMM d, yyyy")}</div>
+                      <div className="text-muted-foreground">to {format(new Date(trip.endDate), "MMM d, yyyy")}</div>
                     </div>
                   </TableCell>
                   <TableCell>
@@ -154,7 +153,7 @@ export default function TripsPage() {
                   <TableCell>
                     <Badge variant={getStatusColor(trip.tourStatus)}>{trip.tourStatus}</Badge>
                   </TableCell>
-                  <TableCell>{trip.createdAt}</TableCell>
+                  <TableCell>{format(new Date(trip.createdAt), "MMM d, yyyy")}</TableCell>
                   <TableCell className="text-right">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
@@ -175,7 +174,7 @@ export default function TripsPage() {
                             Edit
                           </Link>
                         </DropdownMenuItem>
-                        {!trip.userName && (
+                        {!trip.user && (
                           <DropdownMenuItem asChild>
                             <Link href={`/admin/trips/${trip.id}/assign`}>
                               <UserPlus className="mr-2 h-4 w-4" />
