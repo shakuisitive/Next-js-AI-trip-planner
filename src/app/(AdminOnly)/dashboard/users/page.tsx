@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -23,6 +25,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   MoreHorizontal,
   Plus,
   Search,
@@ -33,30 +42,53 @@ import {
 import Link from "next/link";
 import { prisma } from "@/lib/db/prisma";
 import { format } from "date-fns";
+import { useState, useEffect } from "react";
 
-async function getUsers() {
-  try {
-    const users = await prisma.user.findMany({
-      where: {
-        role: "user",
-      },
-      include: {
-        trips: true,
-      },
-      orderBy: {
-        name: "desc", // Sorts by name in ascending order
-      },
-    });
-    return users;
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    return [];
-  }
+interface Trip {
+  id: string;
+  // Add other trip properties as needed
 }
 
-export default async function UsersPage() {
-  const users = await getUsers();
-  console.log("12 28 is", users);
+interface User {
+  id: string;
+  name: string | null;
+  email: string | null;
+  role: string;
+  status: boolean;
+  createdAt: Date;
+  trips: Trip[];
+}
+
+type SearchField = "name" | "email";
+
+export default function UsersPage() {
+  const [users, setUsers] = useState<User[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchField, setSearchField] = useState<SearchField>("name");
+  const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("/api/users");
+        const data = await response.json();
+        setUsers(data);
+        setFilteredUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+    fetchUsers();
+  }, []);
+
+  useEffect(() => {
+    const filtered = users.filter((user) => {
+      const fieldValue = user[searchField]?.toLowerCase() || "";
+      return fieldValue.includes(searchQuery.toLowerCase());
+    });
+    setFilteredUsers(filtered);
+  }, [searchQuery, searchField, users]);
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
@@ -82,7 +114,24 @@ export default async function UsersPage() {
         <CardContent>
           <div className="flex items-center space-x-2 mb-4">
             <Search className="h-4 w-4 text-muted-foreground" />
-            <Input placeholder="Search users..." className="max-w-sm" />
+            <Select
+              value={searchField}
+              onValueChange={(value: SearchField) => setSearchField(value)}
+            >
+              <SelectTrigger className="w-[120px]">
+                <SelectValue placeholder="Search by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="name">Name</SelectItem>
+                <SelectItem value="email">Email</SelectItem>
+              </SelectContent>
+            </Select>
+            <Input
+              placeholder={`Search by ${searchField}...`}
+              className="max-w-sm"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
 
           <Table>
@@ -98,7 +147,7 @@ export default async function UsersPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {users.map((user) => (
+              {filteredUsers.map((user) => (
                 <TableRow key={user.id}>
                   <TableCell className="font-medium">
                     {user.name || "N/A"}
@@ -109,11 +158,11 @@ export default async function UsersPage() {
                   </TableCell>
                   <TableCell>
                     <Badge
-                      className={
+                      className={`${
                         user.status
-                          ? "bg-green-500 text-white"
-                          : "bg-red-500 text-white"
-                      }
+                          ? "bg-green-500 hover:bg-green-500"
+                          : "bg-red-500 hover:bg-red-500"
+                      } text-white`}
                     >
                       {user.status ? "Active" : "Inactive"}
                     </Badge>
