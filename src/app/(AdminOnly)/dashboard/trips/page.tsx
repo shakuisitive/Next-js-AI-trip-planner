@@ -240,26 +240,26 @@ export default function TripsPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Scheduled":
-        return "default";
+        return "bg-blue-500 text-white";
       case "Pending Approval":
-        return "secondary";
+        return "bg-yellow-500 text-white";
       case "Completed":
-        return "outline";
+        return "bg-green-500 text-white";
       default:
-        return "secondary";
+        return "bg-gray-500 text-white";
     }
   };
 
   const getStatusStyle = (status: string) => {
     switch (status) {
       case "Scheduled":
-        return "bg-blue-100 text-blue-700";
+        return "bg-blue-500 hover:bg-blue-600";
       case "Pending Approval":
-        return "bg-yellow-100 text-yellow-700";
+        return "bg-yellow-500 hover:bg-yellow-600";
       case "Completed":
-        return "bg-green-100 text-green-700";
+        return "bg-green-500 hover:bg-green-600";
       default:
-        return "bg-slate-100 text-slate-700";
+        return "bg-gray-500 hover:bg-gray-600";
     }
   };
 
@@ -389,6 +389,29 @@ export default function TripsPage() {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const handleStatusChange = async (tripId: string, newStatus: string) => {
+    setIsUpdating(tripId);
+    try {
+      const result = await updateTripDetails(tripId, { tourStatus: newStatus });
+      if (result.success) {
+        setTrips(
+          trips.map((trip) =>
+            trip.id === tripId
+              ? { ...trip, tourStatus: newStatus }
+              : trip
+          )
+        );
+        toast.success("Tour status updated successfully");
+      } else {
+        toast.error("Failed to update tour status");
+      }
+    } catch (error) {
+      toast.error("An error occurred while updating tour status");
+    } finally {
+      setIsUpdating(null);
+    }
   };
 
   if (isLoading) {
@@ -625,12 +648,45 @@ export default function TripsPage() {
                     </div>
                   </TableCell>
                   <TableCell className="text-center">
-                    <Badge
-                      variant={getStatusColor(trip.tourStatus ?? "")}
-                      className={getStatusStyle(trip.tourStatus ?? "")}
-                    >
-                      {trip.tourStatus}
-                    </Badge>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button 
+                          variant="ghost" 
+                          className={`${getStatusStyle(trip.tourStatus ?? "")} text-white hover:bg-opacity-90`}
+                        >
+                          {trip.tourStatus || "Pending Approval"}
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="center" className="w-[200px]">
+                        <DropdownMenuItem
+                          onClick={() => handleStatusChange(trip.id, "Pending Approval")}
+                          disabled={isUpdating === trip.id}
+                          className="flex items-center justify-center py-2 cursor-pointer"
+                        >
+                          <div className="w-full bg-yellow-500 text-white py-1.5 px-3 rounded-md text-center hover:bg-yellow-600 transition-colors">
+                            Pending Approval
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => handleStatusChange(trip.id, "Scheduled")}
+                          disabled={isUpdating === trip.id}
+                          className="flex items-center justify-center py-2 cursor-pointer"
+                        >
+                          <div className="w-full bg-blue-500 text-white py-1.5 px-3 rounded-md text-center hover:bg-blue-600 transition-colors">
+                            Scheduled
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => handleStatusChange(trip.id, "Completed")}
+                          disabled={isUpdating === trip.id}
+                          className="flex items-center justify-center py-2 cursor-pointer"
+                        >
+                          <div className="w-full bg-green-500 text-white py-1.5 px-3 rounded-md text-center hover:bg-green-600 transition-colors">
+                            Completed
+                          </div>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </TableCell>
                   <TableCell className="text-center">
                     <Badge
@@ -864,12 +920,14 @@ export default function TripsPage() {
                 setIsEditModalOpen(false);
                 setEditingTrip(null);
               }}
+              className="text-gray-900"
             >
               Cancel
             </Button>
             <Button
               onClick={handleSaveEdit}
               disabled={isUpdating === editingTrip?.id}
+              className="bg-blue-600 text-white hover:bg-blue-700"
             >
               {isUpdating === editingTrip?.id ? "Saving..." : "Save Changes"}
             </Button>

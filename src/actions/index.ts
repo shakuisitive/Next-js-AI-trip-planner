@@ -129,12 +129,27 @@ export async function getTrips() {
 
 export async function updateTripDetails(
   tripId: string,
-  updates: { tourName?: string }
+  updates: { 
+    tourName?: string; 
+    tourStatus?: string; 
+    startDate?: Date; 
+    endDate?: Date; 
+    budgetMin?: number; 
+    budgetMax?: number 
+  }
 ) {
   try {
     const updatedTrip = await prisma.trip.update({
       where: { id: tripId },
       data: updates,
+      include: {
+        user: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
     });
     return { success: true, trip: updatedTrip };
   } catch (error) {
