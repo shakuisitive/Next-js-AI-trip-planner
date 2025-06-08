@@ -47,7 +47,11 @@ import Link from "next/link";
 import { prisma } from "@/lib/db/prisma";
 import { format } from "date-fns";
 import { useState, useEffect } from "react";
-import { updateUserRoleAndStatus, updateUserDetails, deleteUser } from "@/actions";
+import {
+  updateUserRoleAndStatus,
+  updateUserDetails,
+  deleteUser,
+} from "@/actions";
 import { toast } from "sonner";
 
 interface Trip {
@@ -109,7 +113,7 @@ export default function UsersPage() {
     // Sort the filtered users
     const sorted = [...filtered].sort((a, b) => {
       let comparison = 0;
-      
+
       switch (sortField) {
         case "name":
           comparison = (a.name || "").localeCompare(b.name || "");
@@ -121,15 +125,21 @@ export default function UsersPage() {
           comparison = (a.role || "").localeCompare(b.role || "");
           break;
         case "status":
-          comparison = (a.status === b.status) ? 0 : a.status ? 1 : -1;
+          comparison = a.status === b.status ? 0 : a.status ? 1 : -1;
           break;
         case "trips":
           comparison = (a.trips?.length || 0) - (b.trips?.length || 0);
           break;
         case "createdAt":
           // Convert string dates to Date objects if needed
-          const dateA = typeof a.createdAt === 'string' ? new Date(a.createdAt) : a.createdAt;
-          const dateB = typeof b.createdAt === 'string' ? new Date(b.createdAt) : b.createdAt;
+          const dateA =
+            typeof a.createdAt === "string"
+              ? new Date(a.createdAt)
+              : a.createdAt;
+          const dateB =
+            typeof b.createdAt === "string"
+              ? new Date(b.createdAt)
+              : b.createdAt;
           comparison = dateA.getTime() - dateB.getTime();
           break;
       }
@@ -145,9 +155,11 @@ export default function UsersPage() {
     try {
       const result = await updateUserRoleAndStatus(userId, { role: newRole });
       if (result.success) {
-        setUsers(users.map(user => 
-          user.id === userId ? { ...user, role: newRole } : user
-        ));
+        setUsers(
+          users.map((user) =>
+            user.id === userId ? { ...user, role: newRole } : user
+          )
+        );
         toast.success("Role updated successfully");
       } else {
         toast.error("Failed to update role");
@@ -162,16 +174,26 @@ export default function UsersPage() {
   const handleStatusChange = async (userId: string, newStatus: boolean) => {
     setIsUpdating(userId);
     try {
-      const result = await updateUserRoleAndStatus(userId, { status: newStatus });
+      const result = await updateUserRoleAndStatus(userId, {
+        status: newStatus,
+      });
       if (result.success) {
-        setUsers(users.map(user => 
-          user.id === userId ? { 
-            ...user, 
-            status: newStatus,
-            deletedAt: newStatus ? null : new Date()
-          } : user
-        ));
-        toast.success(newStatus ? "User activated successfully" : "User deactivated successfully");
+        setUsers(
+          users.map((user) =>
+            user.id === userId
+              ? {
+                  ...user,
+                  status: newStatus,
+                  deletedAt: newStatus ? null : new Date(),
+                }
+              : user
+          )
+        );
+        toast.success(
+          newStatus
+            ? "User activated successfully"
+            : "User deactivated successfully"
+        );
       } else {
         toast.error("Failed to update status");
       }
@@ -191,7 +213,11 @@ export default function UsersPage() {
     }
   };
 
-  const handleStartEditing = (userId: string, field: "name" | "email", currentValue: string) => {
+  const handleStartEditing = (
+    userId: string,
+    field: "name" | "email",
+    currentValue: string
+  ) => {
     setEditingUser({ id: userId, field, value: currentValue });
   };
 
@@ -205,18 +231,24 @@ export default function UsersPage() {
     setIsUpdating(editingUser.id);
     try {
       const updates = {
-        [editingUser.field]: editingUser.value
+        [editingUser.field]: editingUser.value,
       };
-      
+
       const result = await updateUserDetails(editingUser.id, updates);
-      
+
       if (result.success) {
-        setUsers(users.map(user => 
-          user.id === editingUser.id 
-            ? { ...user, [editingUser.field]: editingUser.value }
-            : user
-        ));
-        toast.success(`${editingUser.field === 'name' ? 'Name' : 'Email'} updated successfully`);
+        setUsers(
+          users.map((user) =>
+            user.id === editingUser.id
+              ? { ...user, [editingUser.field]: editingUser.value }
+              : user
+          )
+        );
+        toast.success(
+          `${
+            editingUser.field === "name" ? "Name" : "Email"
+          } updated successfully`
+        );
         setEditingUser(null);
       } else {
         toast.error(`Failed to update ${editingUser.field}`);
@@ -233,9 +265,13 @@ export default function UsersPage() {
     try {
       const result = await deleteUser(userId);
       if (result.success) {
-        setUsers(users.map(user => 
-          user.id === userId ? { ...user, status: false, deletedAt: new Date() } : user
-        ));
+        setUsers(
+          users.map((user) =>
+            user.id === userId
+              ? { ...user, status: false, deletedAt: new Date() }
+              : user
+          )
+        );
         toast.success("User deleted successfully");
       } else {
         toast.error("Failed to delete user");
@@ -256,7 +292,7 @@ export default function UsersPage() {
             Manage user accounts and permissions
           </p>
         </div>
-        <Link href="/admin/users/create">
+        <Link href="/dashboard/users/create">
           <Button className="bg-slate-800 hover:bg-slate-700 text-white">
             <Plus className="mr-2 h-4 w-4" />
             Add User
@@ -360,19 +396,25 @@ export default function UsersPage() {
             </TableHeader>
             <TableBody>
               {filteredUsers.map((user) => (
-                <TableRow 
-                  key={user.id}
-                  className="group relative"
-                >
-                  <TableCell 
+                <TableRow key={user.id} className="group relative">
+                  <TableCell
                     className="text-center cursor-pointer hover:bg-slate-50 transition-colors"
-                    onClick={() => !editingUser && handleStartEditing(user.id, "name", user.name || "")}
+                    onClick={() =>
+                      !editingUser &&
+                      handleStartEditing(user.id, "name", user.name || "")
+                    }
                   >
-                    {editingUser?.id === user.id && editingUser.field === "name" ? (
+                    {editingUser?.id === user.id &&
+                    editingUser.field === "name" ? (
                       <div className="flex items-center justify-center gap-2">
                         <Input
                           value={editingUser.value}
-                          onChange={(e) => setEditingUser({ ...editingUser, value: e.target.value })}
+                          onChange={(e) =>
+                            setEditingUser({
+                              ...editingUser,
+                              value: e.target.value,
+                            })
+                          }
                           className="w-[200px]"
                           disabled={isUpdating === user.id}
                           autoFocus
@@ -410,15 +452,24 @@ export default function UsersPage() {
                       </div>
                     )}
                   </TableCell>
-                  <TableCell 
+                  <TableCell
                     className="text-center cursor-pointer hover:bg-slate-50 transition-colors"
-                    onClick={() => !editingUser && handleStartEditing(user.id, "email", user.email || "")}
+                    onClick={() =>
+                      !editingUser &&
+                      handleStartEditing(user.id, "email", user.email || "")
+                    }
                   >
-                    {editingUser?.id === user.id && editingUser.field === "email" ? (
+                    {editingUser?.id === user.id &&
+                    editingUser.field === "email" ? (
                       <div className="flex items-center justify-center gap-2">
                         <Input
                           value={editingUser.value}
-                          onChange={(e) => setEditingUser({ ...editingUser, value: e.target.value })}
+                          onChange={(e) =>
+                            setEditingUser({
+                              ...editingUser,
+                              value: e.target.value,
+                            })
+                          }
                           className="w-[200px]"
                           type="email"
                           disabled={isUpdating === user.id}
@@ -460,7 +511,9 @@ export default function UsersPage() {
                   <TableCell className="text-center">
                     <Select
                       value={user.role}
-                      onValueChange={(value) => handleRoleChange(user.id, value)}
+                      onValueChange={(value) =>
+                        handleRoleChange(user.id, value)
+                      }
                       disabled={isUpdating === user.id}
                     >
                       <SelectTrigger className="w-[100px] mx-auto">
@@ -476,7 +529,9 @@ export default function UsersPage() {
                     <div className="flex items-center justify-center space-x-2">
                       <Switch
                         checked={user.status}
-                        onCheckedChange={(checked) => handleStatusChange(user.id, checked)}
+                        onCheckedChange={(checked) =>
+                          handleStatusChange(user.id, checked)
+                        }
                         disabled={isUpdating === user.id}
                         className="data-[state=checked]:bg-green-600 data-[state=unchecked]:bg-gray-300"
                       />
@@ -485,7 +540,9 @@ export default function UsersPage() {
                       </span>
                     </div>
                   </TableCell>
-                  <TableCell className="text-center">{user?.trips?.length}</TableCell>
+                  <TableCell className="text-center">
+                    {user?.trips?.length}
+                  </TableCell>
                   <TableCell className="text-center">
                     {format(new Date(user.createdAt), "MMM d, yyyy")}
                   </TableCell>
@@ -509,7 +566,7 @@ export default function UsersPage() {
                             Assign Trip
                           </Link>
                         </DropdownMenuItem>
-                        <DropdownMenuItem 
+                        <DropdownMenuItem
                           className="text-red-600"
                           onClick={() => handleDeleteUser(user.id)}
                           disabled={isDeleting === user.id}
