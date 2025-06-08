@@ -6,6 +6,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import Cookies from 'js-cookie';
 
 interface User {
   name: string | null;
@@ -55,8 +56,14 @@ export function CredentialsContextProvider({
         "loggedInViaCrdentials",
         JSON.stringify(loggedInViaCrdentials)
       );
+      Cookies.set('loggedInViaCrdentials', JSON.stringify(loggedInViaCrdentials), { 
+        expires: 7, // 7 days
+        path: '/',
+        sameSite: 'strict'
+      });
     } else {
       localStorage.removeItem("loggedInViaCrdentials");
+      Cookies.remove('loggedInViaCrdentials', { path: '/' });
     }
   }, [loggedInViaCrdentials]);
 
@@ -66,8 +73,14 @@ export function CredentialsContextProvider({
         "credentialsLoggedInUserInfo",
         JSON.stringify(credentialsLoggedInUserInfo)
       );
+      Cookies.set('credentialsLoggedInUserInfo', JSON.stringify(credentialsLoggedInUserInfo), {
+        expires: 7, // 7 days
+        path: '/',
+        sameSite: 'strict'
+      });
     } else {
       localStorage.removeItem("credentialsLoggedInUserInfo");
+      Cookies.remove('credentialsLoggedInUserInfo', { path: '/' });
     }
   }, [credentialsLoggedInUserInfo]);
 

@@ -4,17 +4,32 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TripsDisplay from "@/components/TripsDisplay";
 import { Plane } from "lucide-react";
+import { cookies } from "next/headers";
 
 async function AllTrips() {
   const session = await auth();
+  const cookieStore = cookies();
+  
+  // Check OAuth authentication
+  const isOAuthAuthenticated = !!session?.user?.id;
+  
+  // Check credentials authentication
+  const loggedInViaCredentials = cookieStore.get("loggedInViaCrdentials")?.value === "true";
+  const credentialsUserInfo = cookieStore.get("credentialsLoggedInUserInfo")?.value;
+  const credentialsUserId = credentialsUserInfo ? JSON.parse(credentialsUserInfo).id : null;
+  const isCredentialsAuthenticated = loggedInViaCredentials && credentialsUserId;
 
-  if (!session?.user?.id) {
+  // Check if user is authenticated via either method
+  if (!isOAuthAuthenticated && !isCredentialsAuthenticated) {
     throw new Error("You must be authorized to get the data.");
   }
 
+  // Use either OAuth user ID or credentials user ID
+  const userId = session?.user?.id || credentialsUserId;
+
   let allTrips = await prisma.trip.findMany({
     where: {
-      userId: session?.user?.id,
+      userId: userId,
     },
   });
 
@@ -46,7 +61,8 @@ async function AllTrips() {
                 <h1 className="text-4xl font-bold">Your Trips</h1>
               </div>
               <p className="text-lg text-purple-100 max-w-2xl">
-                Explore all your planned adventures. Click on any trip to view its detailed itinerary and make changes.
+                Explore all your planned adventures. Click on any trip to view
+                its detailed itinerary and make changes.
               </p>
             </div>
           </div>
@@ -66,7 +82,9 @@ async function AllTrips() {
         <Header />
         <main className="flex-grow flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Something went wrong</h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+              Something went wrong
+            </h1>
             <p className="text-gray-600">Please try again later</p>
           </div>
         </main>
