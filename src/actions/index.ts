@@ -84,6 +84,26 @@ export async function deleteUser(userId: string) {
   }
 }
 
+interface TripWithUser {
+  id: string;
+  tourName: string;
+  destination: string;
+  user: {
+    name: string | null;
+    email: string | null;
+  } | null;
+  startDate: Date;
+  endDate: Date;
+  tourStatus: string;
+  status: boolean | null;
+  budgetMin: number;
+  budgetMax: number;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date | null;
+  userId: string;
+}
+
 export async function getTrips() {
   try {
     const trips = await prisma.trip.findMany({
@@ -99,8 +119,8 @@ export async function getTrips() {
         createdAt: "desc",
       },
     });
-    console.log("here is the trips 10 59", trips);
-    return { success: true, trips };
+    
+    return { success: true, trips: trips as TripWithUser[] };
   } catch (error) {
     console.error("Error fetching trips:", error);
     return { success: false, error: "Failed to fetch trips" };

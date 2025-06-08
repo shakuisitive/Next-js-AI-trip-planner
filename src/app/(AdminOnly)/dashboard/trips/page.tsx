@@ -12,6 +12,13 @@ import Link from "next/link"
 import { getTrips } from "@/actions"
 import { format } from "date-fns"
 import { toast } from "sonner"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 interface Trip {
   id: string;
@@ -24,13 +31,20 @@ interface Trip {
   startDate: Date;
   endDate: Date;
   tourStatus: string;
+  status: boolean | null;
   budgetMin: number;
   budgetMax: number;
   createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date | null;
+  userId: string;
 }
+
+type SearchField = "tourName" | "destination" | "user";
 
 export default function TripsPage() {
   const [searchTerm, setSearchTerm] = useState("")
+  const [searchField, setSearchField] = useState<SearchField>("tourName")
   const [trips, setTrips] = useState<Trip[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -38,7 +52,7 @@ export default function TripsPage() {
     const fetchTrips = async () => {
       try {
         const result = await getTrips()
-        if (result.success) {
+        if (result.success && result.trips) {
           setTrips(result.trips)
         } else {
           toast.error("Failed to fetch trips")
@@ -53,12 +67,23 @@ export default function TripsPage() {
     fetchTrips()
   }, [])
 
-  const filteredTrips = trips.filter(
-    (trip) =>
-      trip.tourName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      trip.destination.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (trip.user?.name && trip.user.name.toLowerCase().includes(searchTerm.toLowerCase()))
-  )
+  const filteredTrips = trips.filter((trip) => {
+    const searchTermLower = searchTerm.toLowerCase()
+    
+    switch (searchField) {
+      case "tourName":
+        return trip.tourName.toLowerCase().includes(searchTermLower)
+      case "destination":
+        return trip.destination.toLowerCase().includes(searchTermLower)
+      case "user":
+        return (
+          (trip.user?.name?.toLowerCase().includes(searchTermLower) ?? false) ||
+          (trip.user?.email?.toLowerCase().includes(searchTermLower) ?? false)
+        )
+      default:
+        return true
+    }
+  })
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -105,11 +130,24 @@ export default function TripsPage() {
         <CardContent>
           <div className="flex items-center space-x-2 mb-4">
             <Search className="h-4 w-4 text-muted-foreground" />
+            <Select
+              value={searchField}
+              onValueChange={(value: SearchField) => setSearchField(value)}
+            >
+              <SelectTrigger className="w-[150px]">
+                <SelectValue placeholder="Search by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="tourName">Tour Name</SelectItem>
+                <SelectItem value="destination">Destination</SelectItem>
+                <SelectItem value="user">User</SelectItem>
+              </SelectContent>
+            </Select>
             <Input
-              placeholder="Search trips..."
+              placeholder={`Search by ${searchField === "user" ? "user name or email" : searchField}...`}
+              className="max-w-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-sm"
             />
           </div>
 
@@ -121,6 +159,7 @@ export default function TripsPage() {
                 <TableHead>Assigned User</TableHead>
                 <TableHead>Dates</TableHead>
                 <TableHead>Budget Range</TableHead>
+                <TableHead>Tour Status</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Created</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -152,6 +191,11 @@ export default function TripsPage() {
                   </TableCell>
                   <TableCell>
                     <Badge variant={getStatusColor(trip.tourStatus)}>{trip.tourStatus}</Badge>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant={trip.status ? "default" : "secondary"}>
+                      {trip.status ? "Active" : "Inactive"}
+                    </Badge>
                   </TableCell>
                   <TableCell>{format(new Date(trip.createdAt), "MMM d, yyyy")}</TableCell>
                   <TableCell className="text-right">
