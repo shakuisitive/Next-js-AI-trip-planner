@@ -344,26 +344,26 @@ export default function TripsPage() {
                   <TableCell className="text-center">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0 hover:bg-slate-100">
+                        <Button variant="ghost" className="h-8 w-8 p-0">
                           <MoreHorizontal className="h-4 w-4" />
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem asChild>
-                          <Link href={`/admin/trips/${trip.id}`} className="hover:bg-slate-100">
+                          <Link href={`/admin/trips/${trip.id}`}>
                             <Eye className="mr-2 h-4 w-4" />
                             View Details
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                          <Link href={`/admin/trips/${trip.id}/edit`} className="hover:bg-slate-100">
+                          <Link href={`/admin/trips/${trip.id}/edit`}>
                             <Edit className="mr-2 h-4 w-4" />
                             Edit
                           </Link>
                         </DropdownMenuItem>
                         {!trip.user && (
                           <DropdownMenuItem asChild>
-                            <Link href={`/admin/trips/${trip.id}/assign`} className="hover:bg-slate-100">
+                            <Link href={`/admin/trips/${trip.id}/assign`}>
                               <UserPlus className="mr-2 h-4 w-4" />
                               Assign User
                             </Link>
@@ -371,7 +371,7 @@ export default function TripsPage() {
                         )}
                         <DropdownMenuItem 
                           onClick={() => handleDeleteTrip(trip.id)} 
-                          className="text-red-600 hover:bg-red-50"
+                          className="text-red-600"
                         >
                           <Trash2 className="mr-2 h-4 w-4" />
                           Delete
