@@ -79,8 +79,7 @@ const TravelPlannerForm = () => {
     // START
 
     async function generateWeatherSummary() {
-      const url =
-        "https://api.weatherapi.com/v1/forecast.json?key=87bb76296c2640b48aa233810250506&q=51.5074,-0.1278&days=14";
+      const url = `https://api.weatherapi.com/v1/forecast.json?key=87bb76296c2640b48aa233810250506&q=${latitdue},${longitude}&days=14`;
 
       try {
         const res = await fetch(url);
