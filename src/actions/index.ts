@@ -126,3 +126,16 @@ export async function getTrips() {
     return { success: false, error: "Failed to fetch trips" };
   }
 }
+
+export async function updateTripDetails(tripId: string, updates: { tourName?: string }) {
+  try {
+    const updatedTrip = await prisma.trip.update({
+      where: { id: tripId },
+      data: updates
+    });
+    return { success: true, trip: updatedTrip };
+  } catch (error) {
+    console.error("Error updating trip details:", error);
+    return { success: false, error: "Failed to update trip details" };
+  }
+}

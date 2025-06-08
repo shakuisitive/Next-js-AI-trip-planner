@@ -7,9 +7,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { MoreHorizontal, Plus, Search, Edit, Trash2, Eye, UserPlus, ArrowUpDown } from "lucide-react"
+import { MoreHorizontal, Plus, Search, Edit, Trash2, Eye, UserPlus, ArrowUpDown, Check, X } from "lucide-react"
 import Link from "next/link"
-import { getTrips } from "@/actions"
+import { getTrips, updateTripDetails } from "@/actions"
 import { format } from "date-fns"
 import { toast } from "sonner"
 import {
@@ -40,6 +40,12 @@ interface Trip {
   userId: string;
 }
 
+interface EditingTrip {
+  id: string;
+  field: "tourName";
+  value: string;
+}
+
 type SearchField = "tourName" | "destination" | "user";
 type SortField = "tourName" | "destination" | "startDate" | "budgetMin" | "tourStatus" | "status" | "createdAt" | "userName";
 type SortOrder = "asc" | "desc";
@@ -51,6 +57,8 @@ export default function TripsPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [sortField, setSortField] = useState<SortField>("createdAt")
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc")
+  const [editingTrip, setEditingTrip] = useState<EditingTrip | null>(null);
+  const [isUpdating, setIsUpdating] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchTrips = async () => {
@@ -163,6 +171,45 @@ export default function TripsPage() {
     console.log("Soft deleting trip:", tripId)
     // Implement soft delete logic
   }
+
+  const handleStartEditing = (tripId: string, field: "tourName", currentValue: string) => {
+    setEditingTrip({ id: tripId, field, value: currentValue });
+  };
+
+  const handleCancelEditing = () => {
+    setEditingTrip(null);
+  };
+
+  const handleSaveEdit = async () => {
+    if (!editingTrip) return;
+
+    setIsUpdating(editingTrip.id);
+    try {
+      const updates = {
+        [editingTrip.field]: editingTrip.value,
+      };
+
+      const result = await updateTripDetails(editingTrip.id, updates);
+
+      if (result.success) {
+        setTrips(
+          trips.map((trip) =>
+            trip.id === editingTrip.id
+              ? { ...trip, [editingTrip.field]: editingTrip.value }
+              : trip
+          )
+        );
+        toast.success("Trip name updated successfully");
+        setEditingTrip(null);
+      } else {
+        toast.error("Failed to update trip name");
+      }
+    } catch (error) {
+      toast.error("An error occurred while updating");
+    } finally {
+      setIsUpdating(null);
+    }
+  };
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -301,7 +348,57 @@ export default function TripsPage() {
             <TableBody>
               {sortedTrips.map((trip) => (
                 <TableRow key={trip.id}>
-                  <TableCell className="text-center">{trip.tourName}</TableCell>
+                  <TableCell 
+                    className="text-center cursor-pointer hover:bg-slate-50 transition-colors"
+                    onClick={() => !editingTrip && handleStartEditing(trip.id, "tourName", trip.tourName)}
+                  >
+                    {editingTrip?.id === trip.id && editingTrip.field === "tourName" ? (
+                      <div className="flex items-center justify-center gap-2 h-8">
+                        <Input
+                          value={editingTrip.value}
+                          onChange={(e) =>
+                            setEditingTrip({
+                              ...editingTrip,
+                              value: e.target.value,
+                            })
+                          }
+                          className="w-[200px] h-8"
+                          disabled={isUpdating === trip.id}
+                          autoFocus
+                        />
+                        <div className="flex gap-1">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSaveEdit();
+                            }}
+                            disabled={isUpdating === trip.id}
+                            className="h-7 w-7 p-0"
+                          >
+                            <Check className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleCancelEditing();
+                            }}
+                            disabled={isUpdating === trip.id}
+                            className="h-7 w-7 p-0"
+                          >
+                            <X className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center h-8">
+                        <span className="text-sm">{trip.tourName}</span>
+                      </div>
+                    )}
+                  </TableCell>
                   <TableCell className="text-center">{trip.destination}</TableCell>
                   <TableCell className="text-center">
                     {trip.user ? (

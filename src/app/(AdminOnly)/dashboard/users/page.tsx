@@ -421,7 +421,7 @@ export default function UsersPage() {
                   >
                     {editingUser?.id === user.id &&
                     editingUser.field === "name" ? (
-                      <div className="flex items-center justify-center gap-2">
+                      <div className="flex items-center justify-center gap-2 h-8">
                         <Input
                           value={editingUser.value}
                           onChange={(e) =>
@@ -430,7 +430,7 @@ export default function UsersPage() {
                               value: e.target.value,
                             })
                           }
-                          className="w-[200px]"
+                          className="w-[200px] h-8"
                           disabled={isUpdating === user.id}
                           autoFocus
                         />
@@ -443,9 +443,9 @@ export default function UsersPage() {
                               handleSaveEdit();
                             }}
                             disabled={isUpdating === user.id}
-                            className="h-7 px-2"
+                            className="h-7 w-7 p-0"
                           >
-                            Save
+                            <Check className="h-4 w-4" />
                           </Button>
                           <Button
                             variant="ghost"
@@ -455,14 +455,14 @@ export default function UsersPage() {
                               handleCancelEditing();
                             }}
                             disabled={isUpdating === user.id}
-                            className="h-7 px-2"
+                            className="h-7 w-7 p-0"
                           >
-                            Cancel
+                            <X className="h-4 w-4" />
                           </Button>
                         </div>
                       </div>
                     ) : (
-                      <div className="flex items-center justify-center">
+                      <div className="flex items-center justify-center h-8">
                         <span className="text-sm">{user.name || "N/A"}</span>
                       </div>
                     )}
@@ -476,7 +476,7 @@ export default function UsersPage() {
                   >
                     {editingUser?.id === user.id &&
                     editingUser.field === "email" ? (
-                      <div className="flex items-center justify-center gap-2">
+                      <div className="flex items-center justify-center gap-2 h-8">
                         <Input
                           value={editingUser.value}
                           onChange={(e) =>
@@ -485,7 +485,7 @@ export default function UsersPage() {
                               value: e.target.value,
                             })
                           }
-                          className="w-[200px]"
+                          className="w-[200px] h-8"
                           type="email"
                           disabled={isUpdating === user.id}
                           autoFocus
@@ -499,9 +499,9 @@ export default function UsersPage() {
                               handleSaveEdit();
                             }}
                             disabled={isUpdating === user.id}
-                            className="h-7 px-2"
+                            className="h-7 w-7 p-0"
                           >
-                            Save
+                            <Check className="h-4 w-4" />
                           </Button>
                           <Button
                             variant="ghost"
@@ -511,14 +511,14 @@ export default function UsersPage() {
                               handleCancelEditing();
                             }}
                             disabled={isUpdating === user.id}
-                            className="h-7 px-2"
+                            className="h-7 w-7 p-0"
                           >
-                            Cancel
+                            <X className="h-4 w-4" />
                           </Button>
                         </div>
                       </div>
                     ) : (
-                      <div className="flex items-center justify-center">
+                      <div className="flex items-center justify-center h-8">
                         <span className="text-sm">{user.email || "N/A"}</span>
                       </div>
                     )}
