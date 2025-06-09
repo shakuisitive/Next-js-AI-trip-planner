@@ -388,3 +388,50 @@ export async function updateAccommodationTrip(accommodationId: string, tripId: s
     return { success: false, error: "Failed to update accommodation trip" };
   }
 }
+
+export async function createAccommodation(data: {
+  name: string;
+  type: string;
+  tripId: string;
+  rating: number;
+  pricePerNight: number;
+  description: string;
+  bookingUrl?: string;
+  image?: string;
+  amenities: string[];
+}) {
+  try {
+    const accommodation = await prisma.accommodation.create({
+      data: {
+        name: data.name,
+        type: data.type,
+        tripId: data.tripId,
+        rating: data.rating,
+        pricePerNight: data.pricePerNight,
+        description: data.description,
+        bookingUrl: data.bookingUrl,
+        image: data.image,
+        status: true,
+        amenities: {
+          create: data.amenities.map(name => ({ name }))
+        }
+      },
+      include: {
+        trip: {
+          select: {
+            tourName: true,
+          },
+        },
+        amenities: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+    return { success: true, accommodation };
+  } catch (error) {
+    console.error("Error creating accommodation:", error);
+    return { success: false, error: "Failed to create accommodation" };
+  }
+}
