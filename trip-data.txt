@@ -1,30 +1,27 @@
 {
   "data": {
     "userId": "68471c448abf0ea99ce5c555",
-    "tourName": "ktv1",
-    "destination": "Peshawar, Pakistan",
+    "tourName": "Burundi trip version 1",
+    "destination": "Burundi",
     "tourStatus": "Pending Approval",
-    "startDate": "2025-06-17T19:00:00.000Z",
-    "endDate": "2025-06-18T19:00:00.000Z",
-    "budgetMin": 500,
-    "budgetMax": 5000,
+    "startDate": "2025-06-10T00:00:00.000Z",
+    "endDate": "2025-06-12T00:00:00.000Z",
+    "budgetMin": 1600,
+    "budgetMax": 2800,
     "preferences": {
       "create": {
         "groupType": "couple",
         "travelStyle": "adventure",
-        "pace": "moderate"
+        "pace": "slow"
       }
     },
     "interests": {
       "create": [
         {
-          "interest": "shopping"
-        },
-        {
           "interest": "food"
         },
         {
-          "interest": "sports"
+          "interest": "culture"
         }
       ]
     },
@@ -32,17 +29,17 @@
       "create": [
         {
           "dayNumber": 1,
-          "date": "2025-06-17T19:00:00.000Z",
+          "date": "2025-06-10T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Emporium Mall",
+                "name": "Rusizi National Park",
                 "type": "attraction",
-                "description": "A large shopping mall with a wide range of brands, a cinema, and an indoor ice-skating rink.",
-                "location": "Saddar Town, Karachi",
+                "description": "Explore the diverse wildlife, including hippos, crocodiles, and various bird species, in this beautiful park along the Rusizi River.",
+                "location": "West of Bujumbura",
                 "timeOfDay": "morning",
-                "duration": "2",
-                "image": "https://images.unsplash.com/photo-1661769247453-098d2d287f44?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "duration": "3-4 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSTahZPxT5DGXDWfH3Fak0ySZmoSQaXgDWX4nCBLWhHvtWSSa89riWSr3vUxv_C5ECvv2G_fI4tx_DGGqmebWBekT7U6r5-hllWryitgWqltNeDJwzEm9cvSTnJLzdSGMO1xr5ca5DGFmKfXmpNBOEvO9Pcqj4gIIbqX-jXQaJtFz7LcsDWT_lvyVNwUnCicSqoPSUJNtKGTF13tQI6XzIrB8kJ51fk0mM_1HmCpRjBDOZ-9OlDrY1til8k-7P4k4lo2sNoOfi4wnJU_-kTqpuTnMeAsAqf9hSzooCzoxt3EKMUwGfw1wLqrfZhiLnuxb3Lfd1435uf-bvRbKgpU6nieNJzAqCST5kQw5EBdfLDw03iGFwWRYHgRftmmMdNx-XxqvcAVq5XAFR71M4xGFsiz3-H17m_VWrcUqbAhG0xig0GOYizKJtt8kxDJ_32xRuBDqV-omTp4cBnou-cZ88BPuRbf2sSGQ0zSzhML6RXdlNsOUM1wstsrU9-oREfwX9ClU7widP8hgF79iOWNavTClecZdFGRgW6T4p0hq6lpWkM2iiaIQcomt0gIEbzOwixAg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -50,17 +47,46 @@
                 }
               },
               {
-                "name": "Sakura",
+                "name": "Livingstone-Stanley Monument",
+                "type": "attraction",
+                "description": "Visit the historic site marking the meeting of explorers Livingstone and Stanley in 1871.",
+                "location": "Mugere, south of Bujumbura",
+                "timeOfDay": "afternoon",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSrAeu8IeYbjhXyy1AV1cVnWiTod4QCg88X7G5UQuVXqKkKzfk6F-DFPcvhECWMLEhqS_wKnk1uw8Y2CVOyJhvBwPwEt0m03i8KEIg-CYqJ0pj7qYdM0SYcRtpmamA4OM_licz-KdycYMw2WZMSwIvvdnIxd4pd5TXXhwtW1fMj9eYagTD_nF6DHDMM2lDJ9mQXEnxEAywLJ6uNAoxKui6jOfa4DBybLQdzd-jE68KYdcTHnc-xNRbOY2OBeDP-O-b3t2nanD5ruB_-qo3T4h9pchm3aKXjqNQI82RpUC-tOxgQCHTK8QMmrZ8P6-jH0uluUdoVOXqcYA7t19YReaasN2MumC0kZSmomVVyGjo95Af1MG_wKqQR8tHZO4st1sXJuNxycXGCgAEcqWj31kSMzO1qufT_yZ8KD4H42ferlqZgBbDmdgYp-XV8umuqiHF7bKoOYtxOO1GlvrhbRG-1mA8mu8j537AR77yJKfXF7OsrqLwjhBCXZ6b_SdxEA-965nAhl6MOVEY4Sf4XrVSYi04bUEwEottXENm2hGJunot5zXzKdyKw8eVCO-klK9oPwUrr&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Le Safran Restaurant",
                 "type": "restaurant",
-                "description": "Offers authentic Japanese cuisine including sushi, teppanyaki, and more.",
-                "location": "Pearl Continental Hotel, Karachi",
-                "timeOfDay": "evening",
-                "duration": "1",
-                "image": "https://images.unsplash.com/photo-1551829142-d9b8cf2c9232?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "description": "Enjoy a delicious lunch with both local and international dishes.",
+                "location": "Bujumbura",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTTIqZ3ICBaZoCKW5t6-9F5cdNsuBHfgkooyqRQWv7T0_uSxQG7Qg9tke6ELCSfiCXgnDkVLm1q23ETL3oIMU5woEkzD3MHgPfwczVjv1hSRtPyfaje9OiXySxHfERSqaoNlCKt5SDochdfJIBASp8vNhN01Xnt3VtzJLqEF-LpqtSXwZ93VDTa1awkColAXYDvxqndt_jV1-Im9a7EuAZntCuD5MwKWG254MFyD3NJTYkxxd-mlVA5kq5I9I5n57pnEbQFdjuHeaVurzg7qyCRSCzthD_nC8Pd-A87slckYfFR0ENuaaY3DwDk-sw3koCpXDTvLFHeJNEi0zKx90QrQx4gAoHjyUeCxz8mIvwxanzDbAKf-MJIUsA0q3zRwgCSJ4YwTQkh1hWWDKfVCYFLOiw5_eKhE9ugkEiApuwZkUQNEjOyv5ArwUJ__Vv3_kdmMbY4gl4_IR6ZSkdVDZER8MzMftl0njCbs6LtZt6bXgjSPt2p5EguuJ-wkqKcffmkoaHD1HtPfORcqjwBipZ2bM_C9L9a0OI1ixPNkXr-CfvjkZJ-jBm03vYlpmHj4nTY_5v115TF7w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Japanese",
-                    "priceRange": "100-200"
+                    "cuisine": "International, Burundian",
+                    "priceRange": "$$$"
+                  }
+                }
+              },
+              {
+                "name": "Chez Andre Restaurant",
+                "type": "restaurant",
+                "description": "Savor traditional Burundian cuisine for dinner in a cozy atmosphere.",
+                "location": "Bujumbura",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSMgGf7bhN_ztcq2wG6T3i0fpEIPGXRqGkJ00caTZ2pFVYTmbJ4S_Q_9ikCBTLeURHJSFk9vuNiz6HbZXzpmKryp28JMkIJj9bUulPVhoyppK7UyLN6OYO8u6ZPKhKk8vEfPWyMnUlymoKE146QYKpnu58QJD18Kyd1Q-AvNwHF4CEFLSiSGITQiduKQjjboFSiPTVne4ANfd_4QuyJdfoW_GIcB53FBKVbhq4vXaWVHSEnywweA2yZenMlxfYQhJOtYHfhd6Y8FsqC7_cFBDF_P0QC9qviBMSVWeSsomWGMTpytw98j6kWBWOFm--PoC0FTunvyGv5DYhB8aS_ABYtjtTZwha2mLs8pL9oZooWxKIAQGF3_CBstwiJDmBS3DK3M2Fkw3yCgburfRvMnIq3KcnwQzgR4InPCFspel3mJXonlm3oiRR-k1b37PwNpNZGaYc7IFml-HHv7uQ8tmjtELx9h419jZi3CdcWo9KulLjyWGJd4ApETRDyQsMP25d3qiCPoOqRS-U_od68brGbIicB5_muOZTLppV1TZ6LmLr1VVutL_CZhATlrm7AK6dyCrSe&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Burundian",
+                    "priceRange": "$$"
                   }
                 }
               }
@@ -68,7 +94,78 @@
           },
           "transportation": {
             "create": {
-              "description": "Ride-hailing services or taxi"
+              "description": "Taxi or private driver recommended"
+            }
+          }
+        },
+        {
+          "dayNumber": 2,
+          "date": "2025-06-11T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Source du Nil Blanc",
+                "type": "attraction",
+                "description": "Visit the southernmost source of the Nile River, a significant landmark with stunning natural beauty.",
+                "location": "Rutovu, Bururi Province",
+                "timeOfDay": "morning",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQTvwC6HwqOIa5mJGhZqunBAj-Erkp4xHARMq0BUrzS1H3y4IYRgqEGpdvkfQjCU5oyjm7K1h2IiSagnQ3Zsj3W42TAvPHohSa6EQY7QKr0KTQ_861pmrS5VO_Ge7OCQ2lonU5VAeIpQ-tFPXUls3D94CwzPwCVdF-EI1Ig319weNcFTdfF7BDKeWo0Be715mw44vST_Jim6sUyJ9l0bXQFQcFwCJFdY4ZGDtWCCILFH0Vyutmkd_TOutp_HAA0QYqO4fsxT8VOMxbKICxDRnLzj5gJZMoLD3MPc0hZHLopXMRSd3WDTmpzCzlm6rhn5-pYBe9UKihAkiiuMyf5cfXv1RPsK2hemyhdDtpIYN5SzoaxVHnPJn_iGH3RuJrBmHwie8c8eOT92cN_niO-nvcwdQ7WLn14lPH3-Tl-jfP98vLyCmPmlIv_Z39mECoJoLHw2N1QIDyjEokr5yPqMRA1zoMyf_GJltU8gg0IklMv6xFWW4xbiqIMnMsXou8DbBpWv2QzZTX_Y62whZu84cuW4T5MzKawd_teNrN1yVzLX5SdwCYXa6957dYx-meGYYPQokWg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Karera Waterfalls",
+                "type": "attraction",
+                "description": "Admire the picturesque Karera Waterfalls and enjoy the surrounding nature.",
+                "location": "Rutana Province",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSzt7k5KN8jog8JOULN52O2Bg81Pj6gNYIRj7a-Qj0WDBamqhiOqaZm-aePJSrCdSTTQ22wuBHWoxz8Vi1a5Ww0lBMkRmFZ4snxW8MFbYubmGX7VLDhzI0D7KnRCHXiUS0xjK7GVfbc44dytI7GEeX2IoFqZEKF-cI_RB3G0Qw5Kod4-ZmvWG8l5GEaYnWJ40Ekn1lpK08EAJ_o5Be1o4mnTkdrpsqCxwONHuOpBrRKDgHVkqWoY788_ek33W4NalvkOk1OLhkyrHCFPa2kL1j-dnGr-Wwha1C14M5KEshAAEVG_0hPu1_TORXK0xNW5_kA2OJldlBGkQTnSLXxcj4lIvj700bvvI1KFHjTbADbzRsmqndHPskd-rvQii3LBBOmB4RUNfe2a_fsvNyJnbisZ2mNsNaUY7YEP87b2OnbIDo3whCEKihxp-l8SVq9UmqhcBc_8w0g4nch2_e6xaMfMUx01ZWs_ujPBYFTyGKSdirhgGP3Yr43Lz36X4OCOEo2RvghgwRaXQJdkrEgKzxf7oB5KFlE7pP43QaNP6bHtUSQbCGL3iMdtuuChYHwwZ4K5Jc6U7srMQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Tanganyika Serena Hotel Restaurant",
+                "type": "restaurant",
+                "description": "Enjoy a buffet lunch with panoramic views of Lake Tanganyika.",
+                "location": "Bujumbura",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSL5GGHE45z3bPHq4NeQhg8NhgpvAy9TZizYsezS4C6eD1iK8GWlMiMIYu_JvrC14xjrI1MZYmm9wJF_V0ApGe4eMUJ2hJB7YICZpb3ltcJNwBgn98xUxGeb_PUXQCeJLns3T4tPidcZyfnbsa39Xy-pJB6ToDnN0Se05MoM09XiYJO5Iwp83xBmzGfOnm6_wC-3k5HGSV64kGpzBuGFcEVt5p-bE45fmxYl5OMTOmnJ0F8e23IHYzoxTJRlEVCLcZrokerx1pG25N22PwZPxUbzXwZsNhhinU__vTG29FKF0F6vpiolrIZsgtfaLVWBlzKZCnsUWr303w_8aARmud8WbY52obVFMZQ3k25krweewT45ZFSqu-vt0MToc_yuNy0p5BVS8vTHqazc4-GzlvzJivMGEng-De763h_CsrT0t---k1NDfbIjfYDKAsqagwnEtu41dbDNC2ebWy6rfcU0gDURfjhZYv997__BBOd4ZvZ0oP0tqEf8Y7wqL512ncynx_2FIU15AUNMDWIR5rbh1mYk3ha_nakIAB5BeTlBylRDVvHHERjSPM5LnM0pzQEYF5FQWB5Wg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "International",
+                    "priceRange": "$$$$"
+                  }
+                }
+              },
+              {
+                "name": "L'Orchidée Restaurant",
+                "type": "restaurant",
+                "description": "Experience fine dining with French-inspired cuisine in a sophisticated setting.",
+                "location": "Bujumbura",
+                "timeOfDay": "evening",
+                "duration": "2-2.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSwxkXloTjMdMeBEBCj8pcFLo9j0pkivXAfX1K_FqfVSKN4o_XOi491Ee1vEMVk34nz26hTI6uD8sTx-cs1kvm9eEYa1eZav5X6z0JOUSHmh4RwbZ87ATwgfMc3Bz4L72mNQ-oE8G3mRwSJaMQNw8f2Vmr6IIO89BIgKSN0Mwn9Xr_q_3ubk08FwJGC9vC-zlbglEiGHcBNJPLCWtlibgUs9z_2oVOgE-BJ5ogXReBCOAxGQBqP9xL4-KDX5pdbm6hPosWeomln4TRBrNjuYc3pj0FUz65qBS1SLaZrVyx5Q6c86I6i1nqgMzH8KSbjcwiyQfAFyQGKe2r30VCrjzUBhyTBqoaHfTLab5pUU_rncHtKgzHxIo31GWBqmTe5lTKQ16-pnoXG2WEzwhrHoHB-YjvyCEh0LqyJMfyUBrt4Oaj-o8v7SYUh1lrUOccmaYCY_Qz26G-GOSQKXWJTYcGPE9kOgtmljpgqzHNCvCs46SFuUOp6xGFIpcL7NIutcf8fTflOFRJhgfKwYgO602DCslbPL9mUkJxPSC3hxznBa6LMAYFJRmyZaGbEayVC4OpROhLE&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "French, International",
+                    "priceRange": "$$$$"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "4x4 vehicle recommended for travel outside Bujumbura"
             }
           }
         }
@@ -77,17 +174,104 @@
     "accommodations": {
       "create": [
         {
-          "name": "Avari Towers KarachiHotel ",
-          "type": "Hotel ",
-          "rating": 5,
-          "pricePerNight": 20,
-          "description": "A luxurious 5-star hotel with multiple dining options, a rooftop pool, and city views. Close to the airport and shopping malls.",
-          "bookingUrl": "https://www.youtube.com/",
-          "image": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWx8ZW58MHx8MHx8fDA%3D",
+          "name": "Club du Lac Tanganyika",
+          "type": "Luxury",
+          "rating": 4.5,
+          "pricePerNight": 2500,
+          "description": "A luxurious lakeside resort offering stunning views, private beaches, and top-notch amenities. Perfect for a romantic getaway.",
+          "bookingUrl": "https://www.example.com/clubdulac",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSV41mJ5PsNkh2n84123UwlQ5d98oD0duhF9skMEl7H0nl9GGoj1GKQPV8kSRgHbUXu9UiemupJ7JOj84UolMiQ1bspObRz3t1RANz2TyJfM8enJAN7rlVF7X8UB6pBF9fwwYqx86Sphcow0SEVMHfQI45zYq2ziyngo7D7hjJTHO9W6HRFItAzRMELhOl7WmsVrQye4Dp2whUKB-AUMXlihifj0MIyIdevhuXzpO2UoRKN3ctaZ5ArTeYGCO9JjtaxhL5Ffo86AXj30INs-SPs9mpdpYZkGPGfUnegwEfLv9gzVe0&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
-                "name": "Pool"
+                "name": "Private beach"
+              },
+              {
+                "name": "Infinity pool"
+              },
+              {
+                "name": "Spa"
+              },
+              {
+                "name": "Fine dining restaurant"
+              },
+              {
+                "name": "Water sports"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Hotel Safari Gate",
+          "type": "Mid-range",
+          "rating": 4,
+          "pricePerNight": 1800,
+          "description": "A comfortable and well-regarded hotel near Bujumbura city center, offering easy access to cultural attractions and restaurants.",
+          "bookingUrl": "https://www.example.com/hotelsafarigate",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT_vVZRKy7WUk9y2qShg61wHBtqKhj_fjWB_8dS4xPpJRYmWWp7VtA1jsY1S0ZkkzSXdLpyOmzSgqmxM8EK46OauZXS87CZYfdhrnlwb3dRDtoYsYJ_j_4qyu-U6I8e6nepm6g_0zLseWPO-KTV-tYKmuDigYoT0hIm3X4I0FA_itWszK5LrFKwmIN6527zBmTEN4weP4w8LmNF4Ky86gAqCqasf0C-Rx5gszrR5eB5jp_2OHRyHApGqckasisvwyNNet-SwLt06vkm75xJsWV4dqqOfYYykTBQpKCz4bqsEZpXd-c4lwOEQdBOqTV6pD3I5akWwGSfk8lDDzh7an3kXCBXSeAL4vptOMmFfyl4QpeQikK3TN7PBm0Ed4qKfdP_uqGjU4w6FxlTe62fov_EWhQrKhbwbbr3jdIotnv4knQnB-BMQAKWTwIDRAc0pt6a8scpPjuzbgxrt7cDseL8fkssWdEjPdNjKZXbJS75y8LkmjAc6zmsKlejlZsS87BdjlSKCjRWG1A7C9mQrlFOrVmla0uQ3TJC7MEXXs0a2uQ42Y9xUJvZkvbg4OGKUyaL_MTXE5CCAQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "amenities": {
+            "create": [
+              {
+                "name": "Outdoor pool"
+              },
+              {
+                "name": "Restaurant"
+              },
+              {
+                "name": "Bar"
+              },
+              {
+                "name": "Free Wi-Fi"
+              },
+              {
+                "name": "Airport shuttle"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Kiriri Garden Hotel",
+          "type": "Budget-friendly",
+          "rating": 3.5,
+          "pricePerNight": 800,
+          "description": "A simple but clean and comfortable hotel offering great value for money. Close to local markets and transportation.",
+          "bookingUrl": "https://www.example.com/kiririgarden",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTlqFZJH655s72nm84DflkcsMJnpRFAAxD7Mi3lqDyDoAr6u55KRlKYmxBYO8QYqbWfOlxb61gacmBVc71-JYNcAoFw23f8o6WFJxyvD0BNO4wrCeYBbXh_MBXu1mZe3smUndZ2kEY-xukuP_bLmyKFnmoSOgPDj-l5kaFahbW0ZDkO21ncfxLoYnS2Zln4HTzluHE3Qx3KqxmoQA54ncBQE44lhB3yW1RTJrIQTJpD3V52eBJWVEYRKXXgxYCoiz-Ii_j0KTGxXuswYRJVCBv5al_gqZyyDxLoMIRn-5d_q4lHYI4&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "amenities": {
+            "create": [
+              {
+                "name": "Restaurant"
+              },
+              {
+                "name": "Free Wi-Fi"
+              },
+              {
+                "name": "24-hour front desk"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Rusaga Falls Lodge",
+          "type": "Unique/Boutique",
+          "rating": 4.2,
+          "pricePerNight": 2000,
+          "description": "An eco-lodge nestled near the stunning Rusaga Falls, offering a unique and immersive experience in nature.",
+          "bookingUrl": "https://www.example.com/rusagafallslodge",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNS2HE6qFwXxkgWs7DqEf9tsp0N-lyswQZ8y1gM2X2Ixo0p7Ra_ACUe34Lt6tnKPkjgt9-d6n3_ex3MN61X6xBBROUsIopuAJnP-93HTSzNWjNLcgK8HwiHt_j-mhbEwj4FCmhJOud7stZ_ubotVtIZcdtszH5Ha6RM_pxT1VVDtERE1QKjZWgLtIODaNiGnufP5HRuXj0JBYt2WTan0zkiAzgtfUYq2JWjWRpI6IEXs5s4vxk4TNvb0jBJiV4ayzwFTQPfXjnpNR-erj35FNRKsV_aMdkTMTZs2HtvIGZ5UwUoyOwds-dr6QgNksVGMlDSC7_UHqReaZX2X3L6vNdCs7RiIEGsRwyuX1fcWJezxAIjhKWhhLMR9J5ZKLRlGMQU-V6q2YOgkpHaLF6Yyrhxzptz_ZxxeRRX_PKXaEHkOf1aKHxbwjuPRRpz5ixEw5o2SCp2La8PYoXi5z32nlg7CfTGtJ6tvDVXp9ooMgGGLBxciDXLA7604fTNgV_oDk5-YEQVS11V_enjNqXQOkttpHeGySpoUMLXIyRVzykW2joc15b0uMZhP5c6ctU3IudklnWkf&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "amenities": {
+            "create": [
+              {
+                "name": "Nature trails"
+              },
+              {
+                "name": "Waterfall views"
+              },
+              {
+                "name": "Local cuisine"
+              },
+              {
+                "name": "Cultural performances"
               }
             ]
           }
