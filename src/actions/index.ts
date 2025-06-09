@@ -600,3 +600,63 @@ export async function createPlace({
     };
   }
 }
+
+export async function updatePlaceDetails(placeId: string, updates: any) {
+  try {
+    const place = await prisma.place.update({
+      where: {
+        id: placeId,
+      },
+      data: updates,
+      include: {
+        day: {
+          include: {
+            trip: {
+              select: {
+                id: true,
+                tourName: true,
+              },
+            },
+          },
+        },
+        restaurant: true,
+        attraction: true,
+      },
+    });
+
+    return {
+      success: true,
+      place,
+    };
+  } catch (error) {
+    console.error("Error updating place:", error);
+    return {
+      success: false,
+      error: "Failed to update place",
+    };
+  }
+}
+
+export async function deletePlace(placeId: string) {
+  try {
+    await prisma.place.update({
+      where: {
+        id: placeId,
+      },
+      data: {
+        status: false,
+        deletedAt: new Date(),
+      },
+    });
+
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.error("Error deleting place:", error);
+    return {
+      success: false,
+      error: "Failed to delete place",
+    };
+  }
+}

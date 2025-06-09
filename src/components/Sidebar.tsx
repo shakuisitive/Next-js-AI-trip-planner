@@ -15,6 +15,7 @@ import {
   Clock,
   Star,
   Hotel,
+  MapPinHouse,
 } from "lucide-react";
 
 const navigation = [
@@ -22,6 +23,7 @@ const navigation = [
   { name: "Users", href: "/dashboard/users", icon: Users },
   { name: "Trips", href: "/dashboard/trips", icon: MapPin },
   { name: "Accommodations", href: "/dashboard/accommodations", icon: Hotel },
+  { name: "Places", href: "/dashboard/places", icon: MapPinHouse },
   { name: "Feedback", href: "/dashboard/feedback", icon: MessageSquare },
   { name: "Sessions", href: "/dashboard/sessions", icon: UserCheck },
   { name: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
