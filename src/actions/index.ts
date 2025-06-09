@@ -107,11 +107,22 @@ interface TripWithUser {
 export async function getTrips() {
   try {
     const trips = await prisma.trip.findMany({
+      where: {
+        status: true,
+      },
       include: {
         user: {
           select: {
             name: true,
             email: true,
+          },
+        },
+        days: {
+          select: {
+            dayNumber: true,
+          },
+          orderBy: {
+            dayNumber: "asc",
           },
         },
       },
@@ -120,10 +131,16 @@ export async function getTrips() {
       },
     });
 
-    return { success: true, trips: trips as TripWithUser[] };
+    return {
+      success: true,
+      trips,
+    };
   } catch (error) {
     console.error("Error fetching trips:", error);
-    return { success: false, error: "Failed to fetch trips" };
+    return {
+      success: false,
+      error: "Failed to fetch trips",
+    };
   }
 }
 
@@ -476,6 +493,110 @@ export async function getPlaces() {
     return {
       success: false,
       error: "Failed to fetch places",
+    };
+  }
+}
+
+export async function createPlace({
+  name,
+  type,
+  description,
+  location,
+  timeOfDay,
+  duration,
+  image,
+  tripId,
+  dayNumber,
+  cuisine = "",
+  priceRange = "",
+  category = "",
+}: {
+  name: string;
+  type: "attraction" | "restaurant";
+  description: string;
+  location: string;
+  timeOfDay: string;
+  duration: string;
+  image: string;
+  tripId: string;
+  dayNumber: number;
+  cuisine?: string;
+  priceRange?: string;
+  category?: string;
+}) {
+  try {
+    // First, find or create the day
+    const existingDay = await prisma.day.findFirst({
+      where: {
+        tripId,
+        dayNumber,
+      },
+    });
+
+    let dayId;
+    if (existingDay) {
+      dayId = existingDay.id;
+    } else {
+      const newDay = await prisma.day.create({
+        data: {
+          tripId,
+          dayNumber,
+          date: new Date(),
+        },
+      });
+      dayId = newDay.id;
+    }
+
+    // Create the place
+    const place = await prisma.place.create({
+      data: {
+        name,
+        type,
+        description,
+        location,
+        timeOfDay,
+        duration,
+        image,
+        dayId,
+        ...(type === "restaurant" && {
+          restaurant: {
+            create: {
+              cuisine,
+              priceRange,
+            },
+          },
+        }),
+        ...(type === "attraction" && {
+          attraction: {
+            create: {
+              category,
+            },
+          },
+        }),
+      },
+      include: {
+        day: {
+          include: {
+            trip: {
+              select: {
+                id: true,
+                tourName: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    return {
+      success: true,
+      place,
+    };
+  } catch (error) {
+    console.error("Error creating place:", error);
+    return {
+      success: false,
+      error: "Failed to create place",
     };
   }
 }

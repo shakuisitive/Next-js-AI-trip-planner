@@ -1,25 +1,22 @@
 {
   "data": {
-    "userId": "68471c448abf0ea99ce5c555",
-    "tourName": "Burundi trip version 1",
-    "destination": "Burundi",
+    "userId": "684751828abf0ea99ce5c679",
+    "tourName": "LTv1",
+    "destination": "Peshawar, Pakistan",
     "tourStatus": "Pending Approval",
-    "startDate": "2025-06-10T00:00:00.000Z",
-    "endDate": "2025-06-12T00:00:00.000Z",
-    "budgetMin": 1600,
-    "budgetMax": 2800,
+    "startDate": "2025-06-17T00:00:00.000Z",
+    "endDate": "2025-06-22T00:00:00.000Z",
+    "budgetMin": 500,
+    "budgetMax": 5000,
     "preferences": {
       "create": {
-        "groupType": "couple",
+        "groupType": "solo",
         "travelStyle": "adventure",
-        "pace": "slow"
+        "pace": "fast"
       }
     },
     "interests": {
       "create": [
-        {
-          "interest": "food"
-        },
         {
           "interest": "culture"
         }
@@ -29,17 +26,17 @@
       "create": [
         {
           "dayNumber": 1,
-          "date": "2025-06-10T00:00:00.000Z",
+          "date": "2025-06-17T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Rusizi National Park",
+                "name": "Peshawar Museum",
                 "type": "attraction",
-                "description": "Explore the diverse wildlife, including hippos, crocodiles, and various bird species, in this beautiful park along the Rusizi River.",
-                "location": "West of Bujumbura",
+                "description": "Explore a vast collection of Gandharan art, Buddhist sculptures, and Mughal-era artifacts, providing a glimpse into the region's rich history.",
+                "location": "Jamrud Road, Peshawar",
                 "timeOfDay": "morning",
-                "duration": "3-4 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSTahZPxT5DGXDWfH3Fak0ySZmoSQaXgDWX4nCBLWhHvtWSSa89riWSr3vUxv_C5ECvv2G_fI4tx_DGGqmebWBekT7U6r5-hllWryitgWqltNeDJwzEm9cvSTnJLzdSGMO1xr5ca5DGFmKfXmpNBOEvO9Pcqj4gIIbqX-jXQaJtFz7LcsDWT_lvyVNwUnCicSqoPSUJNtKGTF13tQI6XzIrB8kJ51fk0mM_1HmCpRjBDOZ-9OlDrY1til8k-7P4k4lo2sNoOfi4wnJU_-kTqpuTnMeAsAqf9hSzooCzoxt3EKMUwGfw1wLqrfZhiLnuxb3Lfd1435uf-bvRbKgpU6nieNJzAqCST5kQw5EBdfLDw03iGFwWRYHgRftmmMdNx-XxqvcAVq5XAFR71M4xGFsiz3-H17m_VWrcUqbAhG0xig0GOYizKJtt8kxDJ_32xRuBDqV-omTp4cBnou-cZ88BPuRbf2sSGQ0zSzhML6RXdlNsOUM1wstsrU9-oREfwX9ClU7widP8hgF79iOWNavTClecZdFGRgW6T4p0hq6lpWkM2iiaIQcomt0gIEbzOwixAg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSQZnU9zX29GSqCZXXGTSwaxw9JyIKl0xQO7YDzS2ux5EvzR1lcwKfwwKNw2GNr5vjFtNG-YdT8uuj-3FAcOySpZEfmXYGKXyKyHlpav0kwrswyCPUJTxX0J92S4CQ_iNYXI0lYChUESzTiBR6_423d5bIpNGvKOwb-mlF0QKGZ9ZlR59OZWfg90Md_fkAG3vXIGjch8e7YyalyQFpLNC1IrqovfR6-ynpqkhUhemfrxh4y22ydwTyDVfOwihn8m5ioKeWtj7jCFHsp0l1dWvaneom9hZah0v3v9izjPRcmJs7af1fJG-mizFLdF56tXOSRUNz1Q7XzxLSZIvwuIqK3C-lW2D4RuVwvWhlFCTQxIG8X089MgIf-1n4nlBoOc3ncY1tk2WhtUO8L4XqLcFoi-7s0Dhqh7AK1cqXRgSqpd3uopCn_ZCnEhAn7gKVQieRNIkcmKb6OYx3nEWqxSYRQZ6zuyvB9IIYqMIo5n-Y_ETTxi9XD2j8qRW_t5v4D2Tso8k8Gvo5w3JDh_J1Yh0GPbdcmIOdWeXhC8rpCPeA6U18N5sXESrXe4ey-vRcRnFXg-g&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -47,13 +44,13 @@
                 }
               },
               {
-                "name": "Livingstone-Stanley Monument",
+                "name": "Bala Hisar Fort",
                 "type": "attraction",
-                "description": "Visit the historic site marking the meeting of explorers Livingstone and Stanley in 1871.",
-                "location": "Mugere, south of Bujumbura",
+                "description": "Visit this historic fort offering panoramic city views and insights into Peshawar's strategic importance.",
+                "location": "Bala Hisar Road, Peshawar",
                 "timeOfDay": "afternoon",
-                "duration": "1-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSrAeu8IeYbjhXyy1AV1cVnWiTod4QCg88X7G5UQuVXqKkKzfk6F-DFPcvhECWMLEhqS_wKnk1uw8Y2CVOyJhvBwPwEt0m03i8KEIg-CYqJ0pj7qYdM0SYcRtpmamA4OM_licz-KdycYMw2WZMSwIvvdnIxd4pd5TXXhwtW1fMj9eYagTD_nF6DHDMM2lDJ9mQXEnxEAywLJ6uNAoxKui6jOfa4DBybLQdzd-jE68KYdcTHnc-xNRbOY2OBeDP-O-b3t2nanD5ruB_-qo3T4h9pchm3aKXjqNQI82RpUC-tOxgQCHTK8QMmrZ8P6-jH0uluUdoVOXqcYA7t19YReaasN2MumC0kZSmomVVyGjo95Af1MG_wKqQR8tHZO4st1sXJuNxycXGCgAEcqWj31kSMzO1qufT_yZ8KD4H42ferlqZgBbDmdgYp-XV8umuqiHF7bKoOYtxOO1GlvrhbRG-1mA8mu8j537AR77yJKfXF7OsrqLwjhBCXZ6b_SdxEA-965nAhl6MOVEY4Sf4XrVSYi04bUEwEottXENm2hGJunot5zXzKdyKw8eVCO-klK9oPwUrr&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRZ2NSy5xnZsUeNeL080Y8swMI7Bbzn3PNWfg-guS8zVs0KNkV5ycO2mGc2El48cO6z9b8l369emUq-jSADcR0IL4PQ8uTPIPEBXVs2rEUYvRmHULAU_Vqa9yYQ2aes25jFz2aAJlog9g1QB5BLlbq81PX-tpjQkTeIz2seP3_fXxSmhI1pqKIZJC8b06qBjXOSyQQHFNeQSxbumMG9LJgYecvxB5Yjil-kYogWuqGJ9JNNa_xwAZq9kDEZbOcNdIwiVQrBHXYD1q8-hibSU_cq_E1MYq411bhhZdUvUC283RLcxGIEbL422aJAVlvkR2mAWdd_JyNJCR_pnNtQuHBd_LJWpj__KTG-t5tUOam-JOJeoa_zlr4OJHBN-kO34JFcy3GF6h-QbLF3BDlUO8k6MMBPh5TJdZ-aO_oVVflWw47qiI_fQsmI0CUES8dPoaJ59r51xESmVVKIhfgYgKJj_gsF2jWmaDdD8SpRLOUtNCHjb0stcCslzP5mjzADY6vgtkWSUBpUgw8fMXTDyXBlWWhz1vlIegTzjvx5ANcVJ74g7FXaSIQ__xQyHpOhu0zT4yNOD6k6vw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -61,32 +58,32 @@
                 }
               },
               {
-                "name": "Le Safran Restaurant",
+                "name": "Charsi Tikka",
                 "type": "restaurant",
-                "description": "Enjoy a delicious lunch with both local and international dishes.",
-                "location": "Bujumbura",
+                "description": "Enjoy traditional Pashtun cuisine, famous for its delicious grilled meats and flavorful spices.",
+                "location": "Namak Mandi, Peshawar",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTTIqZ3ICBaZoCKW5t6-9F5cdNsuBHfgkooyqRQWv7T0_uSxQG7Qg9tke6ELCSfiCXgnDkVLm1q23ETL3oIMU5woEkzD3MHgPfwczVjv1hSRtPyfaje9OiXySxHfERSqaoNlCKt5SDochdfJIBASp8vNhN01Xnt3VtzJLqEF-LpqtSXwZ93VDTa1awkColAXYDvxqndt_jV1-Im9a7EuAZntCuD5MwKWG254MFyD3NJTYkxxd-mlVA5kq5I9I5n57pnEbQFdjuHeaVurzg7qyCRSCzthD_nC8Pd-A87slckYfFR0ENuaaY3DwDk-sw3koCpXDTvLFHeJNEi0zKx90QrQx4gAoHjyUeCxz8mIvwxanzDbAKf-MJIUsA0q3zRwgCSJ4YwTQkh1hWWDKfVCYFLOiw5_eKhE9ugkEiApuwZkUQNEjOyv5ArwUJ__Vv3_kdmMbY4gl4_IR6ZSkdVDZER8MzMftl0njCbs6LtZt6bXgjSPt2p5EguuJ-wkqKcffmkoaHD1HtPfORcqjwBipZ2bM_C9L9a0OI1ixPNkXr-CfvjkZJ-jBm03vYlpmHj4nTY_5v115TF7w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ3X0XKN10wTp5s2I1wKpxTLah3-QM0LD-p1sjCSh9eu614v1TwAmMGMsmPOrSPcT2QVIHPs5Os4Q8WY7MDX6FsEpEiJ5rGZDKVN-FkCeboWl4k_xtTN8FAyZ4ASydmBJGVp99LgjlQMbO6QP6Cvlk6qk9I8CKm98cGvDqazl9GEY0D2VZ6i5jI6G6Ii4Qtv9uP58Tyjk_0Mp4QrBWe-3lXFJw64D_l9NWF75IkBqleIeMfwBaXs_vS3IzGa0Jj7NMrj7LzrzdcUVnRV9gapRJNzrql6VWPPLwQnKD9ZVUYrft8SyeVF3_rhtvCu8-jOTlEYfttOtStSZcjLj-ctwtwl5iZLkvdbRC-zcnePOQkV8OuQgzowpGbBRr-WtEGECE5iy32VC_psiubv9J2yYlDdOm6sfPAeoXsd2D0r6lb-e6UhTa8F9PiDlWCexas2wRZNXNhVw_jVWj7ad-rT9JkI0xjKJpmtaX8eIYYBzVyoiTBqwymnyH0Jp0ACQtbvsfA0K3uOrD6ad0Dk8kaKGN3efVQJW5KASsiOC2pYmwGFR4rZQJ-VJzcLlVoB2700sE4QpW4&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "International, Burundian",
-                    "priceRange": "$$$"
+                    "cuisine": "Pashtun",
+                    "priceRange": "Mid-range"
                   }
                 }
               },
               {
-                "name": "Chez Andre Restaurant",
+                "name": "Habibi Restaurant",
                 "type": "restaurant",
-                "description": "Savor traditional Burundian cuisine for dinner in a cozy atmosphere.",
-                "location": "Bujumbura",
+                "description": "Savor authentic Peshawari dishes in a cozy atmosphere.",
+                "location": "University Road, Peshawar",
                 "timeOfDay": "evening",
                 "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSMgGf7bhN_ztcq2wG6T3i0fpEIPGXRqGkJ00caTZ2pFVYTmbJ4S_Q_9ikCBTLeURHJSFk9vuNiz6HbZXzpmKryp28JMkIJj9bUulPVhoyppK7UyLN6OYO8u6ZPKhKk8vEfPWyMnUlymoKE146QYKpnu58QJD18Kyd1Q-AvNwHF4CEFLSiSGITQiduKQjjboFSiPTVne4ANfd_4QuyJdfoW_GIcB53FBKVbhq4vXaWVHSEnywweA2yZenMlxfYQhJOtYHfhd6Y8FsqC7_cFBDF_P0QC9qviBMSVWeSsomWGMTpytw98j6kWBWOFm--PoC0FTunvyGv5DYhB8aS_ABYtjtTZwha2mLs8pL9oZooWxKIAQGF3_CBstwiJDmBS3DK3M2Fkw3yCgburfRvMnIq3KcnwQzgR4InPCFspel3mJXonlm3oiRR-k1b37PwNpNZGaYc7IFml-HHv7uQ8tmjtELx9h419jZi3CdcWo9KulLjyWGJd4ApETRDyQsMP25d3qiCPoOqRS-U_od68brGbIicB5_muOZTLppV1TZ6LmLr1VVutL_CZhATlrm7AK6dyCrSe&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT6IImNKdV8vAB-zYv_vo5JNsOZWTwsBrh8hg8em8F-C60aCOhAJOtWt9_DqcKVwvWRuNOENsL6nnHyfrB4J8NLcIIDk9jRhwNTrmlEUVuaI5JzUC_yZQ9GmRslZrxe0HucdCwzX23FFxIn_RTeWRTyKTxkoGHJpFseUFLS-o6x0nYqHnjkUcIuWYDqFB0ynBai8XAl7g_gw-EJL5ymGn9Su4U2JsLh-H1CX6OzyA9J3wmDlggidmLiwxHpnglj7Qe6LQjVNcr1CGcmN5weh2gAYm6KfJ6KO_q8rZvkbvn0QiJdFYI7EmeG9hRAuVrlMXfpYlx2r-aS0Cp13wiMfVMMg2Qcwf_1Cj12l8dYpfcpZqg4ahb1JzTaCF_FVJebdhmcVo4u2rhep9QCwWkk8_Ntm4REX_ZkQ8dbLCurpjac0QUS2zJHCsLb7-p6KcLcNptxjgSjBgeJEYwIhsaloY2ZJaihVBbQIAzjSCKMTTl_BYIxhQ2UtrXwxkc5cDw-0fBpDhPPqw5Ib8TpK7CP76b3qUMje9-fYe3msDS_rEizNH4P8KBrYV8n4Hm71NcQ6RHMQpSt&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Burundian",
-                    "priceRange": "$$"
+                    "cuisine": "Peshawari",
+                    "priceRange": "Affordable"
                   }
                 }
               }
@@ -94,23 +91,23 @@
           },
           "transportation": {
             "create": {
-              "description": "Taxi or private driver recommended"
+              "description": "Taxi or Rickshaw"
             }
           }
         },
         {
           "dayNumber": 2,
-          "date": "2025-06-11T00:00:00.000Z",
+          "date": "2025-06-18T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Source du Nil Blanc",
+                "name": "Sethi Mohallah",
                 "type": "attraction",
-                "description": "Visit the southernmost source of the Nile River, a significant landmark with stunning natural beauty.",
-                "location": "Rutovu, Bururi Province",
+                "description": "Wander through the narrow streets of this historic neighborhood, admiring the intricately carved wooden havelis showcasing traditional architecture.",
+                "location": "Inside Peshawar City",
                 "timeOfDay": "morning",
                 "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQTvwC6HwqOIa5mJGhZqunBAj-Erkp4xHARMq0BUrzS1H3y4IYRgqEGpdvkfQjCU5oyjm7K1h2IiSagnQ3Zsj3W42TAvPHohSa6EQY7QKr0KTQ_861pmrS5VO_Ge7OCQ2lonU5VAeIpQ-tFPXUls3D94CwzPwCVdF-EI1Ig319weNcFTdfF7BDKeWo0Be715mw44vST_Jim6sUyJ9l0bXQFQcFwCJFdY4ZGDtWCCILFH0Vyutmkd_TOutp_HAA0QYqO4fsxT8VOMxbKICxDRnLzj5gJZMoLD3MPc0hZHLopXMRSd3WDTmpzCzlm6rhn5-pYBe9UKihAkiiuMyf5cfXv1RPsK2hemyhdDtpIYN5SzoaxVHnPJn_iGH3RuJrBmHwie8c8eOT92cN_niO-nvcwdQ7WLn14lPH3-Tl-jfP98vLyCmPmlIv_Z39mECoJoLHw2N1QIDyjEokr5yPqMRA1zoMyf_GJltU8gg0IklMv6xFWW4xbiqIMnMsXou8DbBpWv2QzZTX_Y62whZu84cuW4T5MzKawd_teNrN1yVzLX5SdwCYXa6957dYx-meGYYPQokWg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRqLQNfPLiPvGbnEPJbckMurM8LVBH2HGt1xUp2qiduBSb6ypIvh-9WYzXPl8BhxaGt4bDtKKbN4X9Y0LNJ7BRYB2yq4504BRv6o4mYCaCTHiSpmCJDP8T5CpdWsCSPzPi-2wizJ-H9_6_wESFueyIZzFc5cogn7lUjD9E6biq2-x_09516RmcQFPasuP76SZaLIvO7qiHwQLI1CnSU3YXzb7o6NTAJ4N8ykSEYpVIsY8ofgLXFgjLvVyw0JEYQkAt-4q0kj_1NAxbtTz9BrYKNjyK4uCimi0R46STeZBaY87dPEICSGMjRzdySAAne32mJBBc7hYxAM4loZ5AmZvXsFF3ijktvVTNYNAzhHHn1jUPGBkTRcV3lv660HLh9aQAx7d_nExfo3I-fi-Bsr0eGOkxMkFtK-9phqUGKEhoHgfq7KKq1dHwMhVzzfNfpBRzMMC1X8Bh1B4XggWV399rULWKDzFTm6In0MEHaj5JVH7hbBQDf1nfFlr2ck_aYewCS6qwJeYnSTiHafxLVtmvZeN-TilrjhKRXj4G5rklLJ1X_8smgHacuRhZwcke4Du2Jlyf5&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -118,13 +115,13 @@
                 }
               },
               {
-                "name": "Karera Waterfalls",
+                "name": "Qissa Khwani Bazaar",
                 "type": "attraction",
-                "description": "Admire the picturesque Karera Waterfalls and enjoy the surrounding nature.",
-                "location": "Rutana Province",
+                "description": "Experience the vibrant atmosphere of this historic marketplace, known for its diverse goods, including spices, fabrics, and traditional crafts.",
+                "location": "Qissa Khwani Bazaar Road, Peshawar",
                 "timeOfDay": "afternoon",
-                "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSzt7k5KN8jog8JOULN52O2Bg81Pj6gNYIRj7a-Qj0WDBamqhiOqaZm-aePJSrCdSTTQ22wuBHWoxz8Vi1a5Ww0lBMkRmFZ4snxW8MFbYubmGX7VLDhzI0D7KnRCHXiUS0xjK7GVfbc44dytI7GEeX2IoFqZEKF-cI_RB3G0Qw5Kod4-ZmvWG8l5GEaYnWJ40Ekn1lpK08EAJ_o5Be1o4mnTkdrpsqCxwONHuOpBrRKDgHVkqWoY788_ek33W4NalvkOk1OLhkyrHCFPa2kL1j-dnGr-Wwha1C14M5KEshAAEVG_0hPu1_TORXK0xNW5_kA2OJldlBGkQTnSLXxcj4lIvj700bvvI1KFHjTbADbzRsmqndHPskd-rvQii3LBBOmB4RUNfe2a_fsvNyJnbisZ2mNsNaUY7YEP87b2OnbIDo3whCEKihxp-l8SVq9UmqhcBc_8w0g4nch2_e6xaMfMUx01ZWs_ujPBYFTyGKSdirhgGP3Yr43Lz36X4OCOEo2RvghgwRaXQJdkrEgKzxf7oB5KFlE7pP43QaNP6bHtUSQbCGL3iMdtuuChYHwwZ4K5Jc6U7srMQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTiBjmnghQqjemOgIyrQRbg4MTSjoN9revGSkY80JqbEsACDHnlunPJQG5lZehrxhBtEQtZcAJUs1ulKKY-7VnSEJVPnPrjUkbXM1kxc7pMHlTWVlZvAOiCUrh6W8r58bIAZHvfvgk-_JG4BgkAndNVfQ0ri8dHU9CTDxZ8zD64KJ3PrNvw9yWtHIH5o5-YsZHSA1l7pI_BFvsZl5B4dEoD19vj37tQVXhV3xpXYohnPMV5wRAMPubtfjBjlkor9OOi7h1YfRr2DASJ5jRgIOUEf2XvnHy4seBh6maEEy2WFYGjt48LcWGjOvZk5_ILr-xOfz-WGL1PLdf_8BJO9ielBeBraxb4lPwBwQW06nvrujHuKWfRw-2daD7EFOxtqKF80zwTGmqvrulpwmKoesNNhBAOF5fKvMeYFqjL48wzGpdOKXkOejqIj7mlLyqJy5LpnR28nWGGc335am2oP6qW6OuNbN8iczV9gEDz4jMkZc6-ZuePiWFnXI9k7m7rdMGlSqIGJsGsEDJMClua8SaHH7p9LuAZPmUhaQg0KCWpGcV1ObaHQtESAvouWlCe3lY6uoTY&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -132,32 +129,32 @@
                 }
               },
               {
-                "name": "Tanganyika Serena Hotel Restaurant",
+                "name": "Chief Burger",
                 "type": "restaurant",
-                "description": "Enjoy a buffet lunch with panoramic views of Lake Tanganyika.",
-                "location": "Bujumbura",
+                "description": "Take a break from traditional cuisine with a satisfying burger and fries.",
+                "location": "Hayatabad, Peshawar",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSL5GGHE45z3bPHq4NeQhg8NhgpvAy9TZizYsezS4C6eD1iK8GWlMiMIYu_JvrC14xjrI1MZYmm9wJF_V0ApGe4eMUJ2hJB7YICZpb3ltcJNwBgn98xUxGeb_PUXQCeJLns3T4tPidcZyfnbsa39Xy-pJB6ToDnN0Se05MoM09XiYJO5Iwp83xBmzGfOnm6_wC-3k5HGSV64kGpzBuGFcEVt5p-bE45fmxYl5OMTOmnJ0F8e23IHYzoxTJRlEVCLcZrokerx1pG25N22PwZPxUbzXwZsNhhinU__vTG29FKF0F6vpiolrIZsgtfaLVWBlzKZCnsUWr303w_8aARmud8WbY52obVFMZQ3k25krweewT45ZFSqu-vt0MToc_yuNy0p5BVS8vTHqazc4-GzlvzJivMGEng-De763h_CsrT0t---k1NDfbIjfYDKAsqagwnEtu41dbDNC2ebWy6rfcU0gDURfjhZYv997__BBOd4ZvZ0oP0tqEf8Y7wqL512ncynx_2FIU15AUNMDWIR5rbh1mYk3ha_nakIAB5BeTlBylRDVvHHERjSPM5LnM0pzQEYF5FQWB5Wg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNToJjoY2T03fnUGrg1mSkr4fMWbX1cFqV_W-Bpn007zn_WtSF6MGa_f33R-5Y1ZYGp94opkWqnLURx67rGDMh1wnk2Rhwt_8CFEKHbBP0FN7PlWJbZpp2HgnlsFBvbwKGSKyzQt_88WNPZYwP4eUDZ-BFu_jL9LRa3pZm1s4WDFzOJmVW-zAdMsZU-dxxzuS3xmJKtjgDjaRD6vdTlOr_hZF1mWCy4-f_OsNG15G2d1tKMTVRVqtXt3swk1Qtd3qQJMsueMeY-CQUz_-zwCpgOehST72C3qDaIy5ey8qwh1chUaw87HVOfeozJWZ-sYVGsG6MUhgKA3b-DaNdc23zZr1wEDdBEHPUVMpvpiMYtqLnlTuRt-g0w-gDbQ-5bg-5u7aNw4UWhMyWniKaGAGyC6-iGG5hffX4C8x0lOdY8R7p_3Nz8DxkI7sJCuIBgaGb0dfcvZOrH84yq3KBVPSODTlN5sWrFK6xQTrCwO-3DWfXizZB57PoSfi9hk73h07g52gmdp_GGJlcirlqf60LP7O0kfrRG5MF5aweOD6pQ8vI-j1NrNwW6-b1cHO2x71v9CAY_K&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "International",
-                    "priceRange": "$$$$"
+                    "cuisine": "Fast Food",
+                    "priceRange": "Affordable"
                   }
                 }
               },
               {
-                "name": "L'Orchidée Restaurant",
+                "name": "Namak Mandi Restaurants",
                 "type": "restaurant",
-                "description": "Experience fine dining with French-inspired cuisine in a sophisticated setting.",
-                "location": "Bujumbura",
+                "description": "Indulge in various culinary delights at the bustling Namak Mandi food street, known for its karahi and other traditional dishes.",
+                "location": "Namak Mandi, Peshawar",
                 "timeOfDay": "evening",
-                "duration": "2-2.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSwxkXloTjMdMeBEBCj8pcFLo9j0pkivXAfX1K_FqfVSKN4o_XOi491Ee1vEMVk34nz26hTI6uD8sTx-cs1kvm9eEYa1eZav5X6z0JOUSHmh4RwbZ87ATwgfMc3Bz4L72mNQ-oE8G3mRwSJaMQNw8f2Vmr6IIO89BIgKSN0Mwn9Xr_q_3ubk08FwJGC9vC-zlbglEiGHcBNJPLCWtlibgUs9z_2oVOgE-BJ5ogXReBCOAxGQBqP9xL4-KDX5pdbm6hPosWeomln4TRBrNjuYc3pj0FUz65qBS1SLaZrVyx5Q6c86I6i1nqgMzH8KSbjcwiyQfAFyQGKe2r30VCrjzUBhyTBqoaHfTLab5pUU_rncHtKgzHxIo31GWBqmTe5lTKQ16-pnoXG2WEzwhrHoHB-YjvyCEh0LqyJMfyUBrt4Oaj-o8v7SYUh1lrUOccmaYCY_Qz26G-GOSQKXWJTYcGPE9kOgtmljpgqzHNCvCs46SFuUOp6xGFIpcL7NIutcf8fTflOFRJhgfKwYgO602DCslbPL9mUkJxPSC3hxznBa6LMAYFJRmyZaGbEayVC4OpROhLE&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNS8rpNw2CIcK591bRBAUWbimLK24jiO5mMU_LaVxxCaokdNR3dNRTBtOPbmYbfzCMG58tgKK5BQNs-e0oh_CudtC9D2hMIJ-nV_LGqKW5LMOQensOKlQsEPPCMejnH6c821dvvvBogOfA09xPSGoffQY1JdGT3Ul5TGq8NxAQRrjo2pJXmgyn5aiD8emeZdASm5HrDbtEagpkCrmV79FP1Nw6OmRpEd_BfrweykkIHlhhPveCtLo-y60vZhOBGPVD22xwkGJgNDjxkXuszHkiDpM0xvZYcXubBXKOkv8FSLPuHT1AmsEk7jFt9ErMalEri3Ymy7P6yyQsuWLonly-2bS5I7v7HY9A2fkK7Hg5dQXfscQCyEUxoNGpg3NaBKI8FNgEvJkUEVr4jQMFVjq58TYqjzp3Ih1m_DCS14Mg2sACMc2JhGko2XrS4mLC7qdj1RBb7lwa9XRCJNZ01Q8Y0UBLWT6vSUvScfsKK6pGWYJbuQxWQttdlXltWXHRRyyCkq9ULOTmow6Ej1bqKjWjHowD_8DVuF_HUSlI2NpML6Pi_Yo0HQc7w94OXE1BC2pU3p5_8-&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "French, International",
-                    "priceRange": "$$$$"
+                    "cuisine": "Pakistani",
+                    "priceRange": "Mid-range"
                   }
                 }
               }
@@ -165,7 +162,220 @@
           },
           "transportation": {
             "create": {
-              "description": "4x4 vehicle recommended for travel outside Bujumbura"
+              "description": "Walking and Rickshaw"
+            }
+          }
+        },
+        {
+          "dayNumber": 3,
+          "date": "2025-06-19T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Mahabat Khan Mosque",
+                "type": "attraction",
+                "description": "Admire the grandeur of this historic mosque, known for its intricate tile work and impressive architecture.",
+                "location": "Andar Shehr, Peshawar",
+                "timeOfDay": "morning",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT_K5BMOgqEsLhyb1Hy-LJBRfB2Kt0ulsDd-tokEgzW-b-v4YRFmmA-fcfmd9bUXYPmca0il6Sr4-YdOICjGzVyw38fL9S2PrllSrwS6hzdpNfallZQwUE3xgW-bbBcsOigQfulltCRMt8RDHYYmImh0xIGnblmnheNf9deHotugALdh5wLERUiI4vUzPR-yoJk7_PRN4Nak2zF9zfeci_oS2xEZOFof-6uUTDmRPfgJHu1zTkUMDSRi6Z4Ax0BX5Udqf8c7d8mXB1VOZA6dif60oGSOpEnX8niAEpq9z5j0geROzsILxW7fcWTXFmwqr0I88cqBsaO7zKgB2ZNyd85NKQt0hcG9ViWEFpdfSgOnq30A6Io5OpoZzDfp2w0uD2pE9rvpuv_WTg89388bkiEAxBGui9nfKTAz5tAHx2IJquj6zZso7Yyg7eafjJawkCY59V8AVCNsgk0CWFc0wPnEi-Sie9Jx2f1I58DLRU4Ft5vdXDkIoOHWHbBelTPtMcbc7YVgzPPXNtxBanplErvOqALKt8dGHYM7GA4CtaJUwKYDWKb6D42u-otXgLqv6iWRg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Islamia College University",
+                "type": "attraction",
+                "description": "Explore the historical campus of this prestigious university, known for its beautiful architecture and significant role in the region's educational history.",
+                "location": "Islamia College Road, Peshawar",
+                "timeOfDay": "afternoon",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQlVhGSn0PDRdTMTp9uAqQ9KkfXr-_Zj009_KZ0NAcUuNb6T3obi5y7Hhl4WRBsICA5gUPIqtd-FF2o28-Vay7fB5-nyU9F6EHuHJqTT5CgK_OD66SBjehwDRLcbMw5-tQkAwoHe7VUHzOUrjkh7WkCf6RTC2wmubbMmCTixkuAtaADVBwhU7Y_oYRxRYADlEK-uMOfjwszoWIOpGbZtLvRlzTJHHT6mXut7_OJXRoCAEG2qUHC5JrBssYVsLsfyi3zymMu6mymj_yCFIha79-LtaKj8nzzkeFT8ssmMJ_eV3kXAzG2tHrp2qHxchhFfS57MuDtrjJa9l91Md4d7s0y5wApv0rtftNvGNge3wb69Z6DSiWoKRTx7Yo2dSf3WcgBh7PNO_SR9rwjR7eFl39tzJzxc0CKIR3rGioOxdaai2UoSkpw32jV2nV26HrfCa6TPLV6VJlOnM3ACZKLy_nndCCyYfIb_dzcQ-2LaEnZ-RazaKu5ipTGwPYyKLhTMbFaxNcjWBSXP4qiQsBqxjkJtJdQjWTU3LnKM2x3cWJONEZZtk5oC7WUgd7Cx9eB_kf0oM_1f1DHTQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Shiraz Rabri House",
+                "type": "restaurant",
+                "description": "Enjoy a refreshing and flavorful traditional dessert, perfect for a midday treat.",
+                "location": "Qissa Khwani Bazaar, Peshawar",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTEM63Z69fmp53Qt0EVCzPvYaJWAU75xPIGCx4Qxknb1My3ipxiqiRoTnWVmDPBp7YeYGWgLgDpcV0L7-BFPE44t4br9suGcnrlfkVjcdUCiG4v_EoA0lszVZgbCdMQZcwhbd6Pe1eQgqnpWbgpAJhZKGESzFUiz8sb0sCj-boRfp6UGr4HLd-mIYTZO3ZVKrivw8ghBCwIoAR1hA2iBoPqlK_Q8xnh1tHIOW1JpKMjAnCz9JV5o8WJWASZ53itwSqK55LyV2coDDmdokmfei_3_RJ6gXTrcV5TWS6oxC03NjsJQlNDViKQFYg-hOC5ICup9OzOOZMfPm4qRcGyQ8vo16ekLkplWi7RXdpIZL3OtVwWAIziSQ9l4dnZ0jhjmRKu4W5rZLtBSLNURzsNbJxCLGmLFwKGWDCKXBmtHYuqitWGMl0CZ9RJKmKcNuiajYNK9zIkGl6hf8-6b5n26H63BOEfonogyWO0UsuxI8yUqCd_DL3GMt4quQB-eUiOsCPMvQ0xxAi7ru4sJESO_IkpHGfBcz1gpCU9XKp7oQmRtiGs26uBNG7-4iRbhptM7SzPaw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Desserts",
+                    "priceRange": "Affordable"
+                  }
+                }
+              },
+              {
+                "name": "Usmania Restaurant",
+                "type": "restaurant",
+                "description": "Experience another culinary gem in Peshawar, offering a variety of Pakistani dishes with a focus on traditional flavors.",
+                "location": "University Road, Peshawar",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRJ1_WojBd9TIbfJ2vGuNQoyZPebFHe64psq47pMIfHT6WzTNtULvLMZZ970KaRGZyp5NE8A6wblT4OA6BTDUlxLmPUCt1pGU5lPspeI4Lc8UcwJwWAvtl0DRopGLMyG41tfccUq-fwfU2o6LbYO_AtPy5y_b1aY_3qJyPsdAmfLiO3dE4s9IF_v7nnVNtd80eOvhU-lXtA7orP344oWNsUHjhalZ5GyL6-tu2LwwSONylO9iunMaBsw_xqyafifFMwaXvVaajCt4S3TswZmldEcdWumlM3_t9VqnIQwiFTnAirnywNs_-hZz6wHyBjXFtvN1wovfQQj-rJiSRP-hTJmnN2Z7McQ50C2WCd3hHs6q3iWm8pttBwWcjTipcKL6MH7qxa5_odPiEK804EXXn2icy6oeMyNUbf4m85dGTRh98TPQ3NznvvUx6TLcM_NsoavRK55oPj6qgrpMnaErDChNF6sKlsZbiSzKQWUvV4fSpmhLh3t_KF9UCIUdCtpMebAiFE9op-ca7NRrWZH1OKY8RKshCt8RqmHfH2D0hv3KSmNGZ1B_o9XK3csyJOHtmv51lCd04b3g&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Pakistani",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Taxi or Rickshaw"
+            }
+          }
+        },
+        {
+          "dayNumber": 4,
+          "date": "2025-06-20T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Takht-i-Bhai Archaeological Site",
+                "type": "attraction",
+                "description": "Explore the ruins of this ancient Buddhist monastery, a UNESCO World Heritage site offering a glimpse into the Gandhara civilization.",
+                "location": "Mardan District (approx. 1-hour drive from Peshawar)",
+                "timeOfDay": "morning",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSckhr5B8nA-iP5uMl_w8AlKUYa3RTyYfvfueuucnSKbCVF1gQ2hHeHT1cP6eQS7BzYa5vn3Wmx_lYzwnKwjoGQ0cpScdiERs4NMN1E6pQgFp9841ku0Ud1SPegC8GIN3ZERskTIX3mvuX_ydvKVxgFTr6oTzZtZlVpfFRDRliXC2a1nOJZX7EbgETlupQIAalbzkX6b2GDTrza1WFbtUK6apweKo9K-oxNhVInCNuKF5Z5DqC0ibZ9cCfBRmaQ6dfy7iTaDcgaxVGZ02i_ETtv2EAq1YAfLN4tLwppqhQUXGE0uTDOxwse6HM8rOVmvBCIAYonmftg_M-eLeEFQ_dy4YXphpQXmVKTlFkrpduwAGmQduqdpvnBXQP_5j4CJZ9v0aBg29Dh58S8WElCisbjIkktaMAYy3I-4qaDD_P5ZFKQeFgcUu4W2tWUYDtRMznkeu8EZww903O_G-W9yyyP7QQ1pjQ0SBwxGoPwl6bP0y41NwpTn8hMt4ZwSpcEbpIf3Fde600O2a1OQNHyovojCTXTAWkGbJJ3RyRK5Okr1IEjtUWwxNkQN4vfd7iNmjAKB6kLNiWweg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Peshawar Garrison Club",
+                "type": "restaurant",
+                "description": "Enjoy lunch at this historic club with colonial-era charm, offering a mix of Pakistani and continental dishes.",
+                "location": "Peshawar Cantonment",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTu1sm6PXy3mueQdTkLrhBGx14IUFMxRe95JgODX56E1bSt2tj-dlIZSIwjFPLc_ocvlnu_LovayrjhqJSksAkK4C5cXa_kUPY51EMOYLYjoQWu2DxgV_6SvyALuhfks5vd0of51y_5E_NmBR6KNo0tlBSGk95bGXcJcBCJfhiIL9Z7MDHZi4_YSaB6Tk75lIFLkiylGl2ZISt0Jl-NJ_5cQjFZzic8wRy4NFZjRpYkfb6u7DhM9-rEXznJhkIDZRV21mWGi6gfVw-mXKveXFp976sxyWzgfB9IkC1He_UePEH2crs&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Pakistani, Continental",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              },
+              {
+                "name": "Smugglers Bazaar",
+                "type": "attraction",
+                "description": "Wander through this bustling market known for imported goods, electronics, and traditional crafts. Be prepared to bargain!",
+                "location": "Peshawar",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQGu16EYm_2ysoEB48ZWfclcJU3rQuNeO-KGxk5n34Uk1-6LBOpSu6zpUggPjf576mr0YVp8lhx0zJgSI35-3xYIpPhGMKFcXun-6cNWy57FIN1hdsm-ENSrJkgRX370ynUV0q5EXZiFGKx_BycnRJSnclQ-cG1nWZDeb4OQkrzyVhLgd2NIpxgaVsNs2ThwWriCs7H0Hl1qHcqMQlpzWcL4pVe0L4r5WhbMbslfUV0FjNRXC2GqtydDY0DawBP9p2nPMPv-EK-Ps6DS5iJSf76LZ4UAbTfSAogGXMfzv165OhSh6C69-rmWdivBMQfdJmHfU_g_ZGtD5ds2S4Jpxu2czNkk0oI74Tiexa-D7FDY_tZJO6Pugm_P_8zD-BzTRKX65id0t9WxI-pSSWbA3cux4xP41WeobRahE-DOCCrJN5ZoDKdO4vrVMqssEA07vv94qY8d3aSqFjhZW4q-L7smJuIcWTjdxXrV5cI2hIvSuoxdlOdroQXq-gOem4Jaf99eqGT5_0s9r271aQne8hozgxBXwmliO5FFgcJ66EWHGuh7_xbM_9GP5cb0bNO-Aqh_8bh&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Frontier Restaurant",
+                "type": "restaurant",
+                "description": "Savor a delicious dinner of traditional Peshawari cuisine in a lively local atmosphere.",
+                "location": "Peshawar",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Peshawari",
+                    "priceRange": "Budget-friendly"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Hire a car for the day trip to Takht-i-Bhai and use local transport or ride-hailing services within Peshawar."
+            }
+          }
+        },
+        {
+          "dayNumber": 5,
+          "date": "2025-06-21T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Jamrud Fort",
+                "type": "attraction",
+                "description": "Visit this historic fort located at the entrance to the Khyber Pass, offering panoramic views and insights into the region's strategic importance.",
+                "location": "Jamrud, Khyber Agency (approx. 30-minute drive from Peshawar)",
+                "timeOfDay": "morning",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQkTn0vghtficz0jlV_tSMFTnILNMjsGimhHxDSZlJiRTlsmjIu3cry1jPwUakBmEPHLixxvW7ukXPuuYMELCUbedVlSjaJnoYSSPZDLDt8IEDwAjEkeCiD4hnkaOYXKbbiuaD71NLdk89VzczEsZ8fNrHnrPkYxYGVEDU9JwRWpY6cFGa3Y2Kbkk9_3dLPYNMwX4bYwkVg3xBnoR83upaapG8urNTciHqosD4tYc_X-bYtg2fipagcNoM3HsPpUPAR8YvPUrzc7k00pPt7EyKYk4zbYXb-Z-NO6Sgs6dzFFNkfwqxXVd9LKl08QP5weLslOLxJQI5sR_nnFzqA4HS8l9-EFzqJXAtS0jOhzUBvEsJIK9gkWTYp4naK0MSHL0xTnGor1TBFMpvzuHanc2VIk8MnRjTJV31SIF3zruzQfARRlenjtaMdxqO0ofCR83Bh98iYMthiC61pU4EHmAd7FcOmr6B8nTzg6n-rpaMgD5X-GegaayNtf6NiQ0U7hSvfKKaechQoVlgNcDE9XNZ5sONhn3_gOymR57Me8yHZKFXcSgX-_7We7vQZJ3bAJqvPkReyvN4AOA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Khyber Gate Restaurant",
+                "type": "restaurant",
+                "description": "Enjoy lunch with views of the Khyber Pass, savoring Afghani and Pakistani dishes.",
+                "location": "Near Jamrud",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNR1GyGJnUeqhQJXcmrLGiofPuokorKNPZkl9RKQH3SAbEiDfve1mjComSvnH1_ElgkVB4q3lM0sTmn58Uzp3y8L248eiWghwSWYc6NBH6v2yF_yBYA6tSoFpQEwL38jFqG3zm0xOId6KZn1GxklSGdDcytEg4XFalY49xAQLHn4zcGkFcidsHwZF27DNoDs0INhaTggw8I_w0yM0SBrt3GqMn8Znq7GkYKd5sInNIwcn6yTEV0Vb_HQxkgWA9aZDtOyekuLzH9Rk-tjqe5l509SgdW8qBWHWvS23wP9FTX-Akync_pqb6wwKlFQVL4dMGsk7ITzz777MEnZ3r7rsyE2WNJTQ4fwtLF2gAWbTuL-tUhPQlF_bTfx4AZW2k1VTmZ8kXAcTyAHZMKG1lhOS0jJmiOCKy9C094EPFnyXczqEecnVxaPnhuM6X7HTsrsor1PlximyWCyMOhnJPss_s5trejoksNALrnzA23BstV94N-LxbavZpkF6Mim7fhZ4Wpp7ItVUg5cvBrb8h488P3jaRSaKnp4qMkBQIhDkHf4dYDHbtRVUYWjjJyrCKU9bErF-w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Afghani, Pakistani",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              },
+              {
+                "name": "The Heritage Museum",
+                "type": "attraction",
+                "description": "Explore Peshawar's architectural, cultural, and artistic legacy through privately-collected artifacts.",
+                "location": "Peshawar",
+                "timeOfDay": "afternoon",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQFUdagPDemPT2mqAP03C1NlsNr3GHxIIMFoqS3FbYK5sCA5VfTsk-QI36jHLuBrKopRy1d00qhsgmr9jCwwza5K-GOU0IW31fPOSZ4MTkUasXf5xCpVKyHK1tikKEtFR3U9AM7PRFHSmhsaGoEbonc8OX6qhpPVpaIKLxN8AUFbSi2Ddj3IrJ6Y4JR5jXH1aHQQ9T4JAVJz7tEBcG_SIclFfZ7V3uDZGxp5Q0RzMqDttI0cM227LAC58gBban6ZDjCaDaP8DtL2vVrU5Wcdppg6WsmNJpb0NShp-HQQOYOs-vDOv9vw3k-7Z_ReIZD27246fM73QspwOBzam55vMU-vCJmYF5__86ac4kEkt-XGD5Tsy7QBu6nmxD99_Sll-fkkfxgph1TQ_dZjvUW94R-VNB-4YdpehVX0Ct0bsmtk_KNbiGLh8BUrGKVet531Gmuc5-auZEJlZbpp3lz3jUsIlzEhAAdser2axCxk9Pe6iCyRpROkqL9SVQL-RK8d8BWis2S70gs_aYkEd0oThRhtd_8Wcks8HL0197C7EVIrPJzBH7ow1EyGRh5BkG_uI9sOQA2&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Lal Qila Restaurant",
+                "type": "restaurant",
+                "description": "Experience a traditional Peshawari dinner at this popular spot, offering a variety of local specialties.",
+                "location": "Peshawar",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRSEV11keUMP0q0guC-uZw7voQvV8JiX-5RxNNxP9kKQfLZOo5uOIqrkZRDEcCMl2xORuQqo4S3qQtWtCF3CLXHz110KwlJ0d94i2aHzJG8a3Zb9J01E0TQFA0hIG8OGxxdELBnKgtcazpIL0aUus54r9vYJgu2zNXv6sMpncjm71R79HlpWnJMtu4pxONJQTyr6z01bFGXJSWx2pZZ67tDNO_m6Cb1fuS8kN2zlvczY8x7aByZeG2w2vNluAuB3sF256q3ms2eLEuMrj8RIPsNAZQ-hu2Ct0fTnyQs_0T30zubPnpdyLMMpe6m3glCEWCPSST2KTI0os30Jf295q2ouwu29Nui1XpOymG4SMuQndBJsWIny_x1Kul0LGNKeDVOg8coPRuzCAk_m-YO0IpTVxlQZsO3KE9HNQhpzq8KEZ4MLADfcgjxEON0yI2rgEUYOCVwBWRfPCWFUjTsnYYhGJTj4u-LfvAdfnsVUPxK7Te58OiKbLokDlVv20Z2Y_AHgGp4BnMpfscfjLT6V7i-ZNuS6URShJkhpDsECXZtmMGE_FG0smqwdgbzp4Y0clfwh6LUVI2u5A&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Peshawari",
+                    "priceRange": "Budget-friendly"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Hire a car for the trip to Jamrud Fort and the Khyber Pass. Within Peshawar, taxis or ride-hailing services are convenient."
             }
           }
         }
@@ -174,76 +384,51 @@
     "accommodations": {
       "create": [
         {
-          "name": "Club du Lac Tanganyika",
+          "name": "Pearl Continental Hotel, Peshawar",
           "type": "Luxury",
           "rating": 4.5,
-          "pricePerNight": 2500,
-          "description": "A luxurious lakeside resort offering stunning views, private beaches, and top-notch amenities. Perfect for a romantic getaway.",
-          "bookingUrl": "https://www.example.com/clubdulac",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSV41mJ5PsNkh2n84123UwlQ5d98oD0duhF9skMEl7H0nl9GGoj1GKQPV8kSRgHbUXu9UiemupJ7JOj84UolMiQ1bspObRz3t1RANz2TyJfM8enJAN7rlVF7X8UB6pBF9fwwYqx86Sphcow0SEVMHfQI45zYq2ziyngo7D7hjJTHO9W6HRFItAzRMELhOl7WmsVrQye4Dp2whUKB-AUMXlihifj0MIyIdevhuXzpO2UoRKN3ctaZ5ArTeYGCO9JjtaxhL5Ffo86AXj30INs-SPs9mpdpYZkGPGfUnegwEfLv9gzVe0&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "pricePerNight": 4500,
+          "description": "A 5-star hotel offering luxurious accommodations, fine dining, and a range of amenities.",
+          "bookingUrl": "https://www.pchotels.com/hotel/pearl-continental-hotel-peshawar/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRJLc7PydUrATcUG3m8wa8f07BS7zhc-0VPWW32bkGVx12pGeiMorQ5Xh1A4rFPx9VEP6H0V3go3Nx_-AyNcQEjS-tzYqxTaSZhZmsvG5mQs7XncKjUvYmvizyJmwrfadJ6mz7BmukU-wmPFG2mTHdYuMXPdsBWKXLk-rJu6ZY4p1rgxJme1WZ7-ITgMfQ-GkW5Vp1varV7s5pmCZs8JZQMpesZKaL1SJnfH-UR16KTP1gDoKvYwSIHycPWTMdvzkFJGJKQjwxVdrdDj34vdTOoh5EgK9BzXkf-9uhkJuuxE_n3GfH-BKMuooIN9UEv8DmmFjQ-rF9yVGYJizHADQ0e9DNz8lE7FgwZQ9ugcFzjWm8FZUnCfqbmk87XlAlx36KFbLVaqJivBjDhOZpcGHL0BgRw7dS2K9XsviacEIMeoauN0_5tF4UrKSYJotbw7HCnEG9P8xeicliCkVge0cNso2THOwSuI9RiNELYgv7wQDJUSg57Gacrg21Fo9NM_GHz_-3nJJstgkuGoqjdOeUQmI5xl1LJVtyrpnTxINzJa4OaksjEqoek8H4gfoAZmEzhXI4XOFMyww&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
-                "name": "Private beach"
+                "name": "Swimming pool"
               },
               {
-                "name": "Infinity pool"
+                "name": "Fitness center"
               },
               {
                 "name": "Spa"
               },
               {
-                "name": "Fine dining restaurant"
+                "name": "Multiple restaurants"
               },
               {
-                "name": "Water sports"
+                "name": "24-hour room service"
               }
             ]
           }
         },
         {
-          "name": "Hotel Safari Gate",
+          "name": "Fort Continental Hotel",
           "type": "Mid-range",
           "rating": 4,
-          "pricePerNight": 1800,
-          "description": "A comfortable and well-regarded hotel near Bujumbura city center, offering easy access to cultural attractions and restaurants.",
-          "bookingUrl": "https://www.example.com/hotelsafarigate",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT_vVZRKy7WUk9y2qShg61wHBtqKhj_fjWB_8dS4xPpJRYmWWp7VtA1jsY1S0ZkkzSXdLpyOmzSgqmxM8EK46OauZXS87CZYfdhrnlwb3dRDtoYsYJ_j_4qyu-U6I8e6nepm6g_0zLseWPO-KTV-tYKmuDigYoT0hIm3X4I0FA_itWszK5LrFKwmIN6527zBmTEN4weP4w8LmNF4Ky86gAqCqasf0C-Rx5gszrR5eB5jp_2OHRyHApGqckasisvwyNNet-SwLt06vkm75xJsWV4dqqOfYYykTBQpKCz4bqsEZpXd-c4lwOEQdBOqTV6pD3I5akWwGSfk8lDDzh7an3kXCBXSeAL4vptOMmFfyl4QpeQikK3TN7PBm0Ed4qKfdP_uqGjU4w6FxlTe62fov_EWhQrKhbwbbr3jdIotnv4knQnB-BMQAKWTwIDRAc0pt6a8scpPjuzbgxrt7cDseL8fkssWdEjPdNjKZXbJS75y8LkmjAc6zmsKlejlZsS87BdjlSKCjRWG1A7C9mQrlFOrVmla0uQ3TJC7MEXXs0a2uQ42Y9xUJvZkvbg4OGKUyaL_MTXE5CCAQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "pricePerNight": 2500,
+          "description": "A well-regarded hotel with comfortable rooms, good service, and a convenient location.",
+          "bookingUrl": "https://www.fortcontinental.com/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSZwIKwy-PRRDrq3jXi_q3HhzKbkWXcOo3m2OU4vycGjX1_-y2AhvcdE-UpV2gzjBmDJN3DEynBLVqYwRm6Vs6rO1UZvMWPlLDVbf6v20MYfs_K24Avo1uDRiDOo3yuj_QZrNVttf_QtISYYHJTfwnLD4J6kR_Nczwo2G4SaAIHFNZtiJ9Ie-wRRnngtOrGaVca2L6zGZY-K0s3IbaYmdnJCK37dZCRJB0ddHpLqDdfamNF9y2Sl0rwrZQYu0Wua5KdpIcoExEqEDeG-89xn5UtojmQc7zLdcGdeaifI-y2irLIQ60&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
-                "name": "Outdoor pool"
-              },
-              {
                 "name": "Restaurant"
-              },
-              {
-                "name": "Bar"
               },
               {
                 "name": "Free Wi-Fi"
               },
               {
                 "name": "Airport shuttle"
-              }
-            ]
-          }
-        },
-        {
-          "name": "Kiriri Garden Hotel",
-          "type": "Budget-friendly",
-          "rating": 3.5,
-          "pricePerNight": 800,
-          "description": "A simple but clean and comfortable hotel offering great value for money. Close to local markets and transportation.",
-          "bookingUrl": "https://www.example.com/kiririgarden",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTlqFZJH655s72nm84DflkcsMJnpRFAAxD7Mi3lqDyDoAr6u55KRlKYmxBYO8QYqbWfOlxb61gacmBVc71-JYNcAoFw23f8o6WFJxyvD0BNO4wrCeYBbXh_MBXu1mZe3smUndZ2kEY-xukuP_bLmyKFnmoSOgPDj-l5kaFahbW0ZDkO21ncfxLoYnS2Zln4HTzluHE3Qx3KqxmoQA54ncBQE44lhB3yW1RTJrIQTJpD3V52eBJWVEYRKXXgxYCoiz-Ii_j0KTGxXuswYRJVCBv5al_gqZyyDxLoMIRn-5d_q4lHYI4&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-          "amenities": {
-            "create": [
-              {
-                "name": "Restaurant"
-              },
-              {
-                "name": "Free Wi-Fi"
               },
               {
                 "name": "24-hour front desk"
@@ -252,26 +437,48 @@
           }
         },
         {
-          "name": "Rusaga Falls Lodge",
-          "type": "Unique/Boutique",
-          "rating": 4.2,
-          "pricePerNight": 2000,
-          "description": "An eco-lodge nestled near the stunning Rusaga Falls, offering a unique and immersive experience in nature.",
-          "bookingUrl": "https://www.example.com/rusagafallslodge",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNS2HE6qFwXxkgWs7DqEf9tsp0N-lyswQZ8y1gM2X2Ixo0p7Ra_ACUe34Lt6tnKPkjgt9-d6n3_ex3MN61X6xBBROUsIopuAJnP-93HTSzNWjNLcgK8HwiHt_j-mhbEwj4FCmhJOud7stZ_ubotVtIZcdtszH5Ha6RM_pxT1VVDtERE1QKjZWgLtIODaNiGnufP5HRuXj0JBYt2WTan0zkiAzgtfUYq2JWjWRpI6IEXs5s4vxk4TNvb0jBJiV4ayzwFTQPfXjnpNR-erj35FNRKsV_aMdkTMTZs2HtvIGZ5UwUoyOwds-dr6QgNksVGMlDSC7_UHqReaZX2X3L6vNdCs7RiIEGsRwyuX1fcWJezxAIjhKWhhLMR9J5ZKLRlGMQU-V6q2YOgkpHaLF6Yyrhxzptz_ZxxeRRX_PKXaEHkOf1aKHxbwjuPRRpz5ixEw5o2SCp2La8PYoXi5z32nlg7CfTGtJ6tvDVXp9ooMgGGLBxciDXLA7604fTNgV_oDk5-YEQVS11V_enjNqXQOkttpHeGySpoUMLXIyRVzykW2joc15b0uMZhP5c6ctU3IudklnWkf&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "name": "Shelton's Rezidor Peshawar",
+          "type": "Budget-friendly",
+          "rating": 3.5,
+          "pricePerNight": 1000,
+          "description": "A decent budget option providing basic amenities and clean rooms.",
+          "bookingUrl": "https://sheltonhotel.com/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTxYawmdMhBbwTvu_DsDp8YTgUTMVNc60hfRNjZfC8R3WhdzC7ocKY-IioW7_Zlhu22_soEHV-WFTxUuJ6Hl4st1RGt2voHMa33HfvPM7SAbkHX9xNZo8Bq7UiPWK0-NQe0TbJKFT7n7UXVwyER3Yr6ZRM3sobshuO1ctftBBqdbDSbySRPckJUpltrov9LbALEJIgsPpOQ3sM_jlYpj5jOkXzPLy6H94zFUODQ_HhmuTx4WHyUNtAXVSLogYw-1CpBYOU8Xv_7B3wputHdlgirzIn2RL7XNquPjowpCVjanaWv1ILLywmMBOZi9pCvT-WrxJkpIOWvcr4Bh8A8-2f-jVM9tkMY9DUI5GNCDKyJYLguC_A12YC3dId0ggMtNLCrghof2aHWx238hvQgOhPpuv2g47rVHy6RoP9H3BwX3RmHx2x4qHCidVs6LQl9x2n8CLR9H1uNnysgqjRKyl0pWBjnkvvay88YnVs-flZuy9Wj0YSBh_bdHgDR-HUeBAHzoYvXciFw2L5LBRI0m4B4qUr5wkanPOUyYxY9N4h7NtGK05R0z8geaYRMSYMTpiF04w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
-                "name": "Nature trails"
+                "name": "Free Wi-Fi"
               },
               {
-                "name": "Waterfall views"
+                "name": "24-hour front desk"
               },
               {
-                "name": "Local cuisine"
+                "name": "Room service"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Peshawar Serena Hotel",
+          "type": "Unique/Boutique",
+          "rating": 4.2,
+          "pricePerNight": 3500,
+          "description": "A boutique hotel with a distinctive character, showcasing local culture and architecture.",
+          "bookingUrl": "https://www.serenahotels.com/serenapeshawar/default-en.html",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQkOoVMajDsU5unt-xu_SdUTXo02jrx-uIO7t50Xia6fARNsRY1j9Pr4qBLyvqRl9WkSwnf_1hOAiIhb9SG2NQhp03xSyXYOhqWMjDx2vxVJg--ybhUV4AZEsI5FqiMf-4QjJ3gYdA7v_N-4-uGu8bx8p7d8zCYUGS0XDZNxTDw_fFZ9KJATKgG9WTbLsL8NwMR8r-rABKV6DgKF3PJc13odm9_LCHcx9KdP2lc-_4kIeGUAPuaNdZJdyWlmH2mpCYAu3NCM0LiPSMO4k_a6NYglfvm6z1EZkMrgt6CER89rzk2E78&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "amenities": {
+            "create": [
+              {
+                "name": "Garden"
+              },
+              {
+                "name": "Restaurant with traditional cuisine"
               },
               {
                 "name": "Cultural performances"
+              },
+              {
+                "name": "Library"
               }
             ]
           }
