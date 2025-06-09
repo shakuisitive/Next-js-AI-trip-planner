@@ -245,12 +245,20 @@ export default function TripPage() {
       <main className="flex-grow">
         {/* Enhanced Hero Section */}
         <div className="relative h-[500px] overflow-hidden">
-          <Image
-            src={trip.accommodations[0]?.image || "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"}
-            alt={trip.tourName}
-            className="absolute inset-0 w-full h-full object-cover"
-            layout="fill"
-          />
+          {trip.accommodations[0]?.image ? (
+            <img
+              src={trip.accommodations[0].image}
+              alt={trip.tourName}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"
+              alt={trip.tourName}
+              className="absolute inset-0 w-full h-full object-cover"
+              layout="fill"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           
           {/* Hero Content */}
@@ -389,12 +397,10 @@ export default function TripPage() {
                 <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                   {accommodation.image && (
                     <div className="relative h-64 overflow-hidden">
-                      <Image
+                      <img
                         src={accommodation.image}
                         alt={accommodation.name}
-                        layout="fill"
-                        objectFit="cover"
-                        className="transition-transform duration-300 hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
                       <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center">
                         <Star className="w-4 h-4 text-yellow-400 mr-1" />
@@ -518,12 +524,10 @@ export default function TripPage() {
                           <div className="flex items-start gap-6">
                             {place.image && (
                               <div className="relative w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden shadow-lg">
-                                <Image
+                                <img
                                   src={place.image}
                                   alt={place.name}
-                                  layout="fill"
-                                  objectFit="cover"
-                                  className="transition-transform duration-300 group-hover:scale-110"
+                                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                 />
                               </div>
                             )}
@@ -625,12 +629,10 @@ export default function TripPage() {
                           <div className="flex items-start gap-6">
                             {place.image && (
                               <div className="relative w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden shadow-lg">
-                                <Image
+                                <img
                                   src={place.image}
                                   alt={place.name}
-                                  layout="fill"
-                                  objectFit="cover"
-                                  className="transition-transform duration-300 group-hover:scale-110"
+                                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                 />
                               </div>
                             )}
