@@ -565,6 +565,19 @@ export default function TripCreatePage() {
                         />
                       </div>
 
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Image URL</label>
+                        <Input
+                          value={place.image}
+                          onChange={(e) => {
+                            const updatedDays = [...days];
+                            updatedDays[dayIndex].places[placeIndex].image = e.target.value;
+                            setDays(updatedDays);
+                          }}
+                          placeholder="Image URL for the place"
+                        />
+                      </div>
+
                       {place.type === "restaurant" && (
                         <>
                           <div>

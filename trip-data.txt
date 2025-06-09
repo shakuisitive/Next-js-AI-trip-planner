@@ -1,30 +1,30 @@
 {
   "data": {
-    "userId": "6845743db48fdd9e4a2c68bb",
-    "tourName": "Created within dashboard by an admin",
-    "destination": "California, USA",
+    "userId": "68471c448abf0ea99ce5c555",
+    "tourName": "ktv1",
+    "destination": "Peshawar, Pakistan",
     "tourStatus": "Pending Approval",
-    "startDate": "2025-06-09T19:00:00.000Z",
-    "endDate": "2025-06-16T19:00:00.000Z",
+    "startDate": "2025-06-17T19:00:00.000Z",
+    "endDate": "2025-06-18T19:00:00.000Z",
     "budgetMin": 500,
     "budgetMax": 5000,
     "preferences": {
       "create": {
         "groupType": "couple",
-        "travelStyle": "luxury",
-        "pace": "fast"
+        "travelStyle": "adventure",
+        "pace": "moderate"
       }
     },
     "interests": {
       "create": [
         {
-          "interest": "culture"
+          "interest": "shopping"
         },
         {
-          "interest": "nightlife"
+          "interest": "food"
         },
         {
-          "interest": "nature"
+          "interest": "sports"
         }
       ]
     },
@@ -32,16 +32,17 @@
       "create": [
         {
           "dayNumber": 1,
-          "date": "2025-06-09T19:00:00.000Z",
+          "date": "2025-06-17T19:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Borough Market",
+                "name": "Emporium Mall",
                 "type": "attraction",
-                "description": "Vibrant food market with diverse stalls and street food.",
-                "location": "8 Southwark St, London SE1 1TL",
-                "timeOfDay": "afternoon",
-                "duration": "1-2",
+                "description": "A large shopping mall with a wide range of brands, a cinema, and an indoor ice-skating rink.",
+                "location": "Saddar Town, Karachi",
+                "timeOfDay": "morning",
+                "duration": "2",
+                "image": "https://images.unsplash.com/photo-1661769247453-098d2d287f44?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -49,41 +50,16 @@
                 }
               },
               {
-                "name": "Hawksmoor Seven Dials",
-                "type": "attraction",
-                "description": "Steakhouse known for its high-quality cuts and cocktails.",
-                "location": "11 Langley St, London WC2H 9JG",
-                "timeOfDay": "evening",
-                "duration": "1.5-2 hours",
-                "attraction": {
-                  "create": {
-                    "category": "Cuisine: Italian"
-                  }
-                }
-              }
-            ]
-          },
-          "transportation": {
-            "create": {
-              "description": "Underground (Tower Hill, London Bridge) and walking"
-            }
-          }
-        },
-        {
-          "dayNumber": 2,
-          "date": "2025-06-10T19:00:00.000Z",
-          "places": {
-            "create": [
-              {
-                "name": "National Gallery",
+                "name": "Sakura",
                 "type": "restaurant",
-                "description": "Art museum housing a collection of European paintings.",
-                "location": "Trafalgar Square, London WC2N 5DN",
-                "timeOfDay": "afternoon",
-                "duration": "2",
+                "description": "Offers authentic Japanese cuisine including sushi, teppanyaki, and more.",
+                "location": "Pearl Continental Hotel, Karachi",
+                "timeOfDay": "evening",
+                "duration": "1",
+                "image": "https://images.unsplash.com/photo-1551829142-d9b8cf2c9232?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Italian",
+                    "cuisine": "Japanese",
                     "priceRange": "100-200"
                   }
                 }
@@ -92,7 +68,7 @@
           },
           "transportation": {
             "create": {
-              "description": "Underground (Russell Square, Hyde Park Corner) and walking"
+              "description": "Ride-hailing services or taxi"
             }
           }
         }
@@ -101,20 +77,17 @@
     "accommodations": {
       "create": [
         {
-          "name": "Generator London",
-          "type": "Hotel",
+          "name": "Avari Towers KarachiHotel ",
+          "type": "Hotel ",
           "rating": 5,
-          "pricePerNight": 100,
-          "description": "Stylish boutique hotel near South Kensington museums, with individually designed rooms and a vibrant atmosphere. Excellent reviews for its service and location.",
-          "bookingUrl": "google.com",
-          "image": "http://localhost:3000/_next/image?url=https%3A%2F%2Fmaps.googleapis.com%2Fmaps%2Fapi%2Fplace%2Fphoto%3Fmaxwidth%3D800%26photoreference%3DAXQCQNS-bAH0NubIkReq3ZKaWqln_htiJ_XWL7D5rE90637CeGwUzw1MUsXz4CTo59-iEaXWjkctgxVPQIwqK_4JU1q6bO9JrcISQKsxqyEAueLbsutJl1FdzDF9VA6IjvIczKj1kC3nhBDhXd_eHJzdV4Bbcy-UBKuddLlqD6It3Jd0OHmUrmxtlhi9oODQtrcU3NSeeeUETiwnskc6N43q_WOuo18yFFHossJ5t6lWHEHKFN7i7EZvwNZf6_Cnikwj599SgQjoaydaSd7g4Q-ukv9ECGnrwPU7LyENMmFrs3X0P9RHiuA%26key%3DAIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y&w=1920&q=75",
+          "pricePerNight": 20,
+          "description": "A luxurious 5-star hotel with multiple dining options, a rooftop pool, and city views. Close to the airport and shopping malls.",
+          "bookingUrl": "https://www.youtube.com/",
+          "image": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWx8ZW58MHx8MHx8fDA%3D",
           "amenities": {
             "create": [
               {
-                "name": "Bar"
-              },
-              {
-                "name": "free wifi"
+                "name": "Pool"
               }
             ]
           }
