@@ -129,12 +129,12 @@ export async function getTrips() {
 
 export async function updateTripDetails(
   tripId: string,
-  updates: { 
-    tourName?: string; 
-    tourStatus?: string; 
-    startDate?: Date; 
-    endDate?: Date; 
-    budgetMin?: number; 
+  updates: {
+    tourName?: string;
+    tourStatus?: string;
+    startDate?: Date;
+    endDate?: Date;
+    budgetMin?: number;
     budgetMax?: number;
     status?: boolean;
   }
@@ -344,7 +344,10 @@ export async function updateAccommodationAmenities(
     return { success: true, accommodation: updatedAccommodation };
   } catch (error) {
     console.error("Error updating accommodation amenities:", error);
-    return { success: false, error: "Failed to update accommodation amenities" };
+    return {
+      success: false,
+      error: "Failed to update accommodation amenities",
+    };
   }
 }
 
@@ -364,7 +367,10 @@ export async function deleteAccommodation(accommodationId: string) {
   }
 }
 
-export async function updateAccommodationTrip(accommodationId: string, tripId: string) {
+export async function updateAccommodationTrip(
+  accommodationId: string,
+  tripId: string
+) {
   try {
     const updatedAccommodation = await prisma.accommodation.update({
       where: { id: accommodationId },
@@ -413,8 +419,8 @@ export async function createAccommodation(data: {
         image: data.image,
         status: true,
         amenities: {
-          create: data.amenities.map(name => ({ name }))
-        }
+          create: data.amenities.map((name) => ({ name })),
+        },
       },
       include: {
         trip: {
@@ -433,5 +439,43 @@ export async function createAccommodation(data: {
   } catch (error) {
     console.error("Error creating accommodation:", error);
     return { success: false, error: "Failed to create accommodation" };
+  }
+}
+
+export async function getPlaces() {
+  try {
+    const places = await prisma.place.findMany({
+      where: {
+        status: true,
+      },
+      include: {
+        day: {
+          include: {
+            trip: {
+              select: {
+                id: true,
+                tourName: true,
+              },
+            },
+          },
+        },
+        restaurant: true,
+        attraction: true,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return {
+      success: true,
+      places,
+    };
+  } catch (error) {
+    console.error("Error fetching places:", error);
+    return {
+      success: false,
+      error: "Failed to fetch places",
+    };
   }
 }
