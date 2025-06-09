@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import ChatInput from "@/components/ui/ChatInput";
-import MessageWindow from "@/components/ui/MessageWindow";
-import SettingsModal from "@/components/ui/SettingsModal";
+import { useEffect, useState, useRef } from "react";
+import { Mic, MicOff, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { toast } from "react-hot-toast";
 
 export type MessageRole = "user" | "model";
 
@@ -18,16 +18,23 @@ export interface Message {
 
 export interface ChatHistory extends Array<Message> {}
 
-export interface GenerationConfig {
-  temperature: number;
-  topP: number;
-  responseMimeType: string;
-}
-
 export interface ChatSettings {
   temperature: number;
   model: string;
   systemInstruction: string;
+}
+
+interface ChatbotProps {
+  weather: any;
+  inputData: any;
+  generatedTours: any;
+  pastTours: any;
+}
+
+declare global {
+  interface Window {
+    webkitSpeechRecognition: any;
+  }
 }
 
 export default function Chatbot({
@@ -35,16 +42,13 @@ export default function Chatbot({
   inputData,
   generatedTours,
   pastTours,
-}: {
-  weather: any;
-  inputData: any;
-  generatedTours: any;
-  pastTours: any;
-}) {
-  console.log("1 13 - weather", weather);
-  console.log("1 13 - inputData", inputData);
-  console.log("1 13 - generatedTours", generatedTours);
-  console.log("1 13 - pastTours", pastTours);
+}: ChatbotProps) {
+  const [history, setHistory] = useState<ChatHistory>([]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const recognitionRef = useRef<any>(null);
 
   let pastToursString = "";
   if (pastTours?.length > 0) {
@@ -53,8 +57,6 @@ export default function Chatbot({
     )}`;
   }
 
-  const [history, setHistory] = useState<ChatHistory>([]);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [settings, setSettings] = useState<ChatSettings>({
     temperature: 1,
     model: "gemini-1.5-flash",
@@ -73,15 +75,44 @@ export default function Chatbot({
 
     ${JSON.stringify(generatedTours, null, 2)}
 
-    ${pastToursString || ""}
-
-
-
-      `,
+    ${pastToursString || ""}`,
   });
 
   useEffect(() => {
-    console.log("running");
+    // Initialize speech recognition
+    if (typeof window !== "undefined" && "webkitSpeechRecognition" in window) {
+      const SpeechRecognition = window.webkitSpeechRecognition;
+      recognitionRef.current = new SpeechRecognition();
+      recognitionRef.current.continuous = true;
+      recognitionRef.current.interimResults = true;
+
+      recognitionRef.current.onresult = (event: any) => {
+        const transcript = Array.from(event.results)
+          .map((result: any) => result[0])
+          .map((result: any) => result.transcript)
+          .join("");
+
+        setInput(transcript);
+      };
+
+      recognitionRef.current.onerror = (event: any) => {
+        console.error("Speech recognition error:", event.error);
+        setIsListening(false);
+      };
+
+      recognitionRef.current.onend = () => {
+        setIsListening(false);
+      };
+    }
+
+    return () => {
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     setSettings({
       temperature: 1,
       model: "gemini-1.5-flash",
@@ -101,21 +132,38 @@ export default function Chatbot({
       ${JSON.stringify(generatedTours, null, 2)}
   
       ${pastToursString || ""}
-  
-  
-  
-        `,
+      
+      Finally, dont write hundreds of words of replies. Short and sweet that conveys the message and helps the user. Dont use any bold or stars as well.
+      `,
     });
   }, [weather, inputData, generatedTours, pastTours]);
 
-  const handleSend = async (message: string) => {
-    const newUserMessage: Message = {
-      role: "user" as MessageRole,
-      parts: [{ text: message }],
+  const toggleListening = () => {
+    if (!recognitionRef.current) {
+      toast.error("Speech recognition is not supported in your browser");
+      return;
+    }
+
+    if (isListening) {
+      recognitionRef.current.stop();
+    } else {
+      recognitionRef.current.start();
+    }
+    setIsListening(!isListening);
+  };
+
+  const handleSendMessage = async () => {
+    if (!input.trim() || isLoading) return;
+
+    const userMessage: Message = {
+      role: "user",
+      parts: [{ text: input.trim() }],
     };
 
-    const updatedHistory = [...history, newUserMessage];
+    const updatedHistory = [...history, userMessage];
     setHistory(updatedHistory);
+    setInput("");
+    setIsLoading(true);
 
     try {
       const response = await fetch("/api/chat", {
@@ -124,7 +172,7 @@ export default function Chatbot({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userMessage: message,
+          userMessage: input.trim(),
           history: updatedHistory,
           settings: settings,
         }),
@@ -134,44 +182,86 @@ export default function Chatbot({
 
       if (data.error) {
         console.error("AI Error:", data.error);
+        toast.error("Failed to get response");
         return;
       }
 
       const aiMessage: Message = {
-        role: "model" as MessageRole,
+        role: "model",
         parts: [{ text: data.response }],
       };
 
       setHistory([...updatedHistory, aiMessage]);
     } catch (error) {
       console.error("Request Failed:", error);
+      toast.error("Failed to send message");
+    } finally {
+      setIsLoading(false);
     }
-  };
-
-  const handleOpenSettings = () => {
-    setIsSettingsOpen(true);
-  };
-
-  const handleCloseSettings = () => {
-    setIsSettingsOpen(false);
-  };
-
-  const handleSaveSettings = (newSettings: ChatSettings) => {
-    setSettings(newSettings);
   };
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-1 overflow-y-auto">
-        <MessageWindow history={history} />
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {history.map((message, index) => (
+          <div
+            key={index}
+            className={`flex ${
+              message.role === "user" ? "justify-end" : "justify-start"
+            }`}
+          >
+            <div
+              className={`max-w-[80%] rounded-lg p-3 ${
+                message.role === "user"
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-100 text-gray-900"
+              }`}
+            >
+              {message.parts[0].text}
+            </div>
+          </div>
+        ))}
+        <div ref={messagesEndRef} />
       </div>
-      <ChatInput onSend={handleSend} onOpenSettings={handleOpenSettings} />
-      <SettingsModal
-        isOpen={isSettingsOpen}
-        onClose={handleCloseSettings}
-        onSave={handleSaveSettings}
-        currentSettings={settings}
-      />
+
+      <div className="border-t p-4">
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={toggleListening}
+            className={`${
+              isListening ? "bg-red-100 text-red-600" : "bg-gray-100"
+            } hover:bg-gray-200`}
+          >
+            {isListening ? (
+              <MicOff className="h-5 w-5" />
+            ) : (
+              <Mic className="h-5 w-5" />
+            )}
+          </Button>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={isListening ? "Listening..." : "Type your message..."}
+            className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            disabled={isLoading}
+          />
+          <Button
+            onClick={handleSendMessage}
+            disabled={isLoading || !input.trim()}
+            className="bg-blue-600 text-white hover:bg-blue-700"
+          >
+            <Send className="h-5 w-5" />
+          </Button>
+        </div>
+        {isListening && (
+          <p className="text-sm text-gray-500 mt-2">
+            Speak now... Click the microphone icon again to stop
+          </p>
+        )}
+      </div>
     </div>
   );
 }

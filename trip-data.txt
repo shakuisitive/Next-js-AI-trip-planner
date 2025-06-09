@@ -1,22 +1,25 @@
 {
   "data": {
-    "userId": "684751828abf0ea99ce5c679",
-    "tourName": "LTv1",
-    "destination": "Peshawar, Pakistan",
+    "userId": "684750b18abf0ea99ce5c615",
+    "tourName": "Moldova Trip",
+    "destination": "Moldova",
     "tourStatus": "Pending Approval",
-    "startDate": "2025-06-17T00:00:00.000Z",
-    "endDate": "2025-06-22T00:00:00.000Z",
+    "startDate": "2025-06-10T00:00:00.000Z",
+    "endDate": "2025-06-17T00:00:00.000Z",
     "budgetMin": 500,
     "budgetMax": 5000,
     "preferences": {
       "create": {
-        "groupType": "solo",
-        "travelStyle": "adventure",
-        "pace": "fast"
+        "groupType": "couple",
+        "travelStyle": "relaxed",
+        "pace": "slow"
       }
     },
     "interests": {
       "create": [
+        {
+          "interest": "food"
+        },
         {
           "interest": "culture"
         }
@@ -26,17 +29,17 @@
       "create": [
         {
           "dayNumber": 1,
-          "date": "2025-06-17T00:00:00.000Z",
+          "date": "2025-06-10T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Peshawar Museum",
+                "name": "National Museum of History and Archaeology",
                 "type": "attraction",
-                "description": "Explore a vast collection of Gandharan art, Buddhist sculptures, and Mughal-era artifacts, providing a glimpse into the region's rich history.",
-                "location": "Jamrud Road, Peshawar",
+                "description": "Explore Moldova's rich history and archaeological discoveries, from ancient times to the present day.",
+                "location": "Chișinău",
                 "timeOfDay": "morning",
                 "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSQZnU9zX29GSqCZXXGTSwaxw9JyIKl0xQO7YDzS2ux5EvzR1lcwKfwwKNw2GNr5vjFtNG-YdT8uuj-3FAcOySpZEfmXYGKXyKyHlpav0kwrswyCPUJTxX0J92S4CQ_iNYXI0lYChUESzTiBR6_423d5bIpNGvKOwb-mlF0QKGZ9ZlR59OZWfg90Md_fkAG3vXIGjch8e7YyalyQFpLNC1IrqovfR6-ynpqkhUhemfrxh4y22ydwTyDVfOwihn8m5ioKeWtj7jCFHsp0l1dWvaneom9hZah0v3v9izjPRcmJs7af1fJG-mizFLdF56tXOSRUNz1Q7XzxLSZIvwuIqK3C-lW2D4RuVwvWhlFCTQxIG8X089MgIf-1n4nlBoOc3ncY1tk2WhtUO8L4XqLcFoi-7s0Dhqh7AK1cqXRgSqpd3uopCn_ZCnEhAn7gKVQieRNIkcmKb6OYx3nEWqxSYRQZ6zuyvB9IIYqMIo5n-Y_ETTxi9XD2j8qRW_t5v4D2Tso8k8Gvo5w3JDh_J1Yh0GPbdcmIOdWeXhC8rpCPeA6U18N5sXESrXe4ey-vRcRnFXg-g&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTKzC09J0mHcjXSK8eviX6UBBhxHoQ-Qu-510WPW4g2GvwRo8lFfPUepUljqIicR8L1xEcAMy-WSIc8wX_77J5a961fO40iyAA4SynLAXXhiFqYCgxo5JYqV1STrMTe9dh8tkibNo5XNTl3-LUakNEV6s_1OjZZkS9K30trL86ukDJlZDOoMTW8vC-uqeaY9lF8sNZR_pACtjy2FhC_3sYjEpdXjTZYw0Bwt8zUgG7M0efGQqIhC9-TyS3IUHHKdBYecdXzO3VZnJfv3V6poOsosU9-6DN4_hjQ7QCpPcCf1aRRP6M&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -44,46 +47,46 @@
                 }
               },
               {
-                "name": "Bala Hisar Fort",
-                "type": "attraction",
-                "description": "Visit this historic fort offering panoramic city views and insights into Peshawar's strategic importance.",
-                "location": "Bala Hisar Road, Peshawar",
-                "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRZ2NSy5xnZsUeNeL080Y8swMI7Bbzn3PNWfg-guS8zVs0KNkV5ycO2mGc2El48cO6z9b8l369emUq-jSADcR0IL4PQ8uTPIPEBXVs2rEUYvRmHULAU_Vqa9yYQ2aes25jFz2aAJlog9g1QB5BLlbq81PX-tpjQkTeIz2seP3_fXxSmhI1pqKIZJC8b06qBjXOSyQQHFNeQSxbumMG9LJgYecvxB5Yjil-kYogWuqGJ9JNNa_xwAZq9kDEZbOcNdIwiVQrBHXYD1q8-hibSU_cq_E1MYq411bhhZdUvUC283RLcxGIEbL422aJAVlvkR2mAWdd_JyNJCR_pnNtQuHBd_LJWpj__KTG-t5tUOam-JOJeoa_zlr4OJHBN-kO34JFcy3GF6h-QbLF3BDlUO8k6MMBPh5TJdZ-aO_oVVflWw47qiI_fQsmI0CUES8dPoaJ59r51xESmVVKIhfgYgKJj_gsF2jWmaDdD8SpRLOUtNCHjb0stcCslzP5mjzADY6vgtkWSUBpUgw8fMXTDyXBlWWhz1vlIegTzjvx5ANcVJ74g7FXaSIQ__xQyHpOhu0zT4yNOD6k6vw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Charsi Tikka",
+                "name": "La Placinte",
                 "type": "restaurant",
-                "description": "Enjoy traditional Pashtun cuisine, famous for its delicious grilled meats and flavorful spices.",
-                "location": "Namak Mandi, Peshawar",
+                "description": "Traditional Moldovan cuisine with a focus on placinte (savory pies).",
+                "location": "Chișinău",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ3X0XKN10wTp5s2I1wKpxTLah3-QM0LD-p1sjCSh9eu614v1TwAmMGMsmPOrSPcT2QVIHPs5Os4Q8WY7MDX6FsEpEiJ5rGZDKVN-FkCeboWl4k_xtTN8FAyZ4ASydmBJGVp99LgjlQMbO6QP6Cvlk6qk9I8CKm98cGvDqazl9GEY0D2VZ6i5jI6G6Ii4Qtv9uP58Tyjk_0Mp4QrBWe-3lXFJw64D_l9NWF75IkBqleIeMfwBaXs_vS3IzGa0Jj7NMrj7LzrzdcUVnRV9gapRJNzrql6VWPPLwQnKD9ZVUYrft8SyeVF3_rhtvCu8-jOTlEYfttOtStSZcjLj-ctwtwl5iZLkvdbRC-zcnePOQkV8OuQgzowpGbBRr-WtEGECE5iy32VC_psiubv9J2yYlDdOm6sfPAeoXsd2D0r6lb-e6UhTa8F9PiDlWCexas2wRZNXNhVw_jVWj7ad-rT9JkI0xjKJpmtaX8eIYYBzVyoiTBqwymnyH0Jp0ACQtbvsfA0K3uOrD6ad0Dk8kaKGN3efVQJW5KASsiOC2pYmwGFR4rZQJ-VJzcLlVoB2700sE4QpW4&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTfZCVa8J0BNW0JvphM3pSCu1m3xmuEFCSyIK49t-0OoERrRwpVWOWA0SMdn_VLHa51j-C48HZ3AZ2wB-VdZ02c1UlT61_syuylvmbybSNnyHQtgioN_8R5HyUaAee34WjJkxYr8BgfFWbMbWi33zKg61vb63_o0Swb3HeSrK8eSi8bF44-pPCX8uSkaQs5bNewE670iyHiG0Gyy72EywCC4ifZthUGY9I3M6elXC3ZiGqWjSX_Aktwdbrx8ni7XODa22jJ8fJjBXVLDXhvuRgOMbGgJNH9BcnWaVbodznpk_93wKl1Qky-WrhjjM0IQbGIYTuLf2AImL_2DSFekLIQ5LIp9V0LMTaJ9wBm9XmPAidhgnyBDAfhro4q6nKUSUwYyHoTrrvvsnv9XDoABRy1wC7_xB9Mj81gCgJ_Hun6HDEkscc8L3MYIX_A7PchPAyxdbCQ-Em2nB2yX7n4seGfIBUuWaPj-YBJo6lOTe0Gm7fjcUKDREcufciaFe8I9vwrxZzNbYEhblEv6hCt5pePnIZEpLQblsRm8EzRbhaFATSGSh4ZIFMuh1CqxscXnADECZru&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Pashtun",
-                    "priceRange": "Mid-range"
+                    "cuisine": "Moldovan",
+                    "priceRange": "$$"
                   }
                 }
               },
               {
-                "name": "Habibi Restaurant",
+                "name": "Stefan cel Mare Central Park",
+                "type": "attraction",
+                "description": "Relax and enjoy the greenery in Chișinău's main park, featuring monuments and fountains.",
+                "location": "Chișinău",
+                "timeOfDay": "afternoon",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTDPBZ53XZ-5GEHZC1VK0EimPXYfnQexGDVImbl3jUel2HNI8LfNLyqe0BZwjpbSSjDHdKs6K3d6_KVWc2_0ypC6612WxbQ9sdhYl-X4uPTnmXk6TP3qpeMtHqwis4xarAV6ulj3iLXF2nnzw1S_oVOvo-8ZYMjwyAR1oZv-FmHA5HXpEI1iTU3xrb1zUqtfn68xH_EQVDBPSjkktW_vwmB_XU9S4cDbnAKqIDck1aeAOwTs399mDWb8HPbHmYCAwXHPCx1kAkWyWyGZXFe-_3c2v1TaFu9PkVFUmSz1si5rcRBrFQ6ZPD6Vg_TStBFg9MPX7fnBsT6WNCZxybLDKtLryfmLrsE0H10oS5ui_sTjcIuKQ6lpmPPFixreFlO7vdmpcNUjrREJVwiVaW-Gvfr9qc4p-UVDLZgDRnD6zGiGBvOy0BJ1NfpVWtMXqI_DXjaquTA1xTEkrWVgOJqcN1uZhgKCaagWHtl64yN0PkGCKeCYgUt6cyouUVszTc6yZc48tjay3LHSYXdmGA8B2FhliRRQ3oNTAot2jH-jWn9f5SznOsz4UuBuOAmOQqoetIZt3Nk&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Carpe Diem Wine Shop & Bar",
                 "type": "restaurant",
-                "description": "Savor authentic Peshawari dishes in a cozy atmosphere.",
-                "location": "University Road, Peshawar",
+                "description": "Enjoy a selection of Moldovan wines paired with delicious dishes in a cozy atmosphere.",
+                "location": "Chișinău",
                 "timeOfDay": "evening",
                 "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT6IImNKdV8vAB-zYv_vo5JNsOZWTwsBrh8hg8em8F-C60aCOhAJOtWt9_DqcKVwvWRuNOENsL6nnHyfrB4J8NLcIIDk9jRhwNTrmlEUVuaI5JzUC_yZQ9GmRslZrxe0HucdCwzX23FFxIn_RTeWRTyKTxkoGHJpFseUFLS-o6x0nYqHnjkUcIuWYDqFB0ynBai8XAl7g_gw-EJL5ymGn9Su4U2JsLh-H1CX6OzyA9J3wmDlggidmLiwxHpnglj7Qe6LQjVNcr1CGcmN5weh2gAYm6KfJ6KO_q8rZvkbvn0QiJdFYI7EmeG9hRAuVrlMXfpYlx2r-aS0Cp13wiMfVMMg2Qcwf_1Cj12l8dYpfcpZqg4ahb1JzTaCF_FVJebdhmcVo4u2rhep9QCwWkk8_Ntm4REX_ZkQ8dbLCurpjac0QUS2zJHCsLb7-p6KcLcNptxjgSjBgeJEYwIhsaloY2ZJaihVBbQIAzjSCKMTTl_BYIxhQ2UtrXwxkc5cDw-0fBpDhPPqw5Ib8TpK7CP76b3qUMje9-fYe3msDS_rEizNH4P8KBrYV8n4Hm71NcQ6RHMQpSt&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTKqN3I9rzMTGGX8fWoc1cFkY52s0Y0_W-VOiWuWfdAkMPgDkRnzVE7_9VdngbXv3FOnyGQTbtnYGXS5mNRXZjZI-J83mvpJMGZ7xHsvNWMHD60LF8WDkIMojETvbj0zo3rc9kVq2GB2XMVaxyM-EmnX0x0Z5-KRDjjwDic80M7WFZ2ZXAhKiwI0LlE0iUOk9wTxm4qlSlk1yoM5KH6Psfz1a43oEEV0ezrw2zFeWYqWSEAu9XTGTob4iUDjJASiWNMbBoXkQIp3z4YJQgaAgQRYCC86AFMKR4hn9B1kKBq4nH7-wc&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Peshawari",
-                    "priceRange": "Affordable"
+                    "cuisine": "International, Wine Bar",
+                    "priceRange": "$$$"
                   }
                 }
               }
@@ -91,23 +94,23 @@
           },
           "transportation": {
             "create": {
-              "description": "Taxi or Rickshaw"
+              "description": "Walking, taxis, public transport"
             }
           }
         },
         {
           "dayNumber": 2,
-          "date": "2025-06-18T00:00:00.000Z",
+          "date": "2025-06-11T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Sethi Mohallah",
+                "name": "Cricova Winery",
                 "type": "attraction",
-                "description": "Wander through the narrow streets of this historic neighborhood, admiring the intricately carved wooden havelis showcasing traditional architecture.",
-                "location": "Inside Peshawar City",
+                "description": "Explore the vast underground cellars of this renowned winery and sample Moldovan wines.",
+                "location": "Cricova",
                 "timeOfDay": "morning",
                 "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRqLQNfPLiPvGbnEPJbckMurM8LVBH2HGt1xUp2qiduBSb6ypIvh-9WYzXPl8BhxaGt4bDtKKbN4X9Y0LNJ7BRYB2yq4504BRv6o4mYCaCTHiSpmCJDP8T5CpdWsCSPzPi-2wizJ-H9_6_wESFueyIZzFc5cogn7lUjD9E6biq2-x_09516RmcQFPasuP76SZaLIvO7qiHwQLI1CnSU3YXzb7o6NTAJ4N8ykSEYpVIsY8ofgLXFgjLvVyw0JEYQkAt-4q0kj_1NAxbtTz9BrYKNjyK4uCimi0R46STeZBaY87dPEICSGMjRzdySAAne32mJBBc7hYxAM4loZ5AmZvXsFF3ijktvVTNYNAzhHHn1jUPGBkTRcV3lv660HLh9aQAx7d_nExfo3I-fi-Bsr0eGOkxMkFtK-9phqUGKEhoHgfq7KKq1dHwMhVzzfNfpBRzMMC1X8Bh1B4XggWV399rULWKDzFTm6In0MEHaj5JVH7hbBQDf1nfFlr2ck_aYewCS6qwJeYnSTiHafxLVtmvZeN-TilrjhKRXj4G5rklLJ1X_8smgHacuRhZwcke4Du2Jlyf5&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTvLXy5nL6mXCvK8-ez4u21Q8J7ijjGDLbqtTyljKwFZNtFIQNgvIcsNks3F8cppfvDyHtnaG_aMJRCrIzgC9YfraO_SIZaESdUCd2PmZwINjivmqcLLCMPCsK9wFXXaVeBi58Cf9kfMfkmrNg-W8vWc0V4I_qavsQOsOulQN054WKvddU-aRmqdJYMxIalgUfKkjgqcYznvE25NW8dyrk3DM5esG2zyNWqWI9pFleqsDqY6gnskKV57UtCTYOtacTlvdC85k9JHRh2ICy5BfKGkrjcu2y99_J7z0x3F7c2EOa0Uz5804eTQMY9-5IIXBLF5is8TpLryLGLuabOLryKbPAegy1J8sRQSwrlvmhfXl2_aC9zpUjDllRe1_2RRBqKgBXg2hvRP_Yvr1bVdpSnIXJWAHbd9ykyCrufVoJ2MQ8SBKFFS2WFVsUh7bTQdeBLr8YY5KK7PwLlkToiXa9aROl380iDo8znxVoy6iAC7X2xNj50W1fH9Cj0SX1GBNebLqw9iCYgeg44aYW-MdXOQn8-kSt06d810siMjPRFlkYgEnCs2-Jk1ut-u9ADsjM2XaYx3yEl-8T0EXxFDxuqUomkUA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -115,46 +118,46 @@
                 }
               },
               {
-                "name": "Qissa Khwani Bazaar",
-                "type": "attraction",
-                "description": "Experience the vibrant atmosphere of this historic marketplace, known for its diverse goods, including spices, fabrics, and traditional crafts.",
-                "location": "Qissa Khwani Bazaar Road, Peshawar",
-                "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTiBjmnghQqjemOgIyrQRbg4MTSjoN9revGSkY80JqbEsACDHnlunPJQG5lZehrxhBtEQtZcAJUs1ulKKY-7VnSEJVPnPrjUkbXM1kxc7pMHlTWVlZvAOiCUrh6W8r58bIAZHvfvgk-_JG4BgkAndNVfQ0ri8dHU9CTDxZ8zD64KJ3PrNvw9yWtHIH5o5-YsZHSA1l7pI_BFvsZl5B4dEoD19vj37tQVXhV3xpXYohnPMV5wRAMPubtfjBjlkor9OOi7h1YfRr2DASJ5jRgIOUEf2XvnHy4seBh6maEEy2WFYGjt48LcWGjOvZk5_ILr-xOfz-WGL1PLdf_8BJO9ielBeBraxb4lPwBwQW06nvrujHuKWfRw-2daD7EFOxtqKF80zwTGmqvrulpwmKoesNNhBAOF5fKvMeYFqjL48wzGpdOKXkOejqIj7mlLyqJy5LpnR28nWGGc335am2oP6qW6OuNbN8iczV9gEDz4jMkZc6-ZuePiWFnXI9k7m7rdMGlSqIGJsGsEDJMClua8SaHH7p9LuAZPmUhaQg0KCWpGcV1ObaHQtESAvouWlCe3lY6uoTY&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Chief Burger",
+                "name": "Restaurantul Butuceni",
                 "type": "restaurant",
-                "description": "Take a break from traditional cuisine with a satisfying burger and fries.",
-                "location": "Hayatabad, Peshawar",
+                "description": "Enjoy traditional Moldovan cuisine in a rustic setting in the village of Butuceni, near Orheiul Vechi.",
+                "location": "Butuceni",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNToJjoY2T03fnUGrg1mSkr4fMWbX1cFqV_W-Bpn007zn_WtSF6MGa_f33R-5Y1ZYGp94opkWqnLURx67rGDMh1wnk2Rhwt_8CFEKHbBP0FN7PlWJbZpp2HgnlsFBvbwKGSKyzQt_88WNPZYwP4eUDZ-BFu_jL9LRa3pZm1s4WDFzOJmVW-zAdMsZU-dxxzuS3xmJKtjgDjaRD6vdTlOr_hZF1mWCy4-f_OsNG15G2d1tKMTVRVqtXt3swk1Qtd3qQJMsueMeY-CQUz_-zwCpgOehST72C3qDaIy5ey8qwh1chUaw87HVOfeozJWZ-sYVGsG6MUhgKA3b-DaNdc23zZr1wEDdBEHPUVMpvpiMYtqLnlTuRt-g0w-gDbQ-5bg-5u7aNw4UWhMyWniKaGAGyC6-iGG5hffX4C8x0lOdY8R7p_3Nz8DxkI7sJCuIBgaGb0dfcvZOrH84yq3KBVPSODTlN5sWrFK6xQTrCwO-3DWfXizZB57PoSfi9hk73h07g52gmdp_GGJlcirlqf60LP7O0kfrRG5MF5aweOD6pQ8vI-j1NrNwW6-b1cHO2x71v9CAY_K&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTk8LzPUfthPxlCwVNVstw8r4h0Icq2Abic9j3q26E6amNwxBJSAGP9VV0bZS-sAH1LNq5x4_VEfOPGNfPy9itEn3leEr7szXLiOd0XjxlWi86uYNvcXH04nXSH9q6fWyT6kk-vBi7GMoCecEg6m2KFQa6k7nCLSIHzRPTg0mNafbo7UhKhXmUAY0QFWnllBJRPcY-6e_1KaxY4dapHgABa5RGUtgHIQbqywl_SdAP6Gf06mfa0hgCMpZPO09vA1dY2Sr36Cpv6q7YTlR-0vOaE7uzbSLu-XbuOhsglXnxMNrLBnsszcxSnJ20TeueXRfAN7R4qo8H7faoePJN-aciu5UwogZDaaWIxkWpvbUcUliFNV0t8zXZVdn7U0r_iha4htwpJii49nA9wjx31RZHhu8U_1f9Haa8shDZ9JOspj55qEDlYV8GXUhv2IxVrjbQq5e03qb5U_trqg8VR4H15ZFjqiYifnh8tpV70fF-8elltvMq79MpGWYdD6lgYpesdFotY9fJ-NwFQfVHm1IfAYOnMkjADMqV9BhQAlRwcPg_XM_kFYYaOyiHi1Glt94J6t7-Y&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Fast Food",
-                    "priceRange": "Affordable"
+                    "cuisine": "Moldovan",
+                    "priceRange": "$$"
                   }
                 }
               },
               {
-                "name": "Namak Mandi Restaurants",
+                "name": "Orheiul Vechi",
+                "type": "attraction",
+                "description": "Visit the cave monasteries and archaeological complex of Orheiul Vechi, a unique historical and cultural site.",
+                "location": "Orheiul Vechi",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSY9oRyhLN8_wytZpVXiFluTYz4KDS8Upyaq8TPvyDrpUgHkZXtHUIjzC4zTKQ_2xiGCg17nEP1VUOj8ZyyExtbp1G3FkjfpD9-5eY5TGaFzjF5BEBIPJ01Y6ltcJj5p5uvx6VPCe8lbl7LefOmoH1DZk9s24PqR-wAuaZm_b1W8WhD3-x0PS0bdocMdxyb6el_--k7Qle8a6lpDq-jo_44g2HTn09y9ZzFWkxRKyX1olbzMVrKlhN1UbUhswDpqIBWoQ0f1LEgUI0ktfiTrjsoxAFNm6AnyGzwJi5ddETD_XE0C0Texed1241LSjkX1mkG6QSQvsOznKgoYL2k9BtgZ6muouXUKwwgfwc6zz19ZikY9wdnRVqle1AnxddwccdmDguhVprgTxRCBOpGpHuNt4pOBVqJu414oaVHBXsRNfKzFWvuSFORGRGwbJQWCSR3K3pc6A9wduqcVLytCeoK8hiAROl0dmTkY2VmvVfJhJdQolb6BDw_tHzLhDtK0hUPRy5qyAVa46Cw_khvbPEmnpM8Rpqfg9ZQ9qBurQ8JRf-KI7aqNoCpx69UgAMyVkwGtXGz&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Vinoteca Invino Enoteca",
                 "type": "restaurant",
-                "description": "Indulge in various culinary delights at the bustling Namak Mandi food street, known for its karahi and other traditional dishes.",
-                "location": "Namak Mandi, Peshawar",
+                "description": "Sample a wide variety of Moldovan wines and enjoy a gourmet meal in Chișinău.",
+                "location": "Chișinău",
                 "timeOfDay": "evening",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNS8rpNw2CIcK591bRBAUWbimLK24jiO5mMU_LaVxxCaokdNR3dNRTBtOPbmYbfzCMG58tgKK5BQNs-e0oh_CudtC9D2hMIJ-nV_LGqKW5LMOQensOKlQsEPPCMejnH6c821dvvvBogOfA09xPSGoffQY1JdGT3Ul5TGq8NxAQRrjo2pJXmgyn5aiD8emeZdASm5HrDbtEagpkCrmV79FP1Nw6OmRpEd_BfrweykkIHlhhPveCtLo-y60vZhOBGPVD22xwkGJgNDjxkXuszHkiDpM0xvZYcXubBXKOkv8FSLPuHT1AmsEk7jFt9ErMalEri3Ymy7P6yyQsuWLonly-2bS5I7v7HY9A2fkK7Hg5dQXfscQCyEUxoNGpg3NaBKI8FNgEvJkUEVr4jQMFVjq58TYqjzp3Ih1m_DCS14Mg2sACMc2JhGko2XrS4mLC7qdj1RBb7lwa9XRCJNZ01Q8Y0UBLWT6vSUvScfsKK6pGWYJbuQxWQttdlXltWXHRRyyCkq9ULOTmow6Ej1bqKjWjHowD_8DVuF_HUSlI2NpML6Pi_Yo0HQc7w94OXE1BC2pU3p5_8-&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "2-2.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTu9H-RjqiEf9ssE6RY0jwLvl_oSrsnUS4y58rNHO6AYVxgu-jcWVhbMzNMsJCeCfKto60cEX4oOcX2wTAKeUnz-e57auyXzByzxX8nJc91DcM0DTJE7quj3StNJ518urUvmuujsPEzM7OCb5UBBuD_HTsUCCfptMv97_I4uJ-UIlM0Fm6enXDOKFiRhkYXIfk7kv8kjqX5M4Xi-i5LHB_uwfOWaGykw35G36Evkh-_g7MO1xLOsLsO12-3xoBZODf6zlHbIFVKO3bHMq25yOvDSoBBS9VZcjDe1YhlF-eepAksGrP6KBGQFHXyqZetvViLriMABbJtNqHiwxsME68wKC7E-P_eFGi-SqcGkykpJsAdo_iENuUOB1w_yrPGBIEnx4wZv-dtoF39Z5Imee6Eu7HAHj5zCJTDbV2CMJUYcfwONqdKB_Zqusra43n6XkcT6X_-hkHuLZXfQFDymdaQmoGcEaErWlziEWAZygFjUYb_eOaY2mUe5SlGdE8A1OEMJSCFoHULpXMaAtJgw-ECBjFxEkFeHGEj6BCgU912iVE2QLOgfyZgqELT_8Pv5_s824ao&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Pakistani",
-                    "priceRange": "Mid-range"
+                    "cuisine": "International, Wine Bar",
+                    "priceRange": "$$$"
                   }
                 }
               }
@@ -162,23 +165,23 @@
           },
           "transportation": {
             "create": {
-              "description": "Walking and Rickshaw"
+              "description": "Car hire recommended, or organized tours"
             }
           }
         },
         {
           "dayNumber": 3,
-          "date": "2025-06-19T00:00:00.000Z",
+          "date": "2025-06-12T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Mahabat Khan Mosque",
+                "name": "National Museum of Ethnography and Natural History",
                 "type": "attraction",
-                "description": "Admire the grandeur of this historic mosque, known for its intricate tile work and impressive architecture.",
-                "location": "Andar Shehr, Peshawar",
+                "description": "Discover Moldova's natural and cultural heritage through exhibits on flora, fauna, and traditional crafts.",
+                "location": "Chișinău",
                 "timeOfDay": "morning",
-                "duration": "1-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT_K5BMOgqEsLhyb1Hy-LJBRfB2Kt0ulsDd-tokEgzW-b-v4YRFmmA-fcfmd9bUXYPmca0il6Sr4-YdOICjGzVyw38fL9S2PrllSrwS6hzdpNfallZQwUE3xgW-bbBcsOigQfulltCRMt8RDHYYmImh0xIGnblmnheNf9deHotugALdh5wLERUiI4vUzPR-yoJk7_PRN4Nak2zF9zfeci_oS2xEZOFof-6uUTDmRPfgJHu1zTkUMDSRi6Z4Ax0BX5Udqf8c7d8mXB1VOZA6dif60oGSOpEnX8niAEpq9z5j0geROzsILxW7fcWTXFmwqr0I88cqBsaO7zKgB2ZNyd85NKQt0hcG9ViWEFpdfSgOnq30A6Io5OpoZzDfp2w0uD2pE9rvpuv_WTg89388bkiEAxBGui9nfKTAz5tAHx2IJquj6zZso7Yyg7eafjJawkCY59V8AVCNsgk0CWFc0wPnEi-Sie9Jx2f1I58DLRU4Ft5vdXDkIoOHWHbBelTPtMcbc7YVgzPPXNtxBanplErvOqALKt8dGHYM7GA4CtaJUwKYDWKb6D42u-otXgLqv6iWRg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSb0uYwBikEMVIkU806u_o9FWlQK7Gw0Q7LnU97_g7Sm37xGDCtoSFqtXpYc2tm9Wm4fYikwsES8rI7EgFyGOu-k-9un3ixxyxoY_7AUXjY5p0XRPK4vD-GNTQ36eh5QBFeb-Qi0LwTZqva_IrCTlnPRrBt1qBffRUi9rrESDsxZ97y-eEo74lU4tC66tquh1OVZhjBLsgbXiVx1kAQWfJfMKFcIErsdn2SphruPssnWBSLI4cZxDkk-qtPWPnpXCXT5f3_WMAj5ADz4wVko0f8VxybR3DphDVtZoIRyGfDRZ329y2nWlXOlojbNc764xNxeY74k31zpjajDasazwaMMtR8q_VFQogmtgcUh1eEGfHYGuCXHJdByDV8f6lbfGnFf2arJpBtPUKWvQCWGYvUEr-xnZ2mR-kpdHhL33lQy3IksLlFEf2N_xSBYCv5saPAomjtCj6Yn64EWaQQeECdMA_bM20vmD5VhN6teUn_72zRFeohRcwr7cBTSaf6Kq71nmyOdcMiN_AIJcWUwyV2TlwrsWK3ZLdzko6INeCYcMjgVgrf3MMUqTUN295Zlow6UQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -186,46 +189,46 @@
                 }
               },
               {
-                "name": "Islamia College University",
-                "type": "attraction",
-                "description": "Explore the historical campus of this prestigious university, known for its beautiful architecture and significant role in the region's educational history.",
-                "location": "Islamia College Road, Peshawar",
-                "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQlVhGSn0PDRdTMTp9uAqQ9KkfXr-_Zj009_KZ0NAcUuNb6T3obi5y7Hhl4WRBsICA5gUPIqtd-FF2o28-Vay7fB5-nyU9F6EHuHJqTT5CgK_OD66SBjehwDRLcbMw5-tQkAwoHe7VUHzOUrjkh7WkCf6RTC2wmubbMmCTixkuAtaADVBwhU7Y_oYRxRYADlEK-uMOfjwszoWIOpGbZtLvRlzTJHHT6mXut7_OJXRoCAEG2qUHC5JrBssYVsLsfyi3zymMu6mymj_yCFIha79-LtaKj8nzzkeFT8ssmMJ_eV3kXAzG2tHrp2qHxchhFfS57MuDtrjJa9l91Md4d7s0y5wApv0rtftNvGNge3wb69Z6DSiWoKRTx7Yo2dSf3WcgBh7PNO_SR9rwjR7eFl39tzJzxc0CKIR3rGioOxdaai2UoSkpw32jV2nV26HrfCa6TPLV6VJlOnM3ACZKLy_nndCCyYfIb_dzcQ-2LaEnZ-RazaKu5ipTGwPYyKLhTMbFaxNcjWBSXP4qiQsBqxjkJtJdQjWTU3LnKM2x3cWJONEZZtk5oC7WUgd7Cx9eB_kf0oM_1f1DHTQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Shiraz Rabri House",
+                "name": "Andy's Pizza",
                 "type": "restaurant",
-                "description": "Enjoy a refreshing and flavorful traditional dessert, perfect for a midday treat.",
-                "location": "Qissa Khwani Bazaar, Peshawar",
+                "description": "Casual pizzeria with a variety of pizza and pasta dishes.",
+                "location": "Chișinău",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTEM63Z69fmp53Qt0EVCzPvYaJWAU75xPIGCx4Qxknb1My3ipxiqiRoTnWVmDPBp7YeYGWgLgDpcV0L7-BFPE44t4br9suGcnrlfkVjcdUCiG4v_EoA0lszVZgbCdMQZcwhbd6Pe1eQgqnpWbgpAJhZKGESzFUiz8sb0sCj-boRfp6UGr4HLd-mIYTZO3ZVKrivw8ghBCwIoAR1hA2iBoPqlK_Q8xnh1tHIOW1JpKMjAnCz9JV5o8WJWASZ53itwSqK55LyV2coDDmdokmfei_3_RJ6gXTrcV5TWS6oxC03NjsJQlNDViKQFYg-hOC5ICup9OzOOZMfPm4qRcGyQ8vo16ekLkplWi7RXdpIZL3OtVwWAIziSQ9l4dnZ0jhjmRKu4W5rZLtBSLNURzsNbJxCLGmLFwKGWDCKXBmtHYuqitWGMl0CZ9RJKmKcNuiajYNK9zIkGl6hf8-6b5n26H63BOEfonogyWO0UsuxI8yUqCd_DL3GMt4quQB-eUiOsCPMvQ0xxAi7ru4sJESO_IkpHGfBcz1gpCU9XKp7oQmRtiGs26uBNG7-4iRbhptM7SzPaw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQZOqLjfvljCGSroFL-CoidMDw_45CH4zxBaFaPgRGTbB1Jii4NzeeJ7AONOZmqweK-tL6bRL_uv0dTZIBCBTVoTIVti8aDCCYg4gdDVzjNqsTgE0dJpYv3HSDOibtGNarq2gKP2TkIaifejK_KDHizcnEncqXEAtQVJDNSFRTcScy-UjzVpgadSVj7bgbUYW7k6tpcNmwLjpyPWrXWteLnn0KfTgDgDgkLNtewOSLuwIi_mnStnJpIFkI7ZCM5MIiWB9oGMzCQPIERKuBY28cDc8q-Gwx004zGHwWdyy5RH6NkvUs&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Desserts",
-                    "priceRange": "Affordable"
+                    "cuisine": "Italian",
+                    "priceRange": "$"
                   }
                 }
               },
               {
-                "name": "Usmania Restaurant",
+                "name": "Triumphal Arch",
+                "type": "attraction",
+                "description": "Admire this iconic landmark in Chișinău, commemorating the Russo-Turkish War.",
+                "location": "Chișinău",
+                "timeOfDay": "afternoon",
+                "duration": "30-45 minutes",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTxmtj8XDNuR4QIT7dtblic2EO91TwkjPNcBqnEG3uPl4ep8EssmaWPNAx-yoRfpM6_Y4zoPiB5F2tuldVUfgg0KWqxUq8EnN4IHBMHJgwvFU4hQIhSgtaQ0AUkbH7lYlxKRwCL_svooNZMmuC4X-1AXsk88DcMfgfzZH54hHLd2_cRd33Ho2jPbS8gpWURHV4d47SNY0K-0J8WaDBf50ttNsM59oDecwho8qXNqSiBOKqVRqCVmg4omLVXeYsp2UYsKEJgeDvNRDPviM3Kg7MlzfGSk1ABQzLGZHUIN1-BqMASTfyDTeuJNzRN4mRJ7ykUWxKsipTaPk278VpV_XrdnTLnYIODfi4GwiJtseW-5jmFlpZDI48zkEed7XeENimixjXTXKXnyo9xJVC1LXA3Bz9Rd6KE4sDbGkFZUSvOBTHbjmvoq6amqy6Iqx3P0De1T2cHq7eV3KBnhsMXAO2psZTelxfvFum7Kx7_0bGGDWZxwyT887wWBXEXGbz3NmFr3kIyroh7H5E8TBroraNzunKlvJI4valIs_JfjiHK2kyJh3A-p3UayTImQHDYG6fi9ffBQQcz0Q&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Gastrobar",
                 "type": "restaurant",
-                "description": "Experience another culinary gem in Peshawar, offering a variety of Pakistani dishes with a focus on traditional flavors.",
-                "location": "University Road, Peshawar",
+                "description": "Modern European cuisine with a focus on local ingredients and creative dishes.",
+                "location": "Chișinău",
                 "timeOfDay": "evening",
                 "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRJ1_WojBd9TIbfJ2vGuNQoyZPebFHe64psq47pMIfHT6WzTNtULvLMZZ970KaRGZyp5NE8A6wblT4OA6BTDUlxLmPUCt1pGU5lPspeI4Lc8UcwJwWAvtl0DRopGLMyG41tfccUq-fwfU2o6LbYO_AtPy5y_b1aY_3qJyPsdAmfLiO3dE4s9IF_v7nnVNtd80eOvhU-lXtA7orP344oWNsUHjhalZ5GyL6-tu2LwwSONylO9iunMaBsw_xqyafifFMwaXvVaajCt4S3TswZmldEcdWumlM3_t9VqnIQwiFTnAirnywNs_-hZz6wHyBjXFtvN1wovfQQj-rJiSRP-hTJmnN2Z7McQ50C2WCd3hHs6q3iWm8pttBwWcjTipcKL6MH7qxa5_odPiEK804EXXn2icy6oeMyNUbf4m85dGTRh98TPQ3NznvvUx6TLcM_NsoavRK55oPj6qgrpMnaErDChNF6sKlsZbiSzKQWUvV4fSpmhLh3t_KF9UCIUdCtpMebAiFE9op-ca7NRrWZH1OKY8RKshCt8RqmHfH2D0hv3KSmNGZ1B_o9XK3csyJOHtmv51lCd04b3g&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQcPWSioxF7dSmWModvFccsoVotS7Xou7ztT7czlh_7QVkgKBAtN5TFvJuQrc9DBo8XW9r1YZdKAl2jmdmWBJal5R7k9cnJ2UcAAbzdcs1S1Nh-HJOMtewrWazMmwa3_R6NQ43ySYT6WWHcgzBMMFBGwo-T0kDAinK90evmiH2XqcubAAIAMQh2uqmjs1mSCyap5KSa2VCnLAmiZZ5iQjE2bKAUM_EihziVftPtpMPV0v7rE7TPY09LeB2cJOwIdAJNyTEVz3xhktki_NHsYz3LyrS89yQTQlb4VTNf1XdHZ4Hey-yLuNZ7ywaLbzy2f5lyyDxDz26gHaSq9gLCtJ9vqilTsfKOmRJoTIvSlLnXOed3TCPO8u4NfVyvFu9U30w6U16p4XCCaE-dm4sl5tRa2qk_Cl8srAgXG7bZfMDHsh-WBbM3x81xPmYe2m-7SaglpRaqBNqTnhTLxnxJpi1yL0Ym-tp2jXl04Cv1rs1q-aUEvBIywGFv4d6clf7Pw8mMZJJiL4kzTA2VKdKKW5_SWAwsvwA-vMovAvoAYNd2z3fQgLzy7j6iOLILis6MqLjqzg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Pakistani",
-                    "priceRange": "Mid-range"
+                    "cuisine": "European",
+                    "priceRange": "$$$"
                   }
                 }
               }
@@ -233,23 +236,23 @@
           },
           "transportation": {
             "create": {
-              "description": "Taxi or Rickshaw"
+              "description": "Walking, taxis, public transport"
             }
           }
         },
         {
           "dayNumber": 4,
-          "date": "2025-06-20T00:00:00.000Z",
+          "date": "2025-06-13T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Takht-i-Bhai Archaeological Site",
+                "name": "Milestii Mici Winery",
                 "type": "attraction",
-                "description": "Explore the ruins of this ancient Buddhist monastery, a UNESCO World Heritage site offering a glimpse into the Gandhara civilization.",
-                "location": "Mardan District (approx. 1-hour drive from Peshawar)",
+                "description": "Explore the world's largest wine collection housed in underground tunnels spanning over 200 kilometers.",
+                "location": "Milestii Mici",
                 "timeOfDay": "morning",
                 "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSckhr5B8nA-iP5uMl_w8AlKUYa3RTyYfvfueuucnSKbCVF1gQ2hHeHT1cP6eQS7BzYa5vn3Wmx_lYzwnKwjoGQ0cpScdiERs4NMN1E6pQgFp9841ku0Ud1SPegC8GIN3ZERskTIX3mvuX_ydvKVxgFTr6oTzZtZlVpfFRDRliXC2a1nOJZX7EbgETlupQIAalbzkX6b2GDTrza1WFbtUK6apweKo9K-oxNhVInCNuKF5Z5DqC0ibZ9cCfBRmaQ6dfy7iTaDcgaxVGZ02i_ETtv2EAq1YAfLN4tLwppqhQUXGE0uTDOxwse6HM8rOVmvBCIAYonmftg_M-eLeEFQ_dy4YXphpQXmVKTlFkrpduwAGmQduqdpvnBXQP_5j4CJZ9v0aBg29Dh58S8WElCisbjIkktaMAYy3I-4qaDD_P5ZFKQeFgcUu4W2tWUYDtRMznkeu8EZww903O_G-W9yyyP7QQ1pjQ0SBwxGoPwl6bP0y41NwpTn8hMt4ZwSpcEbpIf3Fde600O2a1OQNHyovojCTXTAWkGbJJ3RyRK5Okr1IEjtUWwxNkQN4vfd7iNmjAKB6kLNiWweg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQwesbVOBZqWXRKX3RFasBeLleJ4UhaRhUbJ4hdKSWbCFw9sNKxNDMxZSHlgCs95aj45yHanteg1ZccAPO99crdp6lS3wEZsv3W8ayU4MPbB7Hf-Hf3Tawf8hnBAk7hpFyReL6wnkUGmuIW-nYVDK79r-Jh8RHgRKsYcjr28gSBWh7x3Q-4pnziZU0D1ZVvhSqTCBYYfPBYfmhdoT4L14_fSj3qbND00Lk7npQS9NRmye_cCeACfFN8gpAbZeWcIi_2CYzBDF59OIGJni4xgXzNMZx8Wvy0wGGjX7j_vcYN7QIoJt4&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -257,46 +260,46 @@
                 }
               },
               {
-                "name": "Peshawar Garrison Club",
+                "name": "National Art Museum of Moldova",
+                "type": "attraction",
+                "description": "Discover Moldovan and international art from various periods, including paintings, sculptures, and decorative arts.",
+                "location": "Chisinau",
+                "timeOfDay": "afternoon",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSYM2qKVpVIIY7sgmPdgZ4x8zaEiFlVimw_MU3q9Xn7fklCZgsgwE_wdCDrmimV0Ik9Nw_isaNezReRiwHlOiU_dyN50JLJcNV6RYrtjtE5MMV6tAvVT7nksV9Hbp-_J3qmr2jRb60SGEBL5lg0AVVGGU7TpX0ld7rWChJNoPtS_GC3PaQJhs6T13fs-lKRPyg1lcW-95P0FDZv6-vx962yUgU5fvoMpXkw6QFDGyG7CoqyaPnkOFDenG4HVjQkBK5MXN3m0jOMveQeUOIdbmVQR9Umu5FMNB8QM3ccuo1oI7WzIJ_pZqCXC9WDCEEv3nIfKZlJh0NwwjHMazcAHmX6t7YtBjjtdaWK6LPy82FRSaMimwvdmhQcEQoF3_G6ZIt1ZrokDEcHXucptxeNik4xDY_V_2zPWz8frKaTmH-luEGpQAsLBj4d2QhvVCeKI0Yb2p0aK2O7SDGSJF_QX17aAhcR8sJvyVzHCImMgXfzX0J3aMlNcHg5QLzN5GU9sAMQZFqsSTQlWhok-EXsVzCKyrQNNO7zQ8ER1tFYbfxF3hzNRPCch133xnKjCgSAmp59h-KE2nygTw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Popasul Dacilor",
                 "type": "restaurant",
-                "description": "Enjoy lunch at this historic club with colonial-era charm, offering a mix of Pakistani and continental dishes.",
-                "location": "Peshawar Cantonment",
+                "description": "Traditional Moldovan cuisine in a rustic setting.",
+                "location": "Chisinau",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTu1sm6PXy3mueQdTkLrhBGx14IUFMxRe95JgODX56E1bSt2tj-dlIZSIwjFPLc_ocvlnu_LovayrjhqJSksAkK4C5cXa_kUPY51EMOYLYjoQWu2DxgV_6SvyALuhfks5vd0of51y_5E_NmBR6KNo0tlBSGk95bGXcJcBCJfhiIL9Z7MDHZi4_YSaB6Tk75lIFLkiylGl2ZISt0Jl-NJ_5cQjFZzic8wRy4NFZjRpYkfb6u7DhM9-rEXznJhkIDZRV21mWGi6gfVw-mXKveXFp976sxyWzgfB9IkC1He_UePEH2crs&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTLlsbCROcQnYJaDJK7q0I0myXJ6Q2FY_F1fayydQ7dU4mJ1DoAGgeLJ85Sy8vvg7o_PHEcXscMM6XdOETWje8jRNqNOaqPe5UCjmATcGs3Vmq7tBrjdZHXgg_rPRNSv-vRTBanu0h1rwEDbtHkxBvuf0hc_OeQjakaFq9uwH2Fk0yhFs3OwkJPVOFpBRiD_TBRmc1nnWv16bZ8o1cTcbNP-Ct9GhELMK45T2CECCyzNYQmJaMS-3FPRd8p6PBa4twz-3uIHKWuQ-bGo3gRQMUgg0-Ma2ViB9O8UqRMlsH3rnexBqchbDm093o7Vquol2hYE5AhEUbVZ6mgRI7DgRphEUVxlbZFyAqnqP5ryAhKkJPaSTgpL13JGasYCIqMLq0ASokijnpBglIAn8PX0s1kOPR1RABmNRIyonQmvWcUmVRydds-oWcP96XhFVC588YpkNyhhFWfsh18dhwk-nqKebuV4GUajpE8n-MMveFMbRKDrxeG36Il0YyHAIrnv9bXMm4WbkwnlHGgyOzrP7u-6dYoGutB7mohDAghH8nhMnuYyGgfrs474nVvxTboH95RdQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Pakistani, Continental",
+                    "cuisine": "Moldovan",
                     "priceRange": "Mid-range"
                   }
                 }
               },
               {
-                "name": "Smugglers Bazaar",
-                "type": "attraction",
-                "description": "Wander through this bustling market known for imported goods, electronics, and traditional crafts. Be prepared to bargain!",
-                "location": "Peshawar",
-                "timeOfDay": "afternoon",
-                "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQGu16EYm_2ysoEB48ZWfclcJU3rQuNeO-KGxk5n34Uk1-6LBOpSu6zpUggPjf576mr0YVp8lhx0zJgSI35-3xYIpPhGMKFcXun-6cNWy57FIN1hdsm-ENSrJkgRX370ynUV0q5EXZiFGKx_BycnRJSnclQ-cG1nWZDeb4OQkrzyVhLgd2NIpxgaVsNs2ThwWriCs7H0Hl1qHcqMQlpzWcL4pVe0L4r5WhbMbslfUV0FjNRXC2GqtydDY0DawBP9p2nPMPv-EK-Ps6DS5iJSf76LZ4UAbTfSAogGXMfzv165OhSh6C69-rmWdivBMQfdJmHfU_g_ZGtD5ds2S4Jpxu2czNkk0oI74Tiexa-D7FDY_tZJO6Pugm_P_8zD-BzTRKX65id0t9WxI-pSSWbA3cux4xP41WeobRahE-DOCCrJN5ZoDKdO4vrVMqssEA07vv94qY8d3aSqFjhZW4q-L7smJuIcWTjdxXrV5cI2hIvSuoxdlOdroQXq-gOem4Jaf99eqGT5_0s9r271aQne8hozgxBXwmliO5FFgcJ66EWHGuh7_xbM_9GP5cb0bNO-Aqh_8bh&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Frontier Restaurant",
+                "name": "Fusion Restaurant",
                 "type": "restaurant",
-                "description": "Savor a delicious dinner of traditional Peshawari cuisine in a lively local atmosphere.",
-                "location": "Peshawar",
+                "description": "Modern European cuisine with a focus on fresh, seasonal ingredients.",
+                "location": "Chisinau",
                 "timeOfDay": "evening",
                 "duration": "1.5-2 hours",
-                "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRHDqg6F5eb8nig8zfNh0JrqrTEIXAXEsItUYKJe8clXfbc-hIvOljkSrRxjdmD6aTKNe2Q6Kz4nqtgOjJ5AMLPFzjqeJ989yQ3DE7_x-SNTV4uupJn9_xP99JUuHZ_9V3QgOD_1ogbooApMjBSl-4T3QgOrMSGfTBjEarfA5pp_EGi_mNTuBuEVMdO3BOObC2eoz0YU-vnyUjRledM6MaAr23RHWsMngC-bZY-71IxntmrHgGTCWIYwzQ49cz-YsyTOkFROAnOObW_hTJb2tXS0mf2HBivdB6IYC4CHC0v_1rMELZZ8hx7sMpj_g8Kx4hMbhrzSjF2L95GYismgrCMGnoZqrzGU9OdQwUCPkz2gG1bS9MMP6WwgdjJz4abW_oZ2bDfbcAoehH2jFNQMg9mv1qRo5v_6xOSKwq8b_gVxHHEx9WbNZVD0Ws4WnpEt6t_ilP4t7-fB8sNV1vEjvx5mFp_YzRW1zfr_1vpSHQf__xnVcbTToT21_hayxOBUQT29viX9g4OqqdWA3KWQ6fNfmHVLahpfD1i7Afz7DC0NLOyJS61VPw93QY43jGq7w8YRYFG&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Peshawari",
-                    "priceRange": "Budget-friendly"
+                    "cuisine": "European",
+                    "priceRange": "Mid-range to High-end"
                   }
                 }
               }
@@ -304,23 +307,23 @@
           },
           "transportation": {
             "create": {
-              "description": "Hire a car for the day trip to Takht-i-Bhai and use local transport or ride-hailing services within Peshawar."
+              "description": "Taxi or hired car"
             }
           }
         },
         {
           "dayNumber": 5,
-          "date": "2025-06-21T00:00:00.000Z",
+          "date": "2025-06-14T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Jamrud Fort",
+                "name": "Curchi Monastery",
                 "type": "attraction",
-                "description": "Visit this historic fort located at the entrance to the Khyber Pass, offering panoramic views and insights into the region's strategic importance.",
-                "location": "Jamrud, Khyber Agency (approx. 30-minute drive from Peshawar)",
+                "description": "Visit a beautiful 18th-century monastery complex with impressive architecture and a serene atmosphere.",
+                "location": "Curchi",
                 "timeOfDay": "morning",
                 "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQkTn0vghtficz0jlV_tSMFTnILNMjsGimhHxDSZlJiRTlsmjIu3cry1jPwUakBmEPHLixxvW7ukXPuuYMELCUbedVlSjaJnoYSSPZDLDt8IEDwAjEkeCiD4hnkaOYXKbbiuaD71NLdk89VzczEsZ8fNrHnrPkYxYGVEDU9JwRWpY6cFGa3Y2Kbkk9_3dLPYNMwX4bYwkVg3xBnoR83upaapG8urNTciHqosD4tYc_X-bYtg2fipagcNoM3HsPpUPAR8YvPUrzc7k00pPt7EyKYk4zbYXb-Z-NO6Sgs6dzFFNkfwqxXVd9LKl08QP5weLslOLxJQI5sR_nnFzqA4HS8l9-EFzqJXAtS0jOhzUBvEsJIK9gkWTYp4naK0MSHL0xTnGor1TBFMpvzuHanc2VIk8MnRjTJV31SIF3zruzQfARRlenjtaMdxqO0ofCR83Bh98iYMthiC61pU4EHmAd7FcOmr6B8nTzg6n-rpaMgD5X-GegaayNtf6NiQ0U7hSvfKKaechQoVlgNcDE9XNZ5sONhn3_gOymR57Me8yHZKFXcSgX-_7We7vQZJ3bAJqvPkReyvN4AOA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSvDAUning6_Vfcvx6Um3IiOXoEiL74d3sairgHn45VGFViYoWARjL-OU6pUw0KrqT5U1MQCxAwCEg0ZXS_pmDLy8z1qmp_dEzd__kYLOtBVXii-TfsPsvGKgmuB-ADMfWQDdGjE3EVqLUIHkQc2rsKfQ5FyOaO91eYjAyQDusxTRwtvPYXmgE-A5m5Q5sB7AWJDIUOB2rImZ9Ym3M6pj0-ujpd711Akexh7f6LP1qD6VQ3L4vtHlzIvPs9VkFxnNm5UGg9H4IaZ1Oh54ld8lh6G9hw-x365AMjpHG8gT5jX-yowMyovVquHIsbaktU3rUj8jwYmY59ZiLSnVDnMorBuRI36ngduUIC02WbO0QwEzhJUOFGFpQVxBg2cklIHAT7QPOfgQZq_KTfLWq1YgxH2MsFPiwcDdn5uCOaX-mDtHY3Gc4JzhZvBdFtNJSVOJMOd6EG7ZOQlDz_nX9bANvBoaJO2CiM0xCv9QTuDvF1c6Tf1CyOL5fBxcE2ZGS-poEKK3dDlENZhpfFggr5aZxO7fV_bUFx4DbF4hpq2KrF0do9f837a2xVcIVaJ8qSREuyh0Cd0ivT6Q&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -328,46 +331,46 @@
                 }
               },
               {
-                "name": "Khyber Gate Restaurant",
+                "name": "Central Market",
+                "type": "attraction",
+                "description": "Experience the bustling atmosphere of Chisinau's central market and find local produce, souvenirs, and crafts.",
+                "location": "Chisinau",
+                "timeOfDay": "afternoon",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQr35YTiv5R6fCkBVAWFbak1OE9W__omdlz-7eS5OHmJXwdyGVp9nbuZKIV3v0pak08l_BZqxET0gY1JL0GpbNazRrKpu-z1BdirRDom-tkHfEDavf4V5X0G3k-7z_hu-1tflRzr76PyU-Dxryxq0tI40MAjdwUKUL3i4D7e7nMe1DO81euAu8MCUFpJsDp9l5VyQCH6GIVcK6qNh9-sJ7vrhGeK04AkoPEAwcokPC6jTTBT_YG4FWLdRYD93f81vP9I9HDXM_5qksH9M7ycCiM-ht3k2Z-I7RXj7MLMmHeVhCj-I3n2o7CQ4qZneBcPBgOCz146tnqJlBLP7vG_ZJFYmBAjun4j1hdK4uQpYL2AMSC54tgb6BEV9tXhdHmNOtUszWZuoXEEcJZRURcty8C7MQR6Mxa7ERLia39WqoHu2cL0lTzOiGXfBVOHgzl-k0JT8Mjx0jlDkvrdo8DhkQi2T6XwGdLhNaYCQikQBZsPWiJQE3k1xqXggpP4wpXlMHLvfcyeD8zF0JY6uHzT6kTprTLrx9cixCkipwNtGcHwQdS8m4Tg_SEcJv45o7mjm6WiBGu&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Eli Pili",
                 "type": "restaurant",
-                "description": "Enjoy lunch with views of the Khyber Pass, savoring Afghani and Pakistani dishes.",
-                "location": "Near Jamrud",
+                "description": "Enjoy Armenian dishes and grilled meats.",
+                "location": "Chisinau",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNR1GyGJnUeqhQJXcmrLGiofPuokorKNPZkl9RKQH3SAbEiDfve1mjComSvnH1_ElgkVB4q3lM0sTmn58Uzp3y8L248eiWghwSWYc6NBH6v2yF_yBYA6tSoFpQEwL38jFqG3zm0xOId6KZn1GxklSGdDcytEg4XFalY49xAQLHn4zcGkFcidsHwZF27DNoDs0INhaTggw8I_w0yM0SBrt3GqMn8Znq7GkYKd5sInNIwcn6yTEV0Vb_HQxkgWA9aZDtOyekuLzH9Rk-tjqe5l509SgdW8qBWHWvS23wP9FTX-Akync_pqb6wwKlFQVL4dMGsk7ITzz777MEnZ3r7rsyE2WNJTQ4fwtLF2gAWbTuL-tUhPQlF_bTfx4AZW2k1VTmZ8kXAcTyAHZMKG1lhOS0jJmiOCKy9C094EPFnyXczqEecnVxaPnhuM6X7HTsrsor1PlximyWCyMOhnJPss_s5trejoksNALrnzA23BstV94N-LxbavZpkF6Mim7fhZ4Wpp7ItVUg5cvBrb8h488P3jaRSaKnp4qMkBQIhDkHf4dYDHbtRVUYWjjJyrCKU9bErF-w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRIayrqYwhn9qdBUmRUN3yHklf8R7-OWx7Arm427O7J6FWT0pw5Qonz7uIio_W_JV1FRp79edvGgzHwZVy6tLVFu3d_zvuNrYKgEwDYRHAmeFL8F5LrpHUMHjKJaPkbPMljkfAu6jRH4yGGsldvWpvjRG56wbPabF72NDRHH8NPf9kNaXkmWjdFDMx8wm5akw1XuoyJqOsfGlr_yABBEKe3s-e0dLYOsMHb1klLB4JPqN9dPKg2s2-fAZahx4pbVagbzZwgNBpFucRMuoAEzrJsg8oEsRSMNb8rUk6QwPTchIQi-vg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Afghani, Pakistani",
+                    "cuisine": "Armenian",
                     "priceRange": "Mid-range"
                   }
                 }
               },
               {
-                "name": "The Heritage Museum",
-                "type": "attraction",
-                "description": "Explore Peshawar's architectural, cultural, and artistic legacy through privately-collected artifacts.",
-                "location": "Peshawar",
-                "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQFUdagPDemPT2mqAP03C1NlsNr3GHxIIMFoqS3FbYK5sCA5VfTsk-QI36jHLuBrKopRy1d00qhsgmr9jCwwza5K-GOU0IW31fPOSZ4MTkUasXf5xCpVKyHK1tikKEtFR3U9AM7PRFHSmhsaGoEbonc8OX6qhpPVpaIKLxN8AUFbSi2Ddj3IrJ6Y4JR5jXH1aHQQ9T4JAVJz7tEBcG_SIclFfZ7V3uDZGxp5Q0RzMqDttI0cM227LAC58gBban6ZDjCaDaP8DtL2vVrU5Wcdppg6WsmNJpb0NShp-HQQOYOs-vDOv9vw3k-7Z_ReIZD27246fM73QspwOBzam55vMU-vCJmYF5__86ac4kEkt-XGD5Tsy7QBu6nmxD99_Sll-fkkfxgph1TQ_dZjvUW94R-VNB-4YdpehVX0Ct0bsmtk_KNbiGLh8BUrGKVet531Gmuc5-auZEJlZbpp3lz3jUsIlzEhAAdser2axCxk9Pe6iCyRpROkqL9SVQL-RK8d8BWis2S70gs_aYkEd0oThRhtd_8Wcks8HL0197C7EVIrPJzBH7ow1EyGRh5BkG_uI9sOQA2&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Lal Qila Restaurant",
+                "name": "Taverna La Babanu",
                 "type": "restaurant",
-                "description": "Experience a traditional Peshawari dinner at this popular spot, offering a variety of local specialties.",
-                "location": "Peshawar",
+                "description": "Traditional Moldovan food in a cozy atmosphere.",
+                "location": "Chisinau",
                 "timeOfDay": "evening",
                 "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRSEV11keUMP0q0guC-uZw7voQvV8JiX-5RxNNxP9kKQfLZOo5uOIqrkZRDEcCMl2xORuQqo4S3qQtWtCF3CLXHz110KwlJ0d94i2aHzJG8a3Zb9J01E0TQFA0hIG8OGxxdELBnKgtcazpIL0aUus54r9vYJgu2zNXv6sMpncjm71R79HlpWnJMtu4pxONJQTyr6z01bFGXJSWx2pZZ67tDNO_m6Cb1fuS8kN2zlvczY8x7aByZeG2w2vNluAuB3sF256q3ms2eLEuMrj8RIPsNAZQ-hu2Ct0fTnyQs_0T30zubPnpdyLMMpe6m3glCEWCPSST2KTI0os30Jf295q2ouwu29Nui1XpOymG4SMuQndBJsWIny_x1Kul0LGNKeDVOg8coPRuzCAk_m-YO0IpTVxlQZsO3KE9HNQhpzq8KEZ4MLADfcgjxEON0yI2rgEUYOCVwBWRfPCWFUjTsnYYhGJTj4u-LfvAdfnsVUPxK7Te58OiKbLokDlVv20Z2Y_AHgGp4BnMpfscfjLT6V7i-ZNuS6URShJkhpDsECXZtmMGE_FG0smqwdgbzp4Y0clfwh6LUVI2u5A&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQZmOd4LPud_slIk-CUfz2qJGGTkppVCoiJvtL-6RfteMUnnJLNQWN7HbrohjuJNiH8Besi5vaY1yq9K_SfcKEo2-DLTFtL45yqyBanIL1I_XtJOFkP2484UyanmYzsP8WM6JbUbLa4XVj_tcpg12H_3J_x-fnqvYsuh_JkmQ7pfCODVT_JPJjAeNXskC0xuMjNxobkEiIYKLCrQa87zFPX2TnkUOkIVcX9s6urUnjOHJuUFNva-fP7KHdkNYVEOTJwDbxR8jO2xCSihywDnG54UlYKnbBczrsV1uEiAtTXKjZNHtk&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Peshawari",
-                    "priceRange": "Budget-friendly"
+                    "cuisine": "Moldovan",
+                    "priceRange": "Mid-range"
                   }
                 }
               }
@@ -375,7 +378,149 @@
           },
           "transportation": {
             "create": {
-              "description": "Hire a car for the trip to Jamrud Fort and the Khyber Pass. Within Peshawar, taxis or ride-hailing services are convenient."
+              "description": "Taxi or bus"
+            }
+          }
+        },
+        {
+          "dayNumber": 6,
+          "date": "2025-06-15T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Saharna Monastery",
+                "type": "attraction",
+                "description": "Explore a picturesque monastery complex nestled in a scenic rocky gorge.",
+                "location": "Saharna",
+                "timeOfDay": "morning",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQKCNticY68d-2GZvQ-SQzK5ltEV0hRbFW296hCVFvXW6Vl7PEt3gAO_CxmZL6c_cxjbRZrPtWqNhcd8DCsT2WdKLpiV2nUbMdairWgQNFeadCo5-fOGr6JPjsOKO6nguJI17BhrOkPut-0Cd0xxBpqgUuCAeluvUJnlp3QBqSWLffNPSN43wSPsac4I-ocIXogpkjLKKFTu-2vGbMhoXa_siJ1YKaEU5SZZBcRxWrb4Tqzqe5GQIJ7IfhMmzcQqCXwfmi6AxmFOsgSoeHsphPiiIYp93EfQjvLxwZNbvTwmTvAJC4&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Dendrarium Park",
+                "type": "attraction",
+                "description": "Stroll through a beautiful botanical garden with diverse plant species and peaceful walking paths.",
+                "location": "Chisinau",
+                "timeOfDay": "afternoon",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTNSUAAeDjihwV-FBmXMIergVPO2z2MGlSD0cxz15fvypafUhPedyWlLIBvg4gvMoW-hNAQIYYhaQHqiNdO3LqVoEBX2hF9jFqnzx3Eb4RU3O3sIMSZakns8UsdaKzB3mDLKhwZDB1Omrsl3CaYWZXcKOAHDYs4pgRpp44rvn1jxsNIOSGo6JIbnvN3q5I4GpJudoyQzjihPkbddOvUysl4doVXXARD81zYNp238HdOWHH4OX9awHLEuGU4-xhTKXpVm_FqNNkADqU2FAW_oSWHF-O2EawtvC985_z5ANiflmr90uNxMO5lOU8OXTRTS7SOO6N2BAjAB02M1A7IMF7zJW492dqF-q4gQvJAeHNpkKUbKsXWRMD9I6chHHh1IcgDUuazZ8oEtP7OkNpyJGBLdKMrKXPDmdBcQnAx3GkELGcEcCg5qBGhg7JKHgLBRvxCkL5M6VTwwR-pmB8SS7jEEa_E8iFAIU4wc30CN0-P-flq6FWlPcTS3Uk2ZXyGjInoAm9bKvQY6PUCvOp1MlPdyzWFb9ojy6MxYMrou0CAdvqwYuM79V4sceYf3ISoTxE2YM-UW9Ib_w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Grill House",
+                "type": "restaurant",
+                "description": "Offers various grilled meat and seafood dishes.",
+                "location": "Chisinau",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQD_G0Lgd4wST90AgoqL4VmO9niTTQP51cUr-Z3YOShm6q6Kq8YGFRtASlAqMe5AfENwmmK6MkDqcAKCVXVzWd8QViu6myt2CF7-AEPeEVueZSLWqJdcocmx-gTeMjtAsSSmp_6zMY1lJTevn13nKexXeV0O2-0Lq5xWwN5i6Lrk9NCN9bTS9nTyIX4EkeWGw7EDouk9g9OiQlclE0FejPJlju3AmkoMvkTzMWWe7zO33GLJsf4NbaXKSYDh378i64EjaeKWkL8H2ubvXFN6s5xwZARzRVaDxRmaJ6skTcIBwKHmQFNTcEPTSpMon_PWTqL5irqT8EcvC_oubddnRFmfoNKQPgkQUyzRDsKs1X4PEMWpNwqrOL2hCMCH4kV9Rrxlijs1l5t-ur4xzwPMMdIfdSOVyvWOHm-05TCQw9KO-IHubRYozc3y7yphrbeVcCeApOSNvF-o3vX7_2JFR_p17xBigRLbB1uQw_mFq1-y82ugJTlPehh4bP2AQ04pu3i6mvbrvr-ktC9Zt6Cj4k03tx1mpnLyfMEQ4849kt79bH_Quahajmk4T2k6q5vK3c3JaTJ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Grilled meats",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              },
+              {
+                "name": "Art Cafe",
+                "type": "restaurant",
+                "description": "European cuisine in a bohemian setting.",
+                "location": "Chisinau",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTOCaacGg5IJOceGQw7V-phk22Iuej6mK8av3hFvbE_DVZY74cj_f79KH3PW5z-nh_d5N0mZ81UlDIhjU14Uyg3eQA_iAVxmgP41Zh5L5HUQc2xG7cHvxUbZ4Twgtg107qO-nA5BOyaVZSGyqeacGVRbQflLFEMimG2kHqd95kaxobMqrMc3fAdVxNlsJ9ewG2MU7GBwJGVJlo6PuxhO2L0II3lqAjLVnRXfd-LdD30HLCqT1lptc5JZDYwlBycv1oOe97EXk5TeAcanM07Lx1vD7uHZzUIsQCCAnw5E_k33mZYP1_s5uLKykjHLS587qAo3g_F1ZJzkzRqU3a8gHeq0u8NfurkTXFtNbFYgJzaz7-klRDf3KFAIjGJCzCRuZVB3n1nAnkDrhWqO0szKcmyxzSZaTnkW2B7qwNeGtOWzoPdOpWumtw3BdmxDaAl_-KrfY0ogaoOeKKUcl9aKg_db3LlGTxJUgPyahMQp7MSd8uYFI0LUbFvWz4XYtt1b7giu_1SXFNj2cqZXguv2aIkbmY0yD6jYf0B9pfsaRDgzKHMvfLHUvXrk_LsAvEkpBZU02MIZ1C-1w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "European",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Taxi or bus"
+            }
+          }
+        },
+        {
+          "dayNumber": 7,
+          "date": "2025-06-16T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "National Museum of the Village",
+                "type": "attraction",
+                "description": "Open-air museum showcasing traditional Moldovan village life with authentic houses, windmills, and churches from different regions.",
+                "location": "Chișinău",
+                "timeOfDay": "morning",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSue_ySCEcFezn_slSUJo_YRmGdJRuihDSwsH12SUzxo9emSgQTEVyOHaWv9rYFBELRtrpstnsjcfn3kWzaU7qCBxOMB80ft16OZJzx-7JQH3Br-rJKSxH3WRreiD9bDZA-FmkF6Lqx1DWQZwfpXRQl3PWBmidLXILsHADJXiPl5Zan3VwVlN29RsX7s8m8sJ8ITmCqRHN0D2Xr6rQTbWdhfIhTCKzlfD2_vIoELyvmXyGQCPZZp-fCcMk6RL7dx4fj-OzKOqJNI58NPpeJSZ01zZJdu32LmUWryAl6NE4dtgE4ZQ0&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Asador",
+                "type": "restaurant",
+                "description": "Offers a variety of grilled meats and traditional Moldovan dishes.",
+                "location": "Chișinău",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTfvqnVwJ2Gs0Q7iF5Q97M81jlFSN0-6DXg1BK9xTNvOI_wdFnqIK7Toim6bGAqkLxNOyxyH5q3F5F-2IaeqxnRRqWz5GF6laADBOv5fH4PvQy-eoMlQ9ksCUGk6v911QhGQmQjsdHb4RKod4Ub6kEuHVw6wTpS_FdudDwCUp9mEYKmWnwFkZeUmVTJ7u373-JB8EAaerNZGB4Iq8Go6-r5-KyhH5wO4nZ1gGNQ80CA_Fnit8xD-diMUVQEBt9Bf45Zcv5lBV-i9laf8Z7Wo0mSoIx7navoq09yVs38If-JEZtnJORAK672Dy3OvV4HZVK11g3HKXxQ9-QC7ndgDWB3K42MzvzJdCfZ8qoCx6bmERoiNVaCNmWr-B2Nq7VVSXerPngeTXr9hzGHV7ft1c-StE3E805AdFJ1k5sYE9UA6mH_6evHdzD7j3bH_e9HHApVvhmaBs9p0b1_l1ckwEetDj2mcdICYsX4Z4PTbP5v8Ne1Rn5KanBhh1q12WOM9WPbIMQZfCdc09y5_C3c4q8Cpm9deiLmOvZLzW_HjJ4u-jMTsHmg98oOsWbwJCtok0G84ANR&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Moldovan, Grill",
+                    "priceRange": "$$-$$$"
+                  }
+                }
+              },
+              {
+                "name": "Valea Morilor Park and Lake",
+                "type": "attraction",
+                "description": "A large park with a lake, ideal for walking, boating, or relaxing. Features a cascading staircase and scenic views.",
+                "location": "Chișinău",
+                "timeOfDay": "afternoon",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRa8fWig7YHZXl2H5cPBRe1-FY4L4ggWM5JLLOBTAwruGzVVHkdHkBY4ySuchWWYOoTC0ZlVVPRQPQAd9Y6Or7tUOm6lsAIGAsQVqFo0rmQ3yKVMepXgwBny78UoUFenZEcoPZgwGo3Hp193k3y3qF_QjgpoQjELcI2tGuYy55ztp0ECa4Petc5L4aMwcy-hiQBvwg51COQdAzKrcj9eLIeVhgwavDIR9zDM3M1nYBHCeYugHkQmVo6chxotnrDyDsRXNJ-Z801aPhctvnl0O8vjcvnuGL9b9Nd_K_xIP8ye5qWHh8fKkbtLOWtP-L0ZLlxslf6tSHcb5WOBxKDQj_jxFuoBLVr9o6PEo7uVj-mrAivmVUzeM01bjrj7TD-fPnoNov8FJLslhimO6mGKHOBinGAXOEE8jQ8IoH_3mP5CXDyInzg34ISE59ohxrh19g3HHJhfbD7V80PO7d4BPOhgHSIYj8u5VxNT8LdztAdepxSEVB_aRrrHYKU0bhvzR_u8isOdsc3o1rST2qZy6LYKkG8A2xLm52wPXAqfEc69izz-7eAx8iifJ7gyyWiJq6_TWoU&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Pizzeria Italia",
+                "type": "restaurant",
+                "description": "Serves authentic Italian pizzas and pasta dishes in a cozy atmosphere.",
+                "location": "Chișinău",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRzSxGaPp9r5DdtOhH-jCuYxGwJbBVY4s033EalDF-Uj4O8QbX9PK16LuA3Wp0U2WxlQ_NFogVxRHAXqH-hV3LYUw6Amf7UW6Oj6qQiQvdvRwRFaYNJYm1XhF7oskQCJ7V7J4okj5h6ocIRQbho2YBMIjWC-xXRy6Szzg5jhRrUCF9RNbhyIYKc0fvw-UCGSEYfVWs1CBigaFyFurVGwXuEfQuHN3SOnFOLrqFEITpMnrQJw5FYDIQ7EA4AtGHvTTR9o2dvj5Uvvcg5XstQV4g17-cPgbPIflyzj6IMyRvFk4Z5r4Q&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Italian",
+                    "priceRange": "$$"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Taxi, Public Transport, Walking"
             }
           }
         }
@@ -384,101 +529,104 @@
     "accommodations": {
       "create": [
         {
-          "name": "Pearl Continental Hotel, Peshawar",
+          "name": "Nobil Luxury Boutique Hotel",
           "type": "Luxury",
-          "rating": 4.5,
-          "pricePerNight": 4500,
-          "description": "A 5-star hotel offering luxurious accommodations, fine dining, and a range of amenities.",
-          "bookingUrl": "https://www.pchotels.com/hotel/pearl-continental-hotel-peshawar/",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRJLc7PydUrATcUG3m8wa8f07BS7zhc-0VPWW32bkGVx12pGeiMorQ5Xh1A4rFPx9VEP6H0V3go3Nx_-AyNcQEjS-tzYqxTaSZhZmsvG5mQs7XncKjUvYmvizyJmwrfadJ6mz7BmukU-wmPFG2mTHdYuMXPdsBWKXLk-rJu6ZY4p1rgxJme1WZ7-ITgMfQ-GkW5Vp1varV7s5pmCZs8JZQMpesZKaL1SJnfH-UR16KTP1gDoKvYwSIHycPWTMdvzkFJGJKQjwxVdrdDj34vdTOoh5EgK9BzXkf-9uhkJuuxE_n3GfH-BKMuooIN9UEv8DmmFjQ-rF9yVGYJizHADQ0e9DNz8lE7FgwZQ9ugcFzjWm8FZUnCfqbmk87XlAlx36KFbLVaqJivBjDhOZpcGHL0BgRw7dS2K9XsviacEIMeoauN0_5tF4UrKSYJotbw7HCnEG9P8xeicliCkVge0cNso2THOwSuI9RiNELYgv7wQDJUSg57Gacrg21Fo9NM_GHz_-3nJJstgkuGoqjdOeUQmI5xl1LJVtyrpnTxINzJa4OaksjEqoek8H4gfoAZmEzhXI4XOFMyww&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "rating": 4.8,
+          "pricePerNight": 250,
+          "description": "A luxurious hotel in the heart of Chisinau offering opulent rooms, fine dining, and a spa.",
+          "bookingUrl": "https://nobil.md/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRGIK8NeLnQV_ymr0kG1MS_L2FXrcdR_k5K28YOY1NKNJeVz9bnX7K0W1O1gEIj2rFzhQjfrD_E9DK3bNppioaLuFzF0KkphK9rkWMQ5vIwPj0GVBH5YvshURHqvN9XC6Ge1Yo49O5zZx21IugAAZ-TrIOHEwDokr92tw2gKdBCk8wVldAMu6ThsTtgaE_-6PSL1kuhVvOXvk1Oa4YjPnFzbAYJ_gpFT967KphclsualsOQxiRhq6EvZHDYbtXx5v3xpUJG-biGD-Wrn-6i-O7rmEltV0soUdVp8jXnfozCWPhW2Ik&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
-              {
-                "name": "Swimming pool"
-              },
-              {
-                "name": "Fitness center"
-              },
               {
                 "name": "Spa"
               },
               {
-                "name": "Multiple restaurants"
+                "name": "Indoor Pool"
               },
               {
-                "name": "24-hour room service"
+                "name": "Fine Dining Restaurant"
+              },
+              {
+                "name": "Concierge Service"
+              },
+              {
+                "name": "Free Wi-Fi"
               }
             ]
           }
         },
         {
-          "name": "Fort Continental Hotel",
+          "name": "Radisson Blu Leogrand Chisinau",
           "type": "Mid-range",
-          "rating": 4,
-          "pricePerNight": 2500,
-          "description": "A well-regarded hotel with comfortable rooms, good service, and a convenient location.",
-          "bookingUrl": "https://www.fortcontinental.com/",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSZwIKwy-PRRDrq3jXi_q3HhzKbkWXcOo3m2OU4vycGjX1_-y2AhvcdE-UpV2gzjBmDJN3DEynBLVqYwRm6Vs6rO1UZvMWPlLDVbf6v20MYfs_K24Avo1uDRiDOo3yuj_QZrNVttf_QtISYYHJTfwnLD4J6kR_Nczwo2G4SaAIHFNZtiJ9Ie-wRRnngtOrGaVca2L6zGZY-K0s3IbaYmdnJCK37dZCRJB0ddHpLqDdfamNF9y2Sl0rwrZQYu0Wua5KdpIcoExEqEDeG-89xn5UtojmQc7zLdcGdeaifI-y2irLIQ60&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "rating": 4.5,
+          "pricePerNight": 120,
+          "description": "A well-regarded hotel with comfortable rooms, multiple dining options, and a central location.",
+          "bookingUrl": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-chisinau",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRwJVBlLxuyXd6T6FCOE3_evX6O_0ur1YBdhkX06mvowS0Mc8ryh63Q-D8MCvtECyPt3IcxN_MnY_clNjXX2BX334I7W1m3XkHU2uNX2CFwXvTpjLspxEH1l85UrVCuHvw5qV2Pvn9wzf6BFlaaRlc2vdL0huc2Ml7N1KbJkGIY2WUUp-mipent2PL4LAX4HBS4XJ2qwn_4oOO-KHFOBMYgcPNhD1snOdoDh-25QdYHCbR8aeKc6KrM7-4vdvUzsXzYL887Z-QXzrNWodNM3Po5QCfLweA8Ad0QVcwKM_QEFIcSFR0&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
+              {
+                "name": "Fitness Center"
+              },
               {
                 "name": "Restaurant"
               },
               {
+                "name": "Bar"
+              },
+              {
                 "name": "Free Wi-Fi"
               },
               {
-                "name": "Airport shuttle"
-              },
-              {
-                "name": "24-hour front desk"
+                "name": "Business Center"
               }
             ]
           }
         },
         {
-          "name": "Shelton's Rezidor Peshawar",
+          "name": "Bernardazzi Grand Hotel & SPA",
           "type": "Budget-friendly",
-          "rating": 3.5,
-          "pricePerNight": 1000,
-          "description": "A decent budget option providing basic amenities and clean rooms.",
-          "bookingUrl": "https://sheltonhotel.com/",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTxYawmdMhBbwTvu_DsDp8YTgUTMVNc60hfRNjZfC8R3WhdzC7ocKY-IioW7_Zlhu22_soEHV-WFTxUuJ6Hl4st1RGt2voHMa33HfvPM7SAbkHX9xNZo8Bq7UiPWK0-NQe0TbJKFT7n7UXVwyER3Yr6ZRM3sobshuO1ctftBBqdbDSbySRPckJUpltrov9LbALEJIgsPpOQ3sM_jlYpj5jOkXzPLy6H94zFUODQ_HhmuTx4WHyUNtAXVSLogYw-1CpBYOU8Xv_7B3wputHdlgirzIn2RL7XNquPjowpCVjanaWv1ILLywmMBOZi9pCvT-WrxJkpIOWvcr4Bh8A8-2f-jVM9tkMY9DUI5GNCDKyJYLguC_A12YC3dId0ggMtNLCrghof2aHWx238hvQgOhPpuv2g47rVHy6RoP9H3BwX3RmHx2x4qHCidVs6LQl9x2n8CLR9H1uNnysgqjRKyl0pWBjnkvvay88YnVs-flZuy9Wj0YSBh_bdHgDR-HUeBAHzoYvXciFw2L5LBRI0m4B4qUr5wkanPOUyYxY9N4h7NtGK05R0z8geaYRMSYMTpiF04w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "rating": 4,
+          "pricePerNight": 60,
+          "description": "Offers good value with clean and comfortable rooms in a convenient location.",
+          "bookingUrl": "https://www.bernardazzi.md/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRQvhzTwU2gxLEbYRjOoaZFGP7byO1uZkK23hv6TSkJNbcl7SUANJbEkLwo8wHhKw9Cioo1PBHptMGhPWDKh1rbpMEf_aRLKm1d9kb02mZW1zr27k1ZfzQOT_2VeH9aKvuOIpsK48HJ8pHK2BxV3Rj5tiVp8Ib98xTpIuwn3AGlMDgQlCSjT952K8yfrJ5H7jSBPLPh_BEgcCSEv5IlLDpnTWsgK1bwMZGFORHUr1M9m7SyFRn8kbH-yce7V6JfiZRzLmjZGC9riH-S-BdFuLzGUQdfCwVv4wJt-1rzCRDlbmvCHrY&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
                 "name": "Free Wi-Fi"
               },
               {
-                "name": "24-hour front desk"
+                "name": "Restaurant"
               },
               {
-                "name": "Room service"
+                "name": "24-hour front desk"
               }
             ]
           }
         },
         {
-          "name": "Peshawar Serena Hotel",
+          "name": "Villa le Premier",
           "type": "Unique/Boutique",
-          "rating": 4.2,
-          "pricePerNight": 3500,
-          "description": "A boutique hotel with a distinctive character, showcasing local culture and architecture.",
-          "bookingUrl": "https://www.serenahotels.com/serenapeshawar/default-en.html",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQkOoVMajDsU5unt-xu_SdUTXo02jrx-uIO7t50Xia6fARNsRY1j9Pr4qBLyvqRl9WkSwnf_1hOAiIhb9SG2NQhp03xSyXYOhqWMjDx2vxVJg--ybhUV4AZEsI5FqiMf-4QjJ3gYdA7v_N-4-uGu8bx8p7d8zCYUGS0XDZNxTDw_fFZ9KJATKgG9WTbLsL8NwMR8r-rABKV6DgKF3PJc13odm9_LCHcx9KdP2lc-_4kIeGUAPuaNdZJdyWlmH2mpCYAu3NCM0LiPSMO4k_a6NYglfvm6z1EZkMrgt6CER89rzk2E78&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "rating": 4.6,
+          "pricePerNight": 150,
+          "description": "A charming boutique hotel with individually designed rooms and a focus on personalized service.",
+          "bookingUrl": "https://www.facebook.com/villalepremier/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQn2FbyFvPJRXgNI_lgwLOTHW-Qz7mIxSnntGTi9UwxcBtouBQzTJr16CLWyMNHgrI5ure_5iN4Z0kTyU5ceJONRzrYL3w1foYukN59mF_c1HBjf2Bs6g9pEiCitfbrHSbvXQ8QyW74WARtx33hL3Bo_c2IsiVu_Ae_gKpojs5Svtr8DavWkPVt2Wu7PKiviim7CjcsSv3AHStH_YsqbAX9mj4UQOaX2YyLfwwFdRAEs7IcgA3Qwjj5j6omMzcs-kVziiDYnCF4Ttc4qnuoijNMVOBOi7QsmsDqtZzh4KOO1u3G_Mo&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
                 "name": "Garden"
               },
               {
-                "name": "Restaurant with traditional cuisine"
+                "name": "Terrace"
               },
               {
-                "name": "Cultural performances"
+                "name": "Free Wi-Fi"
               },
               {
-                "name": "Library"
+                "name": "Breakfast Included"
               }
             ]
           }
