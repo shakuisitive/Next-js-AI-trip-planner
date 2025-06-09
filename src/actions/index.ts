@@ -754,21 +754,22 @@ export async function getTripFeedbacks() {
       orderBy: {
         createdAt: "desc",
       },
-    });
+    })
 
     return {
       success: true,
       feedbacks: feedbacks.map(feedback => ({
         ...feedback,
-        respondedByAdmin: feedback.respondedByAdmin ?? false
-      })),
-    };
+        respondedByAdmin: feedback.respondedByAdmin ?? false,
+        adminResponse: feedback.adminResponse ?? null
+      }))
+    }
   } catch (error) {
-    console.error("Error fetching feedback:", error);
+    console.error("Error fetching feedbacks:", error)
     return {
       success: false,
-      error: "Failed to fetch feedback",
-    };
+      error: "Failed to fetch feedbacks",
+    }
   }
 }
 
@@ -911,10 +912,13 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
       html: emailTemplate,
     })
 
-    // Update feedback status
+    // Update feedback status and store response
     const updatedFeedback = await prisma.tripFeedback.update({
       where: { id: feedbackId },
-      data: { respondedByAdmin: true },
+      data: { 
+        respondedByAdmin: true,
+        adminResponse: response
+      },
       include: {
         trip: {
           select: {
@@ -934,7 +938,11 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
 
     return {
       success: true,
-      feedback: updatedFeedback,
+      feedback: {
+        ...updatedFeedback,
+        respondedByAdmin: true,
+        adminResponse: response
+      }
     }
   } catch (error) {
     console.error("Error sending feedback response:", error)

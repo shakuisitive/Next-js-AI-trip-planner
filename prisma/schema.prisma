@@ -279,12 +279,13 @@ model TripFeedback {
   rating      Int      // 1-5 star rating
   review      String   // Public review
   respondedByAdmin Boolean? @default(false)
+  adminResponse    String?  // Admin's response to the feedback
   suggestion  String?  // Private suggestion to company
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  deletedAt DateTime?
+  deletedAt   DateTime?
+  status      Boolean? @default(true)
 
-  status         Boolean? @default(true)
   // Relations
   trip        Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)

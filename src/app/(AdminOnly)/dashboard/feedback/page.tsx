@@ -42,6 +42,7 @@ interface TripFeedback {
   suggestion: string | null;
   respondedByAdmin: boolean;
   createdAt: Date;
+  adminResponse: string | null;
   trip: {
     tourName: string;
   };
@@ -157,7 +158,8 @@ export default function FeedbackPage() {
         setFeedbacks(feedbacks.map(feedback =>
           feedback.id === feedbackId ? {
             ...feedback,
-            respondedByAdmin: true
+            respondedByAdmin: true,
+            adminResponse: responseText
           } : feedback
         ));
         toast.success("Response sent successfully");
@@ -294,8 +296,7 @@ export default function FeedbackPage() {
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => setSelectedFeedback(feedback)}
-                            className="hover:bg-slate-100"
+                            className="border-slate-200 hover:bg-slate-50"
                           >
                             <MessageSquare className="h-4 w-4 mr-2" />
                             View Details
@@ -305,7 +306,7 @@ export default function FeedbackPage() {
                           <DialogHeader>
                             <DialogTitle>Feedback Details</DialogTitle>
                             <DialogDescription>
-                              Feedback for {feedback.trip.tourName} by {feedback.user.name}
+                              Feedback from {feedback.user.name} for {feedback.trip.tourName}
                             </DialogDescription>
                           </DialogHeader>
                           <div className="space-y-4">
@@ -328,12 +329,21 @@ export default function FeedbackPage() {
                               </div>
                             )}
 
-                            {!feedback.respondedByAdmin && (
+                            {feedback.respondedByAdmin && feedback.adminResponse && (
                               <div>
-                                <h4 className="font-medium mb-2">Admin Response</h4>
-                                <p className="text-sm text-muted-foreground italic">
-                                  No response yet. Click the "Respond" button to add your response.
-                                </p>
+                                <h4 className="font-medium mb-2">Your Response</h4>
+                                <div className="text-sm bg-green-50 p-3 rounded border-l-4 border-green-200">
+                                  <p className="text-green-800">{feedback.adminResponse}</p>
+                                  <p className="text-xs text-green-600 mt-2">
+                                    Sent on {format(new Date(feedback.updatedAt), "MMM d, yyyy 'at' h:mm a")}
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+
+                            {!feedback.respondedByAdmin && (
+                              <div className="text-sm text-amber-600 bg-amber-50 p-3 rounded border-l-4 border-amber-200">
+                                <p>No response has been sent yet.</p>
                               </div>
                             )}
                           </div>
