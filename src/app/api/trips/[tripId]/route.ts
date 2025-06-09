@@ -9,12 +9,12 @@ export async function GET(
   try {
     const session = await auth();
     const credentialsUserId = request.headers.get("X-Credentials-User-Id");
-    const isCredentialsAuth = request.headers.get("X-Credentials-Auth") === "true";
+    const isCredentialsAuth =
+      request.headers.get("X-Credentials-Auth") === "true";
 
     // Check if user is authenticated via either method
-    const isAuthenticated = 
-      session?.user?.id || 
-      (isCredentialsAuth && credentialsUserId);
+    const isAuthenticated =
+      session?.user?.id || (isCredentialsAuth && credentialsUserId);
 
     if (!isAuthenticated) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -59,6 +59,9 @@ export async function GET(
         preferences: true,
         interests: true,
         accommodations: {
+          where: {
+            status: true,
+          },
           include: {
             amenities: true,
           },
