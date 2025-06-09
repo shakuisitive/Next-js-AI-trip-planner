@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Star, Search, MessageSquare, ArrowUpDown } from "lucide-react";
-import { getTripFeedbacks } from "@/actions";
+import { getTripFeedbacks, sendFeedbackResponse } from "@/actions";
 import { format } from "date-fns";
 import { toast } from "sonner";
 import {
@@ -61,6 +61,8 @@ export default function FeedbackPage() {
   const [selectedFeedback, setSelectedFeedback] = useState<TripFeedback | null>(null);
   const [sortField, setSortField] = useState<SortField>("createdAt");
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
+  const [responseText, setResponseText] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
@@ -140,6 +142,35 @@ export default function FeedbackPage() {
         <span className="ml-1 text-sm">({rating})</span>
       </div>
     );
+  };
+
+  const handleSendResponse = async (feedbackId: string) => {
+    if (!responseText.trim()) {
+      toast.error("Please enter a response");
+      return;
+    }
+
+    setIsSending(true);
+    try {
+      const result = await sendFeedbackResponse(feedbackId, responseText);
+      if (result.success && result.feedback) {
+        setFeedbacks(feedbacks.map(feedback =>
+          feedback.id === feedbackId ? {
+            ...feedback,
+            respondedByAdmin: true
+          } : feedback
+        ));
+        toast.success("Response sent successfully");
+        setResponseText("");
+        setSelectedFeedback(null);
+      } else {
+        toast.error("Failed to send response");
+      }
+    } catch (error) {
+      toast.error("An error occurred while sending response");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   if (isLoading) {
@@ -353,12 +384,17 @@ export default function FeedbackPage() {
                                 <Textarea
                                   placeholder="Write your response to the customer..."
                                   className="min-h-[150px]"
+                                  value={responseText}
+                                  onChange={(e) => setResponseText(e.target.value)}
+                                  disabled={isSending}
                                 />
                                 <div className="flex justify-end mt-4">
                                   <Button 
                                     className="bg-slate-800 hover:bg-slate-700 text-white"
+                                    onClick={() => handleSendResponse(feedback.id)}
+                                    disabled={isSending || !responseText.trim()}
                                   >
-                                    Send Response
+                                    {isSending ? "Sending..." : "Send Response"}
                                   </Button>
                                 </div>
                               </div>

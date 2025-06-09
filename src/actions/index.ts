@@ -2,6 +2,7 @@
 import { signIn, auth } from "@/lib/auth";
 import { prisma } from "./../lib/db/prisma";
 import bcrypt from "bcryptjs";
+import nodemailer from "nodemailer";
 
 export async function signInUsingGoogle() {
   let data = await signIn("google");
@@ -768,5 +769,178 @@ export async function getTripFeedbacks() {
       success: false,
       error: "Failed to fetch feedback",
     };
+  }
+}
+
+export async function sendFeedbackResponse(feedbackId: string, response: string) {
+  try {
+    // Get the feedback with user and trip details
+    const feedback = await prisma.tripFeedback.findUnique({
+      where: { id: feedbackId },
+      include: {
+        user: {
+          select: {
+            email: true,
+            name: true,
+          },
+        },
+        trip: {
+          select: {
+            tourName: true,
+          },
+        },
+      },
+    })
+
+    if (!feedback || !feedback.user.email) {
+      throw new Error("Feedback or user email not found")
+    }
+
+    // Create email transporter
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "bloggingmotive@gmail.com",
+        pass: "ddztujeipvegvqft",
+      },
+    })
+
+    // Create email template
+    const emailTemplate = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              color: #333;
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+            }
+            .header {
+              background-color: #1a1a1a;
+              color: white;
+              padding: 20px;
+              text-align: center;
+              border-radius: 5px 5px 0 0;
+            }
+            .content {
+              background-color: #f9f9f9;
+              padding: 20px;
+              border: 1px solid #ddd;
+              border-radius: 0 0 5px 5px;
+            }
+            .section {
+              margin-bottom: 20px;
+              padding: 15px;
+              background-color: white;
+              border-radius: 5px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .section-title {
+              color: #1a1a1a;
+              font-size: 18px;
+              margin-bottom: 10px;
+              font-weight: bold;
+            }
+            .rating {
+              color: #f59e0b;
+              font-size: 16px;
+            }
+            .response {
+              background-color: #e8f5e9;
+              padding: 15px;
+              border-left: 4px solid #4caf50;
+              margin-top: 20px;
+            }
+            .footer {
+              text-align: center;
+              margin-top: 20px;
+              color: #666;
+              font-size: 12px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h1>Response to Your Feedback</h1>
+          </div>
+          <div class="content">
+            <div class="section">
+              <div class="section-title">Trip Details</div>
+              <p>Trip: ${feedback.trip.tourName}</p>
+            </div>
+
+            <div class="section">
+              <div class="section-title">Your Feedback</div>
+              <div class="rating">
+                ${"★".repeat(feedback.rating)}${"☆".repeat(5 - feedback.rating)}
+                (${feedback.rating}/5)
+              </div>
+              <p>${feedback.review}</p>
+            </div>
+
+            ${feedback.suggestion ? `
+              <div class="section">
+                <div class="section-title">Your Private Suggestion</div>
+                <p>${feedback.suggestion}</p>
+              </div>
+            ` : ''}
+
+            <div class="response">
+              <div class="section-title">Our Response</div>
+              <p>${response}</p>
+            </div>
+
+            <div class="footer">
+              <p>Thank you for your valuable feedback!</p>
+              <p>Best regards,<br>The Travel Team</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `
+
+    // Send email
+    await transporter.sendMail({
+      from: "bloggingmotive@gmail.com",
+      to: feedback.user.email,
+      subject: `Response to your feedback for ${feedback.trip.tourName}`,
+      html: emailTemplate,
+    })
+
+    // Update feedback status
+    const updatedFeedback = await prisma.tripFeedback.update({
+      where: { id: feedbackId },
+      data: { respondedByAdmin: true },
+      include: {
+        trip: {
+          select: {
+            id: true,
+            tourName: true,
+          },
+        },
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+      },
+    })
+
+    return {
+      success: true,
+      feedback: updatedFeedback,
+    }
+  } catch (error) {
+    console.error("Error sending feedback response:", error)
+    return {
+      success: false,
+      error: "Failed to send response",
+    }
   }
 }
