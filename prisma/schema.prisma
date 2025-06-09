@@ -278,6 +278,7 @@ model TripFeedback {
   userId      String   @db.ObjectId
   rating      Int      // 1-5 star rating
   review      String   // Public review
+  respondedByAdmin Boolean? @default(false)
   suggestion  String?  // Private suggestion to company
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

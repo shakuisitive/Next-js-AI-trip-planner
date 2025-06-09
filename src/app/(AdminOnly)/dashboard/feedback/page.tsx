@@ -19,7 +19,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Star, Search, MessageSquare } from "lucide-react";
+import { Star, Search, MessageSquare, ArrowUpDown } from "lucide-react";
 import { getTripFeedbacks } from "@/actions";
 import { format } from "date-fns";
 import { toast } from "sonner";
@@ -31,6 +31,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
 
 interface TripFeedback {
   id: string;
@@ -39,6 +40,7 @@ interface TripFeedback {
   rating: number;
   review: string;
   suggestion: string | null;
+  respondedByAdmin: boolean;
   createdAt: Date;
   trip: {
     tourName: string;
@@ -49,18 +51,26 @@ interface TripFeedback {
   };
 }
 
+type SortField = "tripName" | "userName" | "rating" | "createdAt" | "respondedByAdmin";
+type SortOrder = "asc" | "desc";
+
 export default function FeedbackPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [feedbacks, setFeedbacks] = useState<TripFeedback[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedFeedback, setSelectedFeedback] = useState<TripFeedback | null>(null);
+  const [sortField, setSortField] = useState<SortField>("createdAt");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
         const result = await getTripFeedbacks();
         if (result.success && result.feedbacks) {
-          setFeedbacks(result.feedbacks as TripFeedback[]);
+          setFeedbacks(result.feedbacks.map(feedback => ({
+            ...feedback,
+            respondedByAdmin: feedback.respondedByAdmin ?? false
+          })) as TripFeedback[]);
         } else {
           toast.error("Failed to fetch feedback");
         }
@@ -74,6 +84,15 @@ export default function FeedbackPage() {
     fetchFeedbacks();
   }, []);
 
+  const handleSort = (field: SortField) => {
+    if (field === sortField) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortOrder("asc");
+    }
+  };
+
   const filteredFeedbacks = feedbacks.filter((feedback) => {
     const searchTermLower = searchTerm.toLowerCase();
     return (
@@ -82,6 +101,30 @@ export default function FeedbackPage() {
       feedback.review.toLowerCase().includes(searchTermLower) ||
       (feedback.suggestion?.toLowerCase().includes(searchTermLower) ?? false)
     );
+  });
+
+  const sortedFeedbacks = [...filteredFeedbacks].sort((a, b) => {
+    let comparison = 0;
+
+    switch (sortField) {
+      case "tripName":
+        comparison = a.trip.tourName.localeCompare(b.trip.tourName);
+        break;
+      case "userName":
+        comparison = (a.user.name || "").localeCompare(b.user.name || "");
+        break;
+      case "rating":
+        comparison = a.rating - b.rating;
+        break;
+      case "createdAt":
+        comparison = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+        break;
+      case "respondedByAdmin":
+        comparison = (a.respondedByAdmin === b.respondedByAdmin) ? 0 : a.respondedByAdmin ? 1 : -1;
+        break;
+    }
+
+    return sortOrder === "asc" ? comparison : -comparison;
   });
 
   const renderStars = (rating: number) => {
@@ -129,17 +172,63 @@ export default function FeedbackPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Trip</TableHead>
-                <TableHead>Customer</TableHead>
-                <TableHead>Rating</TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("tripName")}
+                    className="flex items-center gap-1"
+                  >
+                    Trip
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("userName")}
+                    className="flex items-center gap-1"
+                  >
+                    Customer
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("rating")}
+                    className="flex items-center gap-1"
+                  >
+                    Rating
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
                 <TableHead>Review</TableHead>
                 <TableHead>Private Suggestion</TableHead>
-                <TableHead>Date</TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("createdAt")}
+                    className="flex items-center gap-1"
+                  >
+                    Date
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("respondedByAdmin")}
+                    className="flex items-center gap-1"
+                  >
+                    Status
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredFeedbacks.map((feedback) => (
+              {sortedFeedbacks.map((feedback) => (
                 <TableRow key={feedback.id}>
                   <TableCell>
                     <div className="font-medium">{feedback.trip.tourName}</div>
@@ -160,47 +249,124 @@ export default function FeedbackPage() {
                     </div>
                   </TableCell>
                   <TableCell>{format(new Date(feedback.createdAt), "MMM d, yyyy")}</TableCell>
+                  <TableCell>
+                    {feedback.respondedByAdmin ? (
+                      <Badge className="bg-green-500 text-white">Responded</Badge>
+                    ) : (
+                      <Badge className="bg-red-500 text-white">Unresponded</Badge>
+                    )}
+                  </TableCell>
                   <TableCell className="text-right">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => setSelectedFeedback(feedback)}
-                        >
-                          <MessageSquare className="h-4 w-4 mr-2" />
-                          View Details
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle>Feedback Details</DialogTitle>
-                          <DialogDescription>
-                            Feedback for {feedback.trip.tourName} by {feedback.user.name}
-                          </DialogDescription>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-medium mb-2">Rating & Review</h4>
-                            <div className="flex items-center space-x-2 mb-2">
-                              {renderStars(feedback.rating)}
-                            </div>
-                            <p className="text-sm bg-gray-50 p-3 rounded">
-                              {feedback.review}
-                            </p>
-                          </div>
-
-                          {feedback.suggestion && (
+                    <div className="flex justify-end gap-2">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setSelectedFeedback(feedback)}
+                            className="hover:bg-slate-100"
+                          >
+                            <MessageSquare className="h-4 w-4 mr-2" />
+                            View Details
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl">
+                          <DialogHeader>
+                            <DialogTitle>Feedback Details</DialogTitle>
+                            <DialogDescription>
+                              Feedback for {feedback.trip.tourName} by {feedback.user.name}
+                            </DialogDescription>
+                          </DialogHeader>
+                          <div className="space-y-4">
                             <div>
-                              <h4 className="font-medium mb-2">Private Suggestion</h4>
-                              <p className="text-sm bg-blue-50 p-3 rounded border-l-4 border-blue-200">
-                                {feedback.suggestion}
+                              <h4 className="font-medium mb-2">Rating & Review</h4>
+                              <div className="flex items-center space-x-2 mb-2">
+                                {renderStars(feedback.rating)}
+                              </div>
+                              <p className="text-sm bg-gray-50 p-3 rounded">
+                                {feedback.review}
                               </p>
                             </div>
-                          )}
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+
+                            {feedback.suggestion && (
+                              <div>
+                                <h4 className="font-medium mb-2">Private Suggestion</h4>
+                                <p className="text-sm bg-blue-50 p-3 rounded border-l-4 border-blue-200">
+                                  {feedback.suggestion}
+                                </p>
+                              </div>
+                            )}
+
+                            {!feedback.respondedByAdmin && (
+                              <div>
+                                <h4 className="font-medium mb-2">Admin Response</h4>
+                                <p className="text-sm text-muted-foreground italic">
+                                  No response yet. Click the "Respond" button to add your response.
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+
+                      {!feedback.respondedByAdmin && (
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button
+                              variant="default"
+                              size="sm"
+                              className="bg-slate-800 hover:bg-slate-700 text-white"
+                            >
+                              <MessageSquare className="h-4 w-4 mr-2" />
+                              Respond
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-2xl">
+                            <DialogHeader>
+                              <DialogTitle>Respond to Feedback</DialogTitle>
+                              <DialogDescription>
+                                Add your response to the feedback from {feedback.user.name}
+                              </DialogDescription>
+                            </DialogHeader>
+                            <div className="space-y-4">
+                              <div>
+                                <h4 className="font-medium mb-2">Original Feedback</h4>
+                                <div className="flex items-center space-x-2 mb-2">
+                                  {renderStars(feedback.rating)}
+                                </div>
+                                <p className="text-sm bg-gray-50 p-3 rounded">
+                                  {feedback.review}
+                                </p>
+                              </div>
+
+                              {feedback.suggestion && (
+                                <div>
+                                  <h4 className="font-medium mb-2">Private Suggestion</h4>
+                                  <p className="text-sm bg-blue-50 p-3 rounded border-l-4 border-blue-200">
+                                    {feedback.suggestion}
+                                  </p>
+                                </div>
+                              )}
+
+                              <div>
+                                <h4 className="font-medium mb-2">Your Response</h4>
+                                <Textarea
+                                  placeholder="Write your response to the customer..."
+                                  className="min-h-[150px]"
+                                />
+                                <div className="flex justify-end mt-4">
+                                  <Button 
+                                    className="bg-slate-800 hover:bg-slate-700 text-white"
+                                  >
+                                    Send Response
+                                  </Button>
+                                </div>
+                              </div>
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      )}
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}

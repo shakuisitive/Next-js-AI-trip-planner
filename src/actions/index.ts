@@ -757,7 +757,10 @@ export async function getTripFeedbacks() {
 
     return {
       success: true,
-      feedbacks,
+      feedbacks: feedbacks.map(feedback => ({
+        ...feedback,
+        respondedByAdmin: feedback.respondedByAdmin ?? false
+      })),
     };
   } catch (error) {
     console.error("Error fetching feedback:", error);
