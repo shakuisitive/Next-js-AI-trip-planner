@@ -611,10 +611,10 @@ export async function updatePlaceDetails(placeId: string, updates: any) {
         include: {
           day: {
             include: {
-              trip: true
-            }
-          }
-        }
+              trip: true,
+            },
+          },
+        },
       });
 
       if (!currentPlace) {
@@ -728,6 +728,42 @@ export async function deletePlace(placeId: string) {
     return {
       success: false,
       error: "Failed to delete place",
+    };
+  }
+}
+
+export async function getTripFeedbacks() {
+  try {
+    const feedbacks = await prisma.tripFeedback.findMany({
+      include: {
+        trip: {
+          select: {
+            id: true,
+            tourName: true,
+          },
+        },
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return {
+      success: true,
+      feedbacks,
+    };
+  } catch (error) {
+    console.error("Error fetching feedback:", error);
+    return {
+      success: false,
+      error: "Failed to fetch feedback",
     };
   }
 }
