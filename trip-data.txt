@@ -1,0 +1,125 @@
+{
+  "data": {
+    "userId": "6845743db48fdd9e4a2c68bb",
+    "tourName": "Created within dashboard by an admin",
+    "destination": "California, USA",
+    "tourStatus": "Pending Approval",
+    "startDate": "2025-06-09T19:00:00.000Z",
+    "endDate": "2025-06-16T19:00:00.000Z",
+    "budgetMin": 500,
+    "budgetMax": 5000,
+    "preferences": {
+      "create": {
+        "groupType": "couple",
+        "travelStyle": "luxury",
+        "pace": "fast"
+      }
+    },
+    "interests": {
+      "create": [
+        {
+          "interest": "culture"
+        },
+        {
+          "interest": "nightlife"
+        },
+        {
+          "interest": "nature"
+        }
+      ]
+    },
+    "days": {
+      "create": [
+        {
+          "dayNumber": 1,
+          "date": "2025-06-09T19:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Borough Market",
+                "type": "attraction",
+                "description": "Vibrant food market with diverse stalls and street food.",
+                "location": "8 Southwark St, London SE1 1TL",
+                "timeOfDay": "afternoon",
+                "duration": "1-2",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Hawksmoor Seven Dials",
+                "type": "attraction",
+                "description": "Steakhouse known for its high-quality cuts and cocktails.",
+                "location": "11 Langley St, London WC2H 9JG",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "attraction": {
+                  "create": {
+                    "category": "Cuisine: Italian"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Underground (Tower Hill, London Bridge) and walking"
+            }
+          }
+        },
+        {
+          "dayNumber": 2,
+          "date": "2025-06-10T19:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "National Gallery",
+                "type": "restaurant",
+                "description": "Art museum housing a collection of European paintings.",
+                "location": "Trafalgar Square, London WC2N 5DN",
+                "timeOfDay": "afternoon",
+                "duration": "2",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Italian",
+                    "priceRange": "100-200"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Underground (Russell Square, Hyde Park Corner) and walking"
+            }
+          }
+        }
+      ]
+    },
+    "accommodations": {
+      "create": [
+        {
+          "name": "Generator London",
+          "type": "Hotel",
+          "rating": 5,
+          "pricePerNight": 100,
+          "description": "Stylish boutique hotel near South Kensington museums, with individually designed rooms and a vibrant atmosphere. Excellent reviews for its service and location.",
+          "bookingUrl": "google.com",
+          "image": "http://localhost:3000/_next/image?url=https%3A%2F%2Fmaps.googleapis.com%2Fmaps%2Fapi%2Fplace%2Fphoto%3Fmaxwidth%3D800%26photoreference%3DAXQCQNS-bAH0NubIkReq3ZKaWqln_htiJ_XWL7D5rE90637CeGwUzw1MUsXz4CTo59-iEaXWjkctgxVPQIwqK_4JU1q6bO9JrcISQKsxqyEAueLbsutJl1FdzDF9VA6IjvIczKj1kC3nhBDhXd_eHJzdV4Bbcy-UBKuddLlqD6It3Jd0OHmUrmxtlhi9oODQtrcU3NSeeeUETiwnskc6N43q_WOuo18yFFHossJ5t6lWHEHKFN7i7EZvwNZf6_Cnikwj599SgQjoaydaSd7g4Q-ukv9ECGnrwPU7LyENMmFrs3X0P9RHiuA%26key%3DAIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y&w=1920&q=75",
+          "amenities": {
+            "create": [
+              {
+                "name": "Bar"
+              },
+              {
+                "name": "free wifi"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

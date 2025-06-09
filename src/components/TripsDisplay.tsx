@@ -1,9 +1,17 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Calendar, MapPin, Users, Clock, ChevronDown, ChevronUp, Plane } from 'lucide-react';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Calendar,
+  MapPin,
+  Users,
+  Clock,
+  ChevronDown,
+  ChevronUp,
+  Plane,
+} from "lucide-react";
 
 interface Trip {
   id: string;
@@ -44,10 +52,10 @@ export default function TripsDisplay({ trips }: TripsDisplayProps) {
   const [expandedTrip, setExpandedTrip] = useState<string | null>(null);
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
     });
   };
 
@@ -64,7 +72,8 @@ export default function TripsDisplay({ trips }: TripsDisplayProps) {
           </div>
           <h3 className="text-xl font-bold text-gray-900 mb-2">No Trips Yet</h3>
           <p className="text-gray-600 mb-6">
-            You haven't created any trips yet. Start planning your next adventure!
+            You haven't created any trips yet. Start planning your next
+            adventure!
           </p>
           <Link
             href="/create-trip"
@@ -87,14 +96,16 @@ export default function TripsDisplay({ trips }: TripsDisplayProps) {
           <Link href={`/trips/${trip.id}`} className="block">
             <div className="relative h-48">
               <Image
-                src={trip.accommodations[0]?.image || '/placeholder-trip.jpg'}
+                src={trip.accommodations[0]?.image || "/placeholder-trip.jpg"}
                 alt={trip.tourName}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <h2 className="text-xl font-bold text-white mb-2">{trip.tourName}</h2>
+                <h2 className="text-xl font-bold text-white mb-2">
+                  {trip.tourName}
+                </h2>
                 <div className="flex items-center text-white/90">
                   <MapPin className="w-4 h-4 mr-2" />
                   <span>{trip.destination}</span>
@@ -102,23 +113,29 @@ export default function TripsDisplay({ trips }: TripsDisplayProps) {
               </div>
             </div>
           </Link>
-          
+
           <div className="p-6">
             <div className="flex items-center text-gray-600 mb-2">
               <Calendar className="w-4 h-4 mr-2" />
-              <span>{formatDate(trip.startDate)} - {formatDate(trip.endDate)}</span>
+              <span>
+                {formatDate(trip.startDate)} - {formatDate(trip.endDate)}
+              </span>
             </div>
             <div className="flex items-center text-gray-600 mb-4">
               <Users className="w-4 h-4 mr-2" />
               <span>{trip.preferences.groupType}</span>
             </div>
-            
+
             <button
               onClick={() => toggleTrip(trip.id)}
               className="w-full flex items-center justify-between text-purple-600 hover:text-purple-800"
             >
               <span>View Details</span>
-              {expandedTrip === trip.id ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              {expandedTrip === trip.id ? (
+                <ChevronUp className="w-5 h-5" />
+              ) : (
+                <ChevronDown className="w-5 h-5" />
+              )}
             </button>
 
             {expandedTrip === trip.id && (
@@ -140,8 +157,12 @@ export default function TripsDisplay({ trips }: TripsDisplayProps) {
                 <div>
                   <h3 className="font-semibold mb-2">Accommodation</h3>
                   <div className="bg-gray-50 p-3 rounded-lg">
-                    <p className="font-medium">{trip.accommodations[0]?.name}</p>
-                    <p className="text-sm text-gray-600">{trip.accommodations[0]?.type}</p>
+                    <p className="font-medium">
+                      {trip.accommodations[0]?.name}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      {trip.accommodations[0]?.type}
+                    </p>
                   </div>
                 </div>
 
@@ -149,15 +170,22 @@ export default function TripsDisplay({ trips }: TripsDisplayProps) {
                   <h3 className="font-semibold mb-2">Daily Itinerary</h3>
                   <div className="space-y-3">
                     {trip.days.map((day) => (
-                      <div key={day.dayNumber} className="bg-gray-50 p-3 rounded-lg">
-                        <h4 className="font-medium mb-2">Day {day.dayNumber}</h4>
+                      <div
+                        key={day.dayNumber}
+                        className="bg-gray-50 p-3 rounded-lg"
+                      >
+                        <h4 className="font-medium mb-2">
+                          Day {day.dayNumber}
+                        </h4>
                         <div className="space-y-2">
                           {day.places.map((place, index) => (
                             <div key={index} className="flex items-start">
                               <Clock className="w-4 h-4 mt-1 mr-2 text-gray-500" />
                               <div>
                                 <p className="font-medium">{place.name}</p>
-                                <p className="text-sm text-gray-600">{place.timeOfDay} ({place.duration})</p>
+                                <p className="text-sm text-gray-600">
+                                  {place.timeOfDay} ({place.duration})
+                                </p>
                               </div>
                             </div>
                           ))}
@@ -173,4 +201,4 @@ export default function TripsDisplay({ trips }: TripsDisplayProps) {
       ))}
     </div>
   );
-} 
+}

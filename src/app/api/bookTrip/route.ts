@@ -2,9 +2,10 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db/prisma";
 import { auth } from "@/lib/auth";
 import { cookies } from "next/headers";
+import fs from 'fs';
+import path from 'path';
 
 export async function POST(request: Request) {
-  console.log("first line of post request");
 
   try {
     const session = await auth();
@@ -35,7 +36,6 @@ export async function POST(request: Request) {
       tourName,
       userId,
     } = body;
-    console.log("here is the user id we worked on", userId);
 
     // Validate required fields
     if (
@@ -109,8 +109,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Create the main trip record
-    const trip = await prisma.trip.create({
+    let dataToCreateATrip = {
       data: {
         userId,
         tourName: tourName || `${destination} Trip`,
@@ -188,7 +187,18 @@ export async function POST(request: Request) {
           })),
         },
       },
-    });
+    }
+
+    console.log("Copy this data and pass", dataToCreateATrip)
+    
+    // Write the data to a file in a readable format
+    const dataString = JSON.stringify(dataToCreateATrip, null, 2);
+    const filePath = path.join(process.cwd(), 'trip-data.txt');
+    fs.writeFileSync(filePath, dataString);
+    console.log(`Data written to ${filePath}`);
+
+    // Create the main trip record
+    const trip = await prisma.trip.create(dataToCreateATrip);
 
     return NextResponse.json({ tripId: trip.id });
   } catch (error) {

@@ -1,0 +1,800 @@
+{
+  "data": {
+    "userId": "6845743db48fdd9e4a2c68bb",
+    "tourName": "Dataganjv1",
+    "destination": "Dataganj, Uttar Pradesh 243635, India",
+    "tourStatus": "Pending Approval",
+    "startDate": "2025-06-09T00:00:00.000Z",
+    "endDate": "2025-06-18T00:00:00.000Z",
+    "budgetMin": 500,
+    "budgetMax": 5000,
+    "preferences": {
+      "create": {
+        "groupType": "couple",
+        "travelStyle": "adventure",
+        "pace": "moderate"
+      }
+    },
+    "interests": {
+      "create": [
+        {
+          "interest": "shopping"
+        },
+        {
+          "interest": "sports"
+        },
+        {
+          "interest": "food"
+        },
+        {
+          "interest": "culture"
+        },
+        {
+          "interest": "nature"
+        },
+        {
+          "interest": "photography"
+        },
+        {
+          "interest": "nightlife"
+        }
+      ]
+    },
+    "days": {
+      "create": [
+        {
+          "dayNumber": 1,
+          "date": "2025-06-09T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Shri Hanuman Mandir Dataganj",
+                "type": "attraction",
+                "description": "Visit a significant local temple dedicated to Lord Hanuman.",
+                "location": "Dataganj, Uttar Pradesh 243635, India",
+                "timeOfDay": "morning",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQxtqiNNCDB3apYQYBhML8NwZSogk54T_AqM96cP_Uy5jB9C9YTEXm8ecBz7GQsM1Ng3W1IlMAGx8tnl0GGdS9GKIV3y3slWVWbNiDYhGt-xZ7UwYyXhvBfznn89xdyC95VzesSzNi2DjoUxQL3QoWmMMilhRt1WGGclhV6J7SeP4MhtocYXvu0XpqMuw7UFNRr6znJYkS0-ND8pkLlrfYf64WnPdIRuaErTqxTlBkkCQSkh0P4m9gckrQlIVBvWC9wRFa3jhPiwnbS6BXFWimP2rh-vjUar5xhFoEmYEdQfU7gj9M&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Dataganj Local Market Exploration",
+                "type": "attraction",
+                "description": "Explore the vibrant local market for traditional goods, spices, and textiles.",
+                "location": "Dataganj Main Market, Uttar Pradesh 243635, India",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT97K1DR4ivsmwkGnpGJ1YPH-ma3SJUu12lKKAqKgPLhNWOBnJManzb-Vvf6-jCs3CD3hSmxzcppFPC0in61iKkpeERkm1Sr737ppczhrHsbFV7mX2jyUDZuCTqIBMcH1txd2hTj2ni71jI5ZCf8mm_55naSCfxA2zvrjgPuqOQjjoQYE7D_xkq-n99n4Lc1Rr21RZgLZYUdSKKGERhi-j0-9npBVgKbk0UFJIOIy4rRvaIBaayWlKzsixJt8KLZbBKo5E7CxsXx-EVfYz0qPMQk8oWIhjVWcL-4DmP_UFKV-NBlLwl4n30PxMqiV4XauWBecYg84oVxX8KTFHLuQcl-OtowDY9JU0JNJaplO9m8hHfmzjyDpGcoTjiTUORY26FIRNpSwb3GeUapIRj0K04NafgHbYsiIHC7PLiYf8-LzCfu0BXPYHgl2TyFnqZVFoxA8iECS22RzhTOccA-UfNVMij41-mh3Lf6AesIEpm5hnayeVP8EDVOPYA27R7ASrrzK4IpGB98Y0ODAO9_FNx5Ob5HcPHdrzVVuzGueAZ8OzcEebEB-F0rSkwi27VFRj0Xw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Sharma Bhojnalaya",
+                "type": "restaurant",
+                "description": "Enjoy a traditional North Indian Thali for lunch.",
+                "location": "Near Main Market, Dataganj",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTkeDdLdGHtdK2NpA0BGvsg3rJ5i3HcMfaqsyhJhDbwMZw7fMLZNzjKur1RKlRL5q-_oDS6qTexnktQqcEmCtg6gy2yY5u7yek6CfFrvIwy5Hg2EU7PiFpkYTahb1-0CjULIw5wNpkjSpsgaq-w9leE3MBlt7ZVA5lOVPHD67xXCOWEmI8sEyEvhgOjD4T57dSocekBmII12LE5tePURxacLZS485yKtv0LR0kOLRmt29wH2lVg5XzJoo_-pT2EeA7KGZ929gqjZROiXqSwMsco8-DVqOKaSAO0AhR56NYrCLaBI--StBs9O-2rIL8S7em0N1leRAInqr7TY73A2K2EpXemz1yeypv0cilRn_AdcFLwVh6kfU1LWpqTQqgbAkrC5iVPZubwfT-xV9baBZLny_R3slDJqFCtsAxTg6z1YcJSA08OC6wxCl3qU4I-CBsEYyQWRHmCLnFFK7eIx_k0mxLyhItxqJU7YoDSQIaFeMTRsxl6QHBwKXOdVcfl_s1ioNdIwsemt08nw6ujwcGGkR6G30Fr3neIqU7I3xr0-y1ROWb0zraKEj-I1W37s0gtdR1qNhaGEA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "North Indian",
+                    "priceRange": "₹100-₹200"
+                  }
+                }
+              },
+              {
+                "name": "Royal Restaurant Dataganj",
+                "type": "restaurant",
+                "description": "A family-friendly restaurant serving Indian and Chinese cuisine.",
+                "location": "Near Bus Stand, Dataganj",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTXEYbM-g6VYBT7SUFdRH0mLmuXBfy-w3OArO5je5cllDS81Uiz-vvQBLfmGFxEQUczF_yGIdJzsSamAqYr6lGJxHhUXDDxO5Eox8cXRsH7rudqqzffiPTtRfgCwKmuXG8bNhwOLhoQ8zKvBgbfI95bfbsiWKUSU2St2HYd-0tGkYVqlcuSEA3uIOWhaEBkjL39fFpPAi3sMzG0zKp53m3JwBp-mdW0QyJq0zrCfUgd7dgrSFjcAlW5bzwqObm0JXVp2Qoixz090L2eNG1ic1Qb3xYcWhoA0CHCCv6QTg2812i-TCE&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian, Chinese",
+                    "priceRange": "₹200-₹400"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Auto-rickshaws and cycle rickshaws within the town."
+            }
+          }
+        },
+        {
+          "dayNumber": 2,
+          "date": "2025-06-10T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Gandhi Park Dataganj",
+                "type": "attraction",
+                "description": "Relax and enjoy the greenery in the local park.",
+                "location": "Near Railway Station, Dataganj",
+                "timeOfDay": "morning",
+                "duration": "1-2 hours",
+                "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Visit a Local Farm",
+                "type": "attraction",
+                "description": "Experience rural life by visiting a nearby farm (arrange in advance with locals).",
+                "location": "Outskirts of Dataganj",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSC-oMzULAZEvkrRO2xWJYLYCl__CHFc41n35Gx_t8E468o_qMhvvfXBslL-92kIDm9m9rupdfKI9j7RNP-m2leVAGi6yjKtohl-GMiz-vh1PIQCbQ4IG3vW6KAtCC-UTfms4hBiKQusj_rMWpxOQCVPM86TYhtDsckKAb9iZNtCBnkptrVrzd5C1eBJUO6OUgfnrdanYkjGOvs4C7zAWnFJujNr9yQ68QCOyuTxcBZ0Jix5e1qTIo2zev7IB-gxGSV3jE5RFdI0Rlm1MLcr4ktf__L-H9pA43KYLLRUY-WOFOHulid0p59KUFwjLLPE9rzb4q13GAoffJEQXBkTQBt7Uk-KTqHjGusYMnu_SaOsl2rAaNyv4heXqb-_kKY7byEal_xpiDtqUy7HLEmVfmDZkrtqAIFCs3q-tF4IufjkHH5u25k2nPjkpUmeb8K4q_erQgDgBLF4k3JVhRGrXEmUgNUgGMbDmT7LufWu3WqY2GTkh5ZVW1hXA75OO8xonrMpfnm5txR1urSVM5dcK1fFbGnJGnguiiP6W2_uc9oTm1wdcbud3Pd-BCfFf-rsDY59atZ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Shree Radhe Radhe Restaurant",
+                "type": "restaurant",
+                "description": "A vegetarian restaurant known for its South Indian dishes.",
+                "location": "Near Gandhi Park, Dataganj",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTZL-dlU9pNqNnFM1TM0RA8C2OQrZ9gy2JvNXUw3YYIhDJdOfdVh_yq_IHJfXGEy328T4J1CSjXFFVFaT0Ee7tUPqNq4eXw9pCFQ3h9zqgyT5BmEeZHwrUS7ohqo4DhQKr2P3ThDBbAXtq44q0kJ9VgXZ00DhHPkqUsOjFEF1AD5MeTAsIhNWvtGISD8U6oU6EJivvPvAfSnGnhk6tIpnB3Lw9fqmtQUYConewWNs1JKsfTrRiaWbFVYU6eqGg4Qalr_TdFl58rp7t5dmep-xwsi0KL2ez1IUTCttTObWErns74VGfY4Uqhv9wehaezIa4eMoPP3kmNBcaXWOKEqO16o7WK5ovBtashcjYxGXrwbLghwxA64t3_AVm-qsUDAYh9jOEfHKbKuN42q8Eae6iU7xX7R_UYTdr9evC6swKqn2duOfvGz5CTPec4REPE6BQOn0hxq4qHY3SWNKqEuYfVnaFL5ZoSBThVKzS-_uJ4boQq8TeqeRLGjNJ82p-X69a8Tzt__qBhGn_KG86MPvi66mpdoyrvjT4yup1yeqnoHD5fbC_lz4ApBfp0eenYXEbpjZRe&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "South Indian",
+                    "priceRange": "₹150-₹250"
+                  }
+                }
+              },
+              {
+                "name": "New Agrawal Bhojnalaya",
+                "type": "restaurant",
+                "description": "Simple restaurant serving vegetarian North Indian meals.",
+                "location": "Near Main Market, Dataganj",
+                "timeOfDay": "evening",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ-xLXKmhCBoQTyVxPL_VrMc4P_wiNQI080HtbpoLyCtcrPUGjreECrhIGFwylIiwayBInQH05bcve6eWiG8TgLOC2waVWZsyjG_b_vcoyxy3KG7V4xY6uX2A6CvdypvRS_cX_3_h9Hes6SVUHDh0B6HxVtxTTtHT-qriyIl37xGVi_hUhyv2wzorfzp1jEpBmsO4Pg2ECxtZrP6gzSLgVDNmWvgtb-vO-Jx7zlUzU6tjUXc9x6Kf7AMu_GTgm4sCYwk9qHmBofCSTv4npsf49m7vl1pM02umKWh_S93gTWHTeYqM6WokbnSYQ-2vs4hp7cB8RmyjPa7jHfy6JJlavVVmYx1Br_Ns-JONx43HtXV35CbMWqDhtCFM3qzUIkXkNf6OTJ3fsUJ69IowbtJfPYOHhIlHEE7hYpuUSD47P5aptSGgvB2anrvQtHVekRGDF9l33gJ-w5ztSlchTjSkrneIGhf279Q9exktBiDaucazzltNCy6r-6iwIxNOsnR15XQOBtxON3djpatm4qw4FA9QcZG4r6625LBPNhFsfDbBeMfN5614rpD1UAhqUx10rdIY7ZmaTHRfLlUxsirbut0XDqfg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "North Indian",
+                    "priceRange": "₹100-₹200"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Hiring a car/taxi for the farm visit, auto-rickshaws for within the town."
+            }
+          }
+        },
+        {
+          "dayNumber": 3,
+          "date": "2025-06-11T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Morning Walk along the Aril River",
+                "type": "attraction",
+                "description": "Enjoy a peaceful walk along the riverbanks.",
+                "location": "Aril River, Dataganj",
+                "timeOfDay": "morning",
+                "duration": "1-2 hours",
+                "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Explore Local Villages near Dataganj",
+                "type": "attraction",
+                "description": "Interact with locals and experience the rural culture.",
+                "location": "Villages near Dataganj",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQUB8N0iPyW7VGdDhpHn2ShXdLons3u9JhGVa0_UnbWcOiykIkh9JXbdLqktTdpOh2UK5ctrugtH3ABIxHHmgCYQrmICpiiuM18_SPkwHKY2IZn4Y3BPGToI474kPpwd0uUPrj6E-B81coUE9im1DcEH3EmGJJizhuQJ5oRyVdlpi_1iWZobMVcbS7yrwlmpvtQDwv3_BcLtqJLlI2aWlpfoP8qfht8tg4G45VQXM7pvrD4kwSv3lAI_3yx8hj73AzKlbAIJCZBjhhmcmN6XqjxSeYcryL3KGUMcwwPjsMAzy85n8JUUixqFeKIjQyj9rLJV-aM1msRlpfwlICYbts7cR0PRjKxMaTjeuvIku7cXFS2MeMP5SZwB82661iW1FsDyiwDZYc9UenVQpogJfiAsVKXiHK9qB8lwmaPURq6KIe-1TQc4FGejksj2IGsoCXBO3BWNC9Xz9DGKSuVOZv41lOBVkfodSXiFKUWOmS_eoLhnrdyImu5scZ6iigYugW7b61vPvE21Qfb6DyMsKCXYW6Muyk4AyFqIxyX0PdLAF_7ewGkkjTC9D1GY0zCCRqz2qU5&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Mohan Sweets & Restaurant",
+                "type": "restaurant",
+                "description": "A place to enjoy snacks, sweets and quick meals.",
+                "location": "Near Bus Stand, Dataganj",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQdO9WLqXRtue1LRh3AZZ-4vl2cn5VIHxCBwkpU94KFggiH7tNZrIq_9pFYTZT-DohTzpT2d2enqh4hxGt8RmrEO2kFp2o56ysXV8qnYgLttMcwaowJ8whatb1hRBndDZ5fSaj1jhrNEz9B-KHwNe5YpXvcOQ0lXALtobkTI_T8HoPgdjWiAt2lshIHTPjMu74PaEVpnGE7NbhnlgsNsaBfY66klIhhDiz4SEzhCZLLqi5FWaVQFc2i6Iru2iNbH0wJ87OIycKtQpfZqXjDetjkUVSCt7YtFGFH47HurFDFRQHw4LY6xxJHDJBxOsrRlfnhG5uyN_1PDvHrKrswI7DKIPdRFuV4uYtOXqWTKWsnrs_zh5KiNs-LMd_2rXsnR4qYtlTJ2xIcBi7cXGIrN4408vFN4fjzLr4loyVsc2_A3wEq9lC-hWsl5k14ilwmP3b9Y_D6ESczg5bWC8nqs9RDuVN3YgJfMom2cy4OYdhRvXDYCBuYGrfgND3rLwGSlZp4WerwR3wYf3BjkmbS2bDhU-XBz6zEjXHgFOtZUAwAxs8JyjXTsHbByjerSy77_xaLqob0&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian Snacks, Sweets",
+                    "priceRange": "₹50-₹150"
+                  }
+                }
+              },
+              {
+                "name": "Shri Krishna Restaurant",
+                "type": "restaurant",
+                "description": "A family-friendly restaurant with a varied menu of Indian dishes.",
+                "location": "Near Railway Station, Dataganj",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹200-₹350"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Hiring a car/taxi for village visits, auto-rickshaws for within the town."
+            }
+          }
+        },
+        {
+          "dayNumber": 4,
+          "date": "2025-06-12T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Trip to Budaun",
+                "type": "attraction",
+                "description": "Explore the historical city of Budaun, visiting the Jama Masjid and the Budaun Fort.",
+                "location": "Budaun (approx. 1 hour from Dataganj)",
+                "timeOfDay": "morning",
+                "duration": "4-5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTBgxw86WlPINtr7JUZTCTMF5Fe4kAJAqRv7ViOHscBNpeQKoH5eu3FYfkpOlJWWaUQJJIS1AEOllcZ9Dc-vVr5dO0nfYtH6n51kMHd_2On7gbXsufFBEsVwYl_FENN4jW45za0Hlsi98nanaiRPA571zv3a3CMveUSo7zteZ00C2ZDPwpAJsEnypqb9IgLstABVO-RcMIt9l3_wa3pr0J36H5X2lw9IaThP6ErbP6DVrWtx1dQid6JBFYOtH9_6bRJSoYALxWaxQGXKt652dkwYpcjmIdUMTR1C_6NQkbvflsmcv0aaOb-kIauBqAEVw2OrFoE9q1aEkimga2GIEDqD1qksopgLFjKo1MBACbVjEObq9R9SRSNWoAWoqjDCNz2uQOIMDdBNS9f-hkDW9GC0Oil9RXjQ5kX6nnRxyyH4C861fSC0kHjz3emSNhtvGF8bevMVKNLI2FMgRyT1-YmHcjnJomKsivdSseb3-GKU8rN54ca5J7KAuffYSyN3EPnYL46GpHS2paZmIn5yBDzL7LBqA4-FdTZm5N7OenrT5SnxU8ZE5e7ypBJnowIaAW9OZra&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Alakhnath Temple",
+                "type": "attraction",
+                "description": "Visit this ancient Shiva temple known for its intricate carvings.",
+                "location": "Alakhnath, Budaun District (Check precise location)",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSC1NqJ1ixW_o4WJZBOZ8H8nuE-slfZtaDmExoevkZQWiegXxIhaqU2g2pe8V9gOdF7fJcRaj1CI9BXvyv9x-Ddq4QVYzO6DNe4gFLzwMPip2oEQSAVfE6N26RfTxaBKZA93Xhk7hUylIvnRSVCgLsJ6HoSBdx052lewNZyrZMp3TPz4Qy8blYlBrA8hbkTo4Ox24TwmAUDEjLtxjHSD4i_H4cI0CUKoqdLjDB2rxsC-2OHkvb6uBFk8hpscWXGmrWOXFhKrllopZogHrjtae-A3uyBFb8OoXRnOXj3amqHc9vGNtH9LtusggO4MPN2xlhY23xPMd4Izb5_0P83yX4s8gi5ZThh08UON6YGpRQIZV3BHlShU5c2wUFKNcqBgHw47KfnEGtvuqyX0TtUZKuXLBuENbhm0DsEAP_74SOMVpeT_LmC1_fUpDkpYtWs2HmJCsEUbM5e9g-pHsoiMi4cPMM2XQhk7WL4mn3ba3FSpXSW63KwXv76yyz_6hIZs2UntrZiN2NmGafZDSYwDzPK_pJcwab58RlEFxEKywj8ZKzU-t99YYfwSyBVfAKq2YnDPAIJ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Hotel Raj Mahal Restaurant",
+                "type": "restaurant",
+                "description": "Enjoy a North Indian thali for lunch.",
+                "location": "Budaun",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRq09PhGRqBKn-PEwrGQu01CpyDkAjhfQA9W65TBcJTGHvWA-VHRikUUXJVZbawgKQt8ID49Br-S2v-Y56jGprQuw1mF_jKK6j-1vMJABbG_ZI_hDXAeYZgIjEWK9tqnqgMP-5lxrpdBJ2U-4JU72lOI2twpsdJvox7rzZ0otA7-0HXyFpObFF_mUGiPFlC7MycHLILeuCP8cyNZ3TLlXlwlOAbKZTY2x6YE6yZmW3EuOrK_A_D2Z_hgYXbIg_0hFAWGtJA8c_jjkT83pUbsq8p8FLH2MpRWoZxaYMrvyb995KMTHkhxrEa0DJoQqUGlszgx9f3PEKQokQxw8D3pfFdxt_0T-uXftBGRKxn3jc615u7RJZ2G4lQuHbX6Y0OErAOUd2k4Mnjyo-VvccuDXHmT4S4Kv-ppXa60kNVvp86w8k3JP57locjMkw-Ne25jnvnDfz3TjX8pEQVVxAkxSXDFxFF7DlVYIr8yaxcIBu-6vsrgMDlTTCKIa28BB6kcmxImNyboNHoxNrxDImulmOkjY1UT7nU04g8oxp6UiVCqdgNJhtVK7tldojLY5zbEvYwKoVu&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "North Indian",
+                    "priceRange": "₹₹"
+                  }
+                }
+              },
+              {
+                "name": "Brijwasi Bhojnalaya Budaun",
+                "type": "restaurant",
+                "description": "Dine on local specialties for dinner.",
+                "location": "Budaun",
+                "timeOfDay": "evening",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQiNcmRYlSH0dm3mtypQ9q3A1bINnn2jQBAjAQ0q239vNzfb2vSAenVVPsLPPTv-9UDmrdWHKHxdJ3hNpgxlldv5lqvTcYg_t1EnI50ueS7sNcoXKgjXG8gonDsFzIUW-hw5lHJXWtfDdWSln9lsFndivXzbIikL397muBzRGeiP_xo4KBMl62UaHfL1q_e3jKg_Pwhya2lWiWXDfcOUl58CEZ8z1_1MW7nYlWwnPfJ4krEOBg1uObyuiRlgRUE5z_s6s26aw73HcjFOkvP9cjdFIV9S_ms9gMatboZvmst0aSzmMy8hv-h432xNPfN7DeMKaJL7hDqJTVvH5NSXUfKczq4vZs3odRIdZKBVe9ROFH3smWMt-Sx9_2qjaHaVgYerECd-gddqxZIzqN10JsOqUbxQeo-QD_i4fu0XagrXBFfO-hRWy1OLNCNYjJYYZ3-IEVRUpEY1axYD95z7YM0l2BHdmAHVc9kRtX6Y5LQneJXrmX2eYNUbV_bk1Jq3x3vDowKQdXyOtQxT92_ep7gzgVvCVCUErl4dYxJs3mMEkU54xuTILVFreqCaqu98eVmHWgmavj81Q&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Hire a car/taxi for the day trip to Budaun."
+            }
+          }
+        },
+        {
+          "dayNumber": 5,
+          "date": "2025-06-13T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Visit to a nearby pottery village",
+                "type": "attraction",
+                "description": "Observe traditional pottery making techniques and perhaps try your hand at the wheel.",
+                "location": "Check for nearby villages known for pottery (ask locals)",
+                "timeOfDay": "morning",
+                "duration": "3-4 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTqpJ1S6jxZezt1cfWrfoAzShsToH4sX4c3GUkTvbv008U8992h6-Dbv28wvfqUcqV94GQ-BxvkxkXN7aDDM5uCPJJ4SOC91NxgJSwM8xOBOv2jwmkpyQG4XvDoOXHY9Yb3dZ94merzSG3ECnNYuvhMRkiXjFX9C0GsZZe-FisC3kd9Oo0uUsGpSwVBjkyktNsa4MkwusNii9xADHHbWKjpeRIw10OQe2LzSEU19AhQpw0PMwOXRyvFjTvR9oBnyLHPoj0ygQCGYXFw0rtN9tMi3MXfvM5e6YBs_jKXQPCEBnW1jLYM7IHfsOGgnDc_qQV1nOLHcfgZZyYvS89BBb2lFb41V11tJJAKXUYur0DQJ_U0jOLySLWqZt9sjN0lseQFfB0dFy0TxcT7lAXKbyeUMDjXQM39sOViD9GqIqiBvahlBNyGjqLClGQZJ48ZiprvAC9hgEmoHaRLPoGQyZexrUEeOYJwt2Y8yK9W2tdLOQw0XoH24TVvkIRA0UTRTogU4DCfHKwz1VQwNDiRXSAYxrOr73p_OlXmeh_pJZlSlbuiHYdun8YRxPRld4Pg1YYrdgQ4&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Relaxing afternoon at a local tea stall",
+                "type": "attraction",
+                "description": "Enjoy a traditional Indian chai and experience local life.",
+                "location": "Find a popular tea stall in Dataganj",
+                "timeOfDay": "afternoon",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQsCGOkIoSoNGpiiLPCAi1uSotpAaeLDlvYm5JNrJSD78VDgpOf62_arldUdf6vc3xCz4qYhSmGrgZ2DFEgeQwmbJ1m9HYoxFWZRRoGuN9oiJLaVE4pjsUpPZZj2s89tpoxXbBK7zvcM06gdRz_cYhWCF8IvHHZTlxH13_aCKUANVx14SpTmvxK0fHQzOZFawQD223loHafiA5EXyx4GFLFeMGc9IqrfbevepyPyAuGS-UpE_vd3nn_YmwCKOeZFxIS3a_J5FhYd9RLGef1J8iCL-zKwijbhYWq06txJ78zO8uwQlI40iRmhdtAqRZOe73tzKpC4ME95jlc-iVRkFIpj4ofzZGdiT3ZZi0p4hoWOvFBCJTmm5dccmpw5hnXUu6MmobNZVolCaLkBb3Ee6pJp37CGqU9uxDf-HMObOZSKGCl09KN0t4Yrqd_DoowmrqYdS6xVgbYxBqivpfx1X-RNZFFjCD7p9vK_GmHBlRgEiOwZVDoKqQiGJif6y1kypYJuqPBke67qjKdreRnYyfCpzsgBewiB8PBqqVwbrQsZMTaBMrnN9dIAfT2FeJvcXxqRQlZ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "The Food Express",
+                "type": "restaurant",
+                "description": "Casual lunch spot.",
+                "location": "Dataganj",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRHBBLAXtMJUW4vAP0_5XDAMJTvXVP5unlhh4OaoHjLmrrD1maELkMmB2CbgPYf3d4Wjj6R25YpgoCmdqP3ExOw5oCe7Oz6Hne4KAgJ0akuGPoo55QMBT4MTtUhMZbhDZFjbW0c9ow5ygptgfDIYqewBof977VPNSpTUQ1Moz13R7NpLhruqH08qaUNPFwMIfcCjAz98xidM7Z3WHgz6AXLq8E5EcNXBWE-frJxebao6c1TB991EsqEbR_9sEQ5adgmzQNqQZxoZu3Wycrrp7HyZTgOcsDStTEJf8PpEieX1NwOedU&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian/Fast Food",
+                    "priceRange": "₹"
+                  }
+                }
+              },
+              {
+                "name": "Agrawal Restaurant",
+                "type": "restaurant",
+                "description": "Family-friendly restaurant serving Indian dishes.",
+                "location": "Dataganj",
+                "timeOfDay": "evening",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTGTqULeDBfFSUiPrQrrKnpm0Ce6hgR1v83nODbcLxqmn58gGzSN8MjnbbMROqgNcFkMD6icIbVqmxt3Pf4G0Ow92K_QHSdxfV4P24t2Nx1KK6M_xb_sKDyNnWVeizXu7DRuUIVRUVQizuvork_M2IRuCE3owuAuH7T2GAMUnPchdPowRHeu3L2lokysrFgvvqWq5P7BuqKIkY8ptiduQ2qMDEdIn36LCrtIvgLPKy19Kj7COVNp5S54ouKM1jFXflikIOQr6FtyrqAr7_33540JX9_l1iFqZiSCyBs5paGwvr2KDu5kcKmEze-368nXxkfZZuQGhiBJAdYcnPrhQvVh26nrDatWzOQsjOuw2WC7TG_SV7QO3gG-urAbXojQX4J3hsLmx8jAa6xS8VSfVbvVdDHj5L6fI4m_viYvsO3ZqZ6GT67v2srsECJQdg-K4HjMSJyoS3Ze0-lQodNEF9Kt9x9hyjRQftnjHuCzYxqB30yRVquWdnr7UJKnc6uUxDrORGf3TyA9lm-Oh2DuUjqEMAJd0n37MdufxBOMAswXk5J8SYcI9nUQwKjxxEWwaE0-wWBuQQOyg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹₹"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Auto-rickshaw or local transport for the pottery village. Walking within Dataganj."
+            }
+          }
+        },
+        {
+          "dayNumber": 6,
+          "date": "2025-06-14T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Visit to a nearby weavers' village",
+                "type": "attraction",
+                "description": "Learn about traditional weaving techniques and see the creation of beautiful textiles.",
+                "location": "Check for nearby villages known for weaving (ask locals)",
+                "timeOfDay": "morning",
+                "duration": "3-4 hours",
+                "image": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Birdwatching along the Aril River (different location)",
+                "type": "attraction",
+                "description": "Explore a different section of the Aril River for birdwatching opportunities. Bring binoculars if possible.",
+                "location": "Aril River (choose a different location from previous visits)",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Shree Ji Restaurant",
+                "type": "restaurant",
+                "description": "Enjoy a quick and tasty lunch.",
+                "location": "Dataganj",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSHnw48d_HsEGxCk-PK-0t9sDEFpFsi64y3IuSHN-IDyzv8WY6AzefAt2vU3PKDVKnQjZSomUrMWXa2a41zHGEzB7Q6xrTqYBfCO47Pvq2JKdIUi8JDdBObCK-FOhU4kKT8uEFC9RCgf6w_4bMOr2AQOpDHQFs2AfXm1q8E7r8BiJmnGkHeftv-xuka2piODy7c5IjRW-p2z-JooHNDxlPMethSHGY6AtO5K3Bn5Lx-wA6acSBTtm8-fVcnhJHpXxgZ7rTKl-LH11iUos2MOdDnSJUjYXqrcZWjntb3yTTRqFDp75j-85g-ghA_RJieb_ay2r9rl4Y_kUOBpOP7vghLSAePP2oi9lD8njKMkXulUQx0Z_j2A2Ma4_AxR6pZf18m5geiWjLhMpXiXb6sl3I3LrWrhjiUz7R8SFQElSidzayGDmje0JRDJa11Ft0rNAmuU1NvkpIl81lKx7YXXoO1w0SyjvVw-HKe64f3TstrmyJS67KktmgudE7sLuongPXRzw7CemkWq8rO_1DHI9fAmklCRscsq3zvECqG4_9XZkee3bvLWI0XoVAwe-QHgPskBgAy&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹"
+                  }
+                }
+              },
+              {
+                "name": "The Yellow Chilli Restaurant",
+                "type": "restaurant",
+                "description": "Enjoy a farewell dinner before departing from Dataganj.",
+                "location": "Find a location if available in Dataganj or nearby",
+                "timeOfDay": "evening",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSktownPUkx09EQ_OSxJq0L3A8dCjWYUOV1b4OKq63CAkPXboYQUIsuk7nKfCPBWfh-QE3IZSvMi4aN7l0yLuXpBi13_cxHpzBGFvZ_YEBRYt5cygIjr86wXpWVj-Y-_3sjKqbYq_kgsZnLBCZdQUVMM-xiHbrm1fwJUHFGgLzOF60VDLhGm3bea0o84PiAlhrzRRfVpUvN9dJnPb1DQx-ofdr3fjoeRH2fxwryncHmtPGbFHpAG642XnQSYqgKYJdphaI7YEd4DAjFdySwc6LhyvmCDm0jiAb5u5MtBS9etfnZCNHXY1X_cxDnRcohC9rUUgMWsBRX4ygKg_BCDyOfGpeEitzQMGXsPt8xq2eAHSSsnw1Ut9WxwUAjnoXODXZxKYL97GAlyIUjmz6vScHd7RkPuoY6E-cKl-UfJYdthKdhQ0gcunPWJHZ5y5iIz9Z-PEPvEZEVcfZXrbiyeCkKRGauFyJhfZ6-JY9wxSde3PKiXaHWfjW3uZikf8txJEc5offaF3yU2QcYpeEo95pnAb6AIsQn9NgdZLai50v-hcdAzEdRvLIPgx5V-Eu_hryZILE0fqDgAC1epf9fFaxRSK0&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹₹₹"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Auto-rickshaw or local transport for the weavers' village. Walking or cycling along the Aril River."
+            }
+          }
+        },
+        {
+          "dayNumber": 7,
+          "date": "2025-06-15T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Trip to Bareilly",
+                "type": "attraction",
+                "description": "Explore the city of Bareilly, visiting markets, parks, and historical sites.",
+                "location": "Bareilly, Uttar Pradesh",
+                "timeOfDay": "morning",
+                "duration": "4-5 hours",
+                "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Fun City Bareilly",
+                "type": "attraction",
+                "description": "Enjoy an afternoon at this amusement park with rides and entertainment.",
+                "location": "Bareilly, Uttar Pradesh",
+                "timeOfDay": "afternoon",
+                "duration": "3-4 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNR-4FMFVcG-6ak8f3HzqKZcHDNFGBZxzeWP9EWZGuND1ZzZEmwTnk1ekkg8-hQXxPGxXA9aKANYJGYAa0WosRVF0HYhVh7ps0f5rUIWwpKk2CKUNQz_DLvFpCnz5gmtm2hPiW-f_SYoR-dUMvJkwjDOKHvwMZW6RbAcVIGOA5jPSwcQfFL1yUVcx3HgwKj31yZgkRfcdiF3-5AvisJKc5Z697MMBu3oixiN2VQS_YTGfegnrfmB56qb0X5wU3PO-50g9q7UUITlsGcfO9Bo87qXcbwf8vuJd6zzqdCUlwdmGaYa1ggmG-m5XBySR7VK5U4VjMZ-EdtqTR1E6nj1xI6A5iD5EYOhcjrXmynonPijJfxTT5yOvFRyyxU0OJO3anRnR7o-u3ejLwzQGLuNir1hkPg86CwoHnh1sF_wNmU48o7OK2iMc1loBm9luBLfrMHzsz0trOVT8BDXzCbm4X25dm4uUYzE52j-r-22GdIUavVNuZhi07TQVfhxRp-lHBelC-dQZv5BMkvxzwLiAdpxMKRsc0-op-CQWFN7JqmajUuIfpmBUqP7SL9SEYM3eAzYuE7G8jRJNQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Apna Restaurant Bareilly",
+                "type": "restaurant",
+                "description": "Enjoy North Indian cuisine for lunch.",
+                "location": "Bareilly, Uttar Pradesh",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQEGBGPmdQ7tldag3rkNs3-sDsvEYsQ4uNWCwqVG8K9k9UwPjF8RLRqpa_X4GAYUdiFwk2BODOAgBXBNsdPxImW6ztM8TULhuebUB-auSg8u1m9bT1EzXSD-KgN9Ugcd4IUMHLh6BmcftzjitZ-aUnU9BtISdMslcnUXcoD4t0EVrBWgXTmzTasvJgTIzi58DuCTqoNg3n55WIIDPdiG8wXTRuhhjVqiaerXURtvs_NK3hzm5BSKDjt6QE4c4AuOV2hsGcGNirqkv00Bz0CyNuGiPAx1apUCRwOSQ4RxR_T1zbWbmk&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "North Indian",
+                    "priceRange": "₹₹"
+                  }
+                }
+              },
+              {
+                "name": "Green Park Restaurant Bareilly",
+                "type": "restaurant",
+                "description": "Have dinner at this multi-cuisine restaurant.",
+                "location": "Bareilly, Uttar Pradesh",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRBpER1PXYM8w3X3WtY3euPTSN1xmKuWg6CKXjTdt3DV0VZQvwMsizvtRH9RPixsSZ8YGe_UXZ6N8Y5mGY72fgXxCQMAnjZLu9GJa2iTl2NXD_CWh3zRlimUeh65aEbQVedo9uVUaPoSnQACT9o-mB34r5-LoXjs49ZunH5eVMsolwz3aEPHhxuc9IW-NUgzdwVMjR5EayeoCMW1rQaOq7Me6eoF6xokDnqYUJtHVKDMUCvdrXL-slZeWwQ4iQiSfwZiaMK5u1OTO7t_tc-0Y9u-P8mwsMJWsPifEp-OMYXn9bgt8Y&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Multi-cuisine",
+                    "priceRange": "₹₹₹"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Hire a car or take a bus to Bareilly."
+            }
+          }
+        },
+        {
+          "dayNumber": 8,
+          "date": "2025-06-16T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Visit to a nearby mango orchard",
+                "type": "attraction",
+                "description": "Learn about mango cultivation and enjoy fresh mangoes (seasonal).",
+                "location": "Near Dataganj, Uttar Pradesh",
+                "timeOfDay": "morning",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ_DGjANTiqpWqEyIH7E1FE8UObE_2ouszlIzWKTwCZU9AnGqBiQhzmcthSo8IEc5RyCN080UGbYud8kmptDHodfT0Oul69nImbH8kefckjyJm3al9pgf46VcPUZgCkQjp7J3li4maVdObfaOOwLpGJ7LFkK-ro9HCzjntU4KfFL7BmpsG-cn02y_6wfoK4ohvQFTiepgRoDYmRrwV-hAskvMMWtjQH5pD2Pfg_uQ9MrrJizrBxQ1lKG5_dA-WIZKFFY4Va0_ojc9JEKTIUz6CJo0DW44lIm5nc06SxkD46QiQvZbw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Cooking class with a local family",
+                "type": "attraction",
+                "description": "Learn to prepare traditional Indian dishes.",
+                "location": "Dataganj, Uttar Pradesh",
+                "timeOfDay": "afternoon",
+                "duration": "3-4 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRf6F5qZqL1WkEBcTqEf70sJ9WhetsgOOPpgFoEEcHaTELs4xMAnkkE0yY1zGczxCR9jzghKvSDB8xsh_bmfoYvFawkLgVpDakEIgu4uO_QYZ9H_EH-t0eJ8Igj-VAKjLR68BALeQ6EBatwb57B0D9y3wfJ5KbhE_n7bURHMcCkWoiNcmNoMRqASY-eJhqW8s2G4_FVloyQcZCUdPnA1SDI51cGT3WJHn5c4ECBZC7GW2Vh7eoI5v3fk-5Ipn5SLTU8AMVF6gV6x6bDfahc1BPl9LkZl0BYn7PUe2QKvo2RChY_Ers&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "New Dataganj Restaurant",
+                "type": "restaurant",
+                "description": "Enjoy a local lunch.",
+                "location": "Dataganj, Uttar Pradesh",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRam8EfOnCXFrwKbOdhBGyYXKpopGPsCLTF54MrnB0yptkPzn82NyRMW9tG634M-HjZcn8fxoFR6czAYDaCVCVSXAuZUv8IOZ5LjFwEQ-9tHMQWq8-n7Kwu-fL7RPjrNtuz-Yc5NwhWbH_jtVYjCxnGw7Ml7NcPIviEamKLDeEUZSR2uTw0qapZJNnX4bk3euqiX_v5Z0xVY3orWBS8AkRWVTDdCTb-zHDfMr90212kqvILLCRTmh2GYJO3fadqfQgZvufXpb0iFOoGz8_CcJi2m_MhjilR2TKS3hvyyYzYTBG9jp2UQzPEdtj-rKEvbsiFsONj1SBj-lO2VqpjzMDHjrT0o3tziyn8xMWYS0LQOxanmfzkpI7XSLP9Nnv7ebQog7y0fn_ajJMuEkc_bYom50W3YfioCMbtN5MtT90qeazDagNXDFXSfuPDt9DrI-Pq0zqco-qZ0FfyGtIo9FOSRW3EHhsy8ko9RhNGV2z2jJMptwbjeimgqdRxt-KRqOG1Boiea66T1a1RO0fwr_lns1aVRSZyc8Q9FbhOMQ8uTzGNyyAuUmoAAQFpfQ3eRahdgyJEocycpw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹"
+                  }
+                }
+              },
+              {
+                "name": "Spice Garden Restaurant Dataganj",
+                "type": "restaurant",
+                "description": "Have dinner at this restaurant specializing in spicy Indian dishes.",
+                "location": "Dataganj, Uttar Pradesh",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQO8yFPpTL_vazjg47j_4N7USpFWWLU3qS3qxw8cic-mvM9NLXvgxhEwnPeXCHu6V-mZ6TfZcXGzfiGTKrqrQEW5IPIAcEIFXFIk1N0Z-LXJnAAU8x7TMVC1JQc04A-U9KER-0vBb-_y_CZWR5EfITCIVckjVcy9P5h2fUhHCgWxLQBTORsUcI8WLYT2K2SA8G-ca14d9oFVw65pYTowZXxhzAuYeWTTSosiwix5cYR2VkMFkXzUiHH9jZKLUad7_znXG4N-Juqj0ezoQk31h6mzQ9lKSy9PY-JmOhDGfWrW6w2OPA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹₹"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Local transport or auto-rickshaw."
+            }
+          }
+        },
+        {
+          "dayNumber": 9,
+          "date": "2025-06-17T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Visit to a nearby sugar mill",
+                "type": "attraction",
+                "description": "Learn about the sugar production process.",
+                "location": "Near Dataganj, Uttar Pradesh",
+                "timeOfDay": "morning",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNScFoBvD31n5MC6pwFLDHVly62zc3d--vFrE1_DIb_pTk1P1J2aRbh30WMPTuCZoJCVkv_nVAJAlugXD6FU0KVvKIpWRtvx7o0Zd_Eye3kwrwWsF7C87FeDYJnzXcPGzyg-Pmu-Gzo1NByYVV6R7t5yK05TbTSqcwVymu6EuXktmIB2bB_Ha0ms8F4Q8FD7qU7bkatBU0HINbjiH_SJqbfcuDlMOnyux22bcKqzkygh9rEvCkXAKx9wfNAVfNp0GzwAWKTgkZyO3YsvrmCkU8CKCc7EsOD_m5_lJvL53N6615FT8FLM0cA1O2BJHT-ZV_eBQuKPmpCsXzGVJ7QNCwO7jo0PpSTqqYe0FyWmncXzJ0UuhjMb8oFPP9uOPfhg5uDdULO--MmmHj-Q_hagQmVXGv3HFlP2fEGTxK1oUvP-oacyGntz9q54XgiPqsdZ_D5kher01JGl34g85bzBJFpgCcp7C6GTpiy3Nsqwmou9W-g7TNqycMFbEzg2MVrRDl0h4RJhM38_zRJiFIov3j_DOrnhM9uSfvGrhSbGmQfwuKULKwpyGbRWdooBiIkUNxzUpg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Highway King Restaurant",
+                "type": "restaurant",
+                "description": "Have lunch on the highway.",
+                "location": "Near Dataganj, Uttar Pradesh",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRIxv0Qd1chT3NeG1tMqOPH4_-rOl14-do2Xe6x9m2MKSPKFYzvHm8zrtUi_Ag29RvGipiYPaLpiQBuUob7gJiYXn_EUTJIo97dQNPvRW7R758VLLj6YpQT-XpsJPx8oPtAUTS495lYpTxOiAlRbUl7rx7iQRB0YlgKG6c7NGKPNDXQB7heJ5UeRxQTXHMjyAkZfXP2Av9ycLoc0vXMzLE_1rg4NnYmuCyYYRDzP1esjCilJIS3qyZWaB-bniYRquWPzCqJ057edaumYHBYAp5yuz0ZLcz1RVovZPszI3NI6O8sFfc&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹"
+                  }
+                }
+              },
+              {
+                "name": "Attend a local festival or event (if available)",
+                "type": "attraction",
+                "description": "Experience local culture and traditions. Check for local events during your visit.",
+                "location": "Dataganj, Uttar Pradesh",
+                "timeOfDay": "evening",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQBK60UPXigUxqMs-a7mA9nZeTMEc5GBQvQXFJ9AxBsVU3rZzkb889eZnk8fSQAQUqOXPblV3SInyh4Ih596yAyiSxl_MmL__9qgkIWvppcVwQzKlt3a_G_ThQ-TgUhZCP2QxCznwAwDW9tbK4hOpq20pUfm3PW5ASChRwau9yLDJHHMUj4OeFZkThAFivSiyKdTaH1-UDsXQxA_MOCGMRgTd5RY2CxATXJWYLDJi-Uf49blpYKrL9Cj1RR64ojZcc_sKC9LZdBHW7sj4I2PlFleKOAN6crBjJAjHTycE3HGZOaGfmF7fGLFQ-AvJTazX3jSI1mkNAMaJo58FhbziorZVw-b-7KvI61cMk7mroXj2ZJOJeHgiLnVQzJhNHv6q7DyJCqJdXraxZr56QnRPTzPV87uZgurJnRwLgBIgwSxrXUwZsRZG_iIIUp_iBRhZ1xHrVyXt20PYEbVCPCW2i4tU2YBdDS9bPWR-R6LdD6Qk4RpLeoEt6wib_40higF81EsK6eTN94eVkM9IzZfbG_2HArCSaQWX4cF_00X8YXvaIYisVBolJCxRTxEmQtdJ5dS7getjMc3Q&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Family Restaurant Dataganj",
+                "type": "restaurant",
+                "description": "Enjoy a final dinner in Dataganj.",
+                "location": "Dataganj, Uttar Pradesh",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT5swLc1zBZxpd7Q_uhKmRqWs0CnEqFd2ogxU9Gi6iHFT-oo2ECvcWDRXFYr_tKgcvhm7lgy85E-MFG9MCwGr5R8ZB2OIBnpqV1wAWq3jBEhnURY3std_dJbmo7yuHr4H9jHRpeQ_Yic9iQpazGN_QaCw5_bmTamJweshDLQlZfZjT1Ey5AGOfdIU_OywYY4VepUPUiWX0ZvjJn4VOnvun8C81li872m_V_ZJmxFGJUyDQcxb30XNRI26xZ-3PP49PHdsQctQqWsYausX-qPvd1hiZPVPUF4PqoSwrOUU84gdDhiCujBXVNHus1fC031fIH1F4ryElZRXzZAfyCtcCxxIV0PSdSjehsuI-P90bXa0i1g0ESnxeCks6u3jk5RVouecly0QBOxS6K6CEw_Bx7MDRjNWBdXCQBx8OdWm71P27Gepaow9QLzq4z6rB04oHM743psq7ZyO7epqnnUKwOrmvtWb33gNMUNq8A-lFLBV9kl0_NEESXaGLZ-6WQC1TSDXoRB3btW6_lu7Ey6wZKXnIZhSKJU_e1z3fa3cbBK0RgqR-31FqDTmTvlhm6dLAVBw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Indian",
+                    "priceRange": "₹₹"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Local transport or auto-rickshaw."
+            }
+          }
+        }
+      ]
+    },
+    "accommodations": {
+      "create": [
+        {
+          "name": "The Grand Regency Dataganj (Hypothetical)",
+          "type": "Luxury",
+          "rating": 4.5,
+          "pricePerNight": 5000,
+          "description": "A luxurious oasis amidst the bustling city, offering opulent rooms, personalized service, and exquisite dining experiences.",
+          "bookingUrl": "N/A",
+          "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+          "amenities": {
+            "create": [
+              {
+                "name": "Swimming pool"
+              },
+              {
+                "name": "Spa"
+              },
+              {
+                "name": "Fitness center"
+              },
+              {
+                "name": "Fine dining restaurant"
+              },
+              {
+                "name": "24-hour room service"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Hotel Raj Mahal (Hypothetical)",
+          "type": "Mid-range",
+          "rating": 4,
+          "pricePerNight": 2500,
+          "description": "A comfortable and well-appointed hotel with excellent reviews, offering a pleasant stay with modern amenities and friendly service.",
+          "bookingUrl": "N/A",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSDaebWPFNEnrVWn7RgR3ytTQWTJ2GgyS3L7pe7O3zf2rd5SjU9PCJAFPW6D_I0j2vmbsEWrqIiyjeACE5WX1GwsC1ZyTAU8jZN3BDCNwrdJ2L2O_9wCbvzvB6k0T96tYyEEutjhS2wLHty27hACBH6cgrUS4ixzPRJsy4SALHIo6Fv3zu_Jf1WL6CMVXchkoYYGjkCxzRilO2wKZEo5zdnqGljarQOsm6NyYFOTJsiwwSCeVltcoj-740IBYndrWZvscLCTec0I8FbP6B-Bdjihj9im9mSutYHzkRWiCZovYztnlyIPr-DhufGUxxob4pOrwMKuGCGAlXaPulGoST3J9q21ch-yOgNC7Y6H_k-QuJh8d81U4w8Xf7TXILvEno9vctf0a9lVQe_iPnxb1iK2wtZ_Uqi92qfg3tt-dM-GmBfADGE4kbJvrFqk4DhzyeboG72rnac88ZPj5do4kqmi0efGgPsQgM5FJCM-Qo5iINeogJQhwz9NAsmcyqkVjJ1_uFbDH3rzVxmb1Er5B9XHaPj7id96AfvmFSEKyBk7HrsDBZAYKw1mjGAyjSrHgyVVahv&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "amenities": {
+            "create": [
+              {
+                "name": "Air conditioning"
+              },
+              {
+                "name": "Wi-Fi"
+              },
+              {
+                "name": "Restaurant"
+              },
+              {
+                "name": "Room service"
+              },
+              {
+                "name": "Laundry service"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Atithi Guest House (Hypothetical)",
+          "type": "Budget-friendly",
+          "rating": 3.5,
+          "pricePerNight": 800,
+          "description": "A simple and clean guest house offering basic amenities at an affordable price, ideal for budget travelers seeking good value.",
+          "bookingUrl": "N/A",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQzJwWdBBxxDJTBGvlrhzrD_fxtoHBoQ7rvWv2_OyWmc6Bow9S_6JzkM2zAV-rfTjyPIpcZQKIg6NMCc5y8aNZ44CHhK5fbRaX0WRP7ZpLMZOsqR2qdvzmfYmZZtewRy8TM9BJxWlAyVSYtx-VFcnjOFNayJcxS3-uaVHk5V_stRsMf1iCTQkR9AXRJUGk1SthnU-L65fBCfIlxX30Kh2RU95F4BkhVHarQiWhwJNMOoalDcouTmFAz9vl53xuUphRIKcz9Sj1wjPRvf5L65ZgTL4-CAkbY2fArv-PHTxKqqpEWmm8&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "amenities": {
+            "create": [
+              {
+                "name": "Fan"
+              },
+              {
+                "name": "Attached bathroom"
+              },
+              {
+                "name": "Wi-Fi"
+              },
+              {
+                "name": "Breakfast"
+              }
+            ]
+          }
+        },
+        {
+          "name": "The Haveli Retreat (Hypothetical)",
+          "type": "Unique/Boutique",
+          "rating": 4.2,
+          "pricePerNight": 3500,
+          "description": "A charming heritage property offering a unique and authentic experience, with beautifully decorated rooms, traditional architecture, and a peaceful ambiance.",
+          "bookingUrl": "N/A",
+          "image": "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?w=800&q=80",
+          "amenities": {
+            "create": [
+              {
+                "name": "Courtyard"
+              },
+              {
+                "name": "Rooftop terrace"
+              },
+              {
+                "name": "Library"
+              },
+              {
+                "name": "Traditional meals"
+              },
+              {
+                "name": "Cultural performances"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
