@@ -275,15 +275,15 @@ export default function TripsPage() {
     currentValue: string | number | Date
   ) => {
     if (field === "startDate") {
-      const trip = trips.find(t => t.id === tripId);
+      const trip = trips.find((t) => t.id === tripId);
       if (trip) {
-        setTempStartDate(trip.startDate.toISOString().split('T')[0]);
-        setTempEndDate(trip.endDate.toISOString().split('T')[0]);
+        setTempStartDate(trip.startDate.toISOString().split("T")[0]);
+        setTempEndDate(trip.endDate.toISOString().split("T")[0]);
         setEditingTrip({ id: tripId, field, value: currentValue });
         setIsEditModalOpen(true);
       }
     } else if (field === "budgetMin") {
-      const trip = trips.find(t => t.id === tripId);
+      const trip = trips.find((t) => t.id === tripId);
       if (trip) {
         setTempBudgetMin(trip.budgetMin);
         setTempBudgetMax(trip.budgetMax);
@@ -324,9 +324,7 @@ export default function TripsPage() {
       if (result.success) {
         setTrips(
           trips.map((trip) =>
-            trip.id === editingTrip.id
-              ? { ...trip, ...updates }
-              : trip
+            trip.id === editingTrip.id ? { ...trip, ...updates } : trip
           )
         );
         toast.success("Trip updated successfully");
@@ -399,9 +397,7 @@ export default function TripsPage() {
       if (result.success) {
         setTrips(
           trips.map((trip) =>
-            trip.id === tripId
-              ? { ...trip, tourStatus: newStatus }
-              : trip
+            trip.id === tripId ? { ...trip, tourStatus: newStatus } : trip
           )
         );
         toast.success("Tour status updated successfully");
@@ -459,7 +455,7 @@ export default function TripsPage() {
             Manage trip packages and assignments
           </p>
         </div>
-        <Link href="/admin/trips/create">
+        <Link href="/dashboard/trips/create">
           <Button className="bg-slate-800 hover:bg-slate-700 text-white">
             <Plus className="mr-2 h-4 w-4" />
             Create Trip
@@ -662,10 +658,13 @@ export default function TripsPage() {
                   <TableCell className="text-center">
                     <div
                       className="group flex items-center justify-center gap-1 h-8 px-3 rounded-md hover:bg-slate-50 transition-colors cursor-pointer"
-                      onClick={() => handleStartEditing(trip.id, "startDate", trip.startDate)}
+                      onClick={() =>
+                        handleStartEditing(trip.id, "startDate", trip.startDate)
+                      }
                     >
                       <span className="text-sm font-medium whitespace-nowrap">
-                        {format(new Date(trip.startDate), "MMM d, yyyy")} - {format(new Date(trip.endDate), "MMM d, yyyy")}
+                        {format(new Date(trip.startDate), "MMM d, yyyy")} -{" "}
+                        {format(new Date(trip.endDate), "MMM d, yyyy")}
                       </span>
                       <Edit className="h-3 w-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
@@ -673,25 +672,34 @@ export default function TripsPage() {
                   <TableCell className="text-center">
                     <div
                       className="group flex items-center justify-center gap-1 h-8 px-3 rounded-md hover:bg-slate-50 transition-colors cursor-pointer"
-                      onClick={() => handleStartEditing(trip.id, "budgetMin", trip.budgetMin)}
+                      onClick={() =>
+                        handleStartEditing(trip.id, "budgetMin", trip.budgetMin)
+                      }
                     >
-                      <span className="text-sm font-medium">${trip.budgetMin.toLocaleString()} - ${trip.budgetMax.toLocaleString()}</span>
+                      <span className="text-sm font-medium">
+                        ${trip.budgetMin.toLocaleString()} - $
+                        {trip.budgetMax.toLocaleString()}
+                      </span>
                       <Edit className="h-3 w-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </TableCell>
                   <TableCell className="text-center">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button 
-                          variant="ghost" 
-                          className={`${getStatusStyle(trip.tourStatus ?? "")} text-white hover:bg-opacity-90`}
+                        <Button
+                          variant="ghost"
+                          className={`${getStatusStyle(
+                            trip.tourStatus ?? ""
+                          )} text-white hover:bg-opacity-90`}
                         >
                           {trip.tourStatus || "Pending Approval"}
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="center" className="w-[200px]">
                         <DropdownMenuItem
-                          onClick={() => handleStatusChange(trip.id, "Pending Approval")}
+                          onClick={() =>
+                            handleStatusChange(trip.id, "Pending Approval")
+                          }
                           disabled={isUpdating === trip.id}
                           className="flex items-center justify-center py-2 cursor-pointer"
                         >
@@ -700,7 +708,9 @@ export default function TripsPage() {
                           </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem
-                          onClick={() => handleStatusChange(trip.id, "Scheduled")}
+                          onClick={() =>
+                            handleStatusChange(trip.id, "Scheduled")
+                          }
                           disabled={isUpdating === trip.id}
                           className="flex items-center justify-center py-2 cursor-pointer"
                         >
@@ -709,7 +719,9 @@ export default function TripsPage() {
                           </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem
-                          onClick={() => handleStatusChange(trip.id, "Completed")}
+                          onClick={() =>
+                            handleStatusChange(trip.id, "Completed")
+                          }
                           disabled={isUpdating === trip.id}
                           className="flex items-center justify-center py-2 cursor-pointer"
                         >
@@ -898,10 +910,12 @@ export default function TripsPage() {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>
-              {editingTrip?.field === "startDate" ? "Edit Trip Dates" : "Edit Budget Range"}
+              {editingTrip?.field === "startDate"
+                ? "Edit Trip Dates"
+                : "Edit Budget Range"}
             </DialogTitle>
           </DialogHeader>
-          
+
           {editingTrip?.field === "startDate" ? (
             <div className="space-y-4 py-4">
               <div className="space-y-2">
@@ -928,7 +942,9 @@ export default function TripsPage() {
               <div className="space-y-2">
                 <label className="text-sm font-medium">Minimum Budget</label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                    $
+                  </span>
                   <Input
                     type="number"
                     value={tempBudgetMin}
@@ -940,7 +956,9 @@ export default function TripsPage() {
               <div className="space-y-2">
                 <label className="text-sm font-medium">Maximum Budget</label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                    $
+                  </span>
                   <Input
                     type="number"
                     value={tempBudgetMax}

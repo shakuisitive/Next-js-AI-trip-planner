@@ -76,7 +76,7 @@ export default function TripsDisplay({ trips }: TripsDisplayProps) {
             adventure!
           </p>
           <Link
-            href="/create-trip"
+            href="/"
             className="inline-flex items-center justify-center px-6 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-colors"
           >
             Create Your First Trip

@@ -209,3 +209,182 @@ export async function updateTripUser(tripId: string, userId: string) {
     return { success: false, error: "Failed to update trip user" };
   }
 }
+
+interface Accommodation {
+  id: string;
+  name: string;
+  type: string;
+  tripId: string;
+  rating: number;
+  pricePerNight: number;
+  description: string;
+  bookingUrl: string | null;
+  image: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date | null;
+  status: boolean | null;
+  trip: {
+    tourName: string;
+  };
+  amenities: {
+    name: string;
+  }[];
+}
+
+export async function getAccommodations() {
+  try {
+    const accommodations = await prisma.accommodation.findMany({
+      include: {
+        trip: {
+          select: {
+            tourName: true,
+          },
+        },
+        amenities: {
+          select: {
+            name: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return { success: true, accommodations };
+  } catch (error) {
+    console.error("Error fetching accommodations:", error);
+    return { success: false, error: "Failed to fetch accommodations" };
+  }
+}
+
+export async function updateAccommodationDetails(
+  accommodationId: string,
+  updates: {
+    name?: string;
+    type?: string;
+    rating?: number;
+    pricePerNight?: number;
+    description?: string;
+    bookingUrl?: string;
+    image?: string;
+    status?: boolean;
+  }
+) {
+  try {
+    const data: any = { ...updates };
+
+    // If status is being updated, handle deletedAt accordingly
+    if (updates.status !== undefined) {
+      data.deletedAt = updates.status ? null : new Date();
+    }
+
+    const updatedAccommodation = await prisma.accommodation.update({
+      where: { id: accommodationId },
+      data,
+      include: {
+        trip: {
+          select: {
+            tourName: true,
+          },
+        },
+        amenities: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+    return { success: true, accommodation: updatedAccommodation };
+  } catch (error) {
+    console.error("Error updating accommodation details:", error);
+    return { success: false, error: "Failed to update accommodation details" };
+  }
+}
+
+export async function updateAccommodationAmenities(
+  accommodationId: string,
+  amenities: string[]
+) {
+  try {
+    // First, delete all existing amenities
+    await prisma.accommodationAmenity.deleteMany({
+      where: { accommodationId },
+    });
+
+    // Then, create new amenities
+    const createdAmenities = await Promise.all(
+      amenities.map((name) =>
+        prisma.accommodationAmenity.create({
+          data: {
+            name,
+            accommodationId,
+          },
+        })
+      )
+    );
+
+    const updatedAccommodation = await prisma.accommodation.findUnique({
+      where: { id: accommodationId },
+      include: {
+        trip: {
+          select: {
+            tourName: true,
+          },
+        },
+        amenities: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+
+    return { success: true, accommodation: updatedAccommodation };
+  } catch (error) {
+    console.error("Error updating accommodation amenities:", error);
+    return { success: false, error: "Failed to update accommodation amenities" };
+  }
+}
+
+export async function deleteAccommodation(accommodationId: string) {
+  try {
+    const deletedAccommodation = await prisma.accommodation.update({
+      where: { id: accommodationId },
+      data: {
+        status: false,
+        deletedAt: new Date(),
+      },
+    });
+    return { success: true, accommodation: deletedAccommodation };
+  } catch (error) {
+    console.error("Error deleting accommodation:", error);
+    return { success: false, error: "Failed to delete accommodation" };
+  }
+}
+
+export async function updateAccommodationTrip(accommodationId: string, tripId: string) {
+  try {
+    const updatedAccommodation = await prisma.accommodation.update({
+      where: { id: accommodationId },
+      data: { tripId },
+      include: {
+        trip: {
+          select: {
+            tourName: true,
+          },
+        },
+        amenities: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+    return { success: true, accommodation: updatedAccommodation };
+  } catch (error) {
+    console.error("Error updating accommodation trip:", error);
+    return { success: false, error: "Failed to update accommodation trip" };
+  }
+}
