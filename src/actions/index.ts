@@ -603,6 +603,77 @@ export async function createPlace({
 
 export async function updatePlaceDetails(placeId: string, updates: any) {
   try {
+    // If updating day number, we need to handle it differently
+    if (updates.dayNumber) {
+      // First get the current place to get the tripId
+      const currentPlace = await prisma.place.findUnique({
+        where: { id: placeId },
+        include: {
+          day: {
+            include: {
+              trip: true
+            }
+          }
+        }
+      });
+
+      if (!currentPlace) {
+        throw new Error("Place not found");
+      }
+
+      // Find or create the new day
+      const existingDay = await prisma.day.findFirst({
+        where: {
+          tripId: currentPlace.day.trip.id,
+          dayNumber: updates.dayNumber,
+        },
+      });
+
+      let newDayId;
+      if (existingDay) {
+        newDayId = existingDay.id;
+      } else {
+        const newDay = await prisma.day.create({
+          data: {
+            tripId: currentPlace.day.trip.id,
+            dayNumber: updates.dayNumber,
+            date: new Date(),
+          },
+        });
+        newDayId = newDay.id;
+      }
+
+      // Update the place with the new dayId
+      const place = await prisma.place.update({
+        where: {
+          id: placeId,
+        },
+        data: {
+          dayId: newDayId,
+        },
+        include: {
+          day: {
+            include: {
+              trip: {
+                select: {
+                  id: true,
+                  tourName: true,
+                },
+              },
+            },
+          },
+          restaurant: true,
+          attraction: true,
+        },
+      });
+
+      return {
+        success: true,
+        place,
+      };
+    }
+
+    // For all other updates
     const place = await prisma.place.update({
       where: {
         id: placeId,

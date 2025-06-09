@@ -69,6 +69,9 @@ export async function GET(
         days: {
           include: {
             places: {
+              where: {
+                status: true,
+              },
               include: {
                 restaurant: true,
                 attraction: true,

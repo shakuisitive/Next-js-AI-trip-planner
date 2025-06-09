@@ -639,7 +639,7 @@ export default function AccommodationsPage() {
                         </div>
                       </div>
                     ) : (
-                      <div className="truncate">{accommodation.description}</div>
+                    <div className="truncate">{accommodation.description}</div>
                     )}
                   </TableCell>
                   <TableCell 

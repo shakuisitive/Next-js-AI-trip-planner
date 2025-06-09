@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { 
-  Calendar, 
-  MapPin, 
-  Users, 
-  Clock, 
-  DollarSign, 
-  Star, 
+import {
+  Calendar,
+  MapPin,
+  Users,
+  Clock,
+  DollarSign,
+  Star,
   ChevronRight,
   Utensils,
   Camera,
@@ -18,12 +18,12 @@ import {
   Wifi,
   Car,
   Coffee,
-  Waves ,
+  Waves,
   Shield,
   Heart,
   Share2,
   Download,
-  Send
+  Send,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -113,39 +113,45 @@ export default function TripPage() {
   let loggedInViaCredentials = useCredentialsLoggedInChecker();
   let loggedInViaCredentialsUserInfo = useCredentialsLoggedInData();
 
-
-  
-
   useEffect(() => {
     const fetchTrip = async () => {
       try {
         const response = await fetch(`/api/trips/${params.tripId}`, {
           headers: {
-            "X-Credentials-User-Id": loggedInViaCredentials ? loggedInViaCredentialsUserInfo?.id || "" : "",
-            "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false"
-          } as HeadersInit
+            "X-Credentials-User-Id": loggedInViaCredentials
+              ? loggedInViaCredentialsUserInfo?.id || ""
+              : "",
+            "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false",
+          } as HeadersInit,
         });
         if (!response.ok) {
           throw new Error("Failed to fetch trip");
         }
         const data = await response.json();
         setTrip(data);
-        
+
         // Fetch feedback if trip is completed
         if (data.tourStatus === "Completed") {
-          const feedbackResponse = await fetch(`/api/trips/${params.tripId}/feedback`, {
-            headers: {
-              "X-Credentials-User-Id": loggedInViaCredentials ? loggedInViaCredentialsUserInfo?.id || "" : "",
-              "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false"
-            } as HeadersInit
-          });
+          const feedbackResponse = await fetch(
+            `/api/trips/${params.tripId}/feedback`,
+            {
+              headers: {
+                "X-Credentials-User-Id": loggedInViaCredentials
+                  ? loggedInViaCredentialsUserInfo?.id || ""
+                  : "",
+                "X-Credentials-Auth": loggedInViaCredentials ? "true" : "false",
+              } as HeadersInit,
+            }
+          );
           if (feedbackResponse.ok) {
             const feedbackData = await feedbackResponse.json();
             setFeedback(feedbackData);
           }
         }
       } catch (error) {
-        setError(error instanceof Error ? error.message : "Failed to fetch trip");
+        setError(
+          error instanceof Error ? error.message : "Failed to fetch trip"
+        );
       } finally {
         setLoading(false);
       }
@@ -184,19 +190,24 @@ export default function TripPage() {
 
   const getAmenityIcon = (amenityName: string) => {
     const name = amenityName.toLowerCase();
-    if (name.includes('wifi') || name.includes('internet')) return <Wifi className="w-4 h-4" />;
-    if (name.includes('pool') || name.includes('waves')) return <Waves className="w-4 h-4" />;
-    if (name.includes('parking') || name.includes('car')) return <Car className="w-4 h-4" />;
-    if (name.includes('breakfast') || name.includes('coffee')) return <Coffee className="w-4 h-4" />;
-    if (name.includes('security') || name.includes('safe')) return <Shield className="w-4 h-4" />;
+    if (name.includes("wifi") || name.includes("internet"))
+      return <Wifi className="w-4 h-4" />;
+    if (name.includes("pool") || name.includes("waves"))
+      return <Waves className="w-4 h-4" />;
+    if (name.includes("parking") || name.includes("car"))
+      return <Car className="w-4 h-4" />;
+    if (name.includes("breakfast") || name.includes("coffee"))
+      return <Coffee className="w-4 h-4" />;
+    if (name.includes("security") || name.includes("safe"))
+      return <Shield className="w-4 h-4" />;
     return <Star className="w-4 h-4" />;
   };
 
   const getPlaceTypeIcon = (type: string) => {
     switch (type.toLowerCase()) {
-      case 'restaurant':
+      case "restaurant":
         return <Utensils className="w-5 h-5 text-orange-500" />;
-      case 'attraction':
+      case "attraction":
         return <Camera className="w-5 h-5 text-blue-500" />;
       default:
         return <MapPin className="w-5 h-5 text-purple-500" />;
@@ -218,8 +229,10 @@ export default function TripPage() {
           rating,
           review,
           suggestion,
-          userId: loggedInViaCredentials ? loggedInViaCredentialsUserInfo?.id : session?.data?.user?.id,
-          loggedInType: loggedInViaCredentials ? "credentials" : "google"
+          userId: loggedInViaCredentials
+            ? loggedInViaCredentialsUserInfo?.id
+            : session?.data?.user?.id,
+          loggedInType: loggedInViaCredentials ? "credentials" : "google",
         }),
       });
 
@@ -233,7 +246,9 @@ export default function TripPage() {
       setReview("");
       setSuggestion("");
     } catch (error) {
-      setFeedbackError(error instanceof Error ? error.message : "Failed to submit feedback");
+      setFeedbackError(
+        error instanceof Error ? error.message : "Failed to submit feedback"
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -246,13 +261,16 @@ export default function TripPage() {
         {/* Enhanced Hero Section */}
         <div className="relative h-[500px] overflow-hidden">
           <Image
-            src={trip.accommodations[0]?.image || "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"}
+            src={
+              trip.accommodations[0]?.image ||
+              "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"
+            }
             alt={trip.tourName}
             className="absolute inset-0 w-full h-full object-cover"
             layout="fill"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          
+
           {/* Hero Content */}
           <div className="absolute inset-0 flex flex-col justify-end p-8">
             <div className="max-w-4xl mx-auto w-full text-white">
@@ -261,13 +279,15 @@ export default function TripPage() {
                   <MapPin className="w-4 h-4 mr-1" />
                   {trip.destination}
                 </span>
-                <span className={`ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm ${
-                  trip.tourStatus === "Pending Approval" 
-                    ? "bg-yellow-500/80 text-white" 
-                    : trip.tourStatus === "Scheduled"
-                    ? "bg-blue-500/80 text-white"
-                    : "bg-green-500/80 text-white"
-                }`}>
+                <span
+                  className={`ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm ${
+                    trip.tourStatus === "Pending Approval"
+                      ? "bg-yellow-500/80 text-white"
+                      : trip.tourStatus === "Scheduled"
+                      ? "bg-blue-500/80 text-white"
+                      : "bg-green-500/80 text-white"
+                  }`}
+                >
                   {trip.tourStatus || "Pending Approval"}
                 </span>
               </div>
@@ -280,8 +300,8 @@ export default function TripPage() {
                   {getDurationInDays()} Days
                 </div>
                 <div className="flex items-center">
-                  <DollarSign className="w-5 h-5 mr-2" />
-                  ${trip.budgetMin} - ${trip.budgetMax}
+                  <DollarSign className="w-5 h-5 mr-2" />${trip.budgetMin} - $
+                  {trip.budgetMax}
                 </div>
                 <div className="flex items-center">
                   <Users className="w-5 h-5 mr-2" />
@@ -314,11 +334,14 @@ export default function TripPage() {
                   <div className="p-3 bg-purple-100 rounded-xl">
                     <Calendar className="w-6 h-6 text-purple-600" />
                   </div>
-                  <span className="text-2xl font-bold text-gray-900">{getDurationInDays()}</span>
+                  <span className="text-2xl font-bold text-gray-900">
+                    {getDurationInDays()}
+                  </span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-1">Duration</h3>
                 <p className="text-sm text-gray-600">
-                  {formatShortDate(trip.startDate)} - {formatShortDate(trip.endDate)}
+                  {formatShortDate(trip.startDate)} -{" "}
+                  {formatShortDate(trip.endDate)}
                 </p>
               </div>
 
@@ -327,9 +350,13 @@ export default function TripPage() {
                   <div className="p-3 bg-purple-100 rounded-xl">
                     <DollarSign className="w-6 h-6 text-purple-600" />
                   </div>
-                  <span className="text-2xl font-bold text-gray-900">${trip.budgetMin}</span>
+                  <span className="text-2xl font-bold text-gray-900">
+                    ${trip.budgetMin}
+                  </span>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">Budget Range</h3>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  Budget Range
+                </h3>
                 <p className="text-sm text-gray-600">
                   ${trip.budgetMin} - ${trip.budgetMax}
                 </p>
@@ -342,7 +369,9 @@ export default function TripPage() {
                   </div>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-1">Group Type</h3>
-                <p className="text-sm text-gray-600 capitalize">{trip.preferences.groupType}</p>
+                <p className="text-sm text-gray-600 capitalize">
+                  {trip.preferences.groupType}
+                </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
@@ -351,8 +380,12 @@ export default function TripPage() {
                     <Clock className="w-6 h-6 text-purple-600" />
                   </div>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">Travel Style</h3>
-                <p className="text-sm text-gray-600 capitalize">{trip.preferences.travelStyle}</p>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  Travel Style
+                </h3>
+                <p className="text-sm text-gray-600 capitalize">
+                  {trip.preferences.travelStyle}
+                </p>
               </div>
             </div>
           </section>
@@ -360,7 +393,9 @@ export default function TripPage() {
           {/* Interests Section */}
           <section className="mb-16">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Trip Highlights</h2>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Trip Highlights
+              </h2>
             </div>
             <div className="flex flex-wrap gap-3">
               {trip.interests.map((interest, index) => (
@@ -377,16 +412,23 @@ export default function TripPage() {
           {/* Enhanced Accommodations */}
           <section className="mb-16">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Where You'll Stay</h2>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Where You'll Stay
+              </h2>
               <div className="flex items-center text-purple-600">
                 <Bed className="w-5 h-5 mr-2" />
-                <span className="font-medium">{trip.accommodations.length} Properties</span>
+                <span className="font-medium">
+                  {trip.accommodations.length} Properties
+                </span>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
               {trip.accommodations.map((accommodation, index) => (
-                <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
                   {accommodation.image && (
                     <div className="relative h-64 overflow-hidden">
                       <Image
@@ -398,18 +440,26 @@ export default function TripPage() {
                       />
                       <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center">
                         <Star className="w-4 h-4 text-yellow-400 mr-1" />
-                        <span className="font-semibold text-sm">{accommodation.rating}</span>
+                        <span className="font-semibold text-sm">
+                          {accommodation.rating}
+                        </span>
                       </div>
                       <div className="absolute top-4 left-4 bg-purple-600/90 backdrop-blur-sm rounded-full px-3 py-1">
-                        <span className="text-white text-sm font-medium capitalize">{accommodation.type}</span>
+                        <span className="text-white text-sm font-medium capitalize">
+                          {accommodation.type}
+                        </span>
                       </div>
                     </div>
                   )}
-                  
+
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{accommodation.name}</h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">{accommodation.description}</p>
-                    
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {accommodation.name}
+                    </h3>
+                    <p className="text-gray-600 mb-4 line-clamp-2">
+                      {accommodation.description}
+                    </p>
+
                     {/* Amenities */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {accommodation.amenities.slice(0, 4).map((amenity, i) => (
@@ -427,7 +477,7 @@ export default function TripPage() {
                         </span>
                       )}
                     </div>
-                    
+
                     <div className="flex items-center justify-between">
                       <div>
                         <span className="text-2xl font-bold text-gray-900">
@@ -455,18 +505,28 @@ export default function TripPage() {
           {/* Enhanced Daily Itinerary */}
           <section className="mb-16">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Daily Itinerary</h2>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Daily Itinerary
+              </h2>
               <div className="flex items-center gap-4">
                 <div className="flex items-center text-purple-600">
                   <Plane className="w-5 h-5 mr-2" />
-                  <span className="font-medium">{trip.days.length} Days Planned</span>
+                  <span className="font-medium">
+                    {trip.days.length} Days Planned
+                  </span>
                 </div>
                 <button
                   onClick={() => setShowAllDays(!showAllDays)}
                   className="flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
                 >
-                  <span className="font-medium">{showAllDays ? "Show Single Day" : "See All Days"}</span>
-                  <ChevronRight className={`w-5 h-5 transition-transform ${showAllDays ? 'rotate-90' : ''}`} />
+                  <span className="font-medium">
+                    {showAllDays ? "Show Single Day" : "See All Days"}
+                  </span>
+                  <ChevronRight
+                    className={`w-5 h-5 transition-transform ${
+                      showAllDays ? "rotate-90" : ""
+                    }`}
+                  />
                 </button>
               </div>
             </div>
@@ -480,13 +540,15 @@ export default function TripPage() {
                     onClick={() => setActiveDay(day.dayNumber)}
                     className={`flex-shrink-0 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                       activeDay === day.dayNumber
-                        ? 'bg-purple-600 text-white shadow-lg'
-                        : 'bg-white text-gray-600 hover:bg-gray-50 shadow-md'
+                        ? "bg-purple-600 text-white shadow-lg"
+                        : "bg-white text-gray-600 hover:bg-gray-50 shadow-md"
                     }`}
                   >
                     <div className="text-center">
                       <div className="font-bold">Day {day.dayNumber}</div>
-                      <div className="text-xs mt-1">{formatShortDate(day.date)}</div>
+                      <div className="text-xs mt-1">
+                        {formatShortDate(day.date)}
+                      </div>
                     </div>
                   </button>
                 ))}
@@ -498,14 +560,21 @@ export default function TripPage() {
               // Show all days
               <div className="space-y-8">
                 {trip.days.map((day) => (
-                  <div key={day.dayNumber} className="bg-white rounded-2xl shadow-lg p-8">
+                  <div
+                    key={day.dayNumber}
+                    className="bg-white rounded-2xl shadow-lg p-8"
+                  >
                     <div className="flex items-center mb-8">
                       <div className="w-16 h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold shadow-lg">
                         {day.dayNumber}
                       </div>
                       <div className="ml-6">
-                        <h3 className="text-2xl font-bold text-gray-900">Day {day.dayNumber}</h3>
-                        <p className="text-gray-600 text-lg">{formatDate(day.date)}</p>
+                        <h3 className="text-2xl font-bold text-gray-900">
+                          Day {day.dayNumber}
+                        </h3>
+                        <p className="text-gray-600 text-lg">
+                          {formatDate(day.date)}
+                        </p>
                       </div>
                     </div>
 
@@ -527,12 +596,14 @@ export default function TripPage() {
                                 />
                               </div>
                             )}
-                            
+
                             <div className="flex-grow">
                               <div className="flex items-start justify-between mb-3">
                                 <div className="flex items-center gap-3">
                                   {getPlaceTypeIcon(place.type)}
-                                  <h4 className="font-bold text-xl text-gray-900">{place.name}</h4>
+                                  <h4 className="font-bold text-xl text-gray-900">
+                                    {place.name}
+                                  </h4>
                                 </div>
                                 <div className="flex items-center gap-2">
                                   <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
@@ -541,9 +612,11 @@ export default function TripPage() {
                                   <ChevronRight className="w-5 h-5 text-gray-400" />
                                 </div>
                               </div>
-                              
-                              <p className="text-gray-700 mb-4 leading-relaxed">{place.description}</p>
-                              
+
+                              <p className="text-gray-700 mb-4 leading-relaxed">
+                                {place.description}
+                              </p>
+
                               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
                                 <div className="flex items-center">
                                   <MapPin className="w-4 h-4 mr-1 text-purple-500" />
@@ -555,32 +628,46 @@ export default function TripPage() {
                                 </div>
                               </div>
 
-                              {place.type === "restaurant" && place.restaurant && (
-                                <div className="bg-orange-50 rounded-xl p-4 border border-orange-100">
-                                  <div className="flex items-center gap-4 text-sm">
-                                    <div className="flex items-center">
-                                      <Utensils className="w-4 h-4 mr-1 text-orange-500" />
-                                      <span className="font-medium">Cuisine:</span>
-                                      <span className="ml-1">{place.restaurant.cuisine}</span>
-                                    </div>
-                                    <div className="flex items-center">
-                                      <DollarSign className="w-4 h-4 mr-1 text-orange-500" />
-                                      <span className="font-medium">Price:</span>
-                                      <span className="ml-1">{place.restaurant.priceRange}</span>
+                              {place.type === "restaurant" &&
+                                place.restaurant && (
+                                  <div className="bg-orange-50 rounded-xl p-4 border border-orange-100">
+                                    <div className="flex items-center gap-4 text-sm">
+                                      <div className="flex items-center">
+                                        <Utensils className="w-4 h-4 mr-1 text-orange-500" />
+                                        <span className="font-medium">
+                                          Cuisine:
+                                        </span>
+                                        <span className="ml-1">
+                                          {place.restaurant.cuisine}
+                                        </span>
+                                      </div>
+                                      <div className="flex items-center">
+                                        <DollarSign className="w-4 h-4 mr-1 text-orange-500" />
+                                        <span className="font-medium">
+                                          Price:
+                                        </span>
+                                        <span className="ml-1">
+                                          {place.restaurant.priceRange}
+                                        </span>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              )}
+                                )}
 
-                              {place.type === "attraction" && place.attraction && (
-                                <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
-                                  <div className="flex items-center text-sm">
-                                    <Camera className="w-4 h-4 mr-1 text-blue-500" />
-                                    <span className="font-medium">Category:</span>
-                                    <span className="ml-1">{place.attraction.category}</span>
+                              {place.type === "attraction" &&
+                                place.attraction && (
+                                  <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                                    <div className="flex items-center text-sm">
+                                      <Camera className="w-4 h-4 mr-1 text-blue-500" />
+                                      <span className="font-medium">
+                                        Category:
+                                      </span>
+                                      <span className="ml-1">
+                                        {place.attraction.category}
+                                      </span>
+                                    </div>
                                   </div>
-                                </div>
-                              )}
+                                )}
                             </div>
                           </div>
                         </div>
@@ -593,9 +680,13 @@ export default function TripPage() {
                           <div className="p-2 bg-purple-100 rounded-lg mr-3">
                             <Car className="w-5 h-5 text-purple-600" />
                           </div>
-                          <h4 className="font-bold text-lg text-gray-900">Transportation</h4>
+                          <h4 className="font-bold text-lg text-gray-900">
+                            Transportation
+                          </h4>
                         </div>
-                        <p className="text-gray-700 leading-relaxed">{day.transportation.description}</p>
+                        <p className="text-gray-700 leading-relaxed">
+                          {day.transportation.description}
+                        </p>
                       </div>
                     )}
                   </div>
@@ -603,111 +694,141 @@ export default function TripPage() {
               </div>
             ) : (
               // Show single day
-              trip.days.map((day) => (
-                activeDay === day.dayNumber && (
-                  <div key={day.dayNumber} className="bg-white rounded-2xl shadow-lg p-8">
-                    <div className="flex items-center mb-8">
-                      <div className="w-16 h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold shadow-lg">
-                        {day.dayNumber}
+              trip.days.map(
+                (day) =>
+                  activeDay === day.dayNumber && (
+                    <div
+                      key={day.dayNumber}
+                      className="bg-white rounded-2xl shadow-lg p-8"
+                    >
+                      <div className="flex items-center mb-8">
+                        <div className="w-16 h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold shadow-lg">
+                          {day.dayNumber}
+                        </div>
+                        <div className="ml-6">
+                          <h3 className="text-2xl font-bold text-gray-900">
+                            Day {day.dayNumber}
+                          </h3>
+                          <p className="text-gray-600 text-lg">
+                            {formatDate(day.date)}
+                          </p>
+                        </div>
                       </div>
-                      <div className="ml-6">
-                        <h3 className="text-2xl font-bold text-gray-900">Day {day.dayNumber}</h3>
-                        <p className="text-gray-600 text-lg">{formatDate(day.date)}</p>
-                      </div>
-                    </div>
 
-                    <div className="space-y-6">
-                      {day.places.map((place, index) => (
-                        <div
-                          key={index}
-                          className="group relative bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
-                        >
-                          <div className="flex items-start gap-6">
-                            {place.image && (
-                              <div className="relative w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden shadow-lg">
-                                <Image
-                                  src={place.image}
-                                  alt={place.name}
-                                  layout="fill"
-                                  objectFit="cover"
-                                  className="transition-transform duration-300 group-hover:scale-110"
-                                />
-                              </div>
-                            )}
-                            
-                            <div className="flex-grow">
-                              <div className="flex items-start justify-between mb-3">
-                                <div className="flex items-center gap-3">
-                                  {getPlaceTypeIcon(place.type)}
-                                  <h4 className="font-bold text-xl text-gray-900">{place.name}</h4>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
-                                    {place.timeOfDay}
-                                  </span>
-                                  <ChevronRight className="w-5 h-5 text-gray-400" />
-                                </div>
-                              </div>
-                              
-                              <p className="text-gray-700 mb-4 leading-relaxed">{place.description}</p>
-                              
-                              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
-                                <div className="flex items-center">
-                                  <MapPin className="w-4 h-4 mr-1 text-purple-500" />
-                                  <span>{place.location}</span>
-                                </div>
-                                <div className="flex items-center">
-                                  <Clock className="w-4 h-4 mr-1 text-purple-500" />
-                                  <span>{place.duration}</span>
-                                </div>
-                              </div>
-
-                              {place.type === "restaurant" && place.restaurant && (
-                                <div className="bg-orange-50 rounded-xl p-4 border border-orange-100">
-                                  <div className="flex items-center gap-4 text-sm">
-                                    <div className="flex items-center">
-                                      <Utensils className="w-4 h-4 mr-1 text-orange-500" />
-                                      <span className="font-medium">Cuisine:</span>
-                                      <span className="ml-1">{place.restaurant.cuisine}</span>
-                                    </div>
-                                    <div className="flex items-center">
-                                      <DollarSign className="w-4 h-4 mr-1 text-orange-500" />
-                                      <span className="font-medium">Price:</span>
-                                      <span className="ml-1">{place.restaurant.priceRange}</span>
-                                    </div>
-                                  </div>
+                      <div className="space-y-6">
+                        {day.places.map((place, index) => (
+                          <div
+                            key={index}
+                            className="group relative bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
+                          >
+                            <div className="flex items-start gap-6">
+                              {place.image && (
+                                <div className="relative w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden shadow-lg">
+                                  <Image
+                                    src={place.image}
+                                    alt={place.name}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="transition-transform duration-300 group-hover:scale-110"
+                                  />
                                 </div>
                               )}
 
-                              {place.type === "attraction" && place.attraction && (
-                                <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
-                                  <div className="flex items-center text-sm">
-                                    <Camera className="w-4 h-4 mr-1 text-blue-500" />
-                                    <span className="font-medium">Category:</span>
-                                    <span className="ml-1">{place.attraction.category}</span>
+                              <div className="flex-grow">
+                                <div className="flex items-start justify-between mb-3">
+                                  <div className="flex items-center gap-3">
+                                    {getPlaceTypeIcon(place.type)}
+                                    <h4 className="font-bold text-xl text-gray-900">
+                                      {place.name}
+                                    </h4>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                                      {place.timeOfDay}
+                                    </span>
+                                    <ChevronRight className="w-5 h-5 text-gray-400" />
                                   </div>
                                 </div>
-                              )}
+
+                                <p className="text-gray-700 mb-4 leading-relaxed">
+                                  {place.description}
+                                </p>
+
+                                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
+                                  <div className="flex items-center">
+                                    <MapPin className="w-4 h-4 mr-1 text-purple-500" />
+                                    <span>{place.location}</span>
+                                  </div>
+                                  <div className="flex items-center">
+                                    <Clock className="w-4 h-4 mr-1 text-purple-500" />
+                                    <span>{place.duration}</span>
+                                  </div>
+                                </div>
+
+                                {place.type === "restaurant" &&
+                                  place.restaurant && (
+                                    <div className="bg-orange-50 rounded-xl p-4 border border-orange-100">
+                                      <div className="flex items-center gap-4 text-sm">
+                                        <div className="flex items-center">
+                                          <Utensils className="w-4 h-4 mr-1 text-orange-500" />
+                                          <span className="font-medium">
+                                            Cuisine:
+                                          </span>
+                                          <span className="ml-1">
+                                            {place.restaurant.cuisine}
+                                          </span>
+                                        </div>
+                                        <div className="flex items-center">
+                                          <DollarSign className="w-4 h-4 mr-1 text-orange-500" />
+                                          <span className="font-medium">
+                                            Price:
+                                          </span>
+                                          <span className="ml-1">
+                                            {place.restaurant.priceRange}
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )}
+
+                                {place.type === "attraction" &&
+                                  place.attraction && (
+                                    <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                                      <div className="flex items-center text-sm">
+                                        <Camera className="w-4 h-4 mr-1 text-blue-500" />
+                                        <span className="font-medium">
+                                          Category:
+                                        </span>
+                                        <span className="ml-1">
+                                          {place.attraction.category}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  )}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {day.transportation && (
-                      <div className="mt-8 bg-purple-50 rounded-2xl p-6 border border-purple-100">
-                        <div className="flex items-center mb-3">
-                          <div className="p-2 bg-purple-100 rounded-lg mr-3">
-                            <Car className="w-5 h-5 text-purple-600" />
-                          </div>
-                          <h4 className="font-bold text-lg text-gray-900">Transportation</h4>
-                        </div>
-                        <p className="text-gray-700 leading-relaxed">{day.transportation.description}</p>
+                        ))}
                       </div>
-                    )}
-                  </div>
-                )
-              ))
+
+                      {day.transportation && (
+                        <div className="mt-8 bg-purple-50 rounded-2xl p-6 border border-purple-100">
+                          <div className="flex items-center mb-3">
+                            <div className="p-2 bg-purple-100 rounded-lg mr-3">
+                              <Car className="w-5 h-5 text-purple-600" />
+                            </div>
+                            <h4 className="font-bold text-lg text-gray-900">
+                              Transportation
+                            </h4>
+                          </div>
+                          <p className="text-gray-700 leading-relaxed">
+                            {day.transportation.description}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  )
+              )
             )}
           </section>
         </div>
@@ -716,7 +837,9 @@ export default function TripPage() {
           <section className="max-w-7xl mx-auto px-4 py-12">
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-3xl font-bold text-gray-900">Your Trip Experience</h2>
+                <h2 className="text-3xl font-bold text-gray-900">
+                  Your Trip Experience
+                </h2>
                 {feedback && (
                   <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800">
                     <Star className="w-4 h-4 mr-1 fill-current" />
@@ -724,7 +847,7 @@ export default function TripPage() {
                   </span>
                 )}
               </div>
-              
+
               {feedback ? (
                 <div className="space-y-6">
                   <div className="flex items-center gap-4 p-4 bg-purple-50 rounded-xl">
@@ -732,7 +855,9 @@ export default function TripPage() {
                       <Star className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">Your Rating</h3>
+                      <h3 className="font-semibold text-gray-900">
+                        Your Rating
+                      </h3>
                       <div className="flex items-center gap-1 mt-1">
                         {[...Array(5)].map((_, i) => (
                           <Star
@@ -750,24 +875,33 @@ export default function TripPage() {
 
                   <div className="space-y-4">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Your Review</h3>
+                      <h3 className="font-semibold text-gray-900 mb-2">
+                        Your Review
+                      </h3>
                       <div className="bg-gray-50 rounded-xl p-4">
-                        <p className="text-gray-700 whitespace-pre-wrap">{feedback.review}</p>
+                        <p className="text-gray-700 whitespace-pre-wrap">
+                          {feedback.review}
+                        </p>
                       </div>
                     </div>
 
                     {feedback.suggestion && (
                       <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Your Private Suggestion</h3>
+                        <h3 className="font-semibold text-gray-900 mb-2">
+                          Your Private Suggestion
+                        </h3>
                         <div className="bg-gray-50 rounded-xl p-4">
-                          <p className="text-gray-700 whitespace-pre-wrap">{feedback.suggestion}</p>
+                          <p className="text-gray-700 whitespace-pre-wrap">
+                            {feedback.suggestion}
+                          </p>
                         </div>
                       </div>
                     )}
                   </div>
 
                   <div className="text-sm text-gray-500">
-                    Submitted on {new Date(feedback.createdAt).toLocaleDateString()}
+                    Submitted on{" "}
+                    {new Date(feedback.createdAt).toLocaleDateString()}
                   </div>
                 </div>
               ) : (
