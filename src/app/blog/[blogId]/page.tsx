@@ -1,11 +1,11 @@
-import { contentfulClient } from '@/lib/contentful';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Document, BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
-import type { BlogPost } from '@/lib/contentful';
-import Image from 'next/image';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Link from 'next/link';
+import { contentfulClient } from "@/lib/contentful";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Document, BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import type { BlogPost } from "@/lib/contentful";
+import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Link from "next/link";
 
 const options = {
   renderNode: {
@@ -31,22 +31,28 @@ const options = {
       <p className="mb-6 leading-relaxed text-lg text-[#1F2937]">{children}</p>
     ),
     [BLOCKS.UL_LIST]: (node: any, children: any) => (
-      <ul className="list-disc list-inside mb-6 space-y-3 text-lg text-[#1F2937]">{children}</ul>
+      <ul className="list-disc list-inside mb-6 space-y-3 text-lg text-[#1F2937]">
+        {children}
+      </ul>
     ),
     [BLOCKS.OL_LIST]: (node: any, children: any) => (
-      <ol className="list-decimal list-inside mb-6 space-y-3 text-lg text-[#1F2937]">{children}</ol>
+      <ol className="list-decimal list-inside mb-6 space-y-3 text-lg text-[#1F2937]">
+        {children}
+      </ol>
     ),
     [BLOCKS.LIST_ITEM]: (node: any, children: any) => (
       <li className="mb-2">{children}</li>
     ),
     [BLOCKS.QUOTE]: (node: any, children: any) => (
-      <blockquote className="border-l-4 border-[#2563EB] pl-6 italic my-8 text-xl text-[#6B7280]">{children}</blockquote>
+      <blockquote className="border-l-4 border-[#2563EB] pl-6 italic my-8 text-xl text-[#6B7280]">
+        {children}
+      </blockquote>
     ),
     [BLOCKS.HR]: () => <hr className="my-8 border-[#E5E7EB]" />,
     [INLINES.HYPERLINK]: (node: any, children: any) => (
-      <a 
-        href={node.data.uri} 
-        target="_blank" 
+      <a
+        href={node.data.uri}
+        target="_blank"
         rel="noopener noreferrer"
         className="text-[#2563EB] hover:text-[#1E40AF] underline"
       >
@@ -54,9 +60,9 @@ const options = {
       </a>
     ),
     [INLINES.ASSET_HYPERLINK]: (node: any, children: any) => (
-      <a 
-        href={node.data.target.fields.file.url} 
-        target="_blank" 
+      <a
+        href={node.data.target.fields.file.url}
+        target="_blank"
         rel="noopener noreferrer"
         className="text-[#2563EB] hover:text-[#1E40AF] underline"
       >
@@ -69,7 +75,7 @@ const options = {
         <div className="my-8">
           <img
             src={file.url}
-            alt={title || description || ''}
+            alt={title || description || ""}
             className="max-w-full h-auto rounded-lg shadow-md"
           />
           {description && (
@@ -84,7 +90,9 @@ const options = {
     [MARKS.ITALIC]: (text: any) => <em>{text}</em>,
     [MARKS.UNDERLINE]: (text: any) => <u>{text}</u>,
     [MARKS.CODE]: (text: any) => (
-      <code className="bg-[#F3F4F6] px-2 py-1 rounded text-[#1F2937]">{text}</code>
+      <code className="bg-[#F3F4F6] px-2 py-1 rounded text-[#1F2937]">
+        {text}
+      </code>
     ),
   },
 };
@@ -110,12 +118,16 @@ async function getBlogPost(id: string): Promise<BlogPost | null> {
       },
     };
   } catch (error) {
-    console.error('Error fetching blog post:', error);
+    console.error("Error fetching blog post:", error);
     return null;
   }
 }
 
-export default async function BlogPost({ params }: { params: { blogId: string } }) {
+export default async function BlogPost({
+  params,
+}: {
+  params: { blogId: string };
+}) {
   const post = await getBlogPost(params.blogId);
 
   if (!post) {
@@ -125,9 +137,13 @@ export default async function BlogPost({ params }: { params: { blogId: string } 
         <main className="min-h-screen bg-[#F3F4F6]">
           <div className="container mx-auto px-4 py-12">
             <div className="text-center">
-              <h1 className="text-5xl font-bold mb-6 text-[#1F2937]">Blog Post Not Found</h1>
-              <p className="mb-8 text-lg text-[#6B7280]">The blog post you're looking for doesn't exist.</p>
-              <Link 
+              <h1 className="mt-10 text-5xl font-bold mb-6 text-[#1F2937]">
+                Blog Post Not Found
+              </h1>
+              <p className="mb-8 text-lg text-[#6B7280]">
+                The blog post you're looking for doesn't exist.
+              </p>
+              <Link
                 href="/blog"
                 className="inline-block bg-[#2563EB] text-white px-8 py-4 rounded-lg hover:bg-[#1E40AF] transition-colors text-lg font-semibold"
               >
@@ -146,15 +162,17 @@ export default async function BlogPost({ params }: { params: { blogId: string } 
       <Header />
       <main className="min-h-screen bg-[#F3F4F6]">
         <article className="container mx-auto px-4 py-12 max-w-4xl">
-          <Link 
+          <Link
             href="/blog"
             className="inline-block mb-8 text-[#2563EB] hover:text-[#1E40AF] text-lg"
           >
             ← Back to Blog
           </Link>
-          
-          <h1 className="text-5xl font-bold mb-6 text-[#1F2937]">{post.title}</h1>
-          
+
+          <h1 className="text-5xl font-bold mb-6 text-[#1F2937]">
+            {post.title}
+          </h1>
+
           <div className="flex items-center gap-4 mb-8 text-[#6B7280] text-lg">
             <span>By {post.authorName}</span>
             <span>•</span>
@@ -181,4 +199,4 @@ export default async function BlogPost({ params }: { params: { blogId: string } 
       <Footer />
     </>
   );
-} 
+}

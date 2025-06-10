@@ -31,7 +31,6 @@ yarn-error.log*
 .env*.local
 .env
 
-secrets.yaml
 
 # vercel
 .vercel
