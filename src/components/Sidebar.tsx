@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
@@ -16,7 +16,9 @@ import {
   Star,
   Hotel,
   MapPinHouse,
+  LogOut,
 } from "lucide-react";
+import { signOut } from "next-auth/react";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -26,21 +28,23 @@ const navigation = [
   { name: "Places", href: "/dashboard/places", icon: MapPinHouse },
   { name: "Feedback", href: "/dashboard/feedback", icon: MessageSquare },
   { name: "Sessions", href: "/dashboard/sessions", icon: UserCheck },
-  { name: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
-  { name: "Reviews", href: "/dashboard/reviews", icon: Star },
-  { name: "Activity Log", href: "/dashboard/activity", icon: Clock },
-  { name: "Settings", href: "/dashboard/settings", icon: Settings },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
+    router.push("/");
+  };
 
   return (
-    <div className="w-64 bg-white shadow-sm">
+    <div className="w-64 bg-white shadow-sm flex flex-col h-full">
       <div className="p-6">
         <h2 className="text-xl font-bold text-gray-900">TripAdmin</h2>
       </div>
-      <nav className="mt-6">
+      <nav className="flex-1">
         <div className="px-3">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
@@ -69,6 +73,15 @@ export function Sidebar() {
           })}
         </div>
       </nav>
+      <div className="p-4 border-t">
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50 rounded-md"
+        >
+          <LogOut className="mr-3 h-5 w-5" />
+          Logout
+        </button>
+      </div>
     </div>
   );
 }
