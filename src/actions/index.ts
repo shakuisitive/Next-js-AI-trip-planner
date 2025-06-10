@@ -952,3 +952,37 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
     }
   }
 }
+
+export async function getSessions() {
+  try {
+    const sessions = await prisma.session.findMany({
+      include: {
+        user: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    return { success: true, sessions };
+  } catch (error) {
+    console.error("Error fetching sessions:", error);
+    return { success: false, error: "Failed to fetch sessions" };
+  }
+}
+
+export async function deleteSession(sessionId: string) {
+  try {
+    await prisma.session.delete({
+      where: { id: sessionId },
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting session:", error);
+    return { success: false, error: "Failed to delete session" };
+  }
+}

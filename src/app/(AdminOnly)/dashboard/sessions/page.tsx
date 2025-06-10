@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -31,64 +31,49 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Search, LogOut } from "lucide-react";
-
-// Mock data
-const sessions = [
-  {
-    id: "1",
-    sessionToken: "sess_abc123...",
-    userId: "user_1",
-    userName: "John Doe",
-    userEmail: "john@example.com",
-    expires: "2024-02-15T10:30:00Z",
-    createdAt: "2024-01-15T08:00:00Z",
-    lastActivity: "2024-01-20T14:30:00Z",
-    ipAddress: "192.168.1.100",
-    userAgent: "Chrome 120.0.0.0",
-  },
-  {
-    id: "2",
-    sessionToken: "sess_def456...",
-    userId: "user_2",
-    userName: "Jane Smith",
-    userEmail: "jane@example.com",
-    expires: "2024-02-20T15:45:00Z",
-    createdAt: "2024-01-18T09:15:00Z",
-    lastActivity: "2024-01-20T16:20:00Z",
-    ipAddress: "10.0.0.50",
-    userAgent: "Safari 17.2.1",
-  },
-  {
-    id: "3",
-    sessionToken: "sess_ghi789...",
-    userId: "user_3",
-    userName: "Bob Wilson",
-    userEmail: "bob@example.com",
-    expires: "2024-01-25T12:00:00Z",
-    createdAt: "2024-01-10T11:30:00Z",
-    lastActivity: "2024-01-19T10:15:00Z",
-    ipAddress: "172.16.0.25",
-    userAgent: "Firefox 121.0",
-  },
-];
+import { getSessions, deleteSession } from "@/actions";
 
 export default function SessionsPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [sessions, setSessions] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSessions = async () => {
+      try {
+        const result = await getSessions();
+        if (result.success && result.sessions) {
+          setSessions(result.sessions);
+        } else {
+          setSessions([]);
+        }
+      } catch (error) {
+        setSessions([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchSessions();
+  }, []);
 
   const filteredSessions = sessions.filter(
     (session) =>
-      session.userName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      session.userEmail.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      session.ipAddress.includes(searchTerm)
+      (session.user?.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (session.user?.email || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (session.ipAddress || "").includes(searchTerm)
   );
 
   const handleTerminateSession = async (sessionId: string) => {
     try {
-      // Implement session termination logic
-      console.log("Terminating session:", sessionId);
-      // This would update the session status to false and set deletedAt
+      const result = await deleteSession(sessionId);
+      if (result.success) {
+        setSessions((prev) => prev.filter((s) => s.id !== sessionId));
+      } else {
+        alert("Failed to terminate session");
+      }
     } catch (error) {
       console.error("Error terminating session:", error);
+      alert("Error terminating session");
     }
   };
 
@@ -112,6 +97,10 @@ export default function SessionsPage() {
       return { status: "Expiring Soon", variant: "secondary" as const };
     return { status: "Active", variant: "default" as const };
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="space-y-6">
@@ -161,9 +150,9 @@ export default function SessionsPage() {
                   <TableRow key={session.id}>
                     <TableCell>
                       <div>
-                        <div className="font-medium">{session.userName}</div>
+                        <div className="font-medium">{session.user?.name || "-"}</div>
                         <div className="text-sm text-muted-foreground">
-                          {session.userEmail}
+                          {session.user?.email || "-"}
                         </div>
                       </div>
                     </TableCell>
@@ -178,7 +167,7 @@ export default function SessionsPage() {
                       </Badge>
                     </TableCell>
                     <TableCell>{formatDate(session.createdAt)}</TableCell>
-                    <TableCell>{formatDate(session.lastActivity)}</TableCell>
+                    <TableCell>{formatDate(session.lastActivity || session.updatedAt || session.createdAt)}</TableCell>
                     <TableCell>
                       <div
                         className={
@@ -189,10 +178,10 @@ export default function SessionsPage() {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <code className="text-xs">{session.ipAddress}</code>
+                      <code className="text-xs">{session.ipAddress || "-"}</code>
                     </TableCell>
                     <TableCell className="text-sm">
-                      {session.userAgent}
+                      {session.userAgent || "-"}
                     </TableCell>
                     <TableCell className="text-right">
                       {!isExpired(session.expires) && (
@@ -214,16 +203,13 @@ export default function SessionsPage() {
                               </AlertDialogTitle>
                               <AlertDialogDescription>
                                 Are you sure you want to terminate this session?
-                                This will log out {session.userName}{" "}
-                                immediately.
+                                This will log out {session.user?.name || "this user"} immediately.
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
                               <AlertDialogCancel>Cancel</AlertDialogCancel>
                               <AlertDialogAction
-                                onClick={() =>
-                                  handleTerminateSession(session.id)
-                                }
+                                onClick={() => handleTerminateSession(session.id)}
                                 className="bg-red-600 hover:bg-red-700"
                               >
                                 Terminate Session
