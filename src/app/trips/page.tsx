@@ -55,11 +55,11 @@ async function AllTrips() {
     }
 
     return (
-      <div className="flex flex-col min-h-screen bg-gray-50">
+      <div className="flex flex-col min-h-screen bg-[#F3F4F6]">
         <Header />
         <main className="flex-grow">
           {/* Hero Section */}
-          <div className="bg-purple-600 text-white py-16">
+          <div className="bg-gradient-to-br from-[#2563EB] to-[#1E40AF] text-white py-16">
             <div className="max-w-7xl mx-auto px-4">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-white/20 rounded-xl">
@@ -67,7 +67,7 @@ async function AllTrips() {
                 </div>
                 <h1 className="text-4xl font-bold">Your Trips</h1>
               </div>
-              <p className="text-lg text-purple-100 max-w-2xl">
+              <p className="text-lg text-white/90 max-w-2xl">
                 Explore all your planned adventures. Click on any trip to view
                 its detailed itinerary and make changes.
               </p>
@@ -85,14 +85,14 @@ async function AllTrips() {
   } catch (e: any) {
     console.error(e.message);
     return (
-      <div className="flex flex-col min-h-screen bg-gray-50">
+      <div className="flex flex-col min-h-screen bg-[#F3F4F6]">
         <Header />
         <main className="flex-grow flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            <h1 className="text-2xl font-bold text-[#1F2937] mb-4">
               Something went wrong
             </h1>
-            <p className="text-gray-600">Please try again later</p>
+            <p className="text-[#6B7280]">Please try again later</p>
           </div>
         </main>
         <Footer />
