@@ -205,7 +205,7 @@ const TravelPlannerForm = () => {
                   >
                     <input
                       id="destination"
-                      className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A0E78] focus:border-transparent"
+                      className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                       placeholder="Enter destination"
                       type="text"
                       value={destination}
@@ -215,7 +215,7 @@ const TravelPlannerForm = () => {
                 ) : (
                   <input
                     id="destination"
-                    className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A0E78] focus:border-transparent"
+                    className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                     placeholder="Enter destination"
                     type="text"
                     value={destination}
@@ -234,10 +234,10 @@ const TravelPlannerForm = () => {
                 <button
                   id="dateRange"
                   type="button"
-                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none bg-white text-left flex items-center border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A0E78] focus:border-transparent"
+                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none bg-white text-left flex items-center border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                   onClick={() => setShowCalendar(!showCalendar)}
                 >
-                  <Calendar className="w-5 h-5 mr-3 text-[#4A0E78]" />
+                  <Calendar className="w-5 h-5 mr-3 text-[#2563EB]" />
                   <span>{getDateRangeText()}</span>
                 </button>
                 {showCalendar && (
@@ -256,8 +256,8 @@ const TravelPlannerForm = () => {
                       moveRangeOnFirstSelection={false}
                       ranges={dateRange}
                       className="w-full"
-                      color="#4A0E78"
-                      rangeColors={["#4A0E78"]}
+                      color="#2563EB"
+                      rangeColors={["#2563EB"]}
                       minDate={new Date()}
                     />
                     <div className="p-4 bg-gray-100 flex justify-between items-center">
@@ -267,7 +267,7 @@ const TravelPlannerForm = () => {
                       </p>
                       <button
                         type="button"
-                        className="bg-[#4A0E78] text-white px-4 py-2 rounded-md hover:bg-[#3A0B5E] focus:outline-none focus:ring-2 focus:ring-[#4A0E78] focus:ring-opacity-50"
+                        className="bg-[#2563EB] text-white px-4 py-2 rounded-md hover:bg-[#1E40AF] focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:ring-opacity-50"
                         onClick={handleSetDates}
                       >
                         Set Dates
@@ -287,10 +287,10 @@ const TravelPlannerForm = () => {
                 <button
                   id="budget"
                   type="button"
-                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none bg-white text-left flex items-center border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A0E78] focus:border-transparent"
+                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none bg-white text-left flex items-center border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                   onClick={() => setShowBudget(!showBudget)}
                 >
-                  <DollarSign className="w-5 h-5 mr-3 text-[#4A0E78]" />
+                  <DollarSign className="w-5 h-5 mr-3 text-[#2563EB]" />
                   <span>
                     Budget: ${budget[0]} - ${budget[1]}
                   </span>
@@ -319,7 +319,7 @@ const TravelPlannerForm = () => {
                             style={{
                               background: getTrackBackground({
                                 values: budget,
-                                colors: ["#ccc", "#4A0E78", "#ccc"],
+                                colors: ["#ccc", "#2563EB", "#ccc"],
                                 min: 0,
                                 max: 10000,
                               }),
@@ -333,14 +333,14 @@ const TravelPlannerForm = () => {
                         <div
                           {...props}
                           className={`h-4 w-4 rounded-full bg-white shadow flex justify-center items-center ${
-                            isDragged ? "ring-2 ring-[#4A0E78]" : ""
+                            isDragged ? "ring-2 ring-[#2563EB]" : ""
                           }`}
                           style={{
                             ...props.style,
                             boxShadow: "0px 2px 6px #AAA",
                           }}
                         >
-                          <div className="h-2 w-2 bg-[#4A0E78] rounded-full" />
+                          <div className="h-2 w-2 bg-[#2563EB] rounded-full" />
                         </div>
                       )}
                     />
@@ -359,7 +359,7 @@ const TravelPlannerForm = () => {
                 </label>
                 <select
                   id="groupType"
-                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A0E78] focus:border-transparent"
+                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                   value={groupTypeValue}
                   onChange={(e) => setGroupTypeValue(e.target.value)}
                 >
@@ -381,7 +381,7 @@ const TravelPlannerForm = () => {
                 </label>
                 <select
                   id="travelStyle"
-                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A0E78] focus:border-transparent"
+                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                   value={travelStyleValue}
                   onChange={(e) => setTravelStyleValue(e.target.value)}
                 >
@@ -404,7 +404,7 @@ const TravelPlannerForm = () => {
                 </label>
                 <select
                   id="pace"
-                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A0E78] focus:border-transparent"
+                  className="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                   value={paceValue}
                   onChange={(e) => setPaceValue(e.target.value)}
                 >
@@ -447,7 +447,7 @@ const TravelPlannerForm = () => {
                           );
                         }
                       }}
-                      className="w-4 h-4 text-[#4A0E78] border-gray-300 rounded focus:ring-[#4A0E78] focus:ring-2"
+                      className="w-4 h-4 text-[#2563EB] border-gray-300 rounded focus:ring-[#2563EB] focus:ring-2"
                     />
                     <span className="text-sm text-gray-700">
                       {interest.label}
@@ -460,7 +460,7 @@ const TravelPlannerForm = () => {
             {/* Submit Button */}
             <div className="flex justify-center pt-4">
               <button
-                className="bg-[#4A0E78] text-white rounded-lg px-8 py-3 hover:bg-[#3A0B5E] focus:outline-none focus:shadow-outline flex items-center space-x-2 text-lg font-semibold"
+                className="bg-[#2563EB] text-white rounded-lg px-8 py-3 hover:bg-[#1E40AF] focus:outline-none focus:shadow-outline flex items-center space-x-2 text-lg font-semibold"
                 type="submit"
               >
                 <Search className="w-6 h-6" />
