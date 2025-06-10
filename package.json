@@ -31,7 +31,7 @@
     "date-fns": "^4.1.0",
     "firebase": "^11.0.1",
     "firebase-admin": "^13.0.0",
-    "framer-motion": "^11.11.1",
+    "framer-motion": "^11.18.2",
     "js-cookie": "^3.0.5",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.446.0",

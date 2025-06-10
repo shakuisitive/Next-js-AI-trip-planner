@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import ClientLayout from "@/app/ClientLayout";
+// import ClientLayout from "@/app/ClientLayout";
 import Script from "next/script";
 import { AuthContextProvider } from "@/context/AuthContext";
 import { SessionProvider } from "next-auth/react";
 import { CredentialsContextProvider } from "@/context/CredentialsContext";
 import { Toaster } from "sonner";
+import ClientLayout from "../components/client-layout-updated";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

@@ -1,25 +1,22 @@
 {
   "data": {
     "userId": "684852583367501420696e11",
-    "tourName": "LTv1",
-    "destination": "Lahore, Pakistan",
+    "tourName": "Karachi Tv1",
+    "destination": "Karachi, Pakistan",
     "tourStatus": "Pending Approval",
-    "startDate": "2025-06-10T00:00:00.000Z",
-    "endDate": "2025-06-17T00:00:00.000Z",
+    "startDate": "2025-04-30T00:00:00.000Z",
+    "endDate": "2025-05-08T00:00:00.000Z",
     "budgetMin": 500,
     "budgetMax": 5000,
     "preferences": {
       "create": {
-        "groupType": "family",
-        "travelStyle": "adventure",
+        "groupType": "couple",
+        "travelStyle": "relaxed",
         "pace": "moderate"
       }
     },
     "interests": {
       "create": [
-        {
-          "interest": "food"
-        },
         {
           "interest": "culture"
         }
@@ -29,17 +26,17 @@
       "create": [
         {
           "dayNumber": 1,
-          "date": "2025-06-10T00:00:00.000Z",
+          "date": "2025-04-30T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Badshahi Mosque",
+                "name": "Quaid-e-Azam Mausoleum",
                 "type": "attraction",
-                "description": "A magnificent Mughal-era mosque known for its stunning architecture and vast courtyard.",
-                "location": "Walled City, Lahore",
+                "description": "Visit the impressive mausoleum of Muhammad Ali Jinnah, the founder of Pakistan. Explore the surrounding park and admire the architecture.",
+                "location": "M.A. Jinnah Road, Karachi",
                 "timeOfDay": "morning",
                 "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTaEa_vxIM-lOMAp6tZyLumB1YDbkPpqbirAR9SmfRbULQZ_MtYgG4kDdi-mRbTRKdydtYrvougBK_utJ4Y2JiwZHUk6UsZHwdjoOudEN0yY-WjxoX4MoPpWYn-zx0gi8Hcg57rqEVHlgZh7c_xhA0XY3Un_VDYi64nhlBpu6GAi_4SXBY38wB7WaWfxmiGPSDHCXFpSjiiGQKjh0SzDCEAAxFUH9o1I3kfTQLWS-cayvsL1TGYn7QBxzMOD-TUbB0tGSXQ-aRtDwksJ6dxUIL-qYCS4xwH-fXTgdGm6evoHEwbE9EL8vzRfRKL4P17KIT6vdPzg6XA1UbLAMgWT5BPkVe9tpChzwOBrHf-EmaghMnu4BaW2K0E7CEPdb_LS_LRgqP3MVOcIEVc0uGBLU5ne7HREkhaTaATQzCLVelNj3ITZ8U1TuQi-UFkOzoGjpO6INQwYfr3n6r2eX1gBOFxITXbHn3eoOgS6ficT1hKE-IY9xCL0m9gU-oBLAJPL9mFciEy1NzKXR4NmXjQkLiDp-zkb_6POrkVXiwC-Jne3qIIh1i1y4uzlM78xu13u99VvN0m&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNT8JRjDYrVfhza8wvS0hTU6BfBDd51EuF4QY7fcXHg33UbaD4LuhGbm8or6ShqhauQhcaxYVFEVkOOdOD0Xfqgn-B8qR8pGcjPKdlraQtWR5qw3df4uAT5gcgiPFCVNgqdFy4QkKSYguPoZCcjk4DNxJzGAxnLeo6s6BoUI_4PAox4bVB4uFhO-DdSXHU2eEvOZRbYVsEZDHMcTOSFhDOFNDfC2c_gz531CN8EQYRJxKwVrGBKcqmM-gt5Z9fXrQbyhrcbzb9MrgWwWqMijsEAVKitKSzByW9QkLPlKFA9HACO_Qab6tNm5jBC5KKz4Ok1zQe4QZaFJli8ifr6hFrV7TXa3baZF4j32NROx6awsWlmLjxVqj9qyNwfQuyX7yEWFHUBLuBoS4mz1HBOz2SFpS4v5QQJbIvY9OFm4pxkPH7sNlEb1uWhhQ8ls1JSAStfZKu_HcNG8saM6FLt3cJpY1AbPTZ33D0M_LwwPeNQJIhBX5tN7I8af2F8gDdwZqP4Ofrhji0FJehchdMK3zB7xEnlzEGNs6lK0y7XJuJKrmdRKLAulbljRhSYF8sB56TalVWiYpLPAKw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -47,13 +44,13 @@
                 }
               },
               {
-                "name": "Lahore Fort",
+                "name": "National Museum of Pakistan",
                 "type": "attraction",
-                "description": "A historic fort showcasing a blend of Mughal and Sikh architecture, with palaces, gardens, and museums.",
-                "location": "Walled City, Lahore",
+                "description": "Discover Pakistan's rich history and culture through a vast collection of artifacts, sculptures, and art.",
+                "location": "Shahrah-e-Kemal Atatürk, Karachi",
                 "timeOfDay": "afternoon",
                 "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTkhdcraeo2d7l4uhUebm9oJYBPZ27EWiradczQX0i8dPqjYMrdvTr8AvkTCqUYX9jQxjjx3uej90CAaDDaRPqg2VVvpsqYTEOuCG0mR-b5XcwKubtOjkV_JbH5awM1-zSsGqVtCWnr7eITjqP5GtdnD8sqS4Wb7NiPFfSF0-WYnMLYdhHsRqCnITNwlqq3197disktT23w8vJcUEBC48H8gUph7sIpFVxHf8NoVNGfS2JF41uX8oRUiHfxU3duh83jDmdIAgX-mSlI6CDYQvbkru-7eZk4eQgAuaXLHYVwNCjqD1dV-hRIB9hAepsR5jVd6SKjFsrV8Bs2ccFt56IEuYOJIqLclwncjL4v-OLFhqCIVBTwNxZcPircK2CWNWTt8rVGR0AagBUdqrE1jb2VRwj39N2gRW2gE_1fDTBRzCxoOjaTW0J0OLfIYp5a94E5LmJnGHXlVWAxwDWYRYXZUAGHwx57mTKkHpx6JzCGfnoJNwl34s4L7MuvAU9lvIfVhYbl6jN3ImS_3Tth2OmE7vtp2VhvBAjF840dxAoe27kXjfWZ4a4C_5KCw6yx7MDhbk4SaZvYEw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNS7ELAd2BrWfS9g1KWzbEBkTy6uUkmKjrXcmv30RW59QROPHgE2buHhK8tp-ie3l-_HdttlND7c2MnPQOJx1YeAwI01d3TVmwSJB2VM3raEBhXHi1oOS5T8siHwywc-NEAMtUsoEIVrcGnNLAOV0PHVbWduQ3FwfaMSlqjr6ObjRMCaJnotPsVoSvnPgQjuAmsQYOT-jMr8PhWumE4xtqhHu0hzj1d64xYubguJxij30IDhADEErOBzbDuNC5GNukSFkfEOBxSMsELkQ3OUOwjJzr2MKduFPuVkTnaYOLyt3Q7wqQnwhotxuFwYj5QbWQiLp_xU3sZPjm7RKbmVod1srtJSUeVFkIfRV8z5KFg1ncKsvqz3z10Bbyx_YjAp-pNwepBnv5Jz0wMxfC26YZdGSo1hV2PlyYEgYhmKW_JHBTw6VRZH44g49p73QuFQjDe_fcP8LIqgM8VlVKCiv2MVqaubb15Tu4ctybUh-I_-HUk88l-c3YLzkXpbWQ0tg-GQdjs6ebvpAczIcFo15xpxDIeDA9IzLiK7reeQ4c8CnYWM3QRPtlgUOxh1RS7HnOKv2Gf6aHKoQw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -61,31 +58,31 @@
                 }
               },
               {
-                "name": "Cooco's Den",
+                "name": "Kolachi Restaurant",
                 "type": "restaurant",
-                "description": "A rooftop restaurant offering panoramic city views and a diverse menu.",
-                "location": "One Gulberg, Lahore",
+                "description": "Enjoy a traditional Pakistani lunch with stunning views of the Arabian Sea.",
+                "location": "Do Darya, Phase VIII, DHA, Karachi",
                 "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTqfLPAfej7huFA9s9u7WtgS0ihBwfgsXnWI-xgAXReZ6dOPZNmyXx3omCgEBKkzrV1ZlSzOiiwnRBJi9iJxVcZorZwumpNEEI7szDbzZi1kCrvY5ed5kpAzBZn2GXtEHLXsvfl9_QV3GEPOWQhbk3-G2L6URAxxmQrWqFT4uQvp_Z0bAnc8j-dNkq11kZ1DOCIISprkSVxRzl_fNlpNrTiO3s0Y1m8mJBqetDWwMy7-LCmhvyRY0EoI9Ge-u0iSAqbPo4uOUueKHg2AOY9k3ZMI_RCcNj09FC_kIC3Jag34XiMhHZDKrPFdArg_TZpEqTNYpBO_OzmgJyxW1nioWaTawqayHDsMvREWDKwfLcPETTMqvusyNTrZtzmEo9ihKIWawIxgdEhmJG8MVUVxhvva9o2RK2HzejBgduErVJl08q6nU329RCGT3hp6BhOeKL1GNhp7JBhYN_SDIW9sZNPD7rJ4LX-5cEIA4ASVHNYaRpup8G9pmdZj6z_uqMB3WHWDxBiCIWfHf2zIxOf5xyFHt1r5vpERx-aDCpqbAgENx5i5KduE_opiur-_hRx5nCe3A&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "Pakistani, Continental",
-                    "priceRange": "Mid-range to High-end"
-                  }
-                }
-              },
-              {
-                "name": "Andaaz Restaurant",
-                "type": "restaurant",
-                "description": "Traditional Pakistani cuisine in a beautifully decorated setting.",
-                "location": "Gulberg III, Lahore",
-                "timeOfDay": "evening",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNS2_06gSg-sA8uuKPxNQdpngo2mNS2XCjp3qTrg5b4S_BLHSU9kQMvtAa-RxW-4L6CHOUtMOEp35FnN3imbs4KuZPrjlIi-Ou2yY-K7mHLvseFxn8K6QEOieydwCZH5N0Pg-BWZowzmyRe50gEip2ITlxTPMWKCvJDnbsEpQwTuH4Yg9hEU9lHpoSmTMas8JlLec94cj57u_zglXyNsA3w4rY6o0Q__pShjhS4Rs4367EzxmcgandsFpTB5Q5dgLaJV2XFhAMF0ST3iT7ygLKNVfcB9gklR-X1FfcYvWjYLtjUoGIk&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRfWF8hSc7kL3-cVYbcKHJQZaoIV1WfLmkMKH_tXjjJ2tv7g1a4vbVIP5naZHQx5J4XJ50f-0gbhqqm7oZEdnWGV9DEIVoj7WKhK_78vrlphA14dYw0rHfL0gvDMy6OoEOOTi7FNCTlVfc9ok2E1qX8Zko4sRermHPHuafR9bs8gf8jp9tuqcETFY6ookkCxew_T71aqoihJew-3w6L7wRnMasTxSuRWToaE3GjwRFsOnp7BrPz9mBt50sPGflv-Y4cpbQFWIr_agvuayswl6PyJs_CVgvcYP9Rd8_XjixLfF-ZZQGiLli2lcNiWAs5tWweBOlvJgT25hx5OsRF_J7T5fCdSQKwJ_UyKftzMyQq7YbFi9n_6foyd0RTBst3fyrjj1lgp9iRRTkyOWFvpg-74T6vv4YOyrbdyhBveq2yL_1jsVD_Nx3C41qdWnpC2IlUsUp5D74o5MyF_hIT4G538M-vHjsNWaR23Y4ePqPMUry7G3jwGGodOPFv6CugJOGD_rH4QNg__NF4cnJNy5_DHBUE4XKZM7utFmqvWPU4WwIouZh3UQS7wEjIDDO_ZOXLICZGeD702Q&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
                     "cuisine": "Pakistani",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              },
+              {
+                "name": "BBQ Tonight",
+                "type": "restaurant",
+                "description": "Savor delicious barbecued meats and other Pakistani specialties in a lively atmosphere.",
+                "location": "Boat Basin, Clifton, Karachi",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTM_gavS0L5fxV9la-71HAiBAmz7jL5F5T1ksR0jgi6iJzR8MNuLr7YXMFAOo1sHczUFO4t_2amKbx_NlQH7AC9pUt4-GLfneN-MkPU9ePCkkI7ckDdVq5SUUOnDp-bsG7b5nPNNzSUAHBhKl_REeH4KImJRgTxezYLiKy6cfGj7bQiAYUOX0yXHtvyjTJYwfxgd1fbZ1HTNZ0DTHwD1tM-T5KmfxrZ74tDhJ9fW9IJQ25vQrXVUe1Tt4cVyiyXmWwoOVYOv-Q-MZmt_Q4yz4PFWDkkIDKqZqzUvHsKNNKvhQddKQs&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Barbecue",
                     "priceRange": "Mid-range"
                   }
                 }
@@ -94,94 +91,23 @@
           },
           "transportation": {
             "create": {
-              "description": "Taxi or Rickshaw"
+              "description": "Ride-sharing apps or taxis are readily available."
             }
           }
         },
         {
           "dayNumber": 2,
-          "date": "2025-06-11T00:00:00.000Z",
+          "date": "2025-05-01T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Shalimar Gardens",
+                "name": "Mohatta Palace Museum",
                 "type": "attraction",
-                "description": "A UNESCO World Heritage Site, these Mughal gardens are a beautiful example of Persian and Islamic landscaping.",
-                "location": "Shalimar Town, Lahore",
+                "description": "Explore this beautiful palace showcasing a blend of Rajasthani and Mughal architecture and hosting various exhibitions.",
+                "location": "Hoshang Road, Clifton, Karachi",
                 "timeOfDay": "morning",
-                "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQq6ELj2fPFKB1j5SKHALkEc228tXjxDgDxA5uafTlzUsUxtgnuH0QcygSev24gRQJVS1OA4u4y_znzzXCeRG1A_FUtagobzIE_i_yj1MF4hJvAXNGIsCqGv0JoCv-CU9-Mxr9NkYfoxR_D3e8pCXN9L9kptIP5YJTrBGYkkY1CVTjkiCu8pOTonzDvTKe_2OlQ_GZwkoiBpBxgiSu8HWgFZPJ1jyIAHuL5oDRF2MpZaE20AUVy5-4nHj7EgG6x5LajCYNMto1I-j-YqG1i1xHc8grzcugiayrQPsqwSDlDQlNeW4xZFbSflGjk4pcvunruEBFBqpdUZ7xBtq_xM_XH8LrxEbWZm4dRk3bbfL7ZN3RFSroQCWyu5wua5XlB0ORLs-B1K68q-w073tad-tHt21f_-jopwPzBUNjYNEaczZ3UyYW6-m3_oCrX36L1nBckH4iLR5B03S3KBWXs6ja9V-jjeOzl6uteXgMkuDWbzL33WvoDNsE8b1QnBGbfR-nbuvS8MMwVLBVINN3ND0Pu1x5DRu7wG2dJiw7lEL5y3p9wC_XeD4CriLnWJPVDjEom8KMNTSGjxw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Wazir Khan Mosque",
-                "type": "attraction",
-                "description": "Known for its intricate tile work and vibrant colors, this mosque is a masterpiece of Mughal architecture.",
-                "location": "Walled City, Lahore",
-                "timeOfDay": "afternoon",
-                "duration": "1-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNR1JOvAJ2blxt854vZ81MLj1Q5MZfBuLV7swqRsTdGLPqklfWbyxiY2bZ9nx10YXRJLOSKxvCWhklL5el8Gkj_Gvoo-jTQOTZaBboYd1LguNJKVqylGeEKXzo_zHHFvsEtCboEsz1DXvZXgtrCMF3_H39Cw869kb5LilHNweoomOoJp93pnK6BjUXcxcx1d8JI5rB14E0i8kE5xKiy61x0u09uY2ze4wlDWc4GkurnRqbo6s1iRLfpM7t0613Juk-k14Ip3e0QxIYnSSTTvwFmc-y-Z_yKqsWdpu8RTLsb2YOAc_rFcyNDep-eElil78iyXpkIDxRKlgYaWqz7ty99rZRowmuGoR_azHEyV5h5uij9MTt5uI1o279FV34Yqb5VTnl5CPxy7ztDJY5fc4GLpAK6RiiAFg5b-yGmKE4zTL4XNmIzFns64FCkk4X9Wet7KlMdLrlt9wm0UJ5vEIa3Iduhqs2lBAudpbRIUopFopU_6DmLmoLzq0iz9JhzDVcFUCmjJKAeLLWslXDQYy8ZzNE3V7fsyQuuhoBrvp1lj-GstdiZ0RnB9dxZZ59ilA3GgwVdD&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Bhaiya Kebab",
-                "type": "restaurant",
-                "description": "Famous for its delicious and affordable kebabs and other traditional Lahori dishes.",
-                "location": "Lakshmi Chowk, Lahore",
-                "timeOfDay": "afternoon",
-                "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSJb5p0R7iEAgQovdaQJ5roNDWdrBdzOQ1q3rP9G7jR3TfoZ7w13Ye33MD3KhmVBTpVboUtw3dUMRfEX7OdhHLkcvRjw0PZ6JqFe_1XmvZhFJLWJ1puqEjWHB2sNIHwEgjQ6h9vtiQrsX3so9LxnbMnkT-Fqr6ADzSvkMD8wO1DELdQRvmgXy6BGKbS4RFX0D8-djhAek8qnCWAsVel1e_wb9RsFxlnqSRUgiLec9peoY44p11M6gIZSKSD2YTPfa9tSqon28-sG5ibd1gkp5I0TQc6DkF3iRoHzVrxL1tRYAeEfZe-yxd_VpNJ9SvJPcDdAXqbeYVJgn0VMh1c8b4YmsvQiyrJZe7Y0Rep0O00xpT0RKbG99orMloMWdSzXbs4GPjmWKvx1JM4ituoFPOYCEfJ_cGhJD3x6dsGun_lvp4jMaG3-GDMB8-_SGLV2F0d66X_TVtOhibyG3CVs9aWScHx-WTCykFlzOx7lOuYX5LGVbYNXxUCBIw6Nrwii8YvNGS9ThpV00vHugCLgYCHyEwXWy5b4QN-qT7X2P12oj5H7X-77M0kTg4rkFrrgPHOSVQg_ar0eQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "Pakistani",
-                    "priceRange": "Budget-friendly"
-                  }
-                }
-              },
-              {
-                "name": "Arcadian Cafe",
-                "type": "restaurant",
-                "description": "A popular cafe with a modern and stylish ambiance, serving a variety of international and local dishes.",
-                "location": "MM Alam Road, Gulberg, Lahore",
-                "timeOfDay": "evening",
                 "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ8X5jecEfvhxPL0gvReEfukDzonHMSCtB6TbpCkDwPMkqWaCT3RVt5h1JbpUebIp-iGy6zq6mrPC0xdHzxEG2Ipo6qQJWhGK25GFy9fagaRtqOpzA3WTQndL7n5dmqFiWgy7XoPNqi-755NzhV0t9nk-sJ8VrLs9HnVoFj8to6y9EoZ8yxKFtEnW824_-sMF6cmx7K_bsdBwJLwbNLDEGkSZHoa4aB9T-YCuP4eyPY3iHHzvpKZZoNclrzdnrIx_vuF_lAkfIMtJl-vf0m25S1QY_s18_8m8OOIz2WP45kAO4kQPA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "International, Pakistani",
-                    "priceRange": "Mid-range"
-                  }
-                }
-              }
-            ]
-          },
-          "transportation": {
-            "create": {
-              "description": "Taxi or Auto-rickshaw"
-            }
-          }
-        },
-        {
-          "dayNumber": 3,
-          "date": "2025-06-12T00:00:00.000Z",
-          "places": {
-            "create": [
-              {
-                "name": "Lahore Museum",
-                "type": "attraction",
-                "description": "A museum housing a vast collection of artifacts from the Mughal era and Gandhara civilization.",
-                "location": "The Mall, Lahore",
-                "timeOfDay": "morning",
-                "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ62duXllptnl36irZ2l9UajFeal_Ya-LATa9wjLGm_UKyO-ARqTYqC9DHRYR_GkmhKjXFoje3ZiBc8QbbwrEJp79A3kvU-jr2hRoxoa-aHo9IvsXe-D9L0ScLwfzSkH-l05xZ1DPZMKKgxB63LUKB7NzGTbsXpWdc_7djC1xpv5pvgqz9wRobv18CKRAuDtgBIF8nhcnvJUYwjleRCgO4ozJdZY5VvIBC8pDY7YnzWwZPDNq5Rz0-O1e_cqBr3FmSc6LN8OcPA_2oFbEDaibSldECvgjBMttSoSCeFF_dlIgywZrxsWSlZ5VxmKyJ0JqQ_tRNEhT6ssLJ73N1ynINMhF56mkaLCXZdf4X1dq9yEGe3EYfzBbYGeLfN-N_EUJ_0DJIGe07tgubDMRfMXcKTiaHYyQENhyVp8stuQOhPGPGaPiZEJFBNyttwQsj9G4eOYtqcnDx9i0rEmGq2cqlfPSW9VbsBoxdMtgnITRypAqoabaaqjXIxLiUgvgBW2sb3-0biITj1_aMLPtKTLiF4wxq2vmMCrF3TGpVJ0tfRKV00g8n1q6qeoXtvlqZBL4fid3bV2Wqicw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRvNEC8ih1VcCrXmg5PU8lPz7sFaL9zJ_dGw5qRvbgmJSSUMzj42ySIM2tfhpKf8t6zZYrmnv_rphPmQjYiGUDfgta-vyCzKGQA9_gPaqkSRw2VEyXcJFpaexd-ojT8O5ifqmsNR8fHL6CctOfv0K2GxDVt5RiZv-Z3E7CW49OroSTUqTneb093ABUy6D6IovEBeU4YjDBW1sEsgPlENYqrNckRTz_6YSxmqAhGmtzqsWsbkxD4HW3ma_dYFjMUsCiMrJcU5sVJc9FzMeyI_294VaciMzPV22kfSE6o8ZZClGmLJCDtGiLkxr3i2Pu7lTd9_JXXxwUycihYemxVBQ_wy25MGsJNS2v63M2I3P4tL3QIBjj-1A01yerz9DxnYWH_iV0rBrx7hnGvmY-ZzsqJnzdZ8pTVqIKJ9nURsyZTL4YwDhaPJT0g5lfMGFnBcexm3JC92z7Psy1CYBLxv3UUEsJ2Lypk2C_gixRI0aU19eZBgRuSQPHQZ0jZerhfjnQH_aKlnVjwtG95Itc_tOntio7MZI9cHgQJXtzADSSPBa0GBtvpN3JwlLMuyvoncBmM9ePhEeC14A&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -189,13 +115,13 @@
                 }
               },
               {
-                "name": "Shahi Hammam (Royal Bath)",
+                "name": "Clifton Beach",
                 "type": "attraction",
-                "description": "A historic bathhouse from the Mughal era, showcasing intricate architecture and a glimpse into the past.",
-                "location": "Walled City, Lahore",
+                "description": "Relax on the sandy shores of Clifton Beach, enjoy camel rides, and experience the vibrant street food scene.",
+                "location": "Clifton, Karachi",
                 "timeOfDay": "afternoon",
-                "duration": "1-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNREu8SGrPXkfC_EAGi5FKqd5jv12z3C323fT3U0Cg_xw86OwZTP_H31C56BvYKZrR_M2cK-9Ksf9VjpqMlYaZtde0l4IYw-_EwxNPGhg9A-RNDdly8mEJSiT7UjnLfm2JHyggSg5MHppim_Phs1DmDX1DaYYUko4nAZlHA5n8kMX2FWgvcyOZ-H9hDVBI01Qx9Ry9cVp3MQv8gCfm7RdtoFiRl7hluPwCYMeD4pt_noiu_8-RhgHiR10RtqdlEcrVlWlUq0ZeSsHWcVaW5aesX7hOnMug5qX-dKC45l-zV0rNkZKlavZm32MNZw0NjyrfCNlUG86emXe-zBrzve3aYUks1pWwAUY7_h95_fzmxEH440pqg0YV-AQDmekbomhHKBYgYQb7J5bI2zz1wZf_eo-C9UQO94yF31_qpggukjnzT-BHy659TSCKOCvP5tcSYnwdozt2p4_mj4DZJvX7fjkLOJFjoSJ1MHfmXKloix1ossCW9GbYZ3n5dN66W04G0mZfS7whCcUvEqusyx9_zfLxK2MNnSV5UTeH16TONRTv2pqr5esp-CC6D8W_hEoK69MRYcW6siMg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNS-yyxJ43p7XclaEZAdkARZH6iCPGLCAqRCDcgcBuRQKLJXe6ugmjpM91nB_ABwWeiUVl0UHIXtloPZpUcJ4I9gLyMFdrt8knypitG9z3MhDBPX_4zFN7xeQ-WuZ4iZVg65zFVBpSXLl8Qct-wuiJk2IrbsAwy_Sk5Pkwema9EfQr_yn7jU1tCwF6d04YacRyk5ObfKrIUaCssY1Cf6WjKoasVpi05Y6qD69byj87xfPXhYLtiug_KFO5xqK6hjDUSrc6eIkwF99M1cBis2zumF4yqzDKKT4CBK5cNsvtgva_Ef7UOI6rXXo_l4XFKwfR81Utv6HpXBUjD-GctdoeOIxkYPl5wl_6Wz2QiGf9Y9-hnmRH78shFMhhnyD6jA8hrZUOB1anf7kPIw_w-Ylw7WugLdgM2lnK1uWvX9YJsQoK6ZvIWCsQ6INWyr87ANpJ0Zk_OfcOZrLCwSSsBWAVvWUn4Xy13aDO_jgUGcoYV_-Wo3hIAuQyi9JlH4PeUBZ8a6_ZZG5vBCe0BFv59R_IjMCSqJFZGusdKDkz9KsAjrv6AtNRHv-rrKLp-8HiNyYYi3DUf7&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -203,16 +129,16 @@
                 }
               },
               {
-                "name": "Butt Karahi",
+                "name": "Noorani Kabab House",
                 "type": "restaurant",
-                "description": "Well-known for its signature Karahi dishes and other traditional Pakistani food.",
-                "location": "Lakshmi Chowk, Lahore",
+                "description": "Have a flavorful lunch specializing in various kebab dishes.",
+                "location": "Burns Road, Karachi",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRpqe0SRQKIBZ_o152-9SivgoojxePFd6j9UszARivsEZ1XR49RDQnYzq8c3XSRvt9ZakodabO1yuq3Vlb15K7_osa-nFOM8PENP44fBek_m4WgO0JCcHiabtauTm0BSIHF90JNfgr9YJhPtV3EHh0846K7ExIImToNj5j6gcp9u5rxM3bA1X8-reLQ8eMBNgIHAkJsL8ArU2BKz2L2JzGft1eFMDigyIt3HguHXNdsxP4kta6H3qWz3hEaZR94ew-M4usBzZ8SUjzuD9RQTgt2x7L1Sg7LQL5RBHHuETIoJFAoHU4fSjrAYUu6YWbFehxEfIBT2AAYo4dFv9sVVIN4Ubs35F4pROR-WCOAiV91iVcR5MmjTQweeOiBCoqu94NIa-V_qBfz6smvizHQTRvOrLkdu-idpumTlDEOxr5NmrwU7g6E8gksIStl1vwE88XWJaDCu3VbqOVqfd94pAbcjM0T1RI23HoilzNxKdCw0hM2HFQzx7EYDX_4l2sV77X2inu3f65ZOn_bEqe2GrEmfjYHboC6nZRvdEsyet-X6JYxqlDe9iB7r53fOP0yqqw_iC1yorwMEg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNS5KWFDHekCAy3l4JakXiBsbMjgm7c45pW8Xd-ntYDHt_jrTUGckkkoPUqPBUfMl9O6fdHWIAOsIFJuOHn-e_pHnvHE7oIq5ijNuDPxlIrYz19b8zW1qVKBxfYOC20ACjamxLXWJJ0AFKGERApv3UWDuc3IAdDq3Zkb9Czcyjgpx6iAB46MkdtokOjJcxXUeCklJLm0sG_D9ygJwCHQINZhqbGhfDYRHNyN47B5Vks2ZHTRAvBgK88GBo1ho9zJvk10-cTRcbK7n6Knw63p2VWWNkzxUFjcKdRflLBt-s4PzgHOM6A&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Pakistani",
+                    "cuisine": "Pakistani, Kebabs",
                     "priceRange": "Budget-friendly"
                   }
                 }
@@ -220,227 +146,85 @@
               {
                 "name": "Village Restaurant",
                 "type": "restaurant",
-                "description": "Offers a traditional village-themed dining experience with authentic Pakistani cuisine.",
-                "location": "M.M. Alam Road, Gulberg III, Lahore",
-                "timeOfDay": "evening",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSDRCqlNqQL6SeZZ4jLJEFF3a6KAXXbMKBuYMqy0Y57zpx0fVF5JxHqH45v5BpdCnWq4J21NpS98_qEPSKp-O4daj2BqzSXWrC3gltaBmkf7uQE3JzgaDx4kXMYNWBZDEvTYXQcs9GUYif-ZENmQLkcTYT9O_sdmeyZNbgnkl29Z-ljGOIP6OFL4c1Ko-Jt7VrwrUzhnwZYwsxZedkrUGh5vPcaTt1Dr_xU9wA0aLKTtku3zDu4IthrnOjfv6YW_lJ3tFNu76mGqo1njBh3EKjpctzltpNoOkhnFNw0ul7vsVGnWOf70EUjzKbQmXncMYSPwVSMZDHhruvEr6YHpHX7om7WPBR8SDvj8Vkb0k7R5FK-9nYfETH5jwKuT7QYzWyy64WqrIbP4xHjfo-TaVlZAU_rtk843BJk2clM9vI6sD19edfA3SoVIuNYciVQoBJoZD7PVqhpXyfLku82S9Upg5e2qnYShjCRK71Sp9zd9_QkzuIzjO3lagoT2weEprnt86XPtluJB_qQn9Ja2mXtRKtn_fNDgGLcpB4WZt4IvLtRpNwKZOE5CVO4A5SssBDYf4qvfa3y8A&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "Pakistani",
-                    "priceRange": "Mid-range"
-                  }
-                }
-              }
-            ]
-          },
-          "transportation": {
-            "create": {
-              "description": "Taxi or Auto-rickshaw"
-            }
-          }
-        },
-        {
-          "dayNumber": 4,
-          "date": "2025-06-13T00:00:00.000Z",
-          "places": {
-            "create": [
-              {
-                "name": "Minar-e-Pakistan",
-                "type": "attraction",
-                "description": "A national monument signifying the Lahore Resolution, offering panoramic city views.",
-                "location": "Greater Iqbal Park, Lahore",
-                "timeOfDay": "morning",
-                "duration": "1-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTytADnqV0Pw7JzU3H9ZK7lauSIf11hBJCkrFipfnZsAu5Ao-dLc4ryS22TUSrorFpiV-oR7LKoIvnksGkTYkF-ERWuO5c9IFq32njqFLjUR0WFQqoWkwgCDGxvlyzCi9dArKGdWBaFgofO3zsGim_PxHD-8RDFV9q6LfZp8OmC1-tq_nQsTkbNh8876DN-0dIYSfvh2z8JkeCpJdWCSYuWXD_mUM9AOhzuzg9ORClfvOiO_e3R9_77kUco5CFy3_sAdwT213sahrmL4PRLVWJM4Mea4segCRJa_58enTX6bIX25UE&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Food Street Gawalmandi",
-                "type": "restaurant",
-                "description": "A vibrant street food market offering diverse Pakistani snacks and dishes.",
-                "location": "Gawalmandi, Lahore",
-                "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSKRFlJMeuRaePrByrZNPvlPJMl1QjMsZ3nc5lGF0bdgxbadFtTx9SVh2P2thTkplKsbPcR-qyBtze20kpUVBftH8PSInSRIDCAqSiA-VppCfHsGuSt4kbCVLCEG1X2qnZZGqrLHd9O64izAaI1F9J-G7UqbmMxuDPeElbrX1HTHtsh6FVG6gEr1vgaXeukCcKQaBa1z6Fo-HNZdl-CkkA8o1jTcj5JYpNiesGyT51p9ZK0dwDz1plT6pJ-CPN2lvO_u3JphJ7NCJZzX-uaRJFAk1WNtY6DjtYcvM0zy09HSQv0Ug-E8eSmD-r08HqUL8jqVBz7VZVX_kd9itgqm-po-WRp7w5EJIsfgrgMGztiZoG8JAOl7rPtHLPTv-DFhiBgRqkULCLiOjsrpc8fo06dqicfukbo6mA-qg0bBgMb8LRS9Hq6PXfPgdFTLHshf1Gf9uwzvJKYAvIXLFHfqi_wCTfktt1PStWQi_u_Ydyu8EYdsrAvJrIudzJz4g3z0u8ddN-ZqnaSiNKTgb4DfdAgAK-WbMItAZM61TjexsmXHsaVsQDyrEbiOcfSdWJGHlbxBSm1&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "Pakistani Street Food",
-                    "priceRange": "Budget-friendly"
-                  }
-                }
-              },
-              {
-                "name": "Lahore Zoo",
-                "type": "attraction",
-                "description": "Home to a variety of animals and a popular recreational spot.",
-                "location": "Mall Road, Lahore",
-                "timeOfDay": "afternoon",
-                "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTe87sawfgmlZZ80F4HxheYbGiMfG7Cd_MkM6xbVxJtFLJY09sEvgHkpl4Vo2XlQebqskHuxwXmFtaUy5VTgYlTeOB_UcbtOlQxNxMu6kvbdZWeKCh15b-FNnFmoejHh9W5QxpR6zsM2GSK-W7FehyLLyMGf2jJcusUD4zQlErj1wLkjdzXfNW1cE8yJqholEYXGP8zyCNW4k6rt9yv_AzaBeTshVOOQDbqmS87_RBl4JQsN1GCPm1sYtzZPuUHZTnmTChhUJIFrjpkHJmfw6cFVRgneAFwAdK1FZbiNIQySTmVRjj1SBwx4IFSP7TwSFLvK7KxJHtFE8ZQEUa6b8evZrS14grC21LknBFDIjwmN61fOuolAPP_0YUhET4n_92eNNCNe2a_qiNFFRDRkij9g8lqlDoJF4brZ-NZKEo6Z17GUnoNkR8BnKWItR5HrqXhIDpsCLp9MESjaLV7jplFpwZf9OCIyeDrj6Ne1i5ewToSG66_EDrYadxh_jSuRE1dsmd7I0dWWNA64WvXr5nO0NoghQ2nqHQUsiSCtc8HprDu8couLT7OQ6IPj9AK7eNK4tgQbRC33w&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Spice Bazaar",
-                "type": "restaurant",
-                "description": "Offers traditional Pakistani dishes in a vibrant atmosphere.",
-                "location": "MM Alam Road, Lahore",
-                "timeOfDay": "evening",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNR2VNqay041TtcrZNlqQb4t459LIM-5C6jZSEuaU0Uo-Nl7cTwPQWib6t6FdMNGgUCLCweFIXlNZ7JVd-vCYU51GC95J5SR-9B-tjiXSyHoGRDrDs_7i1VDxJK4ti64F8HXF2DY1IWgmnW8o0Xc71I3nztIxV3FHtNQmXy65nGPtQgkFt24o4-apCHFOfktAXaw3nl0J4La8tWJrVgprj9ZJmosJXAJh9GtorA881RYvsycpjntyGPlecopTU5oPuBOJACF0tGjpqjwOqXsxTxiHvefY7yklPt8os64KUh8lGhNYSEvWMicImir48H8R9p1jCB8P5v_h1wV1Uy9NV3OFwOZyP4X-zllsXb-AocwzzSZ5IDWnpQ-ySPkwFXKil8nZXIGYxrfoDGrN7voU454B5rOWUZsWRfYFrIFu65T7HeGgjq7G3JP_dsgrSwGCg8qWdKxlSPAPKIp9KV4TjGKPnIMEhxI57cx9a5fq5uP2RkNl4Mj8Zt7LGk07hrFKt4izGA9VMkIZOEOlxdIXBk3sIA3gFHbsJ4vnxRKmtpeSQ5Dv11KsthqHRMryTxNJh5GXqSLoiOSKQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "Pakistani",
-                    "priceRange": "Mid-range"
-                  }
-                }
-              }
-            ]
-          },
-          "transportation": {
-            "create": {
-              "description": "Taxi or Rickshaw"
-            }
-          }
-        },
-        {
-          "dayNumber": 5,
-          "date": "2025-06-14T00:00:00.000Z",
-          "places": {
-            "create": [
-              {
-                "name": "Walled City of Lahore Authority (WCLA)",
-                "type": "attraction",
-                "description": "Explore the preserved heritage and architecture of the old city with a guided walking tour.",
-                "location": "Delhi Gate, Lahore",
-                "timeOfDay": "morning",
-                "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTKJ6NqEuH7ufTgszA_N7FVYCUofWWpjrA0kCX8Jj7GA3G1Adsl1XGj4mH3sUpr43KURPhH6BtXQOx29ADqOqeovsde1fof9elRnUOCs2SO_d_KP4onzUxhsWCBq_VP-fnFaS3V3rKvYzzRypwYCfDNsMO9m-T-ciavMboZy-3b8Ffp6X4LzWCLsceYZq9cDbzy9K5vGTUgcbjxIKYSl0LdBZvSX_Rm3n4H709PhUJaEUaHBhH590u_8Xl7mhbzDJthrdE10_kTvApG9ZpNeQT5g5tjXAC59PCKDgOocUBUvuSWo4_4Pow4boS_WzEtl12li8rLYUnkcJAfIgsD9lJqlN0tg-U3vTyQzASqGWKFwNqESPuZt209nqWkjS11m-kgDZg2VmS2HI9lkK-fSwENoXyz-q2I_9iR5348LXQbjmxvTT7iFYvozAamZpKuDpeIXGUO9idzEsbEf_qgZunFmdluY7ykcUnrBBn7uuD1x7cN3lrNdq2sotSuYX5ZlhOVMghNcxW5lbWUOtN9ofi4xfjR96h66guVv1QTmT62ifSdGbDl8l2S8T16Lo2eRzlizCBKTqaJBQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Haveli Restaurant",
-                "type": "restaurant",
-                "description": "Traditional Pakistani cuisine served in a beautifully restored haveli.",
-                "location": "Walled City, Lahore",
-                "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSGzmlU5KyiYLd7o4-K7IeuWBQB7zRfX_Kab0L4UuXaydilqh5AoR9CrDwn3gpICpGk_J5MByayjwMle5thrjSnIE1SbSZWBcwvN0T7I3Wnlv0fxArAbLbf3lTDDHkeg_sif14rEywux_sG86sjdJcNJIRDjNx3XdkUZdzhmDAx52SzOr5yq2wWzW4VhKBrKopnfzTZRB63xyCdM5bo5hOT8V3elUBUXURGvkQmWSVetcITviXQscJ-0gqwukf_jxtwKoNQZRn7ACD-vRlkiOhZMSvh7CsDUF9YzPDUd9VNAiuTzA4f7enO7GX2BX6RKxwSnQhq5oNypKP7C7QcDvCgQsICWzOU5qYpcmfYvAt0jAcucLmHKnhkl_GB02mX9rfdeHdoPkK-1IOk8YySuOjo3cpmgNskDYBE5N7dDBAipmECxDGsGIjPvgLdlPreJpn6iOSQlqxPXqRx7PaWxpBhvELgCxu6FU-0kDU0pEdjheqqityYbH2p8t-pKc4AhtUyjxxG7xtKdZoqDh6pZ97-JY4VTrocGaST74iMpCUUhk6vFEtP3dz3ogygclug0jRQDcSnG3-hpA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "Pakistani",
-                    "priceRange": "Mid-range"
-                  }
-                }
-              },
-              {
-                "name": "Anarkali Bazaar",
-                "type": "attraction",
-                "description": "A bustling market known for clothing, jewelry, and traditional crafts.",
-                "location": "Anarkali, Lahore",
-                "timeOfDay": "afternoon",
-                "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSddfBiG5BzMdZZITreK07v7pCoW0MYkrENaeFvzXuYG0LolgC5QLUZZ4MF8JemFdH-taovPjKv1GE-LgTICl9298hZXmU06GFjjlXwg9JPz__RQSXmUUjUHkkE4vDwEHEfGdQewP0FHyMEUijIwm29zynzwU2hki7e_EO6AAIo-pZQ0EnpcXs91bw3wVWq82E5RAnQyy1CvnZQ2BIT-1VDjZPNhuBXLvPX2xtem1U0sEry7NiNcrie1YST6fbrgyDrD5Mw69XYjNbZe8ZSoeM0M89rx_e926MZt9VeKVo-c10MQLzs_Q55SZbS6Wn5mmHTk30ZY4w6kQYuNWvXlSfl0gLg-mlkK-BcI95pWcA6rdnUJMofD1_tAcY3x6KwpUdvz83LVNs6MCxdr0eHQnA6W88k5CzOEhblNfbt1T8LCLv7-SCm8G5KS6QBgFV591dKsj6tFJQUg3V_vfRHz-hjfdB9IDu-8JdUSWY74CFcuJtEB7_V4reEjQg91W-3isREYRhTbfq40tIleKov827blc2vX-IzHkZpve7wPtunKv9gKy-i14tRlcyjvZs3gCpzDg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Dera Restaurant",
-                "type": "restaurant",
-                "description": "Enjoy authentic Punjabi cuisine in a rustic setting.",
-                "location": "Model Town, Lahore",
-                "timeOfDay": "evening",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ3EjnRBkO7k9HykFTK_Q9csODKrwiHNTAP3dPAZKib9y-wrqn5Xgj66mY_xyYEk6rWTxMKjrZkOwABbGwUU5Ba09eCQBLiZidqiKiM0IBXgsy90fDXn3AqfroRem9pH54-DqCEd1AYWcsiuE0eKbGwgRxsCCrnumJnNmoRfITUjexZXSxWqxGPrtOK4qZhiuxNtGJYt8QV3zMuIx-yKd2yGXqaqw9s829nVLjttdFqip_Eb53A8KPQSxiKTOpJn5J0Y_HbXZk5BWxedw-TMMKGl2sPbgLSPcUd3mVvHEDKdSgR7_11yUprui1qD4Om-T9h9aTbgMlvTNMxg9rwMRvlQytKve28smWmFlW_0mwf9zwM8xAXLpJXgMCW2wK9yUx4xpfLzHv5sChhoLKPkQyEVHRDBX0h3KpbEdGm8gU8leDdXOnC4ZuiDzOAYFJRUOOj3PKilk60lOKjo56M8wyg-GIwREJxpj8l5T0Qv0Wunt_2aOL8lBnsPpDWlwoImUgfzTKMuYm2rRmfVLV_H-o1K0-nK0qQcJw0F-y2fEIYasazPjQXr_iuOP3-pcgl2FNBgDMq4SbVCQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "Punjabi",
-                    "priceRange": "Mid-range"
-                  }
-                }
-              }
-            ]
-          },
-          "transportation": {
-            "create": {
-              "description": "Taxi or Rickshaw"
-            }
-          }
-        },
-        {
-          "dayNumber": 6,
-          "date": "2025-06-15T00:00:00.000Z",
-          "places": {
-            "create": [
-              {
-                "name": "Jahangir's Tomb",
-                "type": "attraction",
-                "description": "The magnificent mausoleum of Mughal Emperor Jahangir.",
-                "location": "Shahdara Bagh, Lahore",
-                "timeOfDay": "morning",
-                "duration": "1-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSi92Yd7Ruu-nki7bqHy-RlOQ6fQsVwQCPK_a4Zobn1uHg-KOYtrl8Ef6D2o5BMFN-Pd9uGhtniQ5GfmwB_zHPdXUaVTQ1aSGmKGVpG4CTTKy2cuDVV4DAKFwOo0eytdUXMenmgEfbbpPe4T9zeTbESjs999-BkDLeQwhiMMhnWNmYHpEyErspwHVF8CuviD7ln_kTSd9N8kB5bOfgbMQwcHg6sNCfx5kw7jVdjOQYBo48qxdwuUQ62gRJ8TNZNgCnlcdNXPPXlEaOZGQI-JZF0xQ1tr5BaFLjFdptcZYb49eDUFjxCOITx649-UIRuKHP4QV5am8xpxJyN6IMCV8bfIpN66CZkA4fotzAS8ylXL-mSPSTP2HXmniiL7DmqzJgZSMKylGLafjsy2KfJ3iw1FCXT94pbYmyhwzEJV2fc0qemuTudaU-uddQbBITm3pxKd5f7ppwDM6huNY0X3WYcBS0U1n_8QIhNGDtyq75sG4n4nZXZUyi6lIGonDc0oAv904K1TFQ2xXiD5n5eYKdHFruvxXuCSIbEkVK6O9cTOr8YXa3vXjrT0WnHVZ0-VqnbwNkU&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Bhaiya Kababi (DHA)",
-                "type": "restaurant",
-                "description": "Offers a different branch of delicious kebabs and BBQ in DHA.",
-                "location": "DHA, Lahore",
-                "timeOfDay": "afternoon",
-                "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRUKwS2JF4gOns8-JXSyb1kDXhtpPFAeoeDry3OSbZ471RacZpjpAsBWOcchF7DtFClSCtf58ak3uldcgCM3j-jtRKt63vSquHOdyY3U1ujlyuJtuNb_MhzediBKkuxDrWvg-DGxiqn4g8pgd5OfnUACyR5QZ0vZqy7BbH3Ay-tJwVCBnDE3CteK24ggdDv0HEJdTwC3GQ6rySvGaJ3qTLLj9y5mCNhu3IH5dq4XOJh2MT0raDWjC93byMj3HV3sWTL7qEcf4vFfQ2TXcOtQqhNYGGannvYf6XAVoUI8h7YK3R2veRVzwd6XNA11rdlRPasnTFAizsvc5qhM108AeYcf0RQPJww_Nr-pDJH6qCQ2cUjIT1qSqVzGB_c7bUoc1vDAvhH3cLblEYQYej94sBqx3iw-i6tiBBcOwymhiDNbJzEbab37HNWzm-BMS4VeHDAJGoegkJklW88LRUjH6857kHpgt2u-aG5kh1zcI9lEZtQSxg9pNFJWc4gxqP4qZgrJRetw3rRLo7qKW-7NSTetFW1nVTh90OwzWOTw6-tdwvty-ssNoGF3aBEEB0XFlsp7W_2TXaGuQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "restaurant": {
-                  "create": {
-                    "cuisine": "BBQ",
-                    "priceRange": "Budget-friendly"
-                  }
-                }
-              },
-              {
-                "name": "Pakistan Railways Heritage Museum",
-                "type": "attraction",
-                "description": "Explore the history of railways in Pakistan through exhibits of vintage locomotives and artifacts.",
-                "location": "Gol Bagh, Lahore",
-                "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQzTw219V-6KltsPgKaE317t6kGYcnXYmWSgQ1oGr1HKnY7R4pqq8zQhGtdMPDrjnb6IdFPyKM0UMMzogSOMANv8ZjCjilLwP6DgaxD8G4nkuX4SGKXsa7_lVbpw_5KcA6uhre_57-1xbZeDPM2MRNT8yZnsVNRmhheaK8cD23DiOuPc7adBBKqaVgympfSie0S_Ck84rmsb2OKrwbqQzM_m1ZbbQIBMgrk4nul7ZJ1KySIE5ydRnuzwVvcbxLp4M9u6pVxD4HErDM7AXkGV7cDGSReUqiBC93lHNmzNcWfhPW3aVCyA46jGSgGI-zhnNH9Ho-tDm7Dnvkigfq-6p_8Bx0zuh8qc-RD2RgpYwYNj3lcbvM8RIilbr2CV-FSxfV5-N14XdO84pxQI-QEINjXlXI8ecg-9t32DMtiMOhMMATkcVPERcLCb9IpZwlOyLRx5nSCTrzWPLrp0kGvqawNt2wBw0p0Yg6S48_3nQNRd3u6DhTCIGzB9QR3bVWB-jX5ewqBBxTIrpZ0tI6Lno4PuPhcxJ5skbM366X9kCikUvqY1On0dAdMn8Fub7WHO_jJG198dWUoow&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-                "attraction": {
-                  "create": {
-                    "category": "General"
-                  }
-                }
-              },
-              {
-                "name": "Monal Downtown",
-                "type": "restaurant",
-                "description": "Fine dining experience with panoramic city views.",
-                "location": "Liberty Market, Lahore",
+                "description": "Experience traditional Pakistani cuisine in a village-themed setting with live music and cultural performances.",
+                "location": "Zamzama, DHA, Karachi",
                 "timeOfDay": "evening",
                 "duration": "2-2.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRTY0ku2NvmBm7CKzXstz_es3WhmmEvDYijNZZSPib5oiSQQPGoW7t-ccGp7YAbFtTxczISvLdMAsj-JMH8gdA9z9i23l8P6zhqxDS69eAnwaX6GRk5sVJW9ShmGIDjOI_PpoAhfCkCFsDfr17wQ7zFuNxG_yzSpR7cC3Lo7n7XQqfUEIBAPcTxW2CLAwmoM5jyRKGUkEqeAbeYffWqwxZIHI9vEHXN7tUzEPZYiOoeEPn4dIqq8V3TGij_WQeqcpYSOANPCPzPa4RCOF71wrAeC6JBSzogt8G4sfM-4_JgdnqSSasJ-8x4YUsE4Hl3O4BMMyNYOhsPSFCwtbhehJZYAae-yEbZZrKHw1Nnf-wQTAUJQmWrd1GmiP9zc25-prYjrezDT03vdxex9JMCw6vBDSTlJCLl16yu_HYrd8q6CmmRvlxQI4gI1_ttpoOL14ZBjWopyTJB8eUlK9eHW_1ELL9cwRod9Z5XkJSFIm7pveJWkBC5s0FCvE2vbOsc1S9F3you4_EgLVdvcJuv13_jD15bcOq7VNdWiKRrpjncaH6A7ZIalsInlLzRJWnnKVfKDQIN36o_oQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRFUtK_KP3ZMNLkGwmEYDiK2JS_Ucra3BQNVj1nKAk9qLPVazix06vNHLwVVCmTYE5vQXDCf_Bn1a4JBx0RNqjW9FPtRz-WSkCT39ZknILo8HR8HMAeOCChDWcvpwB-dCSZT0xgQ74DBQk3R9RbMuSA8LZ-QNuRrRa-WK3kSBJUwbCx5Xec_9vGdVfasOR2d-Q-GRfQB7sO8ckrTlo3Hi0ZSrz0SLr9nPq2O6GkHAyRn44Xp03HhJnGK3xBxG7zKxDpUjFO3mdrKkEDCI-1qkGSqhdf2kK2fEu96nylaVc4KoprmUTbWxCL0zDkJ5spWBkXye---SC6cBtQr4TsRbmpqXE4g31cLTO1yhEp2UXDoYtQApQOLn3mN-3Y0j75h0ADqHMbtGa3uWCUVKLYmh_TYzOMWgH-SLFV-2D-1KRUXxZN-58qOs8giaC5quwO5ALDPUgHxrsw0bFz8GhFxtLhGkv21tTqfs5Co9I2242kwGEiO4dpigGaYHPsvFpNceTr4HpbDyJB-OGOue0BcwZZMKqsqNelVjcvsz5QUnf3cQm8UMmjtctIinHVDnbdrU2EfB6T&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Continental, Pakistani",
+                    "cuisine": "Pakistani",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Ride-sharing apps or taxis are the best options."
+            }
+          }
+        },
+        {
+          "dayNumber": 3,
+          "date": "2025-05-02T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Frere Hall",
+                "type": "attraction",
+                "description": "Admire the Venetian-Gothic architecture of Frere Hall, browse the art gallery, and relax in the surrounding gardens.",
+                "location": "Fatima Jinnah Road, Karachi",
+                "timeOfDay": "morning",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQaYIlfM6zMZmJeJkhBqs8X3gSIjXmitQyzX0F8x3l8Jp3RRdfh9gUp3I89_Vd8IZd12IiZM9FXCB_HgJmogsPW-FRoRTB6QaD0LtgwVpdNSh40HJsAzx860h7rAIv3TenZb32vMzcL11pNRZlv0L7QE3v_KLe_dBRZ_CFfmB0SedEJquqx67tOusumDewfEHZ9bs_Qfj_sztJlIlKlEIJYuxQKvGbw9syYbNZiOux4gULj0bwVfWYpT7gGUtHV6r03yIdgWEVgGAe4aW4lYzD01BcBE33DEQ1BPQKHvBxZzvNVVwmcTlzVCKJjVY5l3oKdemmsAS8NGjPCTPOlUSbZtQMXD161Monx9YUjeijboigJfqm0HHvJDI0c2NW8J_XZ_iGgOjuJIEgrpRdlSWREX1WeNHkl-hqAGS4ZXrZCEsHBu4an57Ohae-HRZcwkMq4_OkUjwCOWFW-wucpkc6-gqmToOcbxLN06zjabGrJecIb_hRyjZNFH-HDQuphMNc7borIN_bMJYoMGO5AO7w0TxKxUc5jQ2fGljtPtHzMQj1KH2jRLL-ixV_5UgR6elG-Kx24&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Port Grand",
+                "type": "attraction",
+                "description": "Enjoy a variety of entertainment options, shopping, and dining at this waterfront recreational area.",
+                "location": "Native Jetty Bridge, Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQoOs13jKGNOkoRFWe-YUsY44a7hmDiCJRcQZKZIHndzy3P2UKywu_87EJZ-x11N6chHYd4ro7L-vzQeI4lQoRbWHH-mvs-vjXNmrU57ffAV1p8fe0fV8HLEVDJKmnpT8jcFkGygtfsr1yH4_uCGuxV1l6m7DZH-cQmR9OitRPdyfH6jGDt4I47zXOJffphBcqqUOb73bm0L5FoZ_p9DZwfGVTWJIli5T6xB0UPL1_dR7U06Ggss0PFrPYqDDeQFHSzHwEIsMzhYcHVw47ho1-UoPoGLyp3bjJKHSYHGerW6OFOKAVP-oXIY1nniwCC9jBYgBFvF2tEqHmrcyCcgqCBS0uoaIWFdpasOVvwIPDD-KkVENMEX5rR4ZLyEQJX6uynkcTFfPvj_CFnIASc8FglGxbNGEhg0DlK1ntT_3qFUuZjlejCBtuohYHeDF8exSaxXfz6YcNGM933HaAQEeNnlP3x6M0dvLI_6ZDfF24JQ_aaRMju5DfJRhQjL2iRZNMfoJNvzkqhA5sFoYb3ldHzpeZsz-YTcxUZxPi4ZLbAH0PKB-0N0td9vAnM27PwK4UafdthsAbyyg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Ginsoy - Extreme Chinese",
+                "type": "restaurant",
+                "description": "Enjoy a flavorful Chinese lunch at this popular chain.",
+                "location": "Multiple locations in Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSS836OBkzn9-_efg2lnssYiIrCZsvcqsS-8dKg_S8pVHtI4qH_NuS1dQhOXF1ipF_RbDDhy1wwyPaOKsT15AENugkros87mMh5SyN5DwEY4OJUdVNPrzTbkIyxMCirB0nqRjZx66gByIHyFLnOX8O5svjOFFXaMaPKeBTX2KG4ju04nKOQgfXt-4E6OakZPvnpxt6QvkkKPIlLefRwzxq1Uc6w6o6mkhAoueNSo8NoYr7PldP0HmBsVU74PL-WXDemsjl6OOqGV8TnoOdNirKpjRla8tWlnMv3yhLnJ1g8CGU_X_GGTSaws1Kw8FtTDlbZ0yH1hlXL2sU0L3AxIS64rBI5VMFVP67YOnA-yBkjT6mJtnwFa5jJiOVArHKaiOCLqF0O3aF10G9n1eDx6mpUSvH7cTtgoGVT4AXJTUvg-WBptya7bqCA5Ro4KwFltt7zF_TKDg9XqlrAID0nNBG41LkKbq0q799qFfJ-8AXjAuYMip9bfapkMXDRvBMvTTA2_F99q0AJ_tSUUrG1C_gHkzEhiRHDGSzuwogVVCSEAWcJVhP2hVAo48h3TK6M92dHNIig&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Chinese",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              },
+              {
+                "name": "Okra",
+                "type": "restaurant",
+                "description": "Indulge in a fine-dining experience with contemporary European cuisine.",
+                "location": "Zamzama, DHA, Karachi",
+                "timeOfDay": "evening",
+                "duration": "2-2.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQKYV59GxlXagfF5gJIVJjaaN9fuQ7VQafMo6JZLEmcjcVH8sUMzGJ3_BK-ZuMKi_dkm3CTCjMHhH0RNgcyG3Xf56o4U2CtdZGXJMKFvTf-xJsjr6bOCGFoy4APPNcMtl34E1laV151dVdZMKX6rzp8yPggO3ontkTGxzJShH0p-4MEzoxv3juHWCpCb2xSJboZ4UezZJ0nTQ2dwKSssKOxxuuNXe2rNVgu39wgZS6u7lNYhMriYC01hU2Xrp4S_Y9DX22z8PkM3B2U1A0hfhNlNevubfHIpZBOv-FzANRvtT3VDWw&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "European",
                     "priceRange": "High-end"
                   }
                 }
@@ -449,23 +233,23 @@
           },
           "transportation": {
             "create": {
-              "description": "Taxi or Rickshaw"
+              "description": "Ride-sharing apps or taxis are recommended."
             }
           }
         },
         {
-          "dayNumber": 7,
-          "date": "2025-06-16T00:00:00.000Z",
+          "dayNumber": 4,
+          "date": "2025-05-03T00:00:00.000Z",
           "places": {
             "create": [
               {
-                "name": "Lahore Art Council (Alhamra)",
+                "name": "Pakistan Maritime Museum",
                 "type": "attraction",
-                "description": "Explore art galleries, attend a performance, or simply enjoy the architectural beauty of this cultural center.",
-                "location": "Mall Road, G.O.R. I, Lahore",
+                "description": "Explore naval history and see a variety of ships and artifacts.",
+                "location": "Karachi",
                 "timeOfDay": "morning",
                 "duration": "2-3 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTv2yeY5TKXXJ0vxEvscRWbaX0VKRWzpdE_xLdhXTU0jKqgz8Q5wHqSMOQhnGi9PcLIiVGJ-bg-Oyehjon36mH7-F2QWUXted4fp6OQ3vR14h28GM6nY-nP-vqXaF1rkflMBkbwZ_n5bWEYTh69ydDRsncLHBxaIJk4UVKTNoWGFMSUnV1fTeAhumRqdkEDWwMqOpafIN-dDQLGSZ9dq36y4tIDu1DVlzVpCzWlncJessZQyuJ7H5F0WOASlLU2Y9WYmyjEaELu4acbMadUoGpaS-j8eVkPic2sRjUMuiYVJG5SFmI&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ83GJbSuzf8T-_tAAOTeR8dtPhmawgvikvLVEQKV-DWQDQIgm6vtSPZdQ-KnYSqd3ctBR5G9ilwAwuHVYpf8xugnMDfurOibMPvBpwMqd5tFC_WqX9hUFOQ5k8TVnUT_Saic8DWWSsqwSPtDkivTBSIwfKVAgmWEAAtYq37orjVTTxd6yxwswJ1rhdkHkzhOZF5W01OsnhSxoLvbT3fle2YFlDdtX8JuXil5-WF30O8eFLXQQR_2fAXLo0CgWfrx7mDW0hcJQaRFrSOm62ZYEMXtA8ypbFpXO1cUMm3Lmr3Td6vtXKr4O1shv3ev9QP_l-j41jWzU7RP8Y84VqF6QS73n9xx1KThmu9FGxo7Siug9TVgtB3vZmQeAxTocVNkJKk1JUdVOAkxeCp01HB7sG_gEh5Js4-8g1RvdhsmWK4FP8tlN53Qyd5EV5ZGEBLRDNmnT0YQmWUFonnViPB-gRojWYCObPjl3BGRd5sLK0AW8aFPoWGpAOzQQkvCWWOguUtBrIpyVMWLIRDTmKnxidDEl8S53Qg1icLX1rYNbMG0jpgRArqVtvlLXQGx-j2EWIc1WLq2Cv1A&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -473,28 +257,28 @@
                 }
               },
               {
-                "name": "Arcadian Cafe Liberty",
+                "name": "Xander's",
                 "type": "restaurant",
-                "description": "A newer branch of the popular Arcadian Cafe known for salads, sandwiches, and desserts in a pleasant atmosphere. Note that this is a different branch than already visited ones.",
-                "location": "Liberty Market, Lahore",
+                "description": "Modern cafe with a diverse menu and a relaxed atmosphere.",
+                "location": "Karachi",
                 "timeOfDay": "afternoon",
                 "duration": "1-1.5 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSUl172KN-amV6n69x-t6cmfuAu0OXjFbC7gzN07KJ_ORmaifrScKbzjj5d9Uxycjm4YsiUHXPCOY7rDGYhYteonYJP218dc8YYIgQKHTM8nAluoJE4p_ukkVt-J3ChbecCoZO8LlQQSTjd7KI6hnY9HKu6RaLyUKG3ZSOIVVTOYwLD7PPca7A7SY9Ue9O6z-sKKjMcr_XNudMnAVJ8ysIlJm7-Y4aeo1Dn6p5afW0faHa7gfMdv40SckYh1C6eCf_s5jJMQCKCnDfRoUvrrOLi_UPaiGPHEtO6Iw7NzhLyflzESTA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQchFvHiBiLNOG9723deL38sZWFm-A-4ush7azgyT2_4G-Z27ysafbJj90VWWwgUuCHdgRo-t_0I6dBiKbn5LF58bW1w_pfygrGAQmOHXX5u9vURfxUR_8M9hltwrFrTCaDib2-1W6SOtpVgRq5Uq8vERCyzErWjWB2EUGGVX8ZBTKmzP_xOqZTlc6o4TaVytPC97HEUoui_v8w99soS0hWLi7gZh3O-Jny_qbT9o1qmXbuTbD8JOcdesBcDVyWyAjgOh7wnhCuUnKgo59pFsl8bPQ5E1iFf-P07uQUbarkLHqQY4Fh9BlYT8Y8mivaPgSL1LKgiBp3P4QzLJxNK7Gpkwooo15HBXlk_2398HTbydh0lAzNWcwG1-ry1XIgFR__5rv3KPywjUPaRQnKF_MHkjNEsspg3pNlQO8QjlYzmNsIMmq7P7RmqdjwZevLEBs5fil1UA_5GUfRffYiptraChW-r1d1EQpJn6sLqKlSnhm_F7UVC2Du7ARe8fOnJ_TuNtXUD2DDoGgWstIM_soY3YZQCoS665RugkOoax-pw87xe1iqHkGGWQR85R9Zb3VOL7uq&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Continental, Cafe",
+                    "cuisine": "Cafe, Continental",
                     "priceRange": "Mid-range"
                   }
                 }
               },
               {
-                "name": "Avari Hotel Lahore",
+                "name": "Chaukhandi Tombs",
                 "type": "attraction",
-                "description": "Enjoy the beautiful architecture and relax in the hotel's gardens.  You can opt for high tea or simply wander around. It offers a glimpse into Lahore's history and hospitality.",
-                "location": "87 Shahrah-e-Quaid-e-Azam, Lahore",
+                "description": "Unique sandstone tombs with intricate carvings.",
+                "location": "Near Karachi",
                 "timeOfDay": "afternoon",
-                "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQz6shYxxQaG31y4c2NaTc3lp3zkpHcxiE6Zrk2qlZibXlqc5BnsfonHCwa4zNgARl4S_oRzrpUdY0ukGszVqG_bIvnQ16_CYu2X0SK_RI5d8H9kWQFmasoHiSaH7L2HwBDQC3u2pEhD47-cSgbvQEQRVKuE9GIYxXcba3w15JwaUoshDx4wmtaM8xuhf72L2yDO1r6aBNoIWaztkuMIHEYjgIhb97p6yTo-sYFhWuj-8Jq-LA6NxelyZQ2OmYdZ3ln8Lz8TrVEXS9Iv-RcNNmN2gXLJXIGcrHgZMs30WseYrIAy_o&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRgsfgWOSKEBMz50D81HPmx1oFROIHB_QlMkY0uHYx5PhK_wumkj9BhQ9U7sDi_mu5tXalcKqq45jCdpTOKYUHGkprOHSNSDoDv1zDL3CqLPwtwXJZ2ZXWRIOCRGFIt81Wa_M4A24v6nhFBA7RNfdLcTnFdHPSpBPExFpa9PLqBobO0zHlVZr7HfQyp-YYt6QFthBQ2tggA0F3KP7XJ6dfEPaSCVOtbxp7SN4j_i-y8GsTtM4POvAETpaU_ur6E_9UghFx6yppQ0-hRg6n9d0RmNvaSLEVft1jAdmfrlTvzfZl-rH2STuj4lR0kG3aTspFKmS3w2DsAqxlxaraIZIn3BMicaVZdClppcT4xVj53dhd8lNZ9ehHhpktAH3KJ5HGcfUPGXBls5tFJUUQB-kn9mL_2LLsqSvMVOLkKf9S0J4W6MJNTzJnGyScyP1vMeizgr4yj6nG-Bl7QXCX4t-r1RDpRa73gqdGwHCyDWihYaqsYafTBu_HGESxPIRue-a3P3VWv9WkcSnSQZhtWdCmSSH_Wd0iwWJXkNismZolha8EV7wNQ4-8gnodHe-JepZUGdJMh&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "attraction": {
                   "create": {
                     "category": "General"
@@ -502,17 +286,17 @@
                 }
               },
               {
-                "name": "Bamboo Union",
+                "name": "Cafe Aylanto",
                 "type": "restaurant",
-                "description": "Offers Pan-Asian cuisine in a stylish setting. Note that it is a completely different restaurant and location from already visited ones. This location offers an expansive menu including Thai, Chinese and Japanese dishes.",
-                "location": "M.M. Alam Road, Gulberg III, Lahore",
+                "description": "Upscale restaurant known for its Mediterranean and continental cuisine.",
+                "location": "Karachi",
                 "timeOfDay": "evening",
                 "duration": "1.5-2 hours",
-                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQoKAcmZXVIC9B7SmIBVjOXZXgVxvOVoDGLeKKMEzu5mfugupVSAHKETplLhe3RMypJrXZGkQ8tmgP_xwC1RmlxSyOAdiTQ58qYdYH9kLjCjFoO8KhJoe5OFrE23zIZfvzTbFzRwhNSU0ef9ZBxzftXqq8s7mBgeII2SlsVfHNd4wyqAwAPnpzyrVtkbF3ZdFLuYp4lBPjy7KBvdU55bud2XhG-RSgk8ITMfyhi981MMnFo2YhQGTjAdDNPh2K5AhrGsE3eqgSZUfiMVhx2-9Mjhhe3SxGMj2KPB0kEb69wv2fMDKI&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ0-H4oYpgQbmzVUiv6nXFvidiMihXRyZk7Yq15l5J9pTrNWC9iOETSgLLCSiHBzgCfY7f6vFEbZpgZBDdpD8z5vg_lFv093luY-9Y1Q9YqF_nzu2KX6x892FgiuqF-Bl7_lTxajrG1hMWdlm7sC6GRBqVYBPR80HMu_8Dt5sRRnuuTRpiY4XTajWAcIPSYqdLMgfqycKADqqT3ua5rRSFFNbWYH9j24H6vl9xQkN7rTQZDC57y77xgUQWPIntVSZ51zUTH0uPsZlygnewPwa4TTw8pvnFzCsUA0hPYOoBbqPm09UOU1FfCp7Gvu6D5WI5wg08PuQ8XZltdOiaW7mCLKGas4nVePiUyOWUxVj-x1CNXtfgEXIWLi_-7BNhh5GKSLU5nYcH01nspHJ0AKfFf4OZpbcsWEf6KL-2GQwvnd7GcZJkDGz3YeZhtSTvxAwWKtfqoT-5y9zw1ysb7k5rUNz0Tnpygqlcm8DU_cXhjI0SlNVrAtpRf7EQi9Dy-isIR8OeTYpDziC9l9_DfxWlRWEg5DRCQyLFIHJe4PJo7cRQ8SlqDWdMX1GVZ5xoqsCAe757ZIg3sti8jP6TBiWF_RUNBAQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
                 "restaurant": {
                   "create": {
-                    "cuisine": "Pan-Asian",
-                    "priceRange": "Mid-range to High-end"
+                    "cuisine": "Mediterranean, Continental",
+                    "priceRange": "High-end"
                   }
                 }
               }
@@ -520,7 +304,291 @@
           },
           "transportation": {
             "create": {
-              "description": "Ride-hailing services or taxis are readily available.  Consider using the Metrobus for certain routes if convenient."
+              "description": "Hire a car with a driver for the day trip to Chaukhandi Tombs. Ride-hailing apps for within city travel."
+            }
+          }
+        },
+        {
+          "dayNumber": 5,
+          "date": "2025-05-04T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Emporium Mall",
+                "type": "attraction",
+                "description": "Large shopping mall with a variety of international and local brands, entertainment, and dining options.",
+                "location": "Karachi",
+                "timeOfDay": "morning",
+                "duration": "3-4 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQdbKx3-oCCGSVVaqF4F7-NfbimtYQ1T5xp327liCamjghRQB4xzUEBUkQdaEe95idgKZVPpg_PDWU-TbdRzV5Sa3j2viO2137PsQeMZPTTVphoTfM4Qdb9VDYtUKufLQaEdpsdJgtayUu2RGbKLE8kLxf-4q_ZeKvGRJabRYeHWIwM7HyTxwB0w4_jCy5AwE2f-hqkKXFTp5sxS6PL-pslzFn_hK7i096sgOcatuIKOBVDuIcLI8HVj1_S6yuNViOTJFcnHaooU0ynMbJjuoabF39Ei1DDEOm33xDxtgIQxd22omhNR67e7jot0OcrZPoFGl0Z5yRJduWEkmqcAGvx3Da0vkXfnu-Q8JWgkC0bl0v7Ya439c2MRn-SKJaHs4rIjgPWOcfmZauPWij6X1ZLhhx2jlVoj-x6-fJo9ICPLExPpn0UE7i4CUUKfBrIIiaGB0DP-QzmMyNNGl7izM7CgNp_l62vh49iylDOT-0yfG67Bj2rKN-MKYsBfPYomWXwLOLYtOJvnCVxnzrMAL0LHvsOYLEHyOi2fUi2SDoeS4UKp0NBsLkjsQvVR4pTCUfTyfv9tQqT6Q&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "The Deli",
+                "type": "restaurant",
+                "description": "Deli-style eatery serving sandwiches, salads, and other light meals.",
+                "location": "Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTmBC2c1VnuIw0S3PatXGW5EBrSxMwPlKZYFM2cVzWsqBUxbelyYshFkxyaI0Fl397rUGzw-Q_b1VIWm4J0hfCaFw7A6YZOr5xXsWAxEDT8nvFLMIrlNgliHUkyUv0kjLnKe38ZQmoRJCD5MUEVqwQLiHXKOGTuK9stwhpk-fFFbI8jWLoRj1vyegJqFp-hf-PKn99Q1FN65COfP7Jg0jIzfwJBaWOJBE9F8xPTnmkpmcrdTTZSa9Of2yBHKOvnMgNNPGgw_KnUTwjQxNXO90WdPbP1u8CqikcH37Z6OgcwNzp0XYWzKbhWqUXxU9jA2kqsTVt2u7ZFl5rR2ImTFmwh9iMcjgXUGTXAWS4dhnEBdzQET82ugnj7xwlLHPuTU7O3tzj7wGOZ7xI4HZIFMIwnqE-klzwhROozJyJMUfnkSIRknvNI7ViesSv25ApeW2EOLYwAkrwDDv5crC6YTGLFvFOaBShdxGv9qE0wrpskKT70FyxvLwKw_D6eKfSELsEt1gwkMPPUgQ3pxT5Eoa3lual81xZN57zANoK3u_HTv1Hn3l3xN3qV5D2be61D4DmB8fevCsjHew&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Deli, American",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              },
+              {
+                "name": "Bin Qasim Park",
+                "type": "attraction",
+                "description": "Large park with a turtle pond, aviary, and museum. Good for relaxing and enjoying nature.",
+                "location": "Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTPZWmhsDlCvb-XxUSUnCST6-i8Lyu7g7h1igD5jk4hA1iIYFE9CdWOH0cSSDXsYKlzQhstTLrzUfg8ezYi2nkN2uixRiTodZtnKzxThqk7bJPiOyIUA8ZPmuagXd6sIGNGY8qWE87uygvnlvFLBA1Xh5JB4ugoizKlqeXJF2IvEuCBfTlNWmKZ2DBakO-izT0kHLuVji9xDEzLQLdD-epNK1cJqoHU9VtDFPPeT7abG4_BGXmqu5YmZOLTQ2XfH5f1TBB6OxwOHh12sv8aI0vyP8PGyfNIuhckWpyXShQOk93C5HSC7a2vRRHi-xERlPibkBndO4kfkVmvUNaOh-tub9uBzr0yIn__bor3RRAEyWcoLcpFETKbTyg8_LV1Kw-0nvjwpB7RqR5NDlXCi3FxHLpqq6eycaI3UzO4B8QAlF_JZ7mpK7I8bpnWpJ2WLOuh6u9G3sCvhoEvsx25KoiFLFRjlibWd9RZZ24DfN7lPV32pykSYwbhfZGb_SaCBli6aIETbMY3zDCjvkiKKlOggs0PnYEEJwY7ECwyLJQ8RZwblcGrzPsREhf9CFHv_f5K7S6k&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Sakura",
+                "type": "restaurant",
+                "description": "Authentic Japanese restaurant serving sushi, ramen, and other traditional dishes.",
+                "location": "Karachi (at a hotel - specify before going)",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTMAx-kKf_tv-8XnKgGAAQlwNLt2psD7jEFzU-JAVUv2imJsj5tSTbuETqB7tn2wGf5Dg7dogYcYMVeIMRWs7qVlHcdJALOYasHSeaLdebp2RYTOAE0WnXPx2LFX_UmEimFzuM5AkzSA9l-Zauq0JwhrTUHOF9kIH5DgXL-tqCPC0qmKTxSX4O4WRC6Hp4hbgz-B9d7Ok3vPpLerHc82Yo0Jt-5BP3r7gBUbKKgGCW_bA6T9gnhRJ-1ibb1ZVNQPMd6nh73jGe-ucFfD_0F46Gaejk2tYR2DzEiLpTbB-q6-69jiYSdGwXTYDNKGVoL3XDiN6Ola4k9kHkIweeA7W1mDBVAq39Es-sod-j7cKhqNJ6t7cOnH8ghXgUDG8v4hTawLJ3FUX9qpDKTYnlRrq2XjSlQ_0qpauQjxEkQdOrQpMv25V3Bja077Jsy2jhorPZ1X2rdIAbRdmJz2OmAsICAgTGhtQDq3AI9axfP6NpzjC4bcy7iUGil6sGSqL8GamrwpQW11PLuwY5df3GJf1eCNqHct3F8MxW_rw0J2modFJ7BoC6MCltYtOxjCPLg8sa-siBQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Japanese",
+                    "priceRange": "High-end"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Ride-hailing apps or taxis."
+            }
+          }
+        },
+        {
+          "dayNumber": 6,
+          "date": "2025-05-05T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Defense Authority Marina Club",
+                "type": "attraction",
+                "description": "Exclusive club offering water sports, sailing, and dining with sea views.",
+                "location": "Karachi",
+                "timeOfDay": "morning",
+                "duration": "3-4 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRtjs-oOu88fqb1pVKpkHG_CeEY97seqjtnGZfaWYNf-iKpd4jJkFy7L7mXSDoFsqxUWkyjsSC_y4SX81Q5cZPsLSVwNPA9OPcn1KHFmAp2SwugaPaSkIXBAUGI0spfoMp_g0js0A1PSMprV6R3wgPTel-rfv1AqvLsBF02TaC1rLOdJdJTYkfCfMnZFYsBHSjTivarexdGZRLLuTBQ-Lt8hhqGdCJiDRfghVOjBnhU5whXlPUdVXZ1dyIAW6YDvau0w9eSAxQASLRKJaCoM-t3alEI7MH59xoj6pNiut20sa35Q1u0ijkPMV4Cxzf0U7fT7zZ8LxF1TTcOLMI2zwUjy5-odYQx0vooOCqW0hUnrhQcz8vl6hkwadvuByURzpop2ToJSbQv-_bIJRtI02XhEL3hRjdq9Es2lEQVdhcHg9gqeoRyi05T15UPjCeMHK5gjQwRywsDHj-BNrUiFyVVzeXy0Adhv5su49sPcZA8IpEIZLuZCzAgBXX4n_6fMufIVbpWRTdrXiN_AbZAiXW7VvSKusXPsciQ5vFttTOKgCvxiz36Gpts7fSi2-xXDBaekjNk&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Neco's",
+                "type": "restaurant",
+                "description": "Casual dining with a focus on Pakistani and continental dishes.",
+                "location": "Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTpgbuerDpaTa9erPrUPvUB7FmyDHZpc5lFDcrd8l2s_DNNrqh3emF8-RY1lPKNYCRCmk29inFAsjWCD5Vjs62s5MLMtN6i6W3y9LXL_MPdZ5PXUP3N97z62OsB4TZA6KSbjCz_N3-OlTrTSLaqSz9873oj5IEc-zy61KYuF36H1ZBMt3uJdXVSDWl16_VRqqqgoU-WQUJbhLPpA6h6pnpJHyQrLeWvNyzYxxTSG13T3FCzdWIqD0rkz5YBzqYASRuZ0zeb5jShhhbT4g3lbJO3-xexNlb1J_NCZqucJCQHYhstH22udsfmneSBMsZyN47XsMHDsHmzO0mE8FP511OrHT_ExZL-HQrT8BBu8bnMh1KONwlgFLmMhe59lbCZ4eEmGgAK__Qe3sH51sFi7WIKu0k3aXG8WTjDlZ8lYNVVFmpQsRVOiVclG5T-BEzkjscw5RzjcKoeCBrHoJVaz0oQZuszVcR74WqXrkjHRZu2OIRx7ekmcdrTpjS0-8Zc-NEWGEwdzeFzCoFjVRe0XkFcr8onnBkpI3wZlsOFFhIIOhRGGfGg5Lf8uTB8PAMyx_1MeQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Pakistani, Continental",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              },
+              {
+                "name": "Allah Dino Park",
+                "type": "attraction",
+                "description": "Public park with a small amusement park and lake. Good for a relaxed stroll.",
+                "location": "Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ7NXbNV1UXjYBwqqgUjIfBkbZuYCJUbNxUwZMPJstGvPIcUU159jKflpgzDripeEu88kyx3qCbcDhhNLHLvFgtK3kVdQ21oHNXOdVINze0CGvxJGhSUoV78FGnLsbRTPErnKM2KybFJ9DPc792eeBerjpbC5bPXYioMltPhAXMm4bzizOoAdQ4bZwDYC_92fDevrjZxqZxOinhFkF07mPoB8LTEZBkKHpRxXRQtF4LlNgI_nGVrZY_qAxAFjbqjUTW6m_xbQFPcH1bvqFd7AdLPTh25gCfrPPTQ4gh-sgdaCeXXVPpSnaVJQrqMFFxyN9KLYTfiDKA7OrZWQH98BJICQfaRwMooRUvgPGaP0MVJsLjFNMiIFQnVvxjSnu0ze7vY9Mz4h-fP4hLWLS8fe3UVXHG0-_DM_owsdNPF4p1rL9TfscBn4tS8v_8bLtCqYlNlG8jbyeQvwJ_fjCLyub2Ip-SFp5G2bERJcy6Oend-3AlRX1xZp6LcKiGtbI-vLh7-0HbjAY-79hiNWJT2XT9SgOdh9CmERJs4SVI6vf_fVzalFB-Hby5dzbBADirwwaTqg&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Mews",
+                "type": "restaurant",
+                "description": "Modern European and Fusion Cuisine in a contemporary setting.",
+                "location": "Karachi",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQgFO_6RSPJd9IM0Mh4IuzcHdDLmwpOC7MWjtw6xS5VuhkFuZBvaU0joPsABLIbAWvDDv_hjj9M8UHA7MTsr52n6tFFhJfE8QLphcgi7YMyEG1875WPfvty2Lc2ziuAgzG7mxv5Kg1ZntvTGLsx6UNcqvrIQFMmBQSFSpG5DaYTKofuGc-qyIWZyBz5bwPxXCwt-3H32rH2K6OTmPz-0JiNGm6R5cj-n7drd_DqNHtn8xMQ_acSFL7AvJ5kF9PI8nWZLMYZZ6KE8Oxlixed-s2PMDth-ANvo1Sm4eCrfMajfagHvD-hYLfuWNqd9L9QRZ6j5o2PUjr2Qtk6ffYPgdMraApAa2cwF5MQPMqFWxZUskXWOWv6NFu9RkIZfqKG_b1IzFcS8FdYeA-ogfNQv2Ry804B_o9e8C3d50Oh3q_oDh14DT4UlVthKmM80ukzgmt5r7LoJYcBVLsDKVCgvZBs9J9HJWrMfZAG0hIZN2DbN2E55St6zJU11-igxcF-bA6sXhrZb95nBpY-H7cYAlAxAZzcX45eY85N_Lb4KyABBJrFcpdijh95Y5jNsitWcd3ZWA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "European, Fusion",
+                    "priceRange": "High-end"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Ride-hailing apps or taxis."
+            }
+          }
+        },
+        {
+          "dayNumber": 7,
+          "date": "2025-05-06T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Pakistan Air Force Museum",
+                "type": "attraction",
+                "description": "Explore a fascinating collection of aircraft, aviation artifacts, and exhibits showcasing the history of the Pakistan Air Force.",
+                "location": "PAF Base Faisal, Karachi",
+                "timeOfDay": "morning",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQnVKM1kQHXG8Qd-rWmTZl7foNnfC0ltCYYG9X9fEXrVwEeke7gJcOUh9N3NIo-ND2DSy6WaJmPjo3riY9h3lvnm-IMP3_u0lWf185Q-wfVj4qXu21GSUlsE456VxeEqDqB2PhSpvSGuU2uO2jONRaq2yiwD9ypZmnKOVit2RLEN2mLK7NioQpLp-RNAJzZUA1UOyvgkhvsb1t0wQO0ELfA0x83tsslR7cXMqipVnC_LHOEPMS2cgGiOX7HwU7ShnfbP0macO4hdkcbYwWHrFDLZNBZkQH2qq6XlMlA50uVhomH_p7Enpgx8ATuN2bRJJe-KLDFL2BfA84HOw3AR3wMv_RJNsnxb146rXn6QS5P9aL00AA6Mnx_lWSO6073paXnbdEfyai-zv93CjBil22oTOR1Ize79eSxnPoXLLNneZqiUeukRX-ykYu1CuPpZdAhJdcx7AQ3811Jg8rLhc6kT7D3KBlKTKd4dd-g8FCtrJBn7emTwbOZr4t2esf5FokT-0bQSW6MuMK6lJ_iOsmXTO6V_CB46ZAWzK-kG1-Q_BAULz77L0-H9NelbKYUoj8zXA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Tooba Masjid",
+                "type": "attraction",
+                "description": "Admire the stunning architecture of this modern mosque, known for its single, large dome made of pure white marble.",
+                "location": "Phase II, Defence Housing Authority, Karachi",
+                "timeOfDay": "morning",
+                "duration": "1-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQrV21-7orfaDKUuTu0_furLAO_QrvBulHGioDmS75FECWxjl0g_3gk0JC2Xr9Ge52DCtRjM01Wt4bwvT4_T5eEYyLECjJlh3U9YA9A1iocbPvWdlMBrABVPr0rRu6lm8PkN1OjEESdQ8ccuVDiamWIHc7-33rySal4Jy_KsHcqVZlL32luZnbx7SboI0gBCpt0YI91F3VDEn9QoIWF8a-1ZOyTMHoUIWoXRSWxvvkbSohIjeE9qv4KEcc17LrIwnLne-62egrSBcYUD6LC0oUeQkRZHnekbILRNCNdS1uCZ3VheXt3FR5aTGo4fHPH42pEk0vYYb6kxD9SQZEPGcPwwZUDK9INKQaOtIGV3o7oZBPQXA-OAmIAa6F8ZbghwquNSPMzYWn8k3tycg2i97I_fOSdredsFAL5DUn4KXjtiKGOUGxIX4GEmbVbTaWcHruCPJS60sEKfGbNTABeJCmOnNASZS7Dz2yLpgrbIdEQmMf_gPfCAzAz-A7tJBcn9DbTQBIjZA2COvAa0PmX-d1dLOU6f3lCEJjoBfxoEO78HBYpCA69awvJyMuUTNDBcigmGA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Lal Qila Restaurant",
+                "type": "restaurant",
+                "description": "Enjoy traditional Pakistani cuisine in a vibrant setting.",
+                "location": "Main Tariq Road, Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSnXR8MgsorNp6hVaYQNXGkn8P8C85S2AtSfCJOUJ0fguPPpMxSSNIwvXZeKYBPCDfnF7iDz80huhSDCXfv4ir9UFIGxZlnejj16Ak45SR1gkVlGUch5n2KQFwMB08U67ROTnEVmpCSxLjerYBizqF0pk4oZm9GL-cO9ii2DsULvbZwqMGSriHZCUsHkGqQFIgYCKReY_0I4x0vKLzqqtigT26E3cCxUplhkf26N3uDgQuUbBHs2VJf0ulM_j3mQZIfCu9_8Ild4NcVzbMVcYbYqcCHnRi9CqFUw8HksAWNHpY2hAo&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Pakistani",
+                    "priceRange": "Mid-range"
+                  }
+                }
+              },
+              {
+                "name": "Kolachi Do Darya",
+                "type": "restaurant",
+                "description": "Dine by the sea with spectacular views while enjoying delicious seafood and other Pakistani specialties.",
+                "location": "Do Darya, Phase 8, DHA, Karachi",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQeGbk5tjfFcQpHuQ1lL6GVoksHDu0dO-RGgTlQmqzBXY_yVzFqKFd-VP81GxRW677IPrEATQnC3sQURMlvk5n2tdgh-y-R65cmSXRco4JDieT-051phnPfqblr3gJhQoRI3uoOI8VGJbEzxgBzDSaI8OpX3e6EIOH-UMf8wQuJtKbchLYCt35RzxyWbPfhXhw124e98BG1Pz5wgdJdJdFx7RVflFoA9Ss9P9vb8vA2nw9U1lCQVOtiT6SFvLlvGSmHgYKKYYmvKgXfBzBsCeF_hK6SVChs4w9fzbcR8cZ3vAoJTRg3wIPKkwG3S6pu5amdj6ZBwsPZ1rXoG0y6bDk1Xo0ndNPr8uV-cPjMrZFZogMxxFKNkbVbWcOQLq6msMvEDZyCRzCveTaoRUeQWY7_JDlyVsvsCVZg-rEyNF1tpOSpLsOwo_FVb-Njr2NZ54l0bnHBXa15DYhhwzG2kS4-cLZWEVTh5fJ6F4OS_pGleubZHM0x3LuwjgJUAHMfKEMhPv-z0x496JefsGIJsC2SJqlrTQ_KrANS08YyzBInlxHlcPj1l3MTxu5731pgvwsLXQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Seafood, Pakistani",
+                    "priceRange": "High-end"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Ride-hailing services or taxis are recommended."
+            }
+          }
+        },
+        {
+          "dayNumber": 8,
+          "date": "2025-05-07T00:00:00.000Z",
+          "places": {
+            "create": [
+              {
+                "name": "Masjid e Aisha",
+                "type": "attraction",
+                "description": "Visit a beautiful mosque with intricate tile work and peaceful atmosphere. Note appropriate dress code.",
+                "location": "Stadium Road, Karachi",
+                "timeOfDay": "morning",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSgo6XWANtoGpW6PSJf9HTnhx2vn88QTtDd_OpFtAHtS2hJct2vlLZUkxypD6ThGGBtqD1zfWZ3-AwZAdXQclGmm_pmk4IaQCVR-mzFfeuUySjWAxM3j8Yl_CQVEiks8g-Tgq0a7YKeVQkJtyCLJIr7fbmjmhE8w90YLpjZCevGI9cxq5AGYehPH6-21TT3yHvNLFAF4tMLqFPThmovK6znI0aDwLPJSGs053we2MwEXxs1HtBY8OEL8Ahoom3U7qHOGMwTDxsE8BhEBheP60Cp9yoehWkhTRYoei2VcVlPzmt4LrANMdXZtOsE0DlfOTm9dXuPlgl9rwV5esAr6W8Mw6E7nV18OdJ8cRuG-uFFRWAIz_IT0n3F6Yzi7uebjRHmx_CPWM1yErPE3pMvyQCbWK1Os6AQOeS0OI-znCqQDMEuQecDiyOfHtW8M5EbHbacF1xcdVUnQXJPRimzuwvOlXp4RMxilemtzn35UGbTSaJRkEc6bNeC2wcfRpdIVyDDCE_R_DVdipE9NyzGE-qf1hB6gYkYdG40OmboN6qmZNwWcdR-VIE94H53ZPr4X_jo3Q&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Zahid Nihari House",
+                "type": "restaurant",
+                "description": "Savor the flavors of authentic Nihari, a slow-cooked meat stew, at this popular local eatery.",
+                "location": "Burns Road, Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "1-1.5 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRsg_Th7nQtVn-xKg4ITWJ1v5wB1X_a29iPxULPCXm-klQ3fwvC7ZQEMq9zDapfOmvqCHl-Leq_c5buM5u7Id8pHYiy81KAN-AmNVarqIGD3Kp_L7oI_RqeR2de7EftZV43fa7EkjdNZis6zwGUp7XFSrVyJQVYXTncq6xauyMztjK_Z1HYEvBa5cuBVIFYCQUkCZgZ2aoiTEoMZeMlJ31X0ABrSNI2HrMhFu7jTSt82vX56AXzmYUc5aonc_5iP4coW2DrDWYZ9GGxmjk0l3zIpY4gPM6_vbgvQoLs79ue6dcMUYQ&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "Pakistani",
+                    "priceRange": "Budget-friendly"
+                  }
+                }
+              },
+              {
+                "name": "Empress Market",
+                "type": "attraction",
+                "description": "Experience the bustling atmosphere of this historic market, browse through a variety of goods, and soak in the local culture.",
+                "location": "Saddar, Karachi",
+                "timeOfDay": "afternoon",
+                "duration": "2-3 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNTPsaDH0LUdAFjEUw8WopgrJD7oldVlhVevNTL8DpVs1f4v4x_ZR7ipFMGeMPPuOclIe7VvPnIA-y7XKGiwF_gk0oE9q5EsO_KUJUPYj5EkYpG3BF4D3lqb5DyMkUyNrzZ3qPjnfbg2boKWbY7wk1OgnShrpHjj305r4M_ePlPD-fdlCxwok6A1gU4g7_WhabPTZreWnn8GVyVm1tl3_w_JZ1QjncNTdTSl1_aeqlNxKFW5OMktqRLIiDYPX36KHOOAlbDF58nnNR7HZereElyHnRywnPYwWPNL5Qds0p9kNrxyYzq9qhvv5oE4wUUlg2lDYumFAfSyI5nVH_lCz0fhZLHvbpt0lSWqwaobRLVkhmeG8F3liUmatzZicmgDgkNvKQWdebDAx5tfuEPejQMkpik4YRO080yOZW-0aeoCRa5lj9peyJpY816UyUWQhlPhQatZ329tvhxfNvdq_lldcwbEJkdTFxO-aQYE-MGsc4dmLMTyq84QB_nu56hq80KF68fFTV8oKK8FzVY6p76YgLWSNTilB151X4AW86uXbbBAgTrgO3Ujuw-nnQzSVgGXtTJR&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "attraction": {
+                  "create": {
+                    "category": "General"
+                  }
+                }
+              },
+              {
+                "name": "Cafe Flo",
+                "type": "restaurant",
+                "description": "Enjoy a sophisticated dining experience with a menu featuring French and Continental cuisine.",
+                "location": "D8, Block 4, Clifton, Karachi",
+                "timeOfDay": "evening",
+                "duration": "1.5-2 hours",
+                "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNR8QcceDYOQNqxyW930hEiQw1MNwt5q_Htgv60xBS16xwxvrkY4vWHUCUXqvnO58_JmUoOiKcw0kv9eQzp1ljxvKe1v6LVN2-BGDtV4xNrhDGdsW15AzMa1YUCndEVRyzBZOiQK_VAi0Cd5TxeFlVVqLvH0wmQt-SsURPiW_lPZ2RuTkYGmomfjF_cM1Q4XhwENEGHFes6krkCXmh92joEXIZUZ541aQlr0EbX62vt_VCZe67j7LiuA0FC1MNg8KAt9y-pEMpmmnMzfOYi11dfFO54P5XndwlAaqoYZ-NtRTWokGzivtRgBx4Ip-MqrK7uCgk0RXklWBH9lRjERUGIiAEwkRLSuB-buFf1oc_o-1m6tlDHeSLYVcS6o1avmlLtLd4rtzhBLtclBvGrd_Dlmih7KH3NCvvKMDw30PTS_yoij_O7K5EMcJoLDsrom4edWLF-lw7L622_DxogYScQClWR75PGXyOm5eLgFJsk4EeiI3Po7Dx3OHnZc86tDs1UJO9WPmnLCfnyrjDt3jAnu_DwOTcRJKI3spezybc_B7wFRKcx2_uIKxBF-PgmLhggWxA&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+                "restaurant": {
+                  "create": {
+                    "cuisine": "French, Continental",
+                    "priceRange": "High-end"
+                  }
+                }
+              }
+            ]
+          },
+          "transportation": {
+            "create": {
+              "description": "Ride-hailing services or taxis are readily available."
             }
           }
         }
@@ -529,104 +597,107 @@
     "accommodations": {
       "create": [
         {
-          "name": "Nishat Hotel Johar Town",
+          "name": "Movenpick Hotel Karachi",
           "type": "Luxury",
           "rating": 4.5,
-          "pricePerNight": 15000,
-          "description": "A luxurious hotel experience with top-notch amenities and service. Close to Emporium Mall for shopping and dining.",
-          "bookingUrl": "https://www.nishathotels.com/johar-town/",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSUmzh5UwoZZACX-rA73Ratc5BnwNYY7MD0FqtSPjzEPScEU3nDK-0K5C1vVDxLRyKC3QdNeqxo5qJXcoP_A_iTcJSBZN-hUkU2UaIvPDDFdhiJEYcb2A5tfvFPYOtcvue6ydCcd-geXoHAYoSE7adXUnJG-OhjvmCNmib34IYAl_tyWEgxqRo3E8pV3wcmIwTMGLHpzbSZo9H-WVZ8xIdaeONQM0dSmTmW8GIEMt9TqkoKAyNPaUD5N2MxFTsmdWxteen0WbEXZ6YuhmBo_-5g3tzChh6yfep2CLBbjL4V8-Q6sds&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "pricePerNight": 4000,
+          "description": "A luxurious 5-star hotel offering panoramic city views, multiple dining options including international cuisine, and a rooftop pool.  Its location provides easy access to cultural attractions.",
+          "bookingUrl": "https://www.movenpick.com/en/asia/pakistan/karachi/hotel-karachi/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRMqGw1k2pDSXCarl161ByHs0MNAoMaHiifbJchGsxCeHgtxbWOe1-KxVELOS3lXpYOHPqV89vI5BR8CSfDrZbDHlwVYyg4fEVsXD45c5H8EiXaUIklyz0i97eORN2ev0Nw9T3VMF7lVcA84ffUwxYgSTpI5cMJjNqKQqEFTN0PbVonKCrjSUDA__WX1buvdSskjDpskcUkSuQDQavuFr7AvYMMnTRiwppWa2rTYSz72A2C_89Af7CeXXpq665sHdjF6JVfk4YOrheD0BjrDjvkKJ_LMjTqTW0FYDWhRkkIFPHKnHY&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
                 "name": "Swimming pool"
               },
               {
+                "name": "Fitness center"
+              },
+              {
                 "name": "Spa"
+              },
+              {
+                "name": "Multiple restaurants"
+              },
+              {
+                "name": "Free Wi-Fi"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Avari Towers Karachi",
+          "type": "Mid-range",
+          "rating": 4.2,
+          "pricePerNight": 2000,
+          "description": "A well-regarded hotel with comfortable rooms, a variety of dining options, and a central location making it easy to explore Karachi's cultural sites.",
+          "bookingUrl": "https://www.avari.com/towers-karachi/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQVGSRox5NOWm6tAEGm7Gy09L0hUtIs5LXez2_Ac2zC4ORzMRuNCc21HKUMx5LRYk9SCxfOMDa7BZsssAHa-a-8ZlZZ1Ax2Db2M5M2IgX9w7DjueuZkecazWljDexoh5sM0I4eWLiRO_GUXQixePzHRCuINH-ihx4aWZF5gzT_DLnKkwqA760cTX9Hdq4zivcq_QKIjK1GCZOTYneEcEsvYBk2zUBQ8w3wFOtVFCdiDArqHlhuQV9GxE3votwdrw0PT1Ib3dmKad2UPSNi6-eChXYvKJNK_6plypqhdkT801Bdne1dWpfcinA24eO5gzszmIGQSmREsUWW4GJtrhhB6VZt6a8r41FKKo22y8Mny4K0icwKX23c6F3bmV49PTYUICfzTT15ixBTsT3YJH-C1TeJNAz-mbl8SlRd2Oa-jnDGgcukjC2uEUWUu3xQcVyA8x6m3cFXv9w6skO-5QIbTVSMuy2K9J3wZUhgH0oCzXA2B5mqbXi0JN-1R2GOHszF7JWzHR7wyaA8PlK8IX3QNQc_NtnvcXSw5oC68mZexo-nRloeSKdscQx_9-eW9zT2qPLB13PrXow&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "amenities": {
+            "create": [
+              {
+                "name": "Swimming pool"
               },
               {
                 "name": "Fitness center"
               },
               {
-                "name": "Multiple dining options"
+                "name": "Restaurants"
               },
               {
-                "name": "Room service"
+                "name": "Free Wi-Fi"
+              },
+              {
+                "name": "Business center"
               }
             ]
           }
         },
         {
-          "name": "Park Lane Hotel Lahore",
-          "type": "Mid-range",
-          "rating": 4.2,
-          "pricePerNight": 7000,
-          "description": "A comfortable and well-reviewed hotel offering a balance of affordability and quality. Centrally located for easy access to attractions.",
-          "bookingUrl": "https://www.parklane.com.pk/",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSbeibCg4rewrDrS8J4Uch1bEedGtYsnBgNsvb9CIzUtxxeS9rJxalWChpWXjoMX7eQOnBy_XP_hciR1mpIZ_T_0zKIfYg6lhHBYGyJgI63Q07w0_f3nGrYlUftzV6dfxJLzWuPRF7Kmoe6NQUiZ1VnpRxW5HFNWXxps7ZCx1buDYVLgT3shoofER-1nY5KNVXZnc6e1tue3B6iSQbD9-cqbKdXUQVpbnQBtXXGJ-u6xDVFE5cyNb1udof-npm-7O879hyb8Gvkv7xLmppNQwciywm0EmaHrzyrh-4x5AaNEC8NypM&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "name": "Beach Luxury Hotel",
+          "type": "Budget-friendly",
+          "rating": 3.8,
+          "pricePerNight": 800,
+          "description": "A beachfront hotel offering decent accommodations at an affordable price.  Its location provides a relaxing atmosphere and easy access to Clifton Beach and local seafood restaurants.",
+          "bookingUrl": "https://www.beachluxuryhotel.com/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNQ4uve_Fyer9V1pyE6D_AdkqAlF91TpGm310G6kzr7dfBRpHSvca3oOS7fD_rvl6ZoBJD9_4ZsyFkop-mymhQdI2a2-T7n6Ccd_ZpoesVWSTpxKgBGsni8XWQZKIF5FaVCzEMbOWty75XhVdXLNK8rmebMvgpxzNngqS4OvDuP9dlRQlAzBwE4c-BcLMcInmrSYVLLwd84xLpx1n6p5JUjJrNGKepuHC0d3Rhu2T3St32sPp_I5PWpCF8FxeD_shaVQ52OPElIYdOxRN7xdEACy95dbjNosFvjFUKMcdZ7PHiwp4dE&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
-                "name": "Free Wi-Fi"
+                "name": "Beach access"
               },
               {
                 "name": "Restaurant"
               },
               {
-                "name": "24-hour front desk"
-              },
-              {
-                "name": "Room service"
-              }
-            ]
-          }
-        },
-        {
-          "name": "Hotel One Liberty Market",
-          "type": "Budget-friendly",
-          "rating": 3.8,
-          "pricePerNight": 4000,
-          "description": "A budget-friendly option providing good value for money. Located near Liberty Market for shopping and street food exploration.",
-          "bookingUrl": "https://hotelone.com.pk/lahore-liberty/",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRrNhFIC_r62VNYnIQCF8c0SLUPXwGXKIvrDEat9Yc2g2RScZMbbOQp4C18LFHUgN4rsUvt94nZpBSW3cQ0qfnC-RKgBco8bES7J3MVlOzkgtEehgYs2O1h0nkz_HY6QIuRSDQUFGvZRrc869VFyY7Ffm-o3VAU63lgVWfgbCsEIQPHGtb6xhdKfkDzC9KfT6fQH4f-LQt0Bejk6wdbCjuUrNLWkB643G77wBywlLNvpSwQdIiT0RT5FTb1sXycRe5oW4-Kg_wVMdmOSV75OEng3SErjE2JRvCui8GH6lIV2k0wyx8&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
-          "amenities": {
-            "create": [
-              {
                 "name": "Free Wi-Fi"
-              },
-              {
-                "name": "Air conditioning"
-              },
-              {
-                "name": "Breakfast"
-              },
-              {
-                "name": "24-hour front desk"
               }
             ]
           }
         },
         {
-          "name": "Haveli Barood Khana",
+          "name": "The Second Floor (T2F)",
           "type": "Unique/Boutique",
           "rating": 4,
-          "pricePerNight": 6000,
-          "description": "A beautifully restored traditional haveli offering a unique cultural experience. Located in the heart of the walled city, close to historical sites.",
-          "bookingUrl": "https://www.havelibaroodkhana.com/",
-          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNSd4MI4RJYVlAN56Bn4uk2Sk6bKbkAjBri5EXRSrUyUCml3MUjt1V3txyEXI8ItZ7pXQrLISTaNTgeVHobAue1n_4Op4RUWK8A0ltBNSUEu68JwlXjP4u4ZQ1oLyx0twYbLjDeUXInZpulzgKesMuJ13OJ5KawuDxenNwV9-e9OXpw3gfv5BzhrYsrmYy9JugRzcE7o7KWIDgKORVqS677XmluGFs4H501zEnZGzPyfXToc_VvBKIEkwhFxER9VF5uJh8en4HeORIK8rgMZG_rIM7XYsUoLBbZfZsX3bdkGHxiChFRuI2c_sXboVGUmw0A3WG3dJE0W5jSPnE1o-MnmYX4xeBjTQAC2EIr3AzKKrqBm2JaxAsNgBFdBt-1rxtBcyfCX5HpetV7tng8sphqH4Tob593ThITeduLS1HDjTqSZLizf9jyqEH9uK1GQdIUPPBsJnqcrJch_ILMbSMaCRT48KJsLohGPCqRmgxJY53LH6WDUAQ_HGj886GZ-VBQGSs7-Ta8fOI0SQ1z9Kko4-3j9GT7Kpop0ACcO0m8LYyhHIa9V8nQuDLilE9ehRW7tPTwr&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
+          "pricePerNight": 500,
+          "description": "Not a traditional hotel, but a unique cultural space and guesthouse offering a truly local experience.  It hosts art exhibitions, talks, and performances, providing a glimpse into Karachi's vibrant arts scene. This caters specifically to culturally inclined travelers.",
+          "bookingUrl": "https://t2f.org/",
+          "image": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=AXQCQNRGjBbtVHyMxf6er1arzzFZllnBYBRArwCatNuV6cImmzjIZYJrIw2XDYg3aApe9sZCS0JBBNMSc21_Ak62wC--Xno5lDh3CYE5G7myu8P5kFAy-Ki--6RHpAAdeDjJCBee6Bn3kUTGhc-Kljt-FGXm9Nre8c_yrJXLfs_V7qy_fwkLAAP1frCBvV4Dclsif_HYz4zrqVf6MkR4jiL6VdZM2ZzVWd2EEPGq65HViPZSe7Ew4d-Brvh0Pgy9xO8XwaSvc8PU0Hch-1IvgMuquW-jXDG-TkYBCbMNLSOwAVz2nGWHf1A&key=AIzaSyC78gkQMNzUvib2zk1UfHi9j3OPGajko-Y",
           "amenities": {
             "create": [
               {
-                "name": "Rooftop terrace"
+                "name": "Art gallery"
               },
               {
-                "name": "Traditional decor"
+                "name": "Cafe"
               },
               {
-                "name": "Cultural performances"
+                "name": "Performance space"
               },
               {
-                "name": "Guided tours"
+                "name": "Library"
+              },
+              {
+                "name": "Free Wi-Fi"
               }
             ]
           }
