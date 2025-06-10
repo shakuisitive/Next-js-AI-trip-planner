@@ -30,13 +30,20 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Search, LogOut } from "lucide-react";
-import { getSessions, deleteSession } from "@/actions";
+import { Search, LogOut, ArrowUpDown } from "lucide-react";
+import { getSessions, deleteSession, updateSessionExpires } from "@/actions";
+import { toast } from "sonner";
+
+type SortField = "userName" | "sessionToken" | "status" | "createdAt" | "expires";
+type SortOrder = "asc" | "desc";
 
 export default function SessionsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sessions, setSessions] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [editingExpires, setEditingExpires] = useState<string | null>(null);
+  const [sortField, setSortField] = useState<SortField>("createdAt");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
 
   useEffect(() => {
     const fetchSessions = async () => {
@@ -58,9 +65,12 @@ export default function SessionsPage() {
 
   const filteredSessions = sessions.filter(
     (session) =>
-      (session.user?.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (session.user?.email || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (session.ipAddress || "").includes(searchTerm)
+      (session.user?.name || "")
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()) ||
+      (session.user?.email || "")
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
   );
 
   const handleTerminateSession = async (sessionId: string) => {
@@ -77,8 +87,26 @@ export default function SessionsPage() {
     }
   };
 
-  const isExpired = (expiresDate: string) => {
-    return new Date(expiresDate) < new Date();
+  const handleUpdateExpires = async (sessionId: string, newExpires: string) => {
+    try {
+      const result = await updateSessionExpires(
+        sessionId,
+        new Date(newExpires)
+      );
+      if (result.success) {
+        setSessions((prev) =>
+          prev.map((s) =>
+            s.id === sessionId ? { ...s, expires: newExpires } : s
+          )
+        );
+        setEditingExpires(null);
+      } else {
+        alert("Failed to update expires date");
+      }
+    } catch (error) {
+      console.error("Error updating expires date:", error);
+      alert("Error updating expires date");
+    }
   };
 
   const formatDate = (dateString: string) => {
@@ -91,12 +119,56 @@ export default function SessionsPage() {
     const hoursUntilExpiry =
       (expires.getTime() - now.getTime()) / (1000 * 60 * 60);
 
-    if (expires < now)
+    if (expires < now) {
       return { status: "Expired", variant: "destructive" as const };
-    if (hoursUntilExpiry < 24)
+    }
+    if (hoursUntilExpiry <= 24) {
       return { status: "Expiring Soon", variant: "secondary" as const };
+    }
     return { status: "Active", variant: "default" as const };
   };
+
+  const formatExpiresForInput = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().slice(0, 16);
+  };
+
+  const handleSort = (field: SortField) => {
+    if (field === sortField) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortOrder("asc");
+    }
+  };
+
+  const sortedSessions = [...filteredSessions].sort((a, b) => {
+    let comparison = 0;
+
+    switch (sortField) {
+      case "userName":
+        const nameA = a.user?.name || "";
+        const nameB = b.user?.name || "";
+        comparison = nameA.localeCompare(nameB);
+        break;
+      case "sessionToken":
+        comparison = a.sessionToken.localeCompare(b.sessionToken);
+        break;
+      case "status":
+        const statusA = getSessionStatus(a.expires).status;
+        const statusB = getSessionStatus(b.expires).status;
+        comparison = statusA.localeCompare(statusB);
+        break;
+      case "createdAt":
+        comparison = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+        break;
+      case "expires":
+        comparison = new Date(a.expires).getTime() - new Date(b.expires).getTime();
+        break;
+    }
+
+    return sortOrder === "asc" ? comparison : -comparison;
+  });
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -132,19 +204,61 @@ export default function SessionsPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>User</TableHead>
-                <TableHead>Session Token</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Created</TableHead>
-                <TableHead>Last Activity</TableHead>
-                <TableHead>Expires</TableHead>
-                <TableHead>IP Address</TableHead>
-                <TableHead>Browser</TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("userName")}
+                    className="flex items-center gap-1"
+                  >
+                    User
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("sessionToken")}
+                    className="flex items-center gap-1"
+                  >
+                    Session Token
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("status")}
+                    className="flex items-center gap-1"
+                  >
+                    Status
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("createdAt")}
+                    className="flex items-center gap-1"
+                  >
+                    Created
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleSort("expires")}
+                    className="flex items-center gap-1"
+                  >
+                    Expires
+                    <ArrowUpDown className="h-4 w-4" />
+                  </Button>
+                </TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredSessions.map((session) => {
+              {sortedSessions.map((session) => {
                 const sessionStatus = getSessionStatus(session.expires);
                 return (
                   <TableRow key={session.id}>
@@ -162,62 +276,80 @@ export default function SessionsPage() {
                       </code>
                     </TableCell>
                     <TableCell>
-                      <Badge variant={sessionStatus.variant}>
+                      <Badge variant={sessionStatus.variant}
+                       className={sessionStatus.status === "Active" ? "bg-green-500 text-white hover:bg-green-600" : ""}>
                         {sessionStatus.status}
                       </Badge>
                     </TableCell>
                     <TableCell>{formatDate(session.createdAt)}</TableCell>
-                    <TableCell>{formatDate(session.lastActivity || session.updatedAt || session.createdAt)}</TableCell>
                     <TableCell>
-                      <div
-                        className={
-                          isExpired(session.expires) ? "text-red-600" : ""
-                        }
-                      >
-                        {formatDate(session.expires)}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <code className="text-xs">{session.ipAddress || "-"}</code>
-                    </TableCell>
-                    <TableCell className="text-sm">
-                      {session.userAgent || "-"}
+                      {editingExpires === session.id ? (
+                        <div className="flex items-center space-x-2">
+                          <Input
+                            type="datetime-local"
+                            defaultValue={formatExpiresForInput(
+                                session.expires
+                            )}
+                            onChange={(e) => {
+                              if (e.target.value) {
+                                handleUpdateExpires(
+                                  session.id,
+                                  new Date(e.target.value).toISOString()
+                                );
+                              }
+                            }}
+                            className="w-48"
+                          />
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setEditingExpires(null)}
+                          >
+                            Cancel
+                          </Button>
+                        </div>
+                      ) : (
+                        <div
+                          className={`cursor-pointer hover:underline ${sessionStatus.status === "Expired" ? "text-red-600" : ""}`}
+                          onClick={() => setEditingExpires(session.id)}
+                        >
+                          {formatDate(session.expires)}
+                        </div>
+                      )}
                     </TableCell>
                     <TableCell className="text-right">
-                      {!isExpired(session.expires) && (
-                        <AlertDialog>
-                          <AlertDialogTrigger asChild>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="text-red-600 hover:text-red-700"
+                      <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-red-600 hover:text-red-700"
+                          >
+                            <LogOut className="h-4 w-4 mr-2" />
+                            Terminate
+                          </Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                          <AlertDialogHeader>
+                            <AlertDialogTitle>
+                              Terminate Session
+                            </AlertDialogTitle>
+                            <AlertDialogDescription>
+                              Are you sure you want to terminate this session?
+                              This will log out {session.user?.name || "this user"} immediately.
+                            </AlertDialogDescription>
+                          </AlertDialogHeader>
+                          <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction
+                              onClick={() => handleTerminateSession(session.id)}
+                              className="bg-red-600 hover:bg-red-700"
                             >
-                              <LogOut className="h-4 w-4 mr-2" />
-                              Terminate
-                            </Button>
-                          </AlertDialogTrigger>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>
-                                Terminate Session
-                              </AlertDialogTitle>
-                              <AlertDialogDescription>
-                                Are you sure you want to terminate this session?
-                                This will log out {session.user?.name || "this user"} immediately.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction
-                                onClick={() => handleTerminateSession(session.id)}
-                                className="bg-red-600 hover:bg-red-700"
-                              >
-                                Terminate Session
-                              </AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                      )}
+                              Terminate Session
+                            </AlertDialogAction>
+                          </AlertDialogFooter>
+                        </AlertDialogContent>
+                      </AlertDialog>
                     </TableCell>
                   </TableRow>
                 );

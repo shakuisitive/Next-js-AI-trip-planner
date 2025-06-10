@@ -986,3 +986,16 @@ export async function deleteSession(sessionId: string) {
     return { success: false, error: "Failed to delete session" };
   }
 }
+
+export async function updateSessionExpires(sessionId: string, expires: Date) {
+  try {
+    await prisma.session.update({
+      where: { id: sessionId },
+      data: { expires },
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating session expires:", error);
+    return { success: false, error: "Failed to update session expires" };
+  }
+}
