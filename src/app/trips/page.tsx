@@ -65,7 +65,7 @@ async function AllTrips() {
                 <div className="p-3 bg-white/20 rounded-xl">
                   <Plane className="w-8 h-8" />
                 </div>
-                <h1 className="text-4xl font-bold">Your Trips</h1>
+                <h1 className="text-4xl font-bold mt-10">Your Trips</h1>
               </div>
               <p className="text-lg text-white/90 max-w-2xl">
                 Explore all your planned adventures. Click on any trip to view

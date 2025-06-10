@@ -15,7 +15,7 @@ export async function POST(request: Request) {
 
     // Find user by email
     const user = await prisma.user.findUnique({
-      where: { email },
+      where: { email, status: true },
     });
 
     console.log(await prisma.trip.findMany({}));

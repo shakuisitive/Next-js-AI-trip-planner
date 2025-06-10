@@ -54,6 +54,7 @@ export async function GET(
     const trip = await prisma.trip.findUnique({
       where: {
         id: params.tripId,
+        status: true,
       },
       include: {
         preferences: true,

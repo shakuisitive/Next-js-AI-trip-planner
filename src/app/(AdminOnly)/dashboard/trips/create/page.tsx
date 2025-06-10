@@ -70,7 +70,9 @@ export default function TripCreatePage() {
   const [selectedUserId, setSelectedUserId] = useState<string>("");
   const [destination, setDestination] = useState("");
   const [tourName, setTourName] = useState("");
-  const [tourStatus, setTourStatus] = useState<"Pending Approval" | "Scheduled" | "Completed">("Pending Approval");
+  const [tourStatus, setTourStatus] = useState<
+    "Pending Approval" | "Scheduled" | "Completed"
+  >("Pending Approval");
   const [showCalendar, setShowCalendar] = useState(false);
   const [dateRange, setDateRange] = useState([
     {
@@ -116,13 +118,17 @@ export default function TripCreatePage() {
     if (dateRange[0].startDate.getTime() === dateRange[0].endDate.getTime()) {
       return "Select dates";
     }
-    return `${formatDate(dateRange[0].startDate)} - ${formatDate(dateRange[0].endDate)}`;
+    return `${formatDate(dateRange[0].startDate)} - ${formatDate(
+      dateRange[0].endDate
+    )}`;
   };
 
   const handleAddDay = () => {
     const newDay: Day = {
       dayNumber: days.length + 1,
-      date: new Date(dateRange[0].startDate.getTime() + days.length * 24 * 60 * 60 * 1000),
+      date: new Date(
+        dateRange[0].startDate.getTime() + days.length * 24 * 60 * 60 * 1000
+      ),
       places: [],
       transportation: "",
     };
@@ -180,7 +186,7 @@ export default function TripCreatePage() {
           pace,
           interests,
           plan: {
-            days: days.map(day => ({
+            days: days.map((day) => ({
               day: day.dayNumber,
               places: day.places,
               transportation: day.transportation,
@@ -196,7 +202,6 @@ export default function TripCreatePage() {
 
       const data = await response.json();
       toast.success("Trip created successfully");
-      router.push(`/dashboard/trips/${data.tripId}`);
     } catch (error) {
       toast.error("Failed to create trip");
       console.error(error);
@@ -205,7 +210,8 @@ export default function TripCreatePage() {
     }
   };
 
-  if (loadError) return <div>Error loading Google Maps. Please refresh the page.</div>;
+  if (loadError)
+    return <div>Error loading Google Maps. Please refresh the page.</div>;
   if (!isLoaded) return <div>Loading...</div>;
 
   return (
@@ -213,9 +219,7 @@ export default function TripCreatePage() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold">Create Trip</h1>
-          <p className="text-muted-foreground">
-            Create a new trip package
-          </p>
+          <p className="text-muted-foreground">Create a new trip package</p>
         </div>
       </div>
 
@@ -223,13 +227,18 @@ export default function TripCreatePage() {
         <Card>
           <CardHeader>
             <CardTitle>Basic Information</CardTitle>
-            <CardDescription>Enter the basic information for the trip</CardDescription>
+            <CardDescription>
+              Enter the basic information for the trip
+            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-2">User</label>
-                <Select value={selectedUserId} onValueChange={setSelectedUserId}>
+                <Select
+                  value={selectedUserId}
+                  onValueChange={setSelectedUserId}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select a user" />
                   </SelectTrigger>
@@ -244,7 +253,9 @@ export default function TripCreatePage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Tour Name</label>
+                <label className="block text-sm font-medium mb-2">
+                  Tour Name
+                </label>
                 <Input
                   value={tourName}
                   onChange={(e) => setTourName(e.target.value)}
@@ -253,7 +264,9 @@ export default function TripCreatePage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Destination</label>
+                <label className="block text-sm font-medium mb-2">
+                  Destination
+                </label>
                 <Autocomplete
                   onLoad={(autocomplete) => {
                     autocomplete.addListener("place_changed", () => {
@@ -273,13 +286,22 @@ export default function TripCreatePage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Tour Status</label>
-                <Select value={tourStatus} onValueChange={(value: "Pending Approval" | "Scheduled" | "Completed") => setTourStatus(value)}>
+                <label className="block text-sm font-medium mb-2">
+                  Tour Status
+                </label>
+                <Select
+                  value={tourStatus}
+                  onValueChange={(
+                    value: "Pending Approval" | "Scheduled" | "Completed"
+                  ) => setTourStatus(value)}
+                >
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Pending Approval">Pending Approval</SelectItem>
+                    <SelectItem value="Pending Approval">
+                      Pending Approval
+                    </SelectItem>
                     <SelectItem value="Scheduled">Scheduled</SelectItem>
                     <SelectItem value="Completed">Completed</SelectItem>
                   </SelectContent>
@@ -311,7 +333,9 @@ export default function TripCreatePage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Budget Range</label>
+                <label className="block text-sm font-medium mb-2">
+                  Budget Range
+                </label>
                 <div className="p-4">
                   <Range
                     values={budget}
@@ -368,12 +392,16 @@ export default function TripCreatePage() {
         <Card>
           <CardHeader>
             <CardTitle>Preferences</CardTitle>
-            <CardDescription>Set trip preferences and interests</CardDescription>
+            <CardDescription>
+              Set trip preferences and interests
+            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Group Type</label>
+                <label className="block text-sm font-medium mb-2">
+                  Group Type
+                </label>
                 <Select value={groupType} onValueChange={setGroupType}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select group type" />
@@ -389,7 +417,9 @@ export default function TripCreatePage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Travel Style</label>
+                <label className="block text-sm font-medium mb-2">
+                  Travel Style
+                </label>
                 <Select value={travelStyle} onValueChange={setTravelStyle}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select travel style" />
@@ -406,7 +436,9 @@ export default function TripCreatePage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Travel Pace</label>
+                <label className="block text-sm font-medium mb-2">
+                  Travel Pace
+                </label>
                 <Select value={pace} onValueChange={setPace}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select pace" />
@@ -421,7 +453,9 @@ export default function TripCreatePage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Interests</label>
+              <label className="block text-sm font-medium mb-2">
+                Interests
+              </label>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
                   { id: "shopping", label: "Shopping" },
@@ -443,12 +477,16 @@ export default function TripCreatePage() {
                         if (e.target.checked) {
                           setInterests([...interests, interest.id]);
                         } else {
-                          setInterests(interests.filter((i) => i !== interest.id));
+                          setInterests(
+                            interests.filter((i) => i !== interest.id)
+                          );
                         }
                       }}
                       className="w-4 h-4 text-[#4A0E78] border-gray-300 rounded focus:ring-[#4A0E78] focus:ring-2"
                     />
-                    <span className="text-sm text-gray-700">{interest.label}</span>
+                    <span className="text-sm text-gray-700">
+                      {interest.label}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -481,12 +519,15 @@ export default function TripCreatePage() {
                   <div key={placeIndex} className="border rounded-lg p-4 mb-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium mb-2">Name</label>
+                        <label className="block text-sm font-medium mb-2">
+                          Name
+                        </label>
                         <Input
                           value={place.name}
                           onChange={(e) => {
                             const updatedDays = [...days];
-                            updatedDays[dayIndex].places[placeIndex].name = e.target.value;
+                            updatedDays[dayIndex].places[placeIndex].name =
+                              e.target.value;
                             setDays(updatedDays);
                           }}
                           placeholder="Place name"
@@ -494,12 +535,17 @@ export default function TripCreatePage() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-2">Type</label>
+                        <label className="block text-sm font-medium mb-2">
+                          Type
+                        </label>
                         <Select
                           value={place.type}
-                          onValueChange={(value: "attraction" | "restaurant") => {
+                          onValueChange={(
+                            value: "attraction" | "restaurant"
+                          ) => {
                             const updatedDays = [...days];
-                            updatedDays[dayIndex].places[placeIndex].type = value;
+                            updatedDays[dayIndex].places[placeIndex].type =
+                              value;
                             setDays(updatedDays);
                           }}
                         >
@@ -507,19 +553,27 @@ export default function TripCreatePage() {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="attraction">Attraction</SelectItem>
-                            <SelectItem value="restaurant">Restaurant</SelectItem>
+                            <SelectItem value="attraction">
+                              Attraction
+                            </SelectItem>
+                            <SelectItem value="restaurant">
+                              Restaurant
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-2">Description</label>
+                        <label className="block text-sm font-medium mb-2">
+                          Description
+                        </label>
                         <Input
                           value={place.description}
                           onChange={(e) => {
                             const updatedDays = [...days];
-                            updatedDays[dayIndex].places[placeIndex].description = e.target.value;
+                            updatedDays[dayIndex].places[
+                              placeIndex
+                            ].description = e.target.value;
                             setDays(updatedDays);
                           }}
                           placeholder="Description"
@@ -527,12 +581,15 @@ export default function TripCreatePage() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-2">Location</label>
+                        <label className="block text-sm font-medium mb-2">
+                          Location
+                        </label>
                         <Input
                           value={place.location}
                           onChange={(e) => {
                             const updatedDays = [...days];
-                            updatedDays[dayIndex].places[placeIndex].location = e.target.value;
+                            updatedDays[dayIndex].places[placeIndex].location =
+                              e.target.value;
                             setDays(updatedDays);
                           }}
                           placeholder="Location"
@@ -540,12 +597,15 @@ export default function TripCreatePage() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-2">Time of Day</label>
+                        <label className="block text-sm font-medium mb-2">
+                          Time of Day
+                        </label>
                         <Input
                           value={place.timeOfDay}
                           onChange={(e) => {
                             const updatedDays = [...days];
-                            updatedDays[dayIndex].places[placeIndex].timeOfDay = e.target.value;
+                            updatedDays[dayIndex].places[placeIndex].timeOfDay =
+                              e.target.value;
                             setDays(updatedDays);
                           }}
                           placeholder="e.g., Morning, Afternoon, Evening"
@@ -553,12 +613,15 @@ export default function TripCreatePage() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-2">Duration</label>
+                        <label className="block text-sm font-medium mb-2">
+                          Duration
+                        </label>
                         <Input
                           value={place.duration}
                           onChange={(e) => {
                             const updatedDays = [...days];
-                            updatedDays[dayIndex].places[placeIndex].duration = e.target.value;
+                            updatedDays[dayIndex].places[placeIndex].duration =
+                              e.target.value;
                             setDays(updatedDays);
                           }}
                           placeholder="e.g., 2 hours"
@@ -566,12 +629,15 @@ export default function TripCreatePage() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-2">Image URL</label>
+                        <label className="block text-sm font-medium mb-2">
+                          Image URL
+                        </label>
                         <Input
                           value={place.image}
                           onChange={(e) => {
                             const updatedDays = [...days];
-                            updatedDays[dayIndex].places[placeIndex].image = e.target.value;
+                            updatedDays[dayIndex].places[placeIndex].image =
+                              e.target.value;
                             setDays(updatedDays);
                           }}
                           placeholder="Image URL for the place"
@@ -581,12 +647,16 @@ export default function TripCreatePage() {
                       {place.type === "restaurant" && (
                         <>
                           <div>
-                            <label className="block text-sm font-medium mb-2">Cuisine</label>
+                            <label className="block text-sm font-medium mb-2">
+                              Cuisine
+                            </label>
                             <Input
                               value={place.cuisine}
                               onChange={(e) => {
                                 const updatedDays = [...days];
-                                updatedDays[dayIndex].places[placeIndex].cuisine = e.target.value;
+                                updatedDays[dayIndex].places[
+                                  placeIndex
+                                ].cuisine = e.target.value;
                                 setDays(updatedDays);
                               }}
                               placeholder="Cuisine type"
@@ -594,12 +664,16 @@ export default function TripCreatePage() {
                           </div>
 
                           <div>
-                            <label className="block text-sm font-medium mb-2">Price Range</label>
+                            <label className="block text-sm font-medium mb-2">
+                              Price Range
+                            </label>
                             <Input
                               value={place.priceRange}
                               onChange={(e) => {
                                 const updatedDays = [...days];
-                                updatedDays[dayIndex].places[placeIndex].priceRange = e.target.value;
+                                updatedDays[dayIndex].places[
+                                  placeIndex
+                                ].priceRange = e.target.value;
                                 setDays(updatedDays);
                               }}
                               placeholder="e.g., $, $$, $$$"
@@ -610,12 +684,16 @@ export default function TripCreatePage() {
 
                       {place.type === "attraction" && (
                         <div>
-                          <label className="block text-sm font-medium mb-2">Category</label>
+                          <label className="block text-sm font-medium mb-2">
+                            Category
+                          </label>
                           <Input
                             value={place.category}
                             onChange={(e) => {
                               const updatedDays = [...days];
-                              updatedDays[dayIndex].places[placeIndex].category = e.target.value;
+                              updatedDays[dayIndex].places[
+                                placeIndex
+                              ].category = e.target.value;
                               setDays(updatedDays);
                             }}
                             placeholder="Attraction category"
@@ -627,7 +705,9 @@ export default function TripCreatePage() {
                 ))}
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Transportation</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Transportation
+                  </label>
                   <Input
                     value={day.transportation}
                     onChange={(e) => {
@@ -663,7 +743,9 @@ export default function TripCreatePage() {
               <div key={index} className="border rounded-lg p-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Name</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Name
+                    </label>
                     <Input
                       value={acc.name}
                       onChange={(e) => {
@@ -676,7 +758,9 @@ export default function TripCreatePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Type</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Type
+                    </label>
                     <Input
                       value={acc.type}
                       onChange={(e) => {
@@ -689,7 +773,9 @@ export default function TripCreatePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Rating</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Rating
+                    </label>
                     <Input
                       type="number"
                       min="0"
@@ -705,21 +791,27 @@ export default function TripCreatePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Price per Night</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Price per Night
+                    </label>
                     <Input
                       type="number"
                       min="0"
                       value={acc.pricePerNight}
                       onChange={(e) => {
                         const updatedAcc = [...accommodations];
-                        updatedAcc[index].pricePerNight = parseFloat(e.target.value);
+                        updatedAcc[index].pricePerNight = parseFloat(
+                          e.target.value
+                        );
                         setAccommodations(updatedAcc);
                       }}
                     />
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium mb-2">Description</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Description
+                    </label>
                     <Input
                       value={acc.description}
                       onChange={(e) => {
@@ -732,7 +824,9 @@ export default function TripCreatePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Booking URL</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Booking URL
+                    </label>
                     <Input
                       value={acc.bookingUrl}
                       onChange={(e) => {
@@ -745,7 +839,9 @@ export default function TripCreatePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Image URL</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Image URL
+                    </label>
                     <Input
                       value={acc.image}
                       onChange={(e) => {
@@ -758,12 +854,16 @@ export default function TripCreatePage() {
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium mb-2">Amenities</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Amenities
+                    </label>
                     <Input
                       value={acc.amenities.join(", ")}
                       onChange={(e) => {
                         const updatedAcc = [...accommodations];
-                        updatedAcc[index].amenities = e.target.value.split(",").map(a => a.trim());
+                        updatedAcc[index].amenities = e.target.value
+                          .split(",")
+                          .map((a) => a.trim());
                         setAccommodations(updatedAcc);
                       }}
                       placeholder="Comma-separated amenities"

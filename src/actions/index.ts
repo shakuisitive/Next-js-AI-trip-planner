@@ -754,26 +754,29 @@ export async function getTripFeedbacks() {
       orderBy: {
         createdAt: "desc",
       },
-    })
+    });
 
     return {
       success: true,
-      feedbacks: feedbacks.map(feedback => ({
+      feedbacks: feedbacks.map((feedback) => ({
         ...feedback,
         respondedByAdmin: feedback.respondedByAdmin ?? false,
-        adminResponse: feedback.adminResponse ?? null
-      }))
-    }
+        adminResponse: feedback.adminResponse ?? null,
+      })),
+    };
   } catch (error) {
-    console.error("Error fetching feedbacks:", error)
+    console.error("Error fetching feedbacks:", error);
     return {
       success: false,
       error: "Failed to fetch feedbacks",
-    }
+    };
   }
 }
 
-export async function sendFeedbackResponse(feedbackId: string, response: string) {
+export async function sendFeedbackResponse(
+  feedbackId: string,
+  response: string
+) {
   try {
     // Get the feedback with user and trip details
     const feedback = await prisma.tripFeedback.findUnique({
@@ -791,10 +794,10 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
           },
         },
       },
-    })
+    });
 
     if (!feedback || !feedback.user.email) {
-      throw new Error("Feedback or user email not found")
+      throw new Error("Feedback or user email not found");
     }
 
     // Create email transporter
@@ -804,7 +807,7 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
         user: "bloggingmotive@gmail.com",
         pass: "ddztujeipvegvqft",
       },
-    })
+    });
 
     // Create email template
     const emailTemplate = `
@@ -883,15 +886,19 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
               <p>${feedback.review}</p>
             </div>
 
-            ${feedback.suggestion ? `
+            ${
+              feedback.suggestion
+                ? `
               <div class="section">
                 <div class="section-title">Your Private Suggestion</div>
                 <p>${feedback.suggestion}</p>
               </div>
-            ` : ''}
+            `
+                : ""
+            }
 
             <div class="response">
-              <div class="section-title">Our Response</div>
+              <div class="section-title">TripFusion Team Response</div>
               <p>${response}</p>
             </div>
 
@@ -902,7 +909,7 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
           </div>
         </body>
       </html>
-    `
+    `;
 
     // Send email
     await transporter.sendMail({
@@ -910,14 +917,14 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
       to: feedback.user.email,
       subject: `Response to your feedback for ${feedback.trip.tourName}`,
       html: emailTemplate,
-    })
+    });
 
     // Update feedback status and store response
     const updatedFeedback = await prisma.tripFeedback.update({
       where: { id: feedbackId },
-      data: { 
+      data: {
         respondedByAdmin: true,
-        adminResponse: response
+        adminResponse: response,
       },
       include: {
         trip: {
@@ -934,22 +941,22 @@ export async function sendFeedbackResponse(feedbackId: string, response: string)
           },
         },
       },
-    })
+    });
 
     return {
       success: true,
       feedback: {
         ...updatedFeedback,
         respondedByAdmin: true,
-        adminResponse: response
-      }
-    }
+        adminResponse: response,
+      },
+    };
   } catch (error) {
-    console.error("Error sending feedback response:", error)
+    console.error("Error sending feedback response:", error);
     return {
       success: false,
       error: "Failed to send response",
-    }
+    };
   }
 }
 

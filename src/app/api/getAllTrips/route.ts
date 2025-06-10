@@ -9,6 +9,7 @@ export async function GET(request) {
   try {
     const trip = await prisma.trip.findUnique({
       where: {
+        status: true,
         id: tripIdSeachQuery,
       },
       include: {
@@ -41,7 +42,6 @@ export async function GET(request) {
     }
 
     console.log(trip);
-
 
     return NextResponse.json(trip);
   } catch (error) {
