@@ -260,6 +260,7 @@ export default function TripPage() {
       <main className="flex-grow">
         {/* Enhanced Hero Section */}
         <div className="relative h-[500px] overflow-hidden">
+<<<<<<< HEAD
           <Image
             src={
               trip.accommodations[0]?.image ||
@@ -269,6 +270,22 @@ export default function TripPage() {
             className="absolute inset-0 w-full h-full object-cover"
             layout="fill"
           />
+=======
+          {trip.accommodations[0]?.image ? (
+            <img
+              src={trip.accommodations[0].image}
+              alt={trip.tourName}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"
+              alt={trip.tourName}
+              className="absolute inset-0 w-full h-full object-cover"
+              layout="fill"
+            />
+          )}
+>>>>>>> b157b22f9ddf450602368eb25be320f79b40df18
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
           {/* Hero Content */}
@@ -431,12 +448,10 @@ export default function TripPage() {
                 >
                   {accommodation.image && (
                     <div className="relative h-64 overflow-hidden">
-                      <Image
+                      <img
                         src={accommodation.image}
                         alt={accommodation.name}
-                        layout="fill"
-                        objectFit="cover"
-                        className="transition-transform duration-300 hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
                       <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center">
                         <Star className="w-4 h-4 text-yellow-400 mr-1" />
@@ -587,12 +602,10 @@ export default function TripPage() {
                           <div className="flex items-start gap-6">
                             {place.image && (
                               <div className="relative w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden shadow-lg">
-                                <Image
+                                <img
                                   src={place.image}
                                   alt={place.name}
-                                  layout="fill"
-                                  objectFit="cover"
-                                  className="transition-transform duration-300 group-hover:scale-110"
+                                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                 />
                               </div>
                             )}
@@ -715,6 +728,7 @@ export default function TripPage() {
                         </div>
                       </div>
 
+<<<<<<< HEAD
                       <div className="space-y-6">
                         {day.places.map((place, index) => (
                           <div
@@ -731,6 +745,66 @@ export default function TripPage() {
                                     objectFit="cover"
                                     className="transition-transform duration-300 group-hover:scale-110"
                                   />
+=======
+                    <div className="space-y-6">
+                      {day.places.map((place, index) => (
+                        <div
+                          key={index}
+                          className="group relative bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
+                        >
+                          <div className="flex items-start gap-6">
+                            {place.image && (
+                              <div className="relative w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden shadow-lg">
+                                <img
+                                  src={place.image}
+                                  alt={place.name}
+                                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                />
+                              </div>
+                            )}
+                            
+                            <div className="flex-grow">
+                              <div className="flex items-start justify-between mb-3">
+                                <div className="flex items-center gap-3">
+                                  {getPlaceTypeIcon(place.type)}
+                                  <h4 className="font-bold text-xl text-gray-900">{place.name}</h4>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                                    {place.timeOfDay}
+                                  </span>
+                                  <ChevronRight className="w-5 h-5 text-gray-400" />
+                                </div>
+                              </div>
+                              
+                              <p className="text-gray-700 mb-4 leading-relaxed">{place.description}</p>
+                              
+                              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
+                                <div className="flex items-center">
+                                  <MapPin className="w-4 h-4 mr-1 text-purple-500" />
+                                  <span>{place.location}</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <Clock className="w-4 h-4 mr-1 text-purple-500" />
+                                  <span>{place.duration}</span>
+                                </div>
+                              </div>
+
+                              {place.type === "restaurant" && place.restaurant && (
+                                <div className="bg-orange-50 rounded-xl p-4 border border-orange-100">
+                                  <div className="flex items-center gap-4 text-sm">
+                                    <div className="flex items-center">
+                                      <Utensils className="w-4 h-4 mr-1 text-orange-500" />
+                                      <span className="font-medium">Cuisine:</span>
+                                      <span className="ml-1">{place.restaurant.cuisine}</span>
+                                    </div>
+                                    <div className="flex items-center">
+                                      <DollarSign className="w-4 h-4 mr-1 text-orange-500" />
+                                      <span className="font-medium">Price:</span>
+                                      <span className="ml-1">{place.restaurant.priceRange}</span>
+                                    </div>
+                                  </div>
+>>>>>>> b157b22f9ddf450602368eb25be320f79b40df18
                                 </div>
                               )}
 
