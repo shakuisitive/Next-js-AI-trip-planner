@@ -85,13 +85,6 @@ const DestinationGallery = () => {
             </div>
           ))}
         </div>
-
-        <div className="text-center mt-16">
-          <button className="bg-[#2563EB] hover:bg-[#1E40AF] text-white px-8 py-4 rounded-lg inline-flex items-center space-x-2 transition-all duration-300 shadow-[0_2px_4px_rgba(37,99,235,0.25)] hover:shadow-[0_4px_6px_rgba(37,99,235,0.35)] transform hover:-translate-y-0.5">
-            <span className="text-lg font-semibold">View All Destinations</span>
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
       </div>
     </section>
   );

@@ -157,7 +157,7 @@ export default function SignInModal({
         <div className="fixed inset-0 bg-black/50" onClick={onClose} />
         <div className="relative bg-white rounded-lg w-full max-w-md p-6">
           {showAuthMessage && (
-            <div className="mb-4 p-3 bg-purple-50 text-purple-700 rounded-lg border border-purple-200">
+            <div className="mb-4 p-3 bg-[#2563EB]/10 text-[#2563EB] rounded-lg border border-[#2563EB]/20">
               <p className="text-center font-medium">
                 Please sign in or create an account to generate your travel plan
               </p>
@@ -165,10 +165,10 @@ export default function SignInModal({
           )}
 
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-2xl font-bold text-[#1F2937]">
               {isSignUp ? "Create an account" : "Welcome back"}
             </h2>
-            <p className="text-gray-600 mt-1">
+            <p className="text-[#6B7280] mt-1">
               {isSignUp
                 ? "Create an account to start planning your trips"
                 : "Sign in to continue planning your trips"}
@@ -178,7 +178,7 @@ export default function SignInModal({
           <form onSubmit={handleSubmit} className="space-y-4">
             {isSignUp && (
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[#1F2937]">
                   Name
                 </label>
                 <input
@@ -187,7 +187,7 @@ export default function SignInModal({
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A0E78]"
+                  className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                   placeholder="Your full name"
                   required={isSignUp}
                 />
@@ -195,7 +195,7 @@ export default function SignInModal({
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-[#1F2937]">
                 Email
               </label>
               <input
@@ -204,14 +204,14 @@ export default function SignInModal({
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A0E78]"
+                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                 placeholder="your@email.com"
                 required
               />
             </div>
 
             <div className="relative">
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-[#1F2937]">
                 Password
               </label>
               <div className="relative">
@@ -221,14 +221,14 @@ export default function SignInModal({
                   onChange={(e) =>
                     setFormData({ ...formData, password: e.target.value })
                   }
-                  className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A0E78]"
+                  className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                   placeholder="••••••••"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#6B7280] hover:text-[#1F2937]"
                 >
                   {showPassword ? <EyeOff /> : <Eye />}
                 </button>
@@ -237,7 +237,7 @@ export default function SignInModal({
 
             {isSignUp && (
               <div className="relative">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[#1F2937]">
                   Confirm Password
                 </label>
                 <div className="relative">
@@ -250,14 +250,14 @@ export default function SignInModal({
                         confirmPassword: e.target.value,
                       })
                     }
-                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A0E78]"
+                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                     placeholder="••••••••"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#6B7280] hover:text-[#1F2937]"
                   >
                     {showConfirmPassword ? <EyeOff /> : <Eye />}
                   </button>
@@ -272,7 +272,7 @@ export default function SignInModal({
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#4A0E78] text-white py-2 rounded-md hover:bg-[#3A0B5E] transition-colors"
+              className="w-full bg-[#2563EB] text-white py-2 rounded-md hover:bg-[#1E40AF] transition-all duration-300 shadow-[0_2px_4px_rgba(37,99,235,0.25)] hover:shadow-[0_4px_6px_rgba(37,99,235,0.35)] transform hover:-translate-y-0.5 disabled:opacity-50 disabled:hover:transform-none disabled:hover:shadow-none"
             >
               {loading
                 ? "Processing..."
@@ -287,7 +287,7 @@ export default function SignInModal({
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">
+              <span className="px-2 bg-white text-[#6B7280]">
                 Or continue with
               </span>
             </div>
@@ -298,7 +298,7 @@ export default function SignInModal({
               type="button"
               onClick={() => handleSocialSignIn("google")}
               disabled={loading}
-              className="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors disabled:opacity-50"
+              className="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 rounded-md hover:bg-gray-50 transition-all duration-300 disabled:opacity-50 shadow-sm hover:shadow-md"
             >
               <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
                 <path
@@ -343,7 +343,7 @@ export default function SignInModal({
                 setIsSignUp(!isSignUp);
                 setError(null);
               }}
-              className="text-[#4A0E78] text-sm hover:underline hover:text-[#3A0B5E]"
+              className="text-[#2563EB] text-sm hover:text-[#1E40AF] transition-colors duration-300"
             >
               {isSignUp
                 ? "Already have an account? Sign In"
