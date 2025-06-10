@@ -65,6 +65,7 @@ export default function Home() {
       </form>
     </>
   );
+  return <LandingPage />;
 
   return (
     <>

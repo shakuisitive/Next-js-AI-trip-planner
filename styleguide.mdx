@@ -1,0 +1,319 @@
+# AI Trip Planner - Design System Guide
+
+**For Web Designer Implementation**
+
+## Project Overview
+
+You're designing an AI-powered trip planning application that combines intelligent technology with travel inspiration. The design should feel trustworthy, modern, and exciting - conveying both technical sophistication and wanderlust.
+
+---
+
+## Color Palette - Ready to Use
+
+### Primary Colors (Your Main Toolkit)
+
+**Primary Blue - "Horizon"**
+
+- **HEX:** `#2563EB`
+- **RGB:** `37, 99, 235`
+- **Use for:** Main buttons, navigation active states, primary CTAs, links
+- **When to use:** Any primary action or main brand element
+
+**Secondary Blue - "Deep Ocean"**
+
+- **HEX:** `#1E40AF`
+- **RGB:** `30, 64, 175`
+- **Use for:** Button hover states, headers, active navigation, emphasis
+- **When to use:** Darker variation of primary blue needed
+
+**Accent Orange - "Sunset"**
+
+- **HEX:** `#F97316`
+- **RGB:** `249, 115, 22`
+- **Use for:** Secondary buttons, highlights, "Add Trip" buttons, warm accents
+- **When to use:** Secondary actions, attention-grabbing elements
+
+**Success Green - "Journey Complete"**
+
+- **HEX:** `#059669`
+- **RGB:** `5, 150, 105`
+- **Use for:** Success messages, completed trips, confirmation states
+- **When to use:** Positive feedback, completed actions
+
+### Text Colors
+
+**Primary Text**
+
+- **HEX:** `#1F2937`
+- **Use for:** Headlines, main content, important text
+
+**Secondary Text**
+
+- **HEX:** `#6B7280`
+- **Use for:** Descriptions, metadata, less important text
+
+### Background & UI Colors
+
+**Pure White**
+
+- **HEX:** `#FFFFFF`
+- **Use for:** Main backgrounds, cards, clean spaces
+
+**Light Background**
+
+- **HEX:** `#F3F4F6`
+- **Use for:** Page sections, alternative backgrounds
+
+**Border Color**
+
+- **HEX:** `#E5E7EB`
+- **Use for:** Card borders, dividers, input field borders
+
+### Additional Utility Colors
+
+**Warning/Alert**
+
+- **HEX:** `#F59E0B` (Amber)
+- **Use for:** Weather warnings, important notices
+
+**Info/Tips**
+
+- **HEX:** `#06B6D4` (Cyan)
+- **Use for:** Information callouts, helpful tips
+
+**Premium Features**
+
+- **HEX:** `#7C3AED` (Purple)
+- **Use for:** AI-powered features, premium content
+
+---
+
+## Page-by-Page Color Usage
+
+### Landing Page
+
+- **Hero Section:** Gradient background from `#2563EB` to `#1E40AF`
+- **Main CTA Button:** `#F97316` background, white text
+- **Secondary CTA:** `#2563EB` background, white text
+- **Text on Hero:** White text over gradient
+- **Features Section:** White background with `#1F2937` text
+
+### Dashboard/Main App
+
+- **Background:** `#FFFFFF`
+- **Navigation Bar:** `#2563EB` for active items, `#6B7280` for inactive
+- **Trip Cards:** White cards with `#E5E7EB` borders
+- **"Create Trip" Button:** `#F97316` background
+- **Status Indicators:** `#059669` for completed, `#F59E0B` for pending
+
+### Trip Planning Interface
+
+- **Primary Actions:** `#2563EB` buttons
+- **Add/Create Buttons:** `#F97316` background
+- **Form Inputs:** `#E5E7EB` borders, `#2563EB` focus state
+- **Map Interface:** Use `#06B6D4` for water elements
+
+### Settings/Profile Pages
+
+- **Form Backgrounds:** `#F3F4F6` for sections
+- **Save/Update Buttons:** `#2563EB`
+- **Success Messages:** `#059669` background or text
+- **Input Fields:** `#E5E7EB` borders
+
+---
+
+## Button Specifications
+
+### Primary Button
+
+```
+Background: #2563EB
+Text: #FFFFFF
+Hover: #1E40AF
+Border-radius: 8px
+Padding: 12px 24px
+```
+
+### Secondary Button
+
+```
+Background: #F97316
+Text: #FFFFFF
+Hover: #EA580C
+Border-radius: 8px
+Padding: 12px 24px
+```
+
+### Ghost/Outline Button
+
+```
+Background: Transparent
+Text: #2563EB
+Border: 2px solid #2563EB
+Hover Background: #EFF6FF
+Border-radius: 8px
+Padding: 12px 24px
+```
+
+---
+
+## Form Elements
+
+### Input Fields
+
+```
+Background: #FFFFFF
+Border: 1px solid #E5E7EB
+Focus Border: 2px solid #2563EB
+Placeholder Text: #9CA3AF
+Border-radius: 6px
+Padding: 12px 16px
+```
+
+### Error States
+
+```
+Border: #DC2626
+Text: #DC2626
+Background: #FEF2F2 (light red tint)
+```
+
+### Success States
+
+```
+Border: #059669
+Text: #059669
+Background: #F0FDF4 (light green tint)
+```
+
+---
+
+## Typography Colors
+
+- **Main Headlines (H1):** `#1F2937`
+- **Section Headers (H2-H3):** `#2563EB`
+- **Body Text:** `#1F2937`
+- **Captions/Small Text:** `#6B7280`
+- **Links:** `#2563EB` (normal), `#1E40AF` (hover)
+
+---
+
+## Shadows & Effects
+
+### Card Shadow
+
+```
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+```
+
+### Button Shadow
+
+```
+box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+```
+
+### Modal/Popup Shadow
+
+```
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+```
+
+---
+
+## Gradients (Copy-Paste Ready)
+
+### Hero Background
+
+```css
+background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+```
+
+### Accent Gradient (for special elements)
+
+```css
+background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+```
+
+### Subtle Section Background
+
+```css
+background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+```
+
+---
+
+## CSS Variables (Use These)
+
+```css
+:root {
+  /* Primary Colors */
+  --primary-blue: #2563eb;
+  --primary-blue-dark: #1e40af;
+  --accent-orange: #f97316;
+  --success-green: #059669;
+  --warning-amber: #f59e0b;
+  --info-cyan: #06b6d4;
+
+  /* Text Colors */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-light: #9ca3af;
+
+  /* Backgrounds */
+  --bg-white: #ffffff;
+  --bg-light: #f3f4f6;
+  --bg-lighter: #f9fafb;
+
+  /* Borders */
+  --border-color: #e5e7eb;
+  --border-light: #f3f4f6;
+}
+```
+
+---
+
+## Design Rules to Follow
+
+### Color Distribution (60-30-10 Rule)
+
+- **60%** - Use neutrals (whites, light grays) for backgrounds and main areas
+- **30%** - Use primary blue for main interactive elements
+- **10%** - Use accent orange and other colors for highlights
+
+### Accessibility Requirements
+
+- All text must have sufficient contrast (tools like WebAIM contrast checker)
+- Color combinations in this guide meet WCAG standards
+- Never rely on color alone to convey information
+
+### Consistency Guidelines
+
+- Always use `#2563EB` for primary actions
+- Always use `#F97316` for secondary/add actions
+- Keep button styles consistent across all pages
+- Use the same shadows and border-radius throughout
+
+---
+
+## Quick Reference Cheat Sheet
+
+**Need a primary button?** → `#2563EB` background, white text  
+**Need a secondary action?** → `#F97316` background, white text  
+**Need body text?** → `#1F2937`  
+**Need a card?** → White background, `#E5E7EB` border  
+**Need a hover state?** → Use the darker version of the color  
+**Need success feedback?** → `#059669`  
+**Need a warning?** → `#F59E0B`
+
+---
+
+## Questions for Designer
+
+If you need clarification on any specific component or page layout, please ask! This guide covers the color system, but let me know if you need guidance on:
+
+- Specific component designs
+- Layout patterns
+- Animation/interaction details
+- Mobile responsive considerations
+
+**Goal:** Create a cohesive, professional travel app that feels both trustworthy (tech) and exciting (travel).
