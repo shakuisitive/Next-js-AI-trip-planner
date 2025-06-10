@@ -999,3 +999,114 @@ export async function updateSessionExpires(sessionId: string, expires: Date) {
     return { success: false, error: "Failed to update session expires" };
   }
 }
+
+export async function sendContactMessage(data: {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}) {
+  try {
+    // Create email transporter
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "bloggingmotive@gmail.com",
+        pass: "ddztujeipvegvqft",
+      },
+    });
+
+    // Create email template
+    const emailTemplate = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              color: #333;
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+            }
+            .header {
+              background-color: #1a1a1a;
+              color: white;
+              padding: 20px;
+              text-align: center;
+              border-radius: 5px 5px 0 0;
+            }
+            .content {
+              background-color: #f9f9f9;
+              padding: 20px;
+              border: 1px solid #ddd;
+              border-radius: 0 0 5px 5px;
+            }
+            .section {
+              margin-bottom: 20px;
+              padding: 15px;
+              background-color: white;
+              border-radius: 5px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .section-title {
+              color: #1a1a1a;
+              font-size: 18px;
+              margin-bottom: 10px;
+              font-weight: bold;
+            }
+            .footer {
+              text-align: center;
+              margin-top: 20px;
+              color: #666;
+              font-size: 12px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h1>New Contact Form Submission</h1>
+          </div>
+          <div class="content">
+            <div class="section">
+              <div class="section-title">Contact Information</div>
+              <p><strong>Name:</strong> ${data.name}</p>
+              <p><strong>Email:</strong> ${data.email}</p>
+            </div>
+
+            <div class="section">
+              <div class="section-title">Message Details</div>
+              <p><strong>Subject:</strong> ${data.subject}</p>
+              <p><strong>Message:</strong></p>
+              <p>${data.message}</p>
+            </div>
+
+            <div class="footer">
+              <p>This message was sent from the contact form on TripFusion.</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+
+    // Send email
+    await transporter.sendMail({
+      from: "bloggingmotive@gmail.com",
+      to: "shakirkhan72727@gmail.com", // Updated email address
+      subject: `New Contact Form Submission: ${data.subject}`,
+      html: emailTemplate,
+      replyTo: data.email,
+    });
+
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.error("Error sending contact message:", error);
+    return {
+      success: false,
+      error: "Failed to send message",
+    };
+  }
+}
