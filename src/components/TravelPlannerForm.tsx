@@ -177,7 +177,7 @@ const TravelPlannerForm = () => {
                   htmlFor="destination"
                   className="block text-sm font-semibold text-gray-700 mb-2"
                 >
-                  Where to?
+                  Where do you plan to go?
                 </label>
                 {showLoadError && (
                   <div className="text-red-500 text-sm mb-2">
