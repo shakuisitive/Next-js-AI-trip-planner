@@ -62,11 +62,6 @@ const useGeneratePlan = (searchParams: ReadonlyURLSearchParams) => {
             ? interestsRaw.split(",").map(decodeURIComponent)
             : [];
 
-          console.log("type of auth", {
-            id: session?.status,
-            another: loggedInViaCredentials,
-          });
-
           let userId = "";
 
           if (session?.status === undefined && loggedInViaCredentials) {
@@ -314,8 +309,8 @@ const PlanContent = () => {
           <div className="fixed bottom-6 right-6 w-full max-w-[500px] h-[600px] bg-white rounded-lg shadow-[0_10px_25px_rgba(0,0,0,0.15)] border border-[#E5E7EB] z-50 transition-all duration-300 ease-in-out flex flex-col">
             <div className="flex justify-between items-center p-4 border-b border-[#E5E7EB] bg-[#2563EB] rounded-t-lg">
               <h3 className="font-semibold text-white">Travel Assistant</h3>
-              <button 
-                onClick={() => setShowChat(false)} 
+              <button
+                onClick={() => setShowChat(false)}
                 className="text-white/80 hover:text-white transition-colors duration-200"
               >
                 <X size={20} />

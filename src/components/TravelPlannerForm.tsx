@@ -79,13 +79,14 @@ const TravelPlannerForm = () => {
     // START
 
     async function generateWeatherSummary() {
-      const url = `https://api.weatherapi.com/v1/forecast.json?key=87bb76296c2640b48aa233810250506&q=${latitdue},${longitude}&days=14`;
+      const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${latitdue},${longitude}&days=14`;
 
       try {
         const res = await fetch(url);
         if (!res.ok) throw new Error("Failed to fetch weather");
 
         const data = await res.json();
+        console.log("the data is", data);
         const forecast = data.forecast.forecastday;
 
         const summary = forecast
