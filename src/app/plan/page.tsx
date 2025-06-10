@@ -245,10 +245,10 @@ const PlanContent = () => {
             className="absolute inset-0 w-full h-full object-cover"
             layout="fill"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB] to-[#1E40AF] opacity-80" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-2 sm:mb-4 text-center">
-              Trip itinerary
+              Trip Itinerary
             </h1>
           </div>
         </div>
@@ -257,7 +257,7 @@ const PlanContent = () => {
             <LoadingAnimation />
           ) : error ? (
             <div
-              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+              className="bg-[#FEF2F2] border border-[#DC2626] text-[#DC2626] px-4 py-3 rounded relative"
               role="alert"
             >
               <strong className="font-bold">Error: </strong>
@@ -265,7 +265,7 @@ const PlanContent = () => {
             </div>
           ) : plan ? (
             <>
-              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-[#1F2937]">
                 Your Travel Itinerary
               </h2>
               <TripPlan plan={plan} />
@@ -277,9 +277,9 @@ const PlanContent = () => {
                       value={tourName}
                       onChange={(e) => setTourName(e.target.value)}
                       placeholder="Enter a name for your tour (optional)"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
                     />
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="mt-1 text-sm text-[#6B7280]">
                       {tourName.length > 0 && tourName.length < 4
                         ? "Tour name must be at least 4 characters long"
                         : "Leave empty to use default name"}
@@ -289,7 +289,7 @@ const PlanContent = () => {
                 <button
                   onClick={handleBookTrip}
                   disabled={isBooking}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#2563EB] hover:bg-[#1E40AF] text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_2px_4px_rgba(37,99,235,0.25)]"
                 >
                   {isBooking
                     ? "Booking..."
@@ -299,7 +299,7 @@ const PlanContent = () => {
                 </button>
               </div>
               {bookingError && (
-                <div className="mt-4 text-center text-red-600">
+                <div className="mt-4 text-center text-[#DC2626]">
                   {bookingError}
                 </div>
               )}
@@ -311,12 +311,12 @@ const PlanContent = () => {
       {/* Chatbot Section */}
       <div className="relative">
         {showChat ? (
-          <div className="fixed bottom-6 right-6 w-full max-w-[500px] h-[600px] bg-white rounded-lg shadow-xl border border-gray-200 z-50 transition-all duration-300 ease-in-out flex flex-col">
-            <div className="flex justify-between items-center p-4 border-b border-gray-200 bg-gray-50 rounded-t-lg">
-              <h3 className="font-semibold text-gray-800">Travel Assistant</h3>
+          <div className="fixed bottom-6 right-6 w-full max-w-[500px] h-[600px] bg-white rounded-lg shadow-[0_10px_25px_rgba(0,0,0,0.15)] border border-[#E5E7EB] z-50 transition-all duration-300 ease-in-out flex flex-col">
+            <div className="flex justify-between items-center p-4 border-b border-[#E5E7EB] bg-[#2563EB] rounded-t-lg">
+              <h3 className="font-semibold text-white">Travel Assistant</h3>
               <button 
                 onClick={() => setShowChat(false)} 
-                className="text-gray-500 hover:text-gray-700 transition-colors duration-200"
+                className="text-white/80 hover:text-white transition-colors duration-200"
               >
                 <X size={20} />
               </button>
@@ -333,7 +333,7 @@ const PlanContent = () => {
         ) : (
           <button
             onClick={() => setShowChat(true)}
-            className="fixed bottom-6 right-6 bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 transition-all duration-200 z-50 hover:scale-105"
+            className="fixed bottom-6 right-6 bg-[#7C3AED] text-white p-4 rounded-full shadow-[0_4px_6px_rgba(124,58,237,0.25)] hover:bg-[#6D28D9] transition-all duration-200 z-50 hover:scale-105"
             aria-label="Open chat"
           >
             <MessageCircle size={24} />

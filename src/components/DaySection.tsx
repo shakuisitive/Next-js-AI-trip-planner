@@ -17,7 +17,7 @@ const PlaceCard = ({ place }: { place: Place }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
       className={`w-full rounded-xl overflow-hidden relative ${
-        isRestaurant ? 'bg-amber-50' : 'bg-purple-50'
+        isRestaurant ? 'bg-amber-50' : 'bg-[#F3F4F6]'
       }`}
     >
       <div className="flex flex-col sm:flex-row h-auto sm:h-48">
@@ -29,7 +29,7 @@ const PlaceCard = ({ place }: { place: Place }) => {
             objectFit="cover"
           />
           {isRestaurant && place.cuisine && (
-            <div className="absolute top-2 left-2 bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full text-xs font-medium">
+            <div className="absolute top-2 left-2 bg-[#F97316] text-white px-2 py-0.5 rounded-full text-xs font-medium">
               {place.cuisine}
             </div>
           )}
@@ -37,20 +37,20 @@ const PlaceCard = ({ place }: { place: Place }) => {
         <div className="w-full sm:w-2/3 p-4 flex flex-col">
           <div className="flex items-start justify-between mb-3">
             <span className={`text-xs px-2 py-0.5 rounded-full ${
-              isRestaurant ? 'bg-amber-100 text-amber-800' : 'bg-purple-100 text-purple-800'
+              isRestaurant ? 'bg-amber-100 text-amber-800' : 'bg-[#2563EB] text-white'
             }`}>
               {place.timeOfDay}
             </span>
             {isRestaurant && place.priceRange && (
-              <span className="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full">
+              <span className="text-xs bg-[#F3F4F6] text-[#6B7280] px-2 py-0.5 rounded-full">
                 {place.priceRange}
               </span>
             )}
           </div>
 
           <div className="flex-grow space-y-2">
-            <h4 className="font-bold text-gray-900 text-lg line-clamp-1">{place.name}</h4>
-            <p className="text-gray-600 text-sm line-clamp-2">{place.description}</p>
+            <h4 className="font-bold text-[#1F2937] text-lg line-clamp-1">{place.name}</h4>
+            <p className="text-[#6B7280] text-sm line-clamp-2">{place.description}</p>
           </div>
 
           <div className="mt-auto pt-2 space-y-1.5">
@@ -58,13 +58,13 @@ const PlaceCard = ({ place }: { place: Place }) => {
               href={googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-sm text-purple-600 hover:text-purple-800 transition-colors group"
+              className="flex items-center text-sm text-[#2563EB] hover:text-[#1E40AF] transition-colors group"
             >
               <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
               <span className="line-clamp-1 flex-grow">{place.location}</span>
               <ExternalLink className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 flex-shrink-0" />
             </a>
-            <div className="flex items-center text-sm text-gray-500">
+            <div className="flex items-center text-sm text-[#6B7280]">
               <Clock className="w-4 h-4 mr-1 flex-shrink-0" />
               <span className="line-clamp-1">{place.duration}</span>
             </div>
@@ -101,12 +101,12 @@ const DaySection: React.FC<DaySectionProps> = ({ day }) => {
   return (
     <div className="mb-12 pb-8 border-b last:border-b-0">
       <div className="flex items-center mb-6">
-        <div className="w-12 h-12 rounded-full bg-[#4A0E78] text-white flex items-center justify-center text-xl font-bold">
+        <div className="w-12 h-12 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-xl font-bold">
           {day.day}
         </div>
         <div className="ml-4">
-          <h2 className="text-xl font-bold text-gray-900">Day {day.day}</h2>
-          <p className="text-sm text-gray-600">
+          <h2 className="text-xl font-bold text-[#1F2937]">Day {day.day}</h2>
+          <p className="text-sm text-[#6B7280]">
             {formatDate(day.date)}
           </p>
         </div>
@@ -114,7 +114,7 @@ const DaySection: React.FC<DaySectionProps> = ({ day }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Places & Activities</h3>
+          <h3 className="text-lg font-semibold text-[#1F2937] mb-4">Places & Activities</h3>
           <div className="space-y-4">
             {attractions.map((place: Place, i: number) => (
               <PlaceCard key={i} place={place} />
@@ -122,8 +122,8 @@ const DaySection: React.FC<DaySectionProps> = ({ day }) => {
           </div>
         </div>
         
-        <div className="lg:border-l lg:pl-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Dining</h3>
+        <div className="lg:border-l lg:pl-6 border-[#E5E7EB]">
+          <h3 className="text-lg font-semibold text-[#1F2937] mb-4">Dining</h3>
           <div className="space-y-4">
             {restaurants.map((place: Place, i: number) => (
               <PlaceCard key={i} place={place} />
@@ -132,9 +132,9 @@ const DaySection: React.FC<DaySectionProps> = ({ day }) => {
         </div>
       </div>
 
-      <div className="mt-6 bg-gray-50 rounded-lg p-4 flex items-center text-sm">
-        <Bus className="w-4 h-4 text-[#4A0E78] mr-2" />
-        <p className="text-gray-700">{day.transportation}</p>
+      <div className="mt-6 bg-[#F3F4F6] rounded-lg p-4 flex items-center text-sm">
+        <Bus className="w-4 h-4 text-[#2563EB] mr-2" />
+        <p className="text-[#1F2937]">{day.transportation}</p>
       </div>
     </div>
   );

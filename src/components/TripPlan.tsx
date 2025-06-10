@@ -15,7 +15,7 @@ const TripPlan: React.FC<TripPlanProps> = ({ plan }) => {
   return (
     <div className="space-y-12">
       <section>
-        <h2 className="text-2xl font-bold mb-6 pb-2 border-b">
+        <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-[#E5E7EB] text-[#1F2937]">
           Available Accommodations
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -36,7 +36,7 @@ const TripPlan: React.FC<TripPlanProps> = ({ plan }) => {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold mb-6 pb-2 border-b">
+        <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-[#E5E7EB] text-[#1F2937]">
           Day-by-Day Itinerary
         </h2>
         <div className="space-y-8">
