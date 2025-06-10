@@ -12,15 +12,15 @@ const destinations = [
 
 const DestinationGallery = () => {
   return (
-    <section className="py-16 px-4 md:px-6 lg:px-8">
+    <section className="py-20 px-4 md:px-6 lg:px-8 bg-[#F3F4F6]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4">Top Destinations</h2>
-        <p className="text-center text-gray-600 mb-12">
+        <h2 className="text-4xl font-bold text-center mb-4 text-[#1F2937]">Top Destinations</h2>
+        <p className="text-center text-[#6B7280] mb-16 text-lg">
           Explore our handpicked selection of breathtaking destinations around the world
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {destinations.map((destination, index) => (
-            <div key={index} className="relative rounded-lg overflow-hidden shadow-lg group">
+            <div key={index} className="relative rounded-lg overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.24)] group bg-white">
               <Image
                 alt={destination.name}
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
@@ -28,16 +28,16 @@ const DestinationGallery = () => {
                 width={400}
                 height={300}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1F2937]/80 to-transparent flex items-end p-6">
                 <h3 className="text-white text-2xl font-bold">{destination.name}</h3>
               </div>
             </div>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <button className="bg-[#4A0E78] text-white px-6 py-3 rounded-full inline-flex items-center space-x-2 hover:bg-[#3A0B5E] transition-colors duration-300">
-            <span>Explore all</span>
-            <ArrowRight className="w-4 h-4" />
+        <div className="text-center mt-16">
+          <button className="bg-[#2563EB] hover:bg-[#1E40AF] text-white px-8 py-4 rounded-lg inline-flex items-center space-x-2 transition-colors duration-300 shadow-[0_2px_4px_rgba(37,99,235,0.25)]">
+            <span className="text-lg font-semibold">Explore all destinations</span>
+            <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </div>
