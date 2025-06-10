@@ -1,14 +1,8 @@
-import { createClient } from 'contentful';
+import { createClient } from "contentful";
 
 export const contentfulClient = createClient({
-  space: 'dh73eq98vt4i',
-  accessToken: 'QeSEoZhwP8McSxfUantkRmuhlYO35obejLApcBYcJlI',
-});
-
-export const previewClient = createClient({
-  space: 'dh73eq98vt4i',
-  accessToken: '7n-K6a9OKUaPXjurThdBrGxdB_4CTpXi0R1XS1NQ2Eo',
-  host: 'preview.contentful.com',
+  space: process.env.CONTENTFUL_SPACE,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
 export interface BlogPost {
@@ -28,4 +22,4 @@ export interface BlogPost {
     id: string;
     createdAt: string;
   };
-} 
+}
